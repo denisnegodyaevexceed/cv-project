@@ -1,9 +1,28 @@
 
 .container{
+    
     margin: 0 auto;
     width: 592px;
-    
+
     height: 950px;
+}
+.button{
+    top: 40px;
+    left: 20px;
+    position: fixed;
+}
+.button>:last-child{
+    margin-left: 10px;
+    
+}
+.template-1{
+    font-family: 'Raleway', sans-serif;
+
+}
+.content-head-1{
+    position: absolute;
+    top: 90px;
+    left: 30px;
 }
 .head-1{
     position: relative;
@@ -15,7 +34,7 @@
     flex-direction: row;
     top: 80px;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 40px;
     color: white;
     margin-bottom: 12px;
 }
@@ -25,9 +44,78 @@
 }
 .avatar-1{
     position: absolute;
-    top: 105px;
+    top: 115px;
     right: 20px;
-    width: 200px;
+    width: 150px;
     border-radius: 100px;
     border: solid white;
+}
+
+.main-info-1{
+    border-bottom: 2px solid black;
+    border-right: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 590px;
+   
+}
+.left-info-1{
+    background-color: white;
+    width: 60%;
+}
+.first-info-left-1{
+    margin-left: 10px;
+    margin-top: 45px;
+}
+.first-info-left-1>div{
+    margin-top: 50px;
+}
+
+.right-info-1{
+    width: 40%;
+    background-color: #CEE077;
+    padding-bottom: 40px;
+}
+.first-info-right-1{
+    font-size: 15px;
+    margin-left: 10px;
+
+    margin-top: 20px;
+}
+.first-info-right-1>div {
+    margin-top: 45px;
+}
+
+.text{
+    font-size: 12px;
+}
+
+.other-info{
+    border-bottom: 2px solid black;
+    border-right: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 590px;
+    position: relative;
+ 
+}
+.other-left-info-1>div{
+    margin-left: 20px;
+    margin-top: 90px;
+}
+.other-right-info-1>div{
+    margin-left: 20px;
+
+    margin-top: 90px;
+}
+.context{
+    left: 37%;
+    top: 3%;
+    position: absolute;
+    
+    
 }
