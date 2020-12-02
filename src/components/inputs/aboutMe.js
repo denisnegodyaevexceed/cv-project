@@ -25,7 +25,7 @@ export default function AboutMe() {
 
     const dispatch = useDispatch()
 
-    let {firstName, secondName, age, aboutMe, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook} = useSelector(state => state.aboutMeReducer)
+    let {firstName, secondName, age, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook} = useSelector(state => state.aboutMeReducer)
 
 
     const classes = useStyles();
@@ -38,18 +38,7 @@ export default function AboutMe() {
         ageArr.push(i)
     }
 
-    const workExperience = []
-
-    for (let i = 1; i <= 100; i++) {
-        workExperience.push(i / 2)
-    }
-
-    console.log(ageArr)
-
-    // const handleChange = (event) => {
-        
-    //     setAge(event.target.value);
-    // };
+    
     return (<div className='aboutMeInputs'>
         <h2>Расскажите о себе</h2>
         <form className={classes.root} noValidate autoComplete="off">
@@ -66,8 +55,6 @@ export default function AboutMe() {
                     onChange={(e) => {dispatch(allAboutMeActions.setUserAgeAction(e.target.value))}}
                     label="Age"
                 >
-                    
-
                     {
                         ageArr.map((item, index) => {
                             return (
@@ -97,65 +84,8 @@ export default function AboutMe() {
             <TextField value={github} onChange={(e) => {dispatch(allAboutMeActions.setUserGithubAction(e.target.value))}} label="Гитхаб" variant="outlined" />
             <TextField value={facebook} onChange={(e) => {dispatch(allAboutMeActions.setUserFacebookAction(e.target.value))}} label="Фэйсбук" variant="outlined" />
         </form>
-        {/* <h2>Укажите три последних места работы</h2>
-        <form className={classes.root} noValidate autoComplete="off">
-            <TextField label="Компания" variant="outlined" />
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Стаж(лет)</InputLabel>
-            <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                value={age}
-                onChange={handleChange}
-                label="Age"
-            >{
-                    workExperience.map((item, index) => {
-                        return (
-                            <MenuItem value={item} key={index}>{item}</MenuItem>
-                        )
-                    })
-                }</Select>
-                </FormControl>
-        </form>
-        <form className={classes.root} noValidate autoComplete="off">
-            <TextField label="Компания" variant="outlined" />
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Стаж(лет)</InputLabel>
-            <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                value={age}
-                onChange={handleChange}
-                label="Age"
-            >{
-                    workExperience.map((item, index) => {
-                        return (
-                            <MenuItem value={item} key={index}>{item}</MenuItem>
-                        )
-                    })
-                }</Select>
-                </FormControl>
-        </form>
-        <form className={classes.root} noValidate autoComplete="off">
-            <TextField label="Компания" variant="outlined" />
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Стаж(лет)</InputLabel>
-            <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                value={age}
-                onChange={handleChange}
-                label="Age"
-            >{
-                    workExperience.map((item, index) => {
-                        return (
-                            <MenuItem value={item} key={index}>{item}</MenuItem>
-                        )
-                    })
-                }</Select>
-                </FormControl>
-        </form> */}
-        <Button variant="contained" color="primary" to='/portfolio' component={Link}>
+       
+        <Button variant="contained" color="primary" to='/aboutwork' component={Link}>
   Далее
 </Button>
 
