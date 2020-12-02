@@ -5,10 +5,10 @@ import Button from "@material-ui/core/Button";
 import { useSelector, useDispatch } from "react-redux";
 
 
-class Template1 extends React.Component {
-  pdfExportComponent;
+const Template1 = () => {
+  let pdfExportComponent;
 
-  render() {
+  
       
     return (
       <div>
@@ -18,7 +18,7 @@ class Template1 extends React.Component {
             color="secondary"
             className="k-button"
             onClick={() => {
-              this.pdfExportComponent.save();
+              pdfExportComponent.save();
             }}
           >
             Скачать PDF
@@ -35,7 +35,7 @@ class Template1 extends React.Component {
 
         <PDFExport
           forcePageBreak=".page-break"
-          ref={(component) => (this.pdfExportComponent = component)}
+          ref={(component) => (pdfExportComponent = component)}
         >
           <div style={{ width: "595px", height: "420px" }}>
             <div className="template-1">
@@ -183,7 +183,6 @@ class Template1 extends React.Component {
         </PDFExport>
       </div>
     );
-  }
 }
 
 export default Template1;
