@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AboutMe() {
+ 
 
     const dispatch = useDispatch()
 
@@ -44,7 +45,6 @@ export default function AboutMe() {
         workExperience.push(i / 2)
     }
 
-    console.log(ageArr)
 
     // const handleChange = (event) => {
         
@@ -53,7 +53,8 @@ export default function AboutMe() {
     return (<div className='aboutMeInputs'>
         <h2>Расскажите о себе</h2>
         <form className={classes.root} noValidate autoComplete="off">
-            <TextField value={firstName} onChange={(e) => {dispatch(allAboutMeActions.setUserFirstNameAction(e.target.value))}}id="firstName" label="Имя" variant="outlined" />
+            
+            <TextField value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setUserFirstNameAction(e.target.value)) }}id="firstName" label="Имя" variant="outlined" />
             <TextField value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setUserSecondNameAction(e.target.value))}} id="secondName" label="Фамилия" variant="outlined" />
             <TextField value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setUserCareerObjectiveAction(e.target.value))}} id="firstName" label="Желаемая должность" variant="outlined" />
 
