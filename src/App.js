@@ -1,5 +1,6 @@
 import './App.css';
-import Template1 from './components/Template1';
+import Template1 from './components/Template1.jsx';
+
 
 function App() {
   return (
