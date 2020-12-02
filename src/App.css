@@ -1,11 +1,9 @@
+
 .container{
     margin: 0 auto;
+    width: 592px;
     
-    width: 100%;
-    max-width: 800px;
-    height: 1120px;
-    
-    
+    height: 950px;
 }
 
 .template2 {
@@ -14,6 +12,28 @@
 }
 
 .head-1{
-    height: 200px;;
+    position: relative;
+    height: 250px;;
     background: no-repeat url("./1.jpg");
+}
+.head-name-1{
+    display: flex;
+    flex-direction: row;
+    top: 80px;
+    font-weight: 700;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 12px;
+}
+.post-1{
+    font-size: 15px;
+    color: white;
+}
+.avatar-1{
+    position: absolute;
+    top: 105px;
+    right: 20px;
+    width: 200px;
+    border-radius: 100px;
+    border: solid white;
 }

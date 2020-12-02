@@ -1,21 +1,16 @@
 import './App.css';
-import React from 'react'
-import Template2 from './components/Template2/Template2'
-import Template1 from './components/Template1';
-import Pdf from 'react-to-pdf'
+import Template1 from './components/Template1.jsx';
+import AboutMe from './components/inputs/aboutMe'
 
-
-const ref = React.createRef()
 
 function App() {
   return (
     <div className="App">
-      <Pdf targetRef={ref} filename='file.pdf'>
-        {({toPdf}) => <button onClick={toPdf}>download</button>}
-        </Pdf>
-      <div className='container'ref={ref}>
+     
+      <div className='container'>
       
-        <Template2 />
+        
+      <AboutMe/>
         </div>
         
     </div>
