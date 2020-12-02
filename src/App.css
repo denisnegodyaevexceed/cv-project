@@ -1,0 +1,19 @@
+.container{
+    margin: 0 auto;
+    
+    width: 100%;
+    max-width: 800px;
+    height: 1120px;
+    
+    
+}
+
+.template2 {
+    border: 1px solid black;
+    height: 100%;
+}
+
+.head-1{
+    height: 200px;;
+    background: no-repeat url("./1.jpg");
+}
