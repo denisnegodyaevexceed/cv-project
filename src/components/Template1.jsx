@@ -2,10 +2,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
+import { useSelector, useDispatch } from "react-redux";
+
+
 class Template1 extends React.Component {
   pdfExportComponent;
 
   render() {
+      
     return (
       <div>
         <div className="button">
