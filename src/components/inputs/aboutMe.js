@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { useDispatch, useSelector } from 'react-redux';
 import allAboutMeActions from '../../actions/aboutMeActions';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,8 @@ export default function AboutMe() {
 
     
     return (
-        <div className="container">
+        <Container maxWidth="xs">
+
 
     <div className='aboutMeInputs'>
         <h2>Tell about yourself.</h2>
@@ -100,6 +102,6 @@ export default function AboutMe() {
       
 
     </div>
-    </div>
+    </Container>
     );
 }
