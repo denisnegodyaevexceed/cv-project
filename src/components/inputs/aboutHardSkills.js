@@ -1,14 +1,31 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button'
+import allHardSkillsActions from '../../actions/aboutHardSkillsActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
+    },
+}));
 
 
 const AboutHardSkills = () => {
+
+    const classes = useStyles();
+    const dispatch = useDispatch()
+
+    const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
+
+
     return (
-        <div>
-            <h2>Tell about your technical skills</h2>
-        <form>
+        <div className='container'>
+            <h2>Tell about your technical skills.</h2>
+        <form className={classes.root} noValidate autoComplete="off">
             <h3>Frontend: </h3>
             <TextField
                     id="outlined-multiline-flexible"
@@ -16,38 +33,41 @@ const AboutHardSkills = () => {
                     multiline
                     rowsMax={10}
                     variant="outlined"
+                    value={frontend}
+                    onChange={e=> dispatch(allHardSkillsActions.setFrontendAction(e.target.value))}
                 />
             <h3>Backend: </h3>
             <TextField
                     id="outlined-multiline-flexible"
-                    label="Frontend"
+                    label="Backend"
                     multiline
                     rowsMax={10}
                     variant="outlined"
+                    value={backend}
+                    onChange={e=> dispatch(allHardSkillsActions.setBackendAction(e.target.value))}
                 />
             <h3>DBS: </h3>
             <TextField
                     id="outlined-multiline-flexible"
-                    label="Frontend"
+                    label="DBS"
                     multiline
                     rowsMax={10}
                     variant="outlined"
+                    value={dbs}
+                    onChange={e=> dispatch(allHardSkillsActions.setDbsAction(e.target.value))}
                 />
             <h3>Other: </h3>
             <TextField
                     id="outlined-multiline-flexible"
-                    label="Frontend"
+                    label="Other"
                     multiline
                     rowsMax={10}
                     variant="outlined"
+                    value={other}
+                    onChange={e=> dispatch(allHardSkillsActions.setOtherAction(e.target.value))}
                 />
         </form>
-        <Button variant="contained" color="primary" to='/aboutwork' component={Link}>
-  Назад
-</Button>
-<Button variant="contained" color="primary" to='/portfolio' component={Link}>
-  Далее
-</Button>
+       
         </div>
     )
 }

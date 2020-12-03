@@ -1,4 +1,4 @@
-const initilaState = {
+const initialState = {
     frontend: '',
     backend: '',
     dbs: '',

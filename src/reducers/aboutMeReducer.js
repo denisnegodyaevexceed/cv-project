@@ -9,7 +9,8 @@ const initialState = {
     skype: '',
     phoneNumber: '',
     github: '',
-    facebook: ''
+    facebook: '',
+    education: '',
 }
 
 
@@ -70,6 +71,11 @@ const aboutMeReducer = (state=initialState, actions) => {
             ...state,
             facebook: actions.payload
         }
+        case 'SET_EDUCATION':
+            return{
+                ...state,
+                education: actions.payload
+            }
         default:
             return state
     }

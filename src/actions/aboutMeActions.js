@@ -1,73 +1,80 @@
 import actions from '../constants/actionTypes'
 
 
-const setUserFirstNameAction = (data) => ({
+const setFirstNameAction = (data) => ({
     type: actions.SET_FIRSTNAME,
     payload: data
 })
 
-const setUserSecondNameAction = (data) => ({
+const setSecondNameAction = (data) => ({
     type: actions.SET_SECONDNAME,
     payload: data
 })
 
-const setUserCareerObjectiveAction = (data) => ({
+const setCareerObjectiveAction = (data) => ({
     type: actions.SET_CAREEROBJECTIVE,
     payload: data
 })
 
-const setUserAgeAction = (data) => ({
+const setAgeAction = (data) => ({
     type: actions.SET_AGE,
     payload: data
 })
 
-const setUserAboutMeInfoAction = (data) => ({
+const setAboutMeInfoAction = (data) => ({
     type: actions.SET_ABOUTME,
     payload: data
 })
 
-const setUserEmailAction = (data) => ({
+const setEmailAction = (data) => ({
     type: actions.SET_EMAIL,
     payload: data
 })
 
-const setUserVkontakteAction = (data) => ({
+const setVkontakteAction = (data) => ({
     type: actions.SET_VKONTAKTE,
     payload: data
 })
 
-const setUserSkypeAction = (data) => ({
+const setSkypeAction = (data) => ({
     type: actions.SET_SKYPE,
     payload: data
 })
 
-const setUserGithubAction = (data) => ({
+const setGithubAction = (data) => ({
     type: actions.SET_GITHUB,
     payload: data
 })
 
-const setUserPhoneNumberAction = (data) => ({
+const setPhoneNumberAction = (data) => ({
     type: actions.SET_PHONENUMBER,
     payload: data
 })
 
-const setUserFacebookAction = (data) => ({
+const setFacebookAction = (data) => ({
     type: actions.SET_FACEBOOK,
     payload: data
 })
 
+const setEducationAction = (data) => ({
+    type: actions.SET_EDUCATION,
+    payload: data
+})
+
+
 const allAboutMeActions = {
-    setUserFirstNameAction,
-    setUserSecondNameAction,
-    setUserCareerObjectiveAction,
-    setUserAgeAction,
-    setUserAboutMeInfoAction,
-    setUserEmailAction,
-    setUserVkontakteAction,
-    setUserPhoneNumberAction,
-    setUserSkypeAction,
-    setUserGithubAction,
-    setUserFacebookAction
+    setFirstNameAction,
+    setSecondNameAction,
+    setCareerObjectiveAction,
+    setAgeAction,
+    setAboutMeInfoAction,
+    setEmailAction,
+    setVkontakteAction,
+    setPhoneNumberAction,
+    setSkypeAction,
+    setGithubAction,
+    setFacebookAction,
+    setEducationAction
 }
 
 export default allAboutMeActions

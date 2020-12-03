@@ -7,8 +7,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { useDispatch, useSelector } from 'react-redux';
 import allAboutMeActions from '../../actions/aboutMeActions';
-import Button from '@material-ui/core/Button'
-import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +23,7 @@ export default function AboutMe() {
 
     const dispatch = useDispatch()
 
-    let {firstName, secondName, age, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook} = useSelector(state => state.aboutMeReducer)
+    let {firstName, secondName, age, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
 
 
     const classes = useStyles();
@@ -43,20 +41,20 @@ export default function AboutMe() {
         <div className="container">
 
     <div className='aboutMeInputs'>
-        <h2>Расскажите о себе</h2>
+        <h2>Tell about yourself.</h2>
         <form className={classes.root} noValidate autoComplete="off">
             
-            <TextField value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setUserFirstNameAction(e.target.value)) }}id="firstName" label="Имя" variant="outlined" />
-            <TextField value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setUserSecondNameAction(e.target.value))}} id="secondName" label="Фамилия" variant="outlined" />
-            <TextField value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setUserCareerObjectiveAction(e.target.value))}} id="firstName" label="Желаемая должность" variant="outlined" />
+            <TextField value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setFirstNameAction(e.target.value)) }}id="firstName" label="First name" variant="outlined" />
+            <TextField value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setSecondNameAction(e.target.value))}} id="secondName" label="Second name" variant="outlined" />
+            <TextField value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setCareerObjectiveAction(e.target.value))}} id="firstName" label="Your position" variant="outlined" />
 
             <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Возраст</InputLabel>
+                <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={age}
-                    onChange={(e) => {dispatch(allAboutMeActions.setUserAgeAction(e.target.value))}}
+                    onChange={(e) => {dispatch(allAboutMeActions.setAgeAction(e.target.value))}}
                     label="Age"
                 >
                     {
@@ -71,27 +69,35 @@ export default function AboutMe() {
             </FormControl>
             <TextField
                     id="outlined-multiline-flexible"
-                    label="О себе"
+                    label="About your education"
+                    multiline
+                    rowsMax={10}
+                    value={education}
+                    onChange={(e) => {dispatch(allAboutMeActions.setEducationAction(e.target.value))}}
+                    variant="outlined"
+                />
+            <TextField
+                    id="outlined-multiline-flexible"
+                    label="Something about you"
                     multiline
                     rowsMax={10}
                     value={aboutMeInfo}
-                    onChange={(e) => {dispatch(allAboutMeActions.setUserAboutMeInfoAction(e.target.value))}}
+                    onChange={(e) => {dispatch(allAboutMeActions.setAboutMeInfoAction(e.target.value))}}
                     variant="outlined"
                 />
         </form>
-        <h2>Контактная информация</h2>
+
+        <h2>Please, add your contacts.</h2>
         <form className={classes.root} noValidate autoComplete="off">
-            <TextField value={email} onChange={(e) => {dispatch(allAboutMeActions.setUserEmailAction(e.target.value))}} required type='email' label="Почта" variant="outlined" />
-            <TextField value={vkontakte} onChange={(e) => {dispatch(allAboutMeActions.setUserVkontakteAction(e.target.value))}} label="Вконтакте" variant="outlined" />
-            <TextField value={skype} onChange={(e) => {dispatch(allAboutMeActions.setUserSkypeAction(e.target.value))}} label="Скайп" variant="outlined" />
-            <TextField value={phoneNumber} onChange={(e) => {dispatch(allAboutMeActions.setUserPhoneNumberAction(e.target.value))}} label="Номер телефона" variant="outlined" />
-            <TextField value={github} onChange={(e) => {dispatch(allAboutMeActions.setUserGithubAction(e.target.value))}} label="Гитхаб" variant="outlined" />
-            <TextField value={facebook} onChange={(e) => {dispatch(allAboutMeActions.setUserFacebookAction(e.target.value))}} label="Фэйсбук" variant="outlined" />
+            <TextField value={email} onChange={(e) => {dispatch(allAboutMeActions.setEmailAction(e.target.value))}} required type='email' label="Email" variant="outlined" />
+            <TextField value={vkontakte} onChange={(e) => {dispatch(allAboutMeActions.setVkontakteAction(e.target.value))}} label="Vkontakte" variant="outlined" />
+            <TextField value={skype} onChange={(e) => {dispatch(allAboutMeActions.setSkypeAction(e.target.value))}} label="Skype" variant="outlined" />
+            <TextField value={phoneNumber} onChange={(e) => {dispatch(allAboutMeActions.setPhoneNumberAction(e.target.value))}} label="Phone number" variant="outlined" />
+            <TextField value={github} onChange={(e) => {dispatch(allAboutMeActions.setGithubAction(e.target.value))}} label="Github" variant="outlined" />
+            <TextField value={facebook} onChange={(e) => {dispatch(allAboutMeActions.setFacebookAction(e.target.value))}} label="Facebook" variant="outlined" />
         </form>
        
-        <Button variant="contained" color="primary" to='/aboutwork' component={Link}>
-  Далее
-</Button>
+      
 
     </div>
     </div>
