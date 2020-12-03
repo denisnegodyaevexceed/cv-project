@@ -58,7 +58,7 @@
     display: flex;
     justify-content: space-between;
     width: auto;
-    height: 590px;
+    height: auto;
    
 }
 .left-info-1{
@@ -99,8 +99,10 @@
     display: flex;
     justify-content: space-between;
     width: auto;
-    height: 590px;
+    height: auto;
+
     position: relative;
+    padding-bottom: 40px;
  
 }
 .other-left-info-1>div{
@@ -116,6 +118,24 @@
     left: 37%;
     top: 3%;
     position: absolute;
+}
+.template-1{
+cursor: pointer;
+   
+}
+.img-1-1{
+   
+    width: 150px;
+   
     
-    
+}
+.img-1-2{
+    width: 150px;
+   display: none; 
+}
+.template-1:hover .img-1-2{
+    position: absolute;
+    left: 70px;
+    top: 16px;
+    display: block;
 }
