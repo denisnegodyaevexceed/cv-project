@@ -52,19 +52,26 @@ const Portfolio = () => {
         <AccordionDetails>
           <Typography>
           <form className={classes.root} noValidate autoComplete="off">
-                    <TextField label="Project name" variant="outlined"/>
-                    <TextField label='Link to this project' variant='outlined'/>
-                    <TextField label='Summary' 
+                    <TextField value={firstProject.name} onChange={e=>dispatch(allPortfolioActions.setFirstProjectName(e.target.value))} label="Project name" variant="outlined"/>
+                    <TextField value={firstProject.link} onChange={e=>dispatch(allPortfolioActions.setFirstProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
+                    <TextField 
+                    value={firstProject.summary}
+                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectSummary(e.target.value))}
+                    label='Summary' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField value={firstProject.whatYouDo} label='What you did here?' 
+                    <TextField value={firstProject.whatYouDo}
+                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectWhatYouDo(e.target.value))}
+                    label='What you did here?' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField value={firstProject.stack} label='Stack' 
+                    <TextField value={firstProject.stack} 
+                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectStack(e.target.value))}
+                    label='Stack' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
@@ -85,19 +92,28 @@ const Portfolio = () => {
           <Typography>
           
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField label="Project name" variant="outlined"/>
-                    <TextField label='Link to this project' variant='outlined'/>
-                    <TextField label='Summary' 
+                    <TextField value={secondProject.name} onChange={e=>dispatch(allPortfolioActions.setSecondProjectName(e.target.value))} label="Project name" variant="outlined"/>
+                    <TextField value={secondProject.link} onChange={e=>dispatch(allPortfolioActions.setSecondProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
+                    <TextField 
+                    value={secondProject.summary}
+                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectSummary(e.target.value))}
+                    label='Summary' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='What you did here?' 
+                    <TextField 
+                    value={secondProject.whatYouDo}
+                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectWhatYouDo(e.target.value))}
+                    label='What you did here?' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='Stack' 
+                    <TextField 
+                    value={secondProject.stack}
+                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectStack(e.target.value))}
+                    label='Stack' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
@@ -117,19 +133,28 @@ const Portfolio = () => {
         <AccordionDetails>
           <Typography>
           <form className={classes.root} noValidate autoComplete="off">
-                    <TextField label="Project name" variant="outlined"/>
-                    <TextField label='Link to this project' variant='outlined'/>
-                    <TextField label='Summary' 
+                    <TextField value={thierdProject.name} onChange={e=>dispatch(allPortfolioActions.setThierdProjectName(e.target.value))} label="Project name" variant="outlined"/>
+                    <TextField value={thierdProject.link} onChange={e=>dispatch(allPortfolioActions.setThierdProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
+                    <TextField 
+                    value={thierdProject.summary}
+                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectSummary(e.target.value))}
+                    label='Summary' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='What you did here?' 
+                    <TextField 
+                    value={thierdProject.whatYouDo}
+                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectWhatYouDo(e.target.value))}
+                    label='What you did here?' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='Stack' 
+                    <TextField 
+                    value={thierdProject.stack}
+                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectStack(e.target.value))}
+                    label='Stack' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
@@ -149,19 +174,28 @@ const Portfolio = () => {
         <AccordionDetails>
           <Typography>
           <form className={classes.root} noValidate autoComplete="off">
-                    <TextField label="Project name" variant="outlined"/>
-                    <TextField label='Link to this project' variant='outlined'/>
-                    <TextField label='Summary' 
+                    <TextField value={fourthProject.name} onChange={e=>dispatch(allPortfolioActions.setFourthProjectName(e.target.value))} label="Project name" variant="outlined"/>
+                    <TextField value={fourthProject.link} onChange={e=>dispatch(allPortfolioActions.setFourthProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
+                    <TextField 
+                    value={fourthProject.summary}
+                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectSummary(e.target.value))}
+                    label='Summary' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='What you did here?' 
+                    <TextField 
+                    value={fourthProject.whatYouDo}
+                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectWhatYouDo(e.target.value))}
+                    label='What you did here?' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='Stack' 
+                    <TextField 
+                    value={fourthProject.stack}
+                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectStack(e.target.value))}
+                    label='Stack' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
