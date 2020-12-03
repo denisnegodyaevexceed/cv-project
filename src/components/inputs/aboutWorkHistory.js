@@ -19,10 +19,11 @@ const AboutWorkHistory = () => {
 
     const dispatch = useDispatch()
 
-    let {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription } = useSelector(state => state.aboutWorkHistoryReducer)
+    let {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription, dima } = useSelector(state => state.aboutWorkHistoryReducer)
 
     const classes = useStyles();
    
+    console.log(dima)
 
     return (
         <div className='container'>

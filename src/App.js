@@ -1,8 +1,11 @@
 import './App.css';
 import Template1 from './components/Template1.jsx';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import templatePage from './templatePage';
+import CenteredGrid from './templatePage';
 import CustomizedSteppers from './main'
+import Portfolio from './components/inputs/portfolio';
+
+
 
 function App() {
   return (
@@ -11,8 +14,8 @@ function App() {
      
       <Switch>
 
-      <Route path="/templates" component={templatePage} />
-      <Route path="/portfolio" component={Template1} />
+      <Route path="/templates" component={CenteredGrid} />
+      <Route path="/portfolio" component={Portfolio} />
       <Route path="/" component={CustomizedSteppers} />
 
 
