@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import allPortfolioActions from '../../actions/portfolioActions';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -28,7 +29,10 @@ const useStyles2 = makeStyles((theme) => ({
 
 
 const Portfolio = () => {
-    
+    const dispatch =useDispatch()
+
+    const {firstProject, secondProject, thierdProject, fourthProject} = useSelector(state => state.portfolioReducer)
+
     const classes = useStyles();
     const classes2 = useStyles2();
 
@@ -55,12 +59,12 @@ const Portfolio = () => {
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='What you did here?' 
+                    <TextField value={firstProject.whatYouDo} label='What you did here?' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
-                    <TextField label='Stack' 
+                    <TextField value={firstProject.stack} label='Stack' 
                     variant='outlined'
                     multiline
                     rowsMax={10}

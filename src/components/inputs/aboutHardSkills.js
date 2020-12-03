@@ -61,7 +61,9 @@ const AboutHardSkills = () => {
                     value={frontend}
                     onChange={e=> dispatch(allHardSkillsActions.setFrontendAction(e.target.value))}
                 />
+                 </form>
             <h3>Backend: </h3>
+            <form className={classes.root} noValidate autoComplete="off">
             <TextField
                     id="outlined-multiline-flexible"
                     label="Backend"
@@ -71,7 +73,9 @@ const AboutHardSkills = () => {
                     value={backend}
                     onChange={e=> dispatch(allHardSkillsActions.setBackendAction(e.target.value))}
                 />
+                </form>
             <h3>DBS: </h3>
+            <form className={classes.root} noValidate autoComplete="off">
             <TextField
                     id="outlined-multiline-flexible"
                     label="DBS"
@@ -81,7 +85,9 @@ const AboutHardSkills = () => {
                     value={dbs}
                     onChange={e=> dispatch(allHardSkillsActions.setDbsAction(e.target.value))}
                 />
+            </form>
             <h3>Other: </h3>
+            <form className={classes.root} noValidate autoComplete="off">
             <TextField
                     id="outlined-multiline-flexible"
                     label="Other"

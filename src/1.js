@@ -29,14 +29,14 @@ const Test = ()=> {
             <div>
                 
                 <div className="wrap" >
-                    
-                <Box to="/steps" component={Link} className="button1" >Create Resume</Box>
+                <Box className="btn2" to="/steps" component={Link} >Create Resume</Box>
+                {/* <Box to="/steps" component={Link} className="button1" >Create Resume</Box> */}
                 </div>
                 
             <div className="background-video">
-            <video className="background-video" loop autoPlay autobuffer muted playsinline> 
-                <source src='./14.mp4' type="video/mp4" />
-                <source src='./14.mp4' type="video/ogg" />
+            <video className="background-video" loop autoPlay autobuffer muted playsinline>
+                <source src='./16.mp4' type="video/mp4" />
+                <source src='./16.mp4' type="video/ogg" />
                 
             </video>
             </div>
