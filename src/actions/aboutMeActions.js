@@ -1,58 +1,58 @@
-import actions from '../../constants/actionTypes'
+import actions from '../constants/actionTypes'
 
 
 const setUserFirstNameAction = (data) => ({
-    type: actions.SET_USER_FIRSTNAME,
+    type: actions.SET_FIRSTNAME,
     payload: data
 })
 
 const setUserSecondNameAction = (data) => ({
-    type: actions.SET_USER_SECONDNAME,
+    type: actions.SET_SECONDNAME,
     payload: data
 })
 
 const setUserCareerObjectiveAction = (data) => ({
-    type: actions.SET_USER_CAREEROBJECTIVE,
+    type: actions.SET_CAREEROBJECTIVE,
     payload: data
 })
 
 const setUserAgeAction = (data) => ({
-    type: actions.SET_USER_AGE,
+    type: actions.SET_AGE,
     payload: data
 })
 
 const setUserAboutMeInfoAction = (data) => ({
-    type: actions.SET_USER_ABOUTME,
+    type: actions.SET_ABOUTME,
     payload: data
 })
 
 const setUserEmailAction = (data) => ({
-    type: actions.SET_USER_EMAIL,
+    type: actions.SET_EMAIL,
     payload: data
 })
 
 const setUserVkontakteAction = (data) => ({
-    type: actions.SET_USER_VKONTAKTE,
+    type: actions.SET_VKONTAKTE,
     payload: data
 })
 
 const setUserSkypeAction = (data) => ({
-    type: actions.SET_USER_SKYPE,
+    type: actions.SET_SKYPE,
     payload: data
 })
 
 const setUserGithubAction = (data) => ({
-    type: actions.SET_USER_GITHUB,
+    type: actions.SET_GITHUB,
     payload: data
 })
 
 const setUserPhoneNumberAction = (data) => ({
-    type: actions.SET_USER_PHONENUMBER,
+    type: actions.SET_PHONENUMBER,
     payload: data
 })
 
 const setUserFacebookAction = (data) => ({
-    type: actions.SET_USER_FACEBOOK,
+    type: actions.SET_FACEBOOK,
     payload: data
 })
 

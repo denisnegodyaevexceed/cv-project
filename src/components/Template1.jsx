@@ -1,8 +1,7 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Template1 = () => {
   let pdfExportComponent;
@@ -33,7 +32,7 @@ const Template1 = () => {
       >
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
-            <div class="head-1">
+            <div className="head-1">
               <div className="content-head-1">
                 <div className="head-name-1">
                   <div className="first-name-1">{userInfo.firstName}</div>

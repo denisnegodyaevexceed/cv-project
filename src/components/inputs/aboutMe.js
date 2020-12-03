@@ -3,13 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { useDispatch, useSelector } from 'react-redux';
-import allAboutMeActions from '../actions/aboutMeActions';
+import allAboutMeActions from '../../actions/aboutMeActions';
 import Button from '@material-ui/core/Button'
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
