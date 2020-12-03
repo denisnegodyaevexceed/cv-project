@@ -10,6 +10,8 @@ const Template1 = () => {
   console.log(1, userInfo);
 
   return (
+    <div className="container">
+
     <div>
       <div className="button">
         <Button
@@ -179,6 +181,7 @@ const Template1 = () => {
           </div>
         </div>
       </PDFExport>
+    </div>
     </div>
   );
 };

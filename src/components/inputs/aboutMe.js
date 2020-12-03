@@ -40,7 +40,10 @@ export default function AboutMe() {
     }
 
     
-    return (<div className='aboutMeInputs'>
+    return (
+        <div className="container">
+
+    <div className='aboutMeInputs'>
         <h2>Расскажите о себе</h2>
         <form className={classes.root} noValidate autoComplete="off">
             
@@ -91,6 +94,7 @@ export default function AboutMe() {
   Далее
 </Button>
 
+    </div>
     </div>
     );
 }

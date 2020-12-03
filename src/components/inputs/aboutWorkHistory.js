@@ -6,7 +6,9 @@ import { Redirect, Link } from "react-router-dom";
 
 const AboutWorkHistory = () => {
     return (
-        <div>
+        
+        <div className="container">
+
             <h2>Укажите три последних места работы или проекта</h2>
             <form  id="firstJob" >
             <TextField   label="Компания" variant="outlined" />
