@@ -7,9 +7,22 @@
 }
 .container-pdf{
     margin: 0 auto;
-    width: 575px;
+    width: 650px;
 
     height: auto;
+}
+.background-video{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    height: 1080;
+}
+.headbtn{
+    position: fixed;
+    left: 48%;
+    top: 48%;
+    z-index: 30;  
 }
 .button{
     top: 40px;
@@ -129,18 +142,104 @@ cursor: pointer;
    
 }
 .img-1-1{
-   
+   position: absolute;
     width: 150px;
-   
-    
+   z-index: 2;
 }
 .img-1-2{
+    position: relative;
+    
+    z-index: 1;
     width: 150px;
-   display: none; 
 }
+
 .template-1:hover .img-1-2{
-    position: absolute;
-    left: 165px;
-    top: 40px;
-    display: block;
+z-index: 3;
 }
+
+.wrap {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button1 {
+      text-decoration: none;
+      text-align: center;
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    top: 400px;
+    padding: 10px;
+    z-index: 3;
+    }
+  
+  .button1::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .button1:hover, .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  .button1:hover::before, button:focus::before {
+    opacity: 1;
+  }
+  
+  .button1::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .button1:hover::after, button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
