@@ -18,6 +18,7 @@ import AboutHardSkills from "./components/inputs/aboutHardSkills";
 import { Link, Redirect, Route } from "react-router-dom";
 import Templates from './templatePage'
 import Container from '@material-ui/core/Container';
+import Portfolio from "./components/inputs/portfolio";
 
 
 
@@ -29,14 +30,14 @@ const ColorlibConnector = withStyles({
   active: {
     "& $line": {
       backgroundImage:
-        " linear-gradient(to top right, rgb(161, 255, 99), rgb(131, 226, 93), rgb(101, 198, 87), rgb(70, 169, 80), rgb(40, 141, 74), rgb(10, 112, 68), rgb(14, 129, 91), rgb(18, 147, 114), rgb(23, 164, 138), rgb(27, 181, 161), rgb(31, 199, 184), rgb(35, 216, 207))",
+        "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
         
     },
   },
   completed: {
     "& $line": {
       backgroundImage:
-        " linear-gradient(to top right, rgb(161, 255, 99), rgb(131, 226, 93), rgb(101, 198, 87), rgb(70, 169, 80), rgb(40, 141, 74), rgb(10, 112, 68), rgb(14, 129, 91), rgb(18, 147, 114), rgb(23, 164, 138), rgb(27, 181, 161), rgb(31, 199, 184), rgb(35, 216, 207))",
+        "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
     },
   },
   line: {
@@ -61,12 +62,12 @@ const useColorlibStepIconStyles = makeStyles({
   },
   active: {
     backgroundImage:
-      "  linear-gradient(to top right, rgb(99, 255, 169), rgb(81, 226, 149), rgb(63, 198, 129), rgb(46, 169, 108), rgb(28, 141, 88), rgb(10, 112, 68), rgb(14, 129, 91), rgb(18, 147, 114), rgb(23, 164, 138), rgb(27, 181, 161), rgb(31, 199, 184), rgb(35, 216, 207))",
+      "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   },
   completed: {
     backgroundImage:
-      "  linear-gradient(to top right, rgb(99, 255, 169), rgb(81, 226, 149), rgb(63, 198, 129), rgb(46, 169, 108), rgb(28, 141, 88), rgb(10, 112, 68), rgb(14, 129, 91), rgb(18, 147, 114), rgb(23, 164, 138), rgb(27, 181, 161), rgb(31, 199, 184), rgb(35, 216, 207))",
+      "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
   },
 });
 
@@ -115,6 +116,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   instructions: {
+    margin:'0 auto',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
@@ -133,7 +135,7 @@ function getStepContent(step) {
     case 2:
       return <AboutHardSkills />;
     case 3:
-      return "This is the bit I really care about!";
+      return <Portfolio/>;
     case 4:
       return "This is the bit I really care about!";
       case 5:
@@ -179,13 +181,13 @@ export default function CustomizedSteppers() {
           <div>
            
               
-              <Redirect to="/portfolio" className={classes.instructions} />
+              <Redirect to="/resume" className={classes.instructions} />
             <Button onClick={handleReset} className={classes.button}>
               Reset
             </Button>
           </div>
         ) : (
-          <div className="container">
+          <div className="container-pdf">
             <Typography className={classes.instructions}>
               {getStepContent(activeStep)}
             </Typography>
