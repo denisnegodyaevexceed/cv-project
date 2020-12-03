@@ -18,7 +18,6 @@ import AboutHardSkills from "./components/inputs/aboutHardSkills";
 import { Link, Redirect, Route } from "react-router-dom";
 import Templates from './templatePage'
 import Container from '@material-ui/core/Container';
-import Portfolio from "./components/inputs/portfolio";
 
 
 
@@ -61,13 +60,13 @@ const useColorlibStepIconStyles = makeStyles({
     alignItems: "center",
   },
   active: {
-    backgroundImage:
-      "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
+    backgroundColor:
+      "#f74d33",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   },
   completed: {
-    backgroundImage:
-      "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
+    backgroundColor:
+      "#f74d33",
   },
 });
 
@@ -116,7 +115,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   instructions: {
-    margin:'0 auto',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
@@ -135,7 +133,7 @@ function getStepContent(step) {
     case 2:
       return <AboutHardSkills />;
     case 3:
-      return <Portfolio/>;
+      return "This is the bit I really care about!";
     case 4:
       return "This is the bit I really care about!";
       case 5:

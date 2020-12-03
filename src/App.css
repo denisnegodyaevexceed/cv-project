@@ -1,4 +1,11 @@
+body{
+    background: linear-gradient(45deg, rgb(0, 0, 0) 55%, rgb(247, 77, 51) 5%, rgb(255, 255, 255)) no-repeat fixed;
+    height: 100vh;
+}
 
+.MuiStepper-alternativeLabel {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
 .container{
     
     margin: 0 auto;
@@ -10,6 +17,9 @@
     width: 650px;
 
     height: auto;
+}
+.stepper{
+    background-color: grey;
 }
 .background-video{
     position: fixed;
@@ -118,7 +128,7 @@
     justify-content: space-between;
     width: auto;
     height: auto;
-
+    background-color: white;
     position: relative;
     padding-bottom: 40px;
  
@@ -174,12 +184,10 @@ z-index: 3;
     text-transform: uppercase;
     letter-spacing: 1.3px;
     font-weight: 700;
-    color: #313133;
-    background: #4FD1C5;
-  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    color: white;
     border: none;
-    border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    
+    box-shadow: 12px 12px 24px wheat;
     transition: all 0.3s ease-in-out 0s;
     cursor: pointer;
     outline: none;
@@ -191,11 +199,10 @@ z-index: 3;
   
   .button1::before {
   content: '';
-    border-radius: 1000px;
     min-width: calc(300px + 12px);
     min-height: calc(60px + 12px);
-    border: 6px solid #00FFCB;
-    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    border: 2px solid wheat;
+    box-shadow: 0 0 60px wheat;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -205,7 +212,7 @@ z-index: 3;
   }
   
   .button1:hover, .button:focus {
-    color: #313133;
+    color: wheat;
     transform: translateY(-6px);
   }
   
@@ -217,7 +224,7 @@ z-index: 3;
     content: '';
     width: 30px; height: 30px;
     border-radius: 100%;
-    border: 6px solid #00FFCB;
+    border: 6px solid white;
     position: absolute;
     z-index: -1;
     top: 50%;
@@ -242,4 +249,46 @@ z-index: 3;
       height: 300px;
       opacity: 0;
     }
+  }
+
+  .btn2 {
+      width: 300px;
+      text-align: center;
+    text-decoration: none;
+    top: 450px;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    padding: 15px 30px;
+    border: 1px solid;
+    border-image: black;
+    border-image-slice: 1;
+    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: 2px;
+    transition: .8s cubic-bezier(.165,.84,.44,1);
+    z-index: 3;
+  }
+  .btn2:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 100%;
+    z-index: -1;
+    color: black;
+    background: linear-gradient(100deg, #f74d33, #ffffff);
+    transition: .8s cubic-bezier(.165,.84,.44,1);
+  }
+  .btn2:hover {background: rgba(255,255,255,0);
+    color: black;
+}
+  .btn2:hover:before {
+    bottom: 0%;
+    top: auto;
+    height: 100%;
   }
