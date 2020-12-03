@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import allAboutMeActions from '../../actions/aboutMeActions';
 import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom";
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +41,8 @@ export default function AboutMe() {
 
     
     return (
-        <div className="container">
+        <Container maxWidth="xs">
+
 
     <div className='aboutMeInputs'>
         <h2>Расскажите о себе</h2>
@@ -94,6 +96,6 @@ export default function AboutMe() {
 </Button>
 
     </div>
-    </div>
+    </Container>
     );
 }

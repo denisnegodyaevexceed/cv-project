@@ -2,11 +2,14 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container';
 
 
 const AboutHardSkills = () => {
     return (
-        <div>
+        <Container maxWidth="xs">
+
+
             <h2>Tell about your technical skills</h2>
         <form>
             <h3>Frontend: </h3>
@@ -48,7 +51,7 @@ const AboutHardSkills = () => {
 <Button variant="contained" color="primary" to='/portfolio' component={Link}>
   Далее
 </Button>
-        </div>
+        </Container>
     )
 }
 

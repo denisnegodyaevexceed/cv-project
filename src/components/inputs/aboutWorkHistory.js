@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom";
 import allAboutWorkActions from '../../actions/aboutWorkActions';
 import { useDispatch, useSelector } from 'react-redux';
+import Container from '@material-ui/core/Container';
 
 
 
@@ -18,7 +19,9 @@ const AboutWorkHistory = () => {
    
 
     return (
-        <div>
+        <Container maxWidth="xs">
+
+
             <h2>Укажите два последних места работы</h2>
             <form  id="firstJob" >
             <TextField value={firstCompany} onChange={(e)=> dispatch(allAboutWorkActions.setFirstCompanyName(e.target.value))} label="Компания" variant="outlined" />
@@ -53,7 +56,7 @@ const AboutWorkHistory = () => {
 <Button variant="contained" color="primary" to='/abouthardskills' component={Link}>
   Далее
 </Button>
-        </div>
+        </Container>
     )
 }
 
