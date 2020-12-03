@@ -6,6 +6,15 @@ body{
 .MuiStepper-alternativeLabel {
     background-color: rgba(0, 0, 0, 0) !important;
 }
+.t-1{
+    color: white;
+}
+.MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    color: white !important;;
+}
+.makeStyles-root-25{
+    color: white !important ;
+}
 .container{
     
     margin: 0 auto;
