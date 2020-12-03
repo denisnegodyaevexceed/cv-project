@@ -18,7 +18,6 @@ import AboutHardSkills from "./components/inputs/aboutHardSkills";
 import { Link, Redirect, Route } from "react-router-dom";
 import Templates from './templatePage'
 import Container from '@material-ui/core/Container';
-import Portfolio from "./components/inputs/portfolio";
 
 
 
@@ -116,7 +115,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   instructions: {
-    margin:'0 auto',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
@@ -135,7 +133,7 @@ function getStepContent(step) {
     case 2:
       return <AboutHardSkills />;
     case 3:
-      return <Portfolio/>;
+      return "This is the bit I really care about!";
     case 4:
       return "This is the bit I really care about!";
       case 5:

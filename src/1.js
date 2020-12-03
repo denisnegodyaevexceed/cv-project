@@ -29,11 +29,12 @@ const Test = ()=> {
             <div>
                 
                 <div className="wrap" >
+                    
                 <Box to="/steps" component={Link} className="button1" >Create Resume</Box>
                 </div>
                 
             <div className="background-video">
-            <video className="background-video" loop autoPlay>
+            <video className="background-video" loop autoPlay autobuffer muted playsinline> 
                 <source src='./14.mp4' type="video/mp4" />
                 <source src='./14.mp4' type="video/ogg" />
                 

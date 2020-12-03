@@ -11,6 +11,9 @@
 
     height: auto;
 }
+.stepper{
+    background-color: grey;
+}
 .background-video{
     position: fixed;
     left: 0;
@@ -243,3 +246,5 @@ z-index: 3;
       opacity: 0;
     }
   }
+
+  
