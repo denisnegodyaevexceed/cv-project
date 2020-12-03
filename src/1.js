@@ -17,21 +17,27 @@
 
 
 import React, {Component} from 'react';
-import { Link, Redirect, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch,Link } from "react-router-dom";
+
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Box from '@material-ui/core/Box';
+import CustomizedSteppers from './main'
+import { CSSTransition } from 'react-transition-group';
+import Portfolio from './components/inputs/portfolio';
+import App from './App';
 
 
 const Test = ()=> {
-   
+   const routes =[
+       
+       {path:'/steps', Component:CustomizedSteppers}
+   ]
         return (
+            <BrowserRouter>
             <div>
                 
-                <div className="wrap" >
-                <Box className="btn2" to="/steps" component={Link} >Create Resume</Box>
-                {/* <Box to="/steps" component={Link} className="button1" >Create Resume</Box> */}
-                </div>
+               
                 
             <div className="background-video">
             <video className="background-video" loop autoPlay autobuffer muted playsinline>
@@ -41,6 +47,22 @@ const Test = ()=> {
             </video>
             </div>
             </div>
+            {routes.map(({path, Component})=>
+            <Route key={path} exact path={path}>
+                {({match})=>
+                <CSSTransition
+                timeout={1000}
+                classNames="page"
+                unmountOnExit
+                in={match !== null}
+                >
+                    <Component/>
+                </CSSTransition>
+                }
+
+            </Route>
+            )}
+            </BrowserRouter>
            
         )
     
