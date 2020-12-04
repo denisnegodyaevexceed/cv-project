@@ -18,6 +18,7 @@ import AboutHardSkills from "./components/inputs/aboutHardSkills";
 import { Link, Redirect, Route } from "react-router-dom";
 import Templates from './templatePage'
 import Container from '@material-ui/core/Container';
+import Portfolio from "./components/inputs/portfolio";
 
 
 
@@ -133,7 +134,7 @@ function getStepContent(step) {
     case 2:
       return <AboutHardSkills />;
     case 3:
-      return "This is the bit I really care about!";
+      return <Portfolio/>;
     case 4:
       return "This is the bit I really care about!";
       case 5:
