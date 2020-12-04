@@ -363,24 +363,34 @@ z-index: 3;
   
 
 .side{
-    position: fixed;
-    width: 250px;
-    height: 400px;
-    transform: translateX(1870px) translateY(300px);;
+    position: absolute;
+    right: -260px;
+    top: 32%;
+    width: 300px;
+    height: 300px;
    transition: 1s;
    border-radius: 30px;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: white;
 }
+.side-h2{
+    text-align: center;
+
+    font-weight: bold;
+    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+}
 .open{
-    transform: translateX(1600px) translateY(300px);
+    right: 100px;
+
 
     background-color: white;
 }
 .side-open{
-    position: fixed;
+    color: rgb(247, 77, 51) ;
+
+    position: absolute;
     left: -45px;
-    top: 45%;
+    top: 43%;
     transform: rotate(-90deg);
     font-size: 30px;
     font-weight: bold;
@@ -388,11 +398,16 @@ z-index: 3;
     cursor: pointer;
 
 }
+.side-img{
+    position: absolute;
+    left: 70px;
+    width: 150px;
+}
 .side-close{
-
-    position: fixed;
-    left: 55px;
-    top: 345px;
+    color: rgb(247, 77, 51) ;
+    position: absolute;
+    left: 85px;
+    top: 245px;
     font-size: 30px;
     font-weight: bold;
 

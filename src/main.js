@@ -191,8 +191,13 @@ export default function CustomizedSteppers() {
     <div className="page">
       {}
       <div  className={cls.join(" ")}>
-        
-        {!open?(<div onClick={() => setOpen(!open)} className="side-open">Open</div>):(<div className='side-close' onClick={() => setOpen(!open)}>Close</div>)}
+        <h2 className="side-h2">Selected template</h2>
+        <img className="side-img" src="./template-1-1.png" alt="" />
+        {!open?(<div onClick={() => setOpen(!open)} className="side-open">
+          Open
+          </div>):(<div className='side-close' onClick={() => setOpen(!open)}>
+            Close
+            </div>)}
         
 
       </div>
