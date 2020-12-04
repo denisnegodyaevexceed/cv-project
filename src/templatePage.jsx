@@ -8,13 +8,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-
-
     padding: theme.spacing(5),
     textAlign: "center",
-
-
-  },
+},
 }));
 
 export default function CenteredGrid() {
@@ -23,55 +19,49 @@ export default function CenteredGrid() {
   return (
     <div className={classes.root}>
       <Grid container spacing={1}>
-        <Grid item xs={3}>
-          <div>
-            <div className="template-1">
+        <Grid item xs={3} className="template-1">
+          
               <img className="img-1-1" src="./template-1-1.png" alt="" />
               <img className="img-1-2" src="./template-1-2.png" alt="" />
-            </div>
-          </div>
+           
         </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
+        <Grid item xs={3} className="template-1">
+          
             <img className="img-1-1" src="./template-1-1.png" alt="" />
             <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
+          
         </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
+        <Grid item xs={3} className="template-1">
+          
             <img className="img-1-1" src="./template-1-1.png" alt="" />
             <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
+          
         </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
+        <Grid item xs={3} className="template-1">
             <img className="img-1-1" src="./template-1-1.png" alt="" />
             <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
         </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
+        <Grid item xs={3} className="template-1">
+         
             <img className="img-1-1" src="./template-1-1.png" alt="" />
             <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
+         
         </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
+        <Grid item xs={3} className="template-1">
+          <img className="img-1-1" src="./template-1-1.png" alt="" />
+            <img className="img-1-2" src="./template-1-2.png" alt="" />
+        </Grid>
+        <Grid item xs={3} className="template-1">
+          
             <img className="img-1-1" src="./template-1-1.png" alt="" />
             <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
+          
         </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
+        <Grid item xs={3} className="template-1">
+          
             <img className="img-1-1" src="./template-1-1.png" alt="" />
             <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
-        </Grid>
-        <Grid item xs={3}>
-          <div ><div className="template-1">
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-          </div></div>
+          
         </Grid>
 
       </Grid>

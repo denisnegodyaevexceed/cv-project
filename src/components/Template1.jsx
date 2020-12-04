@@ -20,7 +20,7 @@ const Template1 = () => {
   (thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack) ||
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
-  console.log(1, userInfo);
+  
 
   return (
     <div className="container-pdf">
@@ -53,7 +53,7 @@ const Template1 = () => {
       >
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
-            <div class="head-1">
+            <div className="head-1">
               <div className="content-head-1">
                 <div className="head-name-1">
                   <div className="first-name-1">{userInfo.firstName}</div>
@@ -61,7 +61,7 @@ const Template1 = () => {
                 </div>
         <div className="post-1">{userInfo.careerObjective}</div>
               </div>
-              <img className="avatar-1" src="./user.png" alt="" />
+              <div className="avatar-1">{!userInfo.avatar ?<img className='avatarImage' src="./user.png" alt="" />: <img className='avatarImage' src={userInfo.avatar} alt="" />}</div>
             </div>
             <div className="main-info-1">
               <div className="left-info-1">
@@ -69,7 +69,9 @@ const Template1 = () => {
                   <h4>Technical skills</h4>
                   <div className="first">
                     {frontend&&<h5>Frontend</h5>}
-                    <div>{frontend}</div>
+                    <div>{frontend.split(' ').map((item, index) => {
+                      return <div key={index}>{item}</div>
+                    })}</div>
                   </div>
                   <div>
                     {backend&&<h5>Backend</h5>}
@@ -83,7 +85,7 @@ const Template1 = () => {
                     {other&&<h5>Other</h5>}
                       <div>{other}</div>
                   </div>
-                  <div>
+                  {userInfo.email && <div>
                     <h4>Contact details</h4>
                     <div>Email: {userInfo.email}</div>
                     {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
@@ -93,7 +95,7 @@ const Template1 = () => {
                     {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
 
 
-                  </div>
+                  </div>}
                 </div>
               </div>
               <div className="right-info-1">

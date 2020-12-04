@@ -7,21 +7,19 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import AboutMe from "./components/inputs/aboutMe";
 import AboutWorkHistory from "./components/inputs/aboutWorkHistory";
 import AboutHardSkills from "./components/inputs/aboutHardSkills";
-import { Link, Redirect, Route } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import Templates from "./templatePage";
-import Container from "@material-ui/core/Container";
 import Portfolio from "./components/inputs/portfolio";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import AmpStoriesIcon from "@material-ui/icons/AmpStories";
 import WorkIcon from "@material-ui/icons/Work";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import DescriptionIcon from "@material-ui/icons/Description";
-import Snackbar from "@material-ui/core/Snackbar";
-import Slide from "@material-ui/core/Slide";
+
+
 const ColorlibConnector = withStyles({
   alternativeLabel: {
     top: 22,
@@ -176,7 +174,7 @@ export default function CustomizedSteppers() {
   useEffect(() => {
     if (open) {
       setCls((oldArr) => [...oldArr, "open"]);
-      console.log("cls", cls);
+      ;
     } else {
       setCls(['side']);
     }
@@ -186,7 +184,7 @@ export default function CustomizedSteppers() {
     <div className={classes.root}>
       <div  className={cls.join(" ")}>
         
-        {!open?(<div onClick={() => setOpen(!open)} className="side-open">Открыть</div>):(<div className='side-close' onClick={() => setOpen(!open)}>Закрыть</div>)}
+        {!open?(<div onClick={() => setOpen(!open)} className="side-open">Open</div>):(<div className='side-close' onClick={() => setOpen(!open)}>Close</div>)}
         
 
       </div>
@@ -212,9 +210,9 @@ export default function CustomizedSteppers() {
           </div>
         ) : (
           <div className="container-pdf">
-            <Typography className={classes.instructions}>
+            <div className={classes.instructions}>
               {getStepContent(activeStep)}
-            </Typography>
+            </div>
             <div>
               <Button
                 variant="contained"

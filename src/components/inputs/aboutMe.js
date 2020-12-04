@@ -1,17 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import { useDispatch, useSelector } from 'react-redux';
 import allAboutMeActions from '../../actions/aboutMeActions';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,17 +29,28 @@ const useStyles2 = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
 }));
+const useStyles3 = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 export default function AboutMe() {
  
 
     const dispatch = useDispatch()
 
-    let {firstName, secondName, age, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
+    let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
 
 
     const classes = useStyles();
     const classes2 = useStyles2();
+    const classes3 = useStyles3()
     
 
     const ageArr = []
@@ -50,6 +59,7 @@ export default function AboutMe() {
         ageArr.push(i)
     }
 
+    
     
     return (
         <div className="container-pdf">
@@ -60,35 +70,16 @@ export default function AboutMe() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes2.heading}><h2>Tell about yourself.</h2></Typography>
+          <div className={classes2.heading}><h2>Tell about yourself.</h2></div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           <form className={classes.root} noValidate autoComplete="off">
             
             <TextField value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setFirstNameAction(e.target.value)) }}id="firstName" label="First name" variant="outlined" />
             <TextField value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setSecondNameAction(e.target.value))}} id="secondName" label="Second name" variant="outlined" />
             <TextField value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setCareerObjectiveAction(e.target.value))}} id="firstName" label="Your position" variant="outlined" />
 
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={age}
-                    onChange={(e) => {dispatch(allAboutMeActions.setAgeAction(e.target.value))}}
-                    label="Age"
-                >
-                    {
-                        ageArr.map((item, index) => {
-                            return (
-                                <MenuItem value={item} key={index}>{item}</MenuItem>
-                            )
-                        })
-                    }
-                </Select>
-                
-            </FormControl>
             <TextField
                     id="outlined-multiline-flexible"
                     label="About your education"
@@ -107,8 +98,22 @@ export default function AboutMe() {
                     onChange={(e) => {dispatch(allAboutMeActions.setAboutMeInfoAction(e.target.value))}}
                     variant="outlined"
                 />
+                {/* <input   className='inputImage' type='file'/> */}
+                {/* <input accept="image/*" className={classes.input} id="icon-button-file" type="file" /> */}
+                
+              {/* <TextField accept="image/*" onChange={(e) => dispatch(allAboutMeActions.setAvatarAction(URL.createObjectURL(e.target.files[0])))} className={classes.input} id="icon-button-file" type='file' variant="outlined"/> */}
+              <input accept="image/*" onChange={(e) => dispatch(allAboutMeActions.setAvatarAction(URL.createObjectURL(e.target.files[0])))} className={classes3.input} id="icon-button-file" type="file" />
+      <label htmlFor="icon-button-file">
+        <IconButton  aria-label="upload picture" component="span">
+          
+          <PhotoCamera className='photoInput'/>
+        </IconButton>
+      </label>
+      
+     
         </form>
-          </Typography>
+        {avatar && <img src={avatar} className='inputAvatar' alt='avatar'/>}
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -117,10 +122,10 @@ export default function AboutMe() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes2.heading}><h2>Please, add your contacts.</h2></Typography>
+          <div className={classes2.heading}><h2>Please, add your contacts.</h2></div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           <form className={classes.root} noValidate autoComplete="off">
             <TextField value={email} onChange={(e) => {dispatch(allAboutMeActions.setEmailAction(e.target.value))}} required type='email' label="Email" variant="outlined" />
             <TextField value={vkontakte} onChange={(e) => {dispatch(allAboutMeActions.setVkontakteAction(e.target.value))}} label="Vkontakte" variant="outlined" />
@@ -129,7 +134,7 @@ export default function AboutMe() {
             <TextField value={github} onChange={(e) => {dispatch(allAboutMeActions.setGithubAction(e.target.value))}} label="Github" variant="outlined" />
             <TextField value={facebook} onChange={(e) => {dispatch(allAboutMeActions.setFacebookAction(e.target.value))}} label="Facebook" variant="outlined" />
         </form>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>

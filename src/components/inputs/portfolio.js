@@ -6,7 +6,6 @@ import allPortfolioActions from '../../actions/portfolioActions';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,8 @@ const useStyles2 = makeStyles((theme) => ({
       },
       heading: {
         
-        fontSize: theme.typography.pxToRem(15),
+ 
+fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
       },
     }));
@@ -48,12 +48,12 @@ const Portfolio = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography >
+          <div >
             <h3>First project.</h3>
-            </Typography>
+            </div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           <form className={classes.root} noValidate autoComplete="off">
                     <TextField value={firstProject.name} onChange={e=>dispatch(allPortfolioActions.setFirstProjectName(e.target.value))} label="Project name" variant="outlined"/>
                     <TextField value={firstProject.link} onChange={e=>dispatch(allPortfolioActions.setFirstProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
@@ -80,7 +80,7 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -89,10 +89,10 @@ const Portfolio = () => {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes2.heading}><h3>Second project</h3></Typography>
+          <div className={classes2.heading}><h3>Second project</h3></div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField value={secondProject.name} onChange={e=>dispatch(allPortfolioActions.setSecondProjectName(e.target.value))} label="Project name" variant="outlined"/>
@@ -122,7 +122,7 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -131,10 +131,10 @@ const Portfolio = () => {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes2.heading}><h3>Thierd project</h3></Typography>
+          <div className={classes2.heading}><h3>Thierd project</h3></div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           <form className={classes.root} noValidate autoComplete="off">
                     <TextField value={thierdProject.name} onChange={e=>dispatch(allPortfolioActions.setThierdProjectName(e.target.value))} label="Project name" variant="outlined"/>
                     <TextField value={thierdProject.link} onChange={e=>dispatch(allPortfolioActions.setThierdProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
@@ -163,7 +163,7 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -172,10 +172,10 @@ const Portfolio = () => {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes2.heading}><h3>Fourth project</h3></Typography>
+          <div className={classes2.heading}><h3>Fourth project</h3></div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           <form className={classes.root} noValidate autoComplete="off">
                     <TextField value={fourthProject.name} onChange={e=>dispatch(allPortfolioActions.setFourthProjectName(e.target.value))} label="Project name" variant="outlined"/>
                     <TextField value={fourthProject.link} onChange={e=>dispatch(allPortfolioActions.setFourthProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
@@ -204,7 +204,7 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>
@@ -219,59 +219,3 @@ const Portfolio = () => {
 export default Portfolio
 
 
-// import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import Accordion from '@material-ui/core/Accordion';
-// import AccordionSummary from '@material-ui/core/AccordionSummary';
-// import AccordionDetails from '@material-ui/core/AccordionDetails';
-// import Typography from '@material-ui/core/Typography';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     width: '100%',
-//   },
-//   heading: {
-//     fontSize: theme.typography.pxToRem(15),
-//     fontWeight: theme.typography.fontWeightRegular,
-//   },
-// }));
-
-// export default function SimpleAccordion() {
-//   const classes = useStyles();
-
-//   return (
-//     <div className={classes.root}>
-//       <Accordion>
-//         <AccordionSummary
-//           expandIcon={<ExpandMoreIcon />}
-//           aria-controls="panel1a-content"
-//           id="panel1a-header"
-//         >
-//           <Typography className={classes.heading}>Accordion 1</Typography>
-//         </AccordionSummary>
-//         <AccordionDetails>
-//           <Typography>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-//             sit amet blandit leo lobortis eget.
-//           </Typography>
-//         </AccordionDetails>
-//       </Accordion>
-//       <Accordion>
-//         <AccordionSummary
-//           expandIcon={<ExpandMoreIcon />}
-//           aria-controls="panel2a-content"
-//           id="panel2a-header"
-//         >
-//           <Typography className={classes.heading}>Accordion 2</Typography>
-//         </AccordionSummary>
-//         <AccordionDetails>
-//           <Typography>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-//             sit amet blandit leo lobortis eget.
-//           </Typography>
-//         </AccordionDetails>
-//       </Accordion>
-//     </div>
-//   );
-// }

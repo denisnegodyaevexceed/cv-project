@@ -6,7 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
+
+
+
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,10 +48,10 @@ const AboutHardSkills = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes2.heading}><h2>Tell about your technical skills.</h2></Typography>
+          <div className={classes2.heading}><h2>Tell about your technical skills.</h2></div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
           <form className={classes.root} noValidate autoComplete="off">
             <h3>Frontend: </h3>
             <TextField
@@ -98,7 +100,7 @@ const AboutHardSkills = () => {
                     onChange={e=> dispatch(allHardSkillsActions.setOtherAction(e.target.value))}
                 />
         </form>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
       

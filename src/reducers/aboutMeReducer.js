@@ -11,6 +11,7 @@ const initialState = {
     github: '',
     facebook: '',
     education: '',
+    avatar: ''
 }
 
 
@@ -30,11 +31,6 @@ const aboutMeReducer = (state=initialState, actions) => {
             return {
             ...state,
             careerObjective: actions.payload
-        }
-        case 'SET_AGE':
-            return {
-            ...state,
-            age: actions.payload
         }
         case 'SET_ABOUTME':
             return {
@@ -75,6 +71,11 @@ const aboutMeReducer = (state=initialState, actions) => {
             return{
                 ...state,
                 education: actions.payload
+            }
+        case 'SET_AVATAR':
+            return{
+                ...state,
+                avatar: actions.payload
             }
         default:
             return state

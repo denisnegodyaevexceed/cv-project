@@ -84,8 +84,18 @@ z-index: 3;
     top: 115px;
     right: 20px;
     width: 150px;
-    border-radius: 100px;
+    height: 150px;
+    border-radius: 50%;
     border: solid white;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.avatarImage {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: inherit;
 }
 
 .main-info-1{
@@ -367,4 +377,13 @@ z-index: 3;
     margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 
+}
+
+
+.photoInput {
+    margin: 10px
+}
+.inputAvatar {
+    max-width: 100px;
+    margin-left: 10px;
 }

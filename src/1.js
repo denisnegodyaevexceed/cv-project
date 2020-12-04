@@ -13,7 +13,7 @@ const Test = ()=> {
                
                 
             <div className="background-video">
-            <video className="background-video" loop autoPlay autobuffer muted playsinline>
+            <video className="background-video" loop autoPlay muted playsInline>
                 <source src='./16.mp4' type="video/mp4" />
                 <source src='./16.mp4' type="video/ogg" />
                 
@@ -21,7 +21,6 @@ const Test = ()=> {
             </div>
             <div className="wrap" >
     <Box className="btn2" to="/steps" component={Link} >Create Resume</Box>
-    {/* <Box to="/steps" component={Link} className="button1" >Create Resume</Box> */}
     </div>
             </div>
             
