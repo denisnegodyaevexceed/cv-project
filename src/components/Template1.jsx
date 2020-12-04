@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { PDFExport } from "@progress/kendo-react-pdf";
+import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 import { useSelector, useDispatch } from "react-redux";
 import Container from '@material-ui/core/Container';
@@ -19,6 +20,7 @@ const Template1 = () => {
     <div>
       <div className="button">
         <Button
+        
           variant="contained"
           color="secondary"
           className="k-button"
@@ -28,7 +30,11 @@ const Template1 = () => {
         >
           Скачать PDF
         </Button>
-        <Button variant="contained" color="secondary">
+        <Button 
+        to="/steps"
+        component={Link}
+        variant="contained" 
+        color="secondary">
           Изменить
         </Button>
       </div>

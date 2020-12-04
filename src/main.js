@@ -19,9 +19,11 @@ import { Link, Redirect, Route } from "react-router-dom";
 import Templates from './templatePage'
 import Container from '@material-ui/core/Container';
 import Portfolio from "./components/inputs/portfolio";
-
-
-
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import AmpStoriesIcon from '@material-ui/icons/AmpStories';
+import WorkIcon from '@material-ui/icons/Work';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {
@@ -50,9 +52,9 @@ const ColorlibConnector = withStyles({
 
 const useColorlibStepIconStyles = makeStyles({
   root: {
-    backgroundColor: "#ccc",
+    backgroundColor: "white",
     zIndex: 1,
-    color: "#fff",
+    color: "black",
     width: 50,
     height: 50,
     display: "flex",
@@ -76,9 +78,11 @@ function ColorlibStepIcon(props) {
   const { active, completed } = props;
 
   const icons = {
-    1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
+    1: <AmpStoriesIcon />,
+    2: <PermIdentityIcon />,
+    3: <WorkIcon />,
+    4: <FlashOnIcon />,
+    5: <DescriptionIcon />,
   };
 
   return (
@@ -113,8 +117,15 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   button: {
+    backgroundColor:'rgb(247, 77, 51)',
     marginRight: theme.spacing(1),
+    '&:hover': {
+      backgroundColor: 'white',
+      borderColor: 'rgb(247, 77, 51)',
+      boxShadow: 'none',
+    },
   },
+
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
@@ -122,23 +133,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["1", "2", "3", "4", "5","6"];
+  return ["Templates","Personal information", "Experience", "Skills", "Portfolio"];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AboutMe />;
-    case 1:
-      return <AboutWorkHistory />;
-    case 2:
-      return <AboutHardSkills />;
-    case 3:
-      return <Portfolio/>;
-    case 4:
-      return "This is the bit I really care about!";
-      case 5:
       return <Templates/>;
+    case 1:
+        return <AboutMe />;
+    case 2:
+      return <AboutWorkHistory />;
+    case 3:
+      return <AboutHardSkills />;
+    case 4:
+      return <Portfolio/>;
+      
     default:
       return "Unknown step";
   }
@@ -165,12 +175,13 @@ export default function CustomizedSteppers() {
 
     <div className={classes.root}>
       <Stepper
+      className='t-1'
         alternativeLabel
         activeStep={activeStep}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (
-          <Step key={label}>
+          <Step  key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
           </Step>
         ))}
@@ -192,6 +203,7 @@ export default function CustomizedSteppers() {
             </Typography>
             <div>
               <Button
+              variant="contained"
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.button}
@@ -200,7 +212,6 @@ export default function CustomizedSteppers() {
               </Button>
               <Button
                 variant="contained"
-                color="primary"
                 onClick={handleNext}
                 className={classes.button}
               >

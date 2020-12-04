@@ -22,6 +22,7 @@ const useStyles2 = makeStyles((theme) => ({
         width: '100%',
       },
       heading: {
+        
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
       },
@@ -39,7 +40,7 @@ const Portfolio = () => {
     return (
         <div className='container'>
             <div className={classes2.root}>
-            <h2>Tell about your best projects.</h2>
+            <h2 className='t-1'>Tell about your best projects.</h2>
 
        <Accordion>
         <AccordionSummary
@@ -47,7 +48,9 @@ const Portfolio = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes2.heading}><h3>First project.</h3></Typography>
+          <Typography >
+            <h3>First project.</h3>
+            </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
