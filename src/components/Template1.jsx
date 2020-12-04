@@ -8,6 +8,9 @@ import Container from '@material-ui/core/Container';
 const Template1 = () => {
   let pdfExportComponent;
   const userInfo = useSelector((state) => state.aboutMeReducer);
+
+  
+
   console.log(1, userInfo);
 
   return (
