@@ -10,20 +10,24 @@ function App() {
 
 
   const routes = [
+    { path: '/', Component: Test },
+    { path: '/templates', Component: templatePage },
+
 
     { path: '/steps', Component: CustomizedSteppers },
+    { path: '/resume', Component: Template1 },
+
+
+    
+
+
 
   ]
   return (
     <BrowserRouter>
+  
     <div className="App">
-      <Switch>
-          <Route exact path="/" component={Test} />
-          <Route path="/templates" component={templatePage} />
-          <Route path="/resume" component={Template1} />
-     </Switch>
-    </div>
-      {routes.map(({ path, Component }) =>
+    {routes.map(({ path, Component }) =>
         <Route key={path} exact path={path}>
           {({ match }) =>
             <CSSTransition
@@ -38,6 +42,8 @@ function App() {
 
         </Route>
       )}
+    </div>
+     
 
     </BrowserRouter>
   );

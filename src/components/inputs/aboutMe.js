@@ -66,7 +66,7 @@ export default function AboutMe() {
           <Typography>
           <form className={classes.root} noValidate autoComplete="off">
             
-            <TextField value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setFirstNameAction(e.target.value)) }}id="firstName" label="First name" variant="outlined" />
+            <TextField  value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setFirstNameAction(e.target.value)) }}id="firstName" label="First name" variant="outlined" />
             <TextField value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setSecondNameAction(e.target.value))}} id="secondName" label="Second name" variant="outlined" />
             <TextField value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setCareerObjectiveAction(e.target.value))}} id="firstName" label="Your position" variant="outlined" />
 

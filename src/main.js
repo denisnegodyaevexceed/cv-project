@@ -22,6 +22,8 @@ import FlashOnIcon from "@material-ui/icons/FlashOn";
 import DescriptionIcon from "@material-ui/icons/Description";
 import Snackbar from "@material-ui/core/Snackbar";
 import Slide from "@material-ui/core/Slide";
+import { useDispatch, useSelector } from 'react-redux';
+
 const ColorlibConnector = withStyles({
   alternativeLabel: {
     top: 22,
@@ -57,12 +59,15 @@ const useColorlibStepIconStyles = makeStyles({
     borderRadius: "50%",
     justifyContent: "center",
     alignItems: "center",
+    
   },
   active: {
     backgroundColor: "#f74d33",
+   
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   },
   completed: {
+
     backgroundColor: "#f74d33",
   },
 });
@@ -72,11 +77,10 @@ function ColorlibStepIcon(props) {
   const { active, completed } = props;
 
   const icons = {
-    1: <AmpStoriesIcon />,
-    2: <PermIdentityIcon />,
-    3: <WorkIcon />,
-    4: <FlashOnIcon />,
-    5: <DescriptionIcon />,
+    1: <PermIdentityIcon />,
+    2: <WorkIcon />,
+    3: <FlashOnIcon />,
+    4: <DescriptionIcon />,
   };
 
   return (
@@ -128,7 +132,6 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    "Templates",
     "Personal information",
     "Experience",
     "Skills",
@@ -136,17 +139,16 @@ function getSteps() {
   ];
 }
 
-function getStepContent(step) {
+function getStepContent(step,open) {
   switch (step) {
+    
     case 0:
-      return <Templates />;
-    case 1:
       return <AboutMe />;
-    case 2:
+    case 1:
       return <AboutWorkHistory />;
-    case 3:
+    case 2:
       return <AboutHardSkills />;
-    case 4:
+    case 3:
       return <Portfolio />;
 
     default:
@@ -155,38 +157,50 @@ function getStepContent(step) {
 }
 
 export default function CustomizedSteppers() {
+  let {firstName, secondName, age, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
+  const [cls, setCls] = useState(["side"]);
+  const [open, setOpen] = useState(false);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    
   };
+  
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    
   };
-
+const Time = ()=>{
+  setOpen(true)
+}
   const handleReset = () => {
     setActiveStep(0);
   };
-  const [cls, setCls] = useState(["side"]);
-  const [open, setOpen] = useState(true);
+  
 
   useEffect(() => {
     if (open) {
       setCls((oldArr) => [...oldArr, "open"]);
       console.log("cls", cls);
+
     } else {
       setCls(['side']);
+
     }
   }, [open]);
 
   return (
-    <div className={classes.root}>
+    
+    <div className="page">
+      {}
       <div  className={cls.join(" ")}>
         
-        {!open?(<div onClick={() => setOpen(!open)} className="side-open">Открыть</div>):(<div className='side-close' onClick={() => setOpen(!open)}>Закрыть</div>)}
+        {!open?(<div onClick={() => setOpen(!open)} className="side-open">Open</div>):(<div className='side-close' onClick={() => setOpen(!open)}>Close</div>)}
         
 
       </div>
@@ -213,7 +227,7 @@ export default function CustomizedSteppers() {
         ) : (
           <div className="container-pdf">
             <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
+              {getStepContent(activeStep,open)}
             </Typography>
             <div>
               <Button
@@ -224,17 +238,26 @@ export default function CustomizedSteppers() {
               >
                 Back
               </Button>
-              <Button
+              {firstName === ""?(<Button
+                disabled
                 variant="contained"
                 onClick={handleNext}
                 className={classes.button}
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
-              </Button>
+              </Button>):(<Button
+                variant="contained"
+                onClick={handleNext}
+                className={classes.button}
+              >
+                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              </Button>)}
+              
             </div>
           </div>
         )}
       </div>
+      
     </div>
   );
 }

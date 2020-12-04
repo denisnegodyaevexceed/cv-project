@@ -8,7 +8,7 @@ const Test = ()=> {
    
         return (
            
-            <div>
+            <div className="page">
                 
                
                 
@@ -20,7 +20,7 @@ const Test = ()=> {
             </video>
             </div>
             <div className="wrap" >
-    <Box className="btn2" to="/steps" component={Link} >Create Resume</Box>
+    <Box className="btn2" to="/templates" component={Link} >Create Resume</Box>
     {/* <Box to="/steps" component={Link} className="button1" >Create Resume</Box> */}
     </div>
             </div>
