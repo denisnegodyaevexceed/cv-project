@@ -23,9 +23,9 @@ const Template1 = () => {
   
 
   return (
+    <div className="page">
     <div className="container-pdf">
 
-    <div>
       <div className="button">
         <Button
         
@@ -223,6 +223,7 @@ const Template1 = () => {
           </div>}
         </div>
       </PDFExport>
+    
     </div>
     </div>
   );
