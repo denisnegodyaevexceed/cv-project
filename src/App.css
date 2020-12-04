@@ -332,3 +332,39 @@ z-index: 3;
         opacity: 1;
     }
 }
+
+.side{
+    position: fixed;
+    width: 250px;
+    height: 400px;
+    transform: translateX(1870px) translateY(300px);;
+   transition: 2s;
+   border-radius: 30px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: white;
+}
+.open{
+    transform: translateX(1600px) translateY(300px);
+
+    background-color: white;
+}
+.side-open{
+    position: fixed;
+    left: -60px;
+    top: 45%;
+    transform: rotate(-90deg);
+    font-size: 30px;
+    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+
+}
+.side-close{
+
+    position: fixed;
+    left: 45px;
+    top: 345px;
+    font-size: 30px;
+    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+
+}

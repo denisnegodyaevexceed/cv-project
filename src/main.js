@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -11,15 +11,17 @@ import Typography from "@material-ui/core/Typography";
 import AboutMe from "./components/inputs/aboutMe";
 import AboutWorkHistory from "./components/inputs/aboutWorkHistory";
 import AboutHardSkills from "./components/inputs/aboutHardSkills";
-import { Redirect} from "react-router-dom";
-import Templates from './templatePage'
+import { Link, Redirect, Route } from "react-router-dom";
+import Templates from "./templatePage";
+import Container from "@material-ui/core/Container";
 import Portfolio from "./components/inputs/portfolio";
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import AmpStoriesIcon from '@material-ui/icons/AmpStories';
-import WorkIcon from '@material-ui/icons/Work';
-import FlashOnIcon from '@material-ui/icons/FlashOn';
-import DescriptionIcon from '@material-ui/icons/Description';
-
+import PermIdentityIcon from "@material-ui/icons/PermIdentity";
+import AmpStoriesIcon from "@material-ui/icons/AmpStories";
+import WorkIcon from "@material-ui/icons/Work";
+import FlashOnIcon from "@material-ui/icons/FlashOn";
+import DescriptionIcon from "@material-ui/icons/Description";
+import Snackbar from "@material-ui/core/Snackbar";
+import Slide from "@material-ui/core/Slide";
 const ColorlibConnector = withStyles({
   alternativeLabel: {
     top: 22,
@@ -28,7 +30,6 @@ const ColorlibConnector = withStyles({
     "& $line": {
       backgroundImage:
         "linear-gradient(to top right, rgb(23, 11, 11), rgb(40, 16, 12), rgb(58, 20, 13), rgb(75, 25, 14), rgb(93, 29, 15), rgb(110, 34, 16), rgb(110, 39, 18), rgb(111, 44, 19), rgb(111, 49, 21), rgb(111, 54, 22), rgb(112, 59, 24), rgb(112, 64, 25));",
-        
     },
   },
   completed: {
@@ -58,13 +59,11 @@ const useColorlibStepIconStyles = makeStyles({
     alignItems: "center",
   },
   active: {
-    backgroundColor:
-      "#f74d33",
+    backgroundColor: "#f74d33",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   },
   completed: {
-    backgroundColor:
-      "#f74d33",
+    backgroundColor: "#f74d33",
   },
 });
 
@@ -112,12 +111,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   button: {
-    backgroundColor:'rgb(247, 77, 51)',
+    backgroundColor: "rgb(247, 77, 51)",
     marginRight: theme.spacing(1),
-    '&:hover': {
-      backgroundColor: 'white',
-      borderColor: 'rgb(247, 77, 51)',
-      boxShadow: 'none',
+    "&:hover": {
+      backgroundColor: "white",
+      borderColor: "rgb(247, 77, 51)",
+      boxShadow: "none",
     },
   },
 
@@ -128,22 +127,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Templates","Personal information", "Experience", "Skills", "Portfolio"];
+  return [
+    "Templates",
+    "Personal information",
+    "Experience",
+    "Skills",
+    "Portfolio",
+  ];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Templates/>;
+      return <Templates />;
     case 1:
-        return <AboutMe />;
+      return <AboutMe />;
     case 2:
       return <AboutWorkHistory />;
     case 3:
       return <AboutHardSkills />;
     case 4:
-      return <Portfolio/>;
-      
+      return <Portfolio />;
+
     default:
       return "Unknown step";
   }
@@ -165,18 +170,34 @@ export default function CustomizedSteppers() {
   const handleReset = () => {
     setActiveStep(0);
   };
+  const [cls, setCls] = useState(["side"]);
+  const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    if (open) {
+      setCls((oldArr) => [...oldArr, "open"]);
+      console.log("cls", cls);
+    } else {
+      setCls(['side']);
+    }
+  }, [open]);
 
   return (
-
     <div className={classes.root}>
+      <div  className={cls.join(" ")}>
+        
+        {!open?(<div onClick={() => setOpen(!open)} className="side-open">Открыть</div>):(<div className='side-close' onClick={() => setOpen(!open)}>Закрыть</div>)}
+        
+
+      </div>
       <Stepper
-      className='t-1'
+        className="t-1"
         alternativeLabel
         activeStep={activeStep}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (
-          <Step  key={label}>
+          <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
           </Step>
         ))}
@@ -184,9 +205,7 @@ export default function CustomizedSteppers() {
       <div>
         {activeStep === steps.length ? (
           <div>
-           
-              
-              <Redirect to="/resume" className={classes.instructions} />
+            <Redirect to="/resume" className={classes.instructions} />
             <Button onClick={handleReset} className={classes.button}>
               Reset
             </Button>
@@ -198,7 +217,7 @@ export default function CustomizedSteppers() {
             </Typography>
             <div>
               <Button
-              variant="contained"
+                variant="contained"
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.button}
