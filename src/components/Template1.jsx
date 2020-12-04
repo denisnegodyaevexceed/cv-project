@@ -1,16 +1,24 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
-import { useSelector, useDispatch } from "react-redux";
-import Container from '@material-ui/core/Container';
+import { useSelector} from "react-redux";
+
 
 const Template1 = () => {
   let pdfExportComponent;
   const userInfo = useSelector((state) => state.aboutMeReducer);
 
+  const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
   
+  const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
+
+  const {firstProject, secondProject, thierdProject, fourthProject} = useSelector(state => state.portfolioReducer)
+
+  const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
+  (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
+  (thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack) ||
+  (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
   console.log(1, userInfo);
 
@@ -60,20 +68,20 @@ const Template1 = () => {
                 <div className="first-info-left-1">
                   <h4>Technical skills</h4>
                   <div className="first">
-                    <h5>Frontend</h5>
-                    <div>lorem ipsum</div>
+                    {frontend&&<h5>Frontend</h5>}
+                    <div>{frontend}</div>
                   </div>
                   <div>
-                    <h5>Backend</h5>
-                    <div>lorem ipsum</div>
+                    {backend&&<h5>Backend</h5>}
+                    <div>{backend}</div>
                   </div>
                   <div>
-                    <h5>DBS</h5>
-                    <div>lorem ipsum</div>
+                    {dbs&&<h5>DBS</h5>}
+                    <div>{dbs}</div>
                   </div>
                   <div>
-                    <h5>Other</h5>
-                    <div>lorem ipsum</div>
+                    {other&&<h5>Other</h5>}
+                      <div>{other}</div>
                   </div>
                   <div>
                     <h4>Contact details</h4>
@@ -96,50 +104,42 @@ const Template1 = () => {
                      {userInfo.aboutMeInfo}
                     </div>
                   </div>
-
+                {((firstCompany&&firstPosition&&firstDescription) || (secondCompany&&secondPosition&&secondDescription))&& <div>
                   <div>
                     <h4>Work History</h4>
-                    <h5>REMOTE WORK</h5>
-                    <h6>full stack developer | 2019-present</h6>
-                    <div className="text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Provident sit veniam doloremque fugit cum molestias nisi
-                      modi distinctio!
-                    </div>
+                    {firstCompany && <h5>{firstCompany.toUpperCase()}</h5>}
+        {firstPosition && <h6>{firstPosition}</h6>}
+                    {firstDescription &&<div className="text">
+                      {firstDescription}
+                    </div>}
                   </div>
                   <div>
-                    <h5>OLIMP IT</h5>
-                    <h6>full stack developer | 2019-present</h6>
-                    <div className="text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Provident sit veniam doloremque fugit cum molestias nisi
-                      modi distinctio!
-                    </div>
+                    {secondCompany&&<h5>{secondCompany.toUpperCase()}</h5>}
+                        {secondPosition&&<h6>{secondPosition}</h6>}
+                    {secondDescription&&<div className="text">
+                          {secondDescription}
+                    </div>}
                   </div>
-
-                  <div>
+                  </div>}
+                  {userInfo.education && <div>
                     <h4>Education History</h4>
-                    <h5>BACHELOR OF COMPUTER SCIENCE</h5>
-                    <h6>University</h6>
                     <div className="text">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Praesentium illum adipisci similique quas omnis nesciunt
-                      deserunt.
+                      {userInfo.education}
                     </div>
-                  </div>
+                  </div>}
                 </div>
               </div>
             </div>
           </div>
           <br />
-          <div className="template-1 page-break">
+          {isHavePortfolio && <div className="template-1 page-break">
             <div class="head-1">
               <div className="content-head-1">
                 <div className="head-name-1">
-                  <div className="first-name-1">Name</div>
-                  <div className="last-name-1">Last Name</div>
+                <div className="first-name-1">{userInfo.firstName}</div>
+                  <div className="last-name-1">{userInfo.secondName}</div>
                 </div>
-                <div className="post-1">POST</div>
+                <div className="post-1">{userInfo.careerObjective}</div>
               </div>
               <img className="avatar-1" src="./user.png" alt="" />
             </div>
@@ -148,47 +148,77 @@ const Template1 = () => {
               <h2 className="context">PORTFOLIO</h2>
 
               <div className="other-left-info-1">
-                <div>
-                  <h4>Name project</h4>
-                  <h5>Link project</h5>
+                {firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack &&<div>
+                <h4>{firstProject.name.toUpperCase()}</h4>
+                  <h5>{firstProject.link}</h5>
                   <div className="other-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Praesentium illum adipisci similique quas omnis nesciunt
-                    deserunt.
+                    <h5>Summary:</h5> 
+                    {firstProject.summary}
                   </div>
-                </div>
-                <div>
-                  <h4>Name project</h4>
-                  <h5>Link project</h5>
                   <div className="other-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Praesentium illum adipisci similique quas omnis nesciunt
-                    deserunt.
+                   <h5>What i did here: </h5>
+                   {firstProject.whatYouDo}
                   </div>
-                </div>
+                  <div className="other-text">
+                    <h5>Stack:</h5>
+                    {firstProject.stack}
+                  </div>
+                </div>}
+                {thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack && <div>
+                  <h4>{thierdProject.name.toUpperCase()}</h4>
+                  <h5>{thierdProject.link}</h5>
+                  <div className="other-text">
+                  <h5>Summary:</h5>
+                    {thierdProject.summary}
+                  </div>
+                  <div className="other-text">
+                  <h5>What i did here: </h5>
+                    {thierdProject.whatYouDo}
+                  </div>
+                  <div className="other-text">
+                  <h5>Stack:</h5>
+                    {thierdProject.stack}
+                  </div>
+                </div>}
+                
               </div>
               <div className="other-right-info-1">
-                <div>
-                  <h4>Name project</h4>
-                  <h5>Link project</h5>
+              {secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack && <div>
+                  <h4>{secondProject.name.toUpperCase()}</h4>
+                  <h5>{secondProject.link}</h5>
                   <div className="other-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Praesentium illum adipisci similique quas omnis nesciunt
-                    deserunt.
+                    <h5>Summary:</h5>
+                    {secondProject.summary}
                   </div>
-                </div>
-                <div>
-                  <h4>Name project</h4>
-                  <h5>Link project</h5>
                   <div className="other-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Praesentium illum adipisci similique quas omnis nesciunt
-                    deserunt.
+                    <h5>What i did here: </h5>
+                    {secondProject.whatYouDo}
                   </div>
-                </div>
+                  <div className="other-text">
+                    <h5>Stack:</h5>
+                    {secondProject.stack}
+                  </div>
+                </div>}
+               
+                {fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack && <div>
+                  <h4>{fourthProject.name.toUpperCase()}</h4>
+                  <h5>{fourthProject.link}</h5>
+                  <div className="other-text">
+                  <h5>Summary:</h5>
+                    {fourthProject.summary}
+                  </div>
+                  <div className="other-text">
+                  <h5>What i did here: </h5>
+                   {fourthProject.whatYouDo}
+                  </div>
+                  <div className="other-text">
+                  <h5>Stack:</h5>
+                    {fourthProject.stack}
+                  </div>
+                </div>}
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       </PDFExport>
     </div>

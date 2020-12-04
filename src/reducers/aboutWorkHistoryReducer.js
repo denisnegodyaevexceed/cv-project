@@ -2,10 +2,7 @@ const initialState = {
     firstCompany: '',
     firstPosition: '',
     firstDescription: '',
-    dima: {
-        name: '',
-        age: '',
-    },
+    
     secondCompany: '',
     secondPosition: '',
     secondDescription: '',
@@ -19,7 +16,6 @@ const aboutWorkHistoryReducer = (state = initialState, actions) => {
             return {
                 ...state,
                 firstCompany: actions.payload,
-                dima: { ...state.dima, name: actions.payload, }
             }
         
         case 'SET_FIRSTCOMPANY_POSITION':

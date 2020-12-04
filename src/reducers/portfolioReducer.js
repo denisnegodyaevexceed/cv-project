@@ -1,10 +1,10 @@
 const initialState = {
     firstProject: {
-        name: 'igor',
-        link: 'igor.com',
-        summary: 'bla bla',
-        whatYouDo: 'coding',
-        stack: 'react.js',
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: '',
     },
     secondProject: {
         name: '',
