@@ -18,11 +18,11 @@ const Template1 = () => {
   
   const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
 
-  const {firstProject, secondProject, thierdProject, fourthProject} = useSelector(state => state.portfolioReducer)
+  const {firstProject, secondProject, thirdProject, fourthProject} = useSelector(state => state.portfolioReducer)
 
   const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
   (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
-  (thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack) ||
+  (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
   
@@ -155,8 +155,8 @@ const Template1 = () => {
             <div className="head-1">
               <div className="content-head-1">
                 <div className="head-name-1">
-                <div className="first-name-1">{userInfo.firstName}</div>
-                  <div className="last-name-1">{userInfo.secondName}</div>
+                <div className='name-1'>{userInfo.firstName + ' '+ userInfo.secondName}</div>
+                  
                 </div>
                 <div className="post-1">{userInfo.careerObjective}</div>
               </div>
@@ -190,20 +190,20 @@ const Template1 = () => {
                     {firstProject.stack}
                   </div>
                 </div>}
-                {thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack && <div >
-                  <h4>{thierdProject.name.toUpperCase()}</h4>
-                  <h5>{thierdProject.link}</h5>
+                {thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack && <div >
+                  <h4>{thirdProject.name.toUpperCase()}</h4>
+                  <h5>{thirdProject.link}</h5>
                   <div className="other-text">
                   <h5>Summary:</h5>
-                    {thierdProject.summary}
+                    {thirdProject.summary}
                   </div>
                   <div className="other-text">
                   <h5>What i did here: </h5>
-                    {thierdProject.whatYouDo}
+                    {thirdProject.whatYouDo}
                   </div>
                   <div className="other-text">
                   <h5>Stack:</h5>
-                    {thierdProject.stack}
+                    {thirdProject.stack}
                   </div>
                 </div>}
                 

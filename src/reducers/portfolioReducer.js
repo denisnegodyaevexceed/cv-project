@@ -1,31 +1,31 @@
 const initialState = {
     firstProject: {
-        name: 'asddas',
-        link: 'asdasd',
-        summary: 'asdasd',
-        whatYouDo: 'asdasd',
-        stack: 'asdasd',
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: '',
     },
     secondProject: {
-        name: 'asdasd',
-        link: 'asdasd',
-        summary: 'asdasd',
-        whatYouDo: 'asdasd',
-        stack: 'asdasd',
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: '',
     },
-    thierdProject: {
-        name: 'asdasd',
-        link: 'asdasd',
-        summary: 'asdasd',
-        whatYouDo: 'asdasda',
-        stack: 'asdasd',
+    thirdProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: '',
     },
     fourthProject: {
-        name: 'asdasd',
-        link: 'asdasd',
-        summary: 'asdasd',
-        whatYouDo: 'asdasd',
-        stack: 'asdads',
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: '',
     }
 }
 
@@ -83,30 +83,30 @@ const portfolioReducer = (state = initialState, actions) => {
                 ...state,
                 secondProject: { ...state.secondProject, stack: actions.payload }
             }
-            case "SET_THIERDPROJECT_NAME":
+            case "SET_THIRDPROJECT_NAME":
             return {
                 ...state,
-                thierdProject: { ...state.thierdProject, name: actions.payload }
+                thirdProject: { ...state.thirdProject, name: actions.payload }
             }
-        case "SET_THIERDPROJECT_LINK":
+        case "SET_THIRDPROJECT_LINK":
             return {
                 ...state,
-                thierdProject: { ...state.thierdProject, link: actions.payload }
+                thirdProject: { ...state.thirdProject, link: actions.payload }
             }
-        case "SET_THIERDPROJECT_SUMMARY":
+        case "SET_THIRDPROJECT_SUMMARY":
             return {
                 ...state,
-                thierdProject: { ...state.thierdProject, summary: actions.payload }
+                thirdProject: { ...state.thirdProject, summary: actions.payload }
             }
-        case "SET_THIERDPROJECT_WHATYOUDO":
+        case "SET_THIRDPROJECT_WHATYOUDO":
             return {
                 ...state,
-                thierdProject: { ...state.thierdProject, whatYouDo: actions.payload }
+                thirdProject: { ...state.thirdProject, whatYouDo: actions.payload }
             }
-        case "SET_THIERDPROJECT_STACK":
+        case "SET_THIRDPROJECT_STACK":
             return {
                 ...state,
-                thierdProject: { ...state.thierdProject, stack: actions.payload }
+                thirdProject: { ...state.thirdProject, stack: actions.payload }
             }
             case "SET_FOURTHPROJECT_NAME":
             return {

@@ -16,7 +16,7 @@ import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import WorkIcon from "@material-ui/icons/Work";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import DescriptionIcon from "@material-ui/icons/Description";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // import { useSelector } from 'react-redux';
 
@@ -155,7 +155,7 @@ function getStepContent(step,open) {
 export default function CustomizedSteppers() {
   
   const { templateNumber } = useSelector((state) => state.templateReducer);
-  let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
+  let {firstName, secondName, careerObjective, aboutMeInfo, email, phoneNumber, } = useSelector(state => state.aboutMeReducer)
 
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);

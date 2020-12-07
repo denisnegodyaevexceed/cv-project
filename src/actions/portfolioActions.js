@@ -52,28 +52,28 @@ const setSecondProjectStack = (data) =>({
     payload: data
 })
 
-const setThierdProjectName = (data) =>({
-    type: actions.SET_THIERDPROJECT_NAME,
+const setThirdProjectName = (data) =>({
+    type: actions.SET_THIRDPROJECT_NAME,
     payload: data
 })
 
-const setThierdProjectLink = (data) =>({
-    type: actions.SET_THIERDPROJECT_LINK,
+const setThirdProjectLink = (data) =>({
+    type: actions.SET_THIRDPROJECT_LINK,
     payload: data
 })
 
-const setThierdProjectSummary = (data) =>({
-    type: actions.SET_THIERDPROJECT_SUMMARY,
+const setThirdProjectSummary = (data) =>({
+    type: actions.SET_THIRDPROJECT_SUMMARY,
     payload: data
 })
 
-const setThierdProjectWhatYouDo = (data) =>({
-    type: actions.SET_THIERDPROJECT_WHATYOUDO,
+const setThirdProjectWhatYouDo = (data) =>({
+    type: actions.SET_THIRDPROJECT_WHATYOUDO,
     payload: data
 })
 
-const setThierdProjectStack = (data) =>({
-    type: actions.SET_THIERDPROJECT_STACK,
+const setThirdProjectStack = (data) =>({
+    type: actions.SET_THIRDPROJECT_STACK,
     payload: data
 })
 
@@ -115,11 +115,11 @@ const allPortfolioActions = {
     setSecondProjectWhatYouDo,
     setSecondProjectStack,
 
-    setThierdProjectName,
-    setThierdProjectLink,
-    setThierdProjectSummary,
-    setThierdProjectWhatYouDo,
-    setThierdProjectStack,
+    setThirdProjectName,
+    setThirdProjectLink,
+    setThirdProjectSummary,
+    setThirdProjectWhatYouDo,
+    setThirdProjectStack,
 
     setFourthProjectName,
     setFourthProjectLink,
