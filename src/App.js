@@ -18,7 +18,7 @@ function App() {
 
     { path: '/steps', Component: CustomizedSteppers },
     
-    // { path: '/resume', Component: Template1 },
+    // { path: '/resume', Component: Template1 }, 
 
 ]
 
