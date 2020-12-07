@@ -59,6 +59,8 @@ const Template1 = () => {
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
             <div className="head-1">
+            <div className="bg1">sd</div>
+
               <div className="content-head-1">
                 <div className="head-name-1">
                   <div className="name-1">{userInfo.firstName + ' '+ userInfo.secondName} </div>
@@ -153,6 +155,8 @@ const Template1 = () => {
           <br />
           {isHavePortfolio && <div className="template-1 page-break">
             <div className="head-1">
+            <div className="bg1">sd</div>
+              
               <div className="content-head-1">
                 <div className="head-name-1">
                 <div className='name-1'>{userInfo.firstName + ' '+ userInfo.secondName}</div>
