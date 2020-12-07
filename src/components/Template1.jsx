@@ -5,9 +5,14 @@ import Button from "@material-ui/core/Button";
 import { useSelector} from "react-redux";
 
 
+
+
+
 const Template1 = () => {
   let pdfExportComponent;
   const userInfo = useSelector((state) => state.aboutMeReducer);
+
+  
 
   const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
   

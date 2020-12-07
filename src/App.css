@@ -1,20 +1,36 @@
 body{
     background: linear-gradient(45deg, rgb(0, 0, 0) 55%, rgb(247, 77, 51) 5%) no-repeat fixed;
-    max-width: 100%;
-    height: 100vh;
+   width: 100%;
+    height: auto;
     padding: 0;
+    overflow-x: hidden;
      font-family: 'Montserrat', sans-serif;
 }
 
 .App {
+    width: 100%;
+    position: absolute;
         height: 100vh;
 }
 
 .MuiStepper-alternativeLabel {
     background-color: rgba(0, 0, 0, 0) !important;
 }
+.cont-item{
+    position: relative;
+}
+.MuiButton-containedSecondary {
+    color: black;
+    background-color:  rgb(247, 77, 51) !important; 
+}
+.icon{
+   position: absolute;
+   z-index: 5;
+   top: 0;
+  right: 20%;
 
-
+    color: white;
+}
 .t-1{
     color: white;
 }
@@ -62,7 +78,7 @@ z-index: 3;
     
 }
 .template-1{
-   
+    
     font-family: 'Raleway', sans-serif;
 }
 .content-head-1{
@@ -153,6 +169,9 @@ z-index: 3;
     text-align: center;
     font-weight: bold;
     margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+}
+.h3-template{
+    color:white;
 }
 
 .other-info{
@@ -322,6 +341,9 @@ z-index: 3;
   .btn2:hover {background: rgba(255,255,255,0);
     color: black;
 }
+.MuiSnackbarContent-root{
+    background-color: #4caf50 !important;
+}
   .btn2:hover:before {
     bottom: 0%;
     top: auto;
@@ -344,21 +366,25 @@ z-index: 3;
   @keyframes fade-out{
     0%{
         opacity: 1;
-        transform: translateX(0px);
+        transform: translateY(0px);
         
         
     }
     100%{
-        transform: translateX(100%);
+        transform: translateY(-400px);
 
         opacity: 0;
     }
 }
- 
+ video{
+
+    overflow: hidden;
+ }
    .page{
+    /* overflow: hidden; */
      position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
      
       
    }
@@ -372,6 +398,7 @@ z-index: 3;
 
 .side{
     position: absolute;
+    
     right: -260px;
     top: 32%;
     width: 300px;
