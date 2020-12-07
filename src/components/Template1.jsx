@@ -159,9 +159,9 @@ const Template1 = () => {
 
             <div className="other-info">
               <h2 className="context">PORTFOLIO</h2>
-
+                    
               <div className="other-left-info-1">
-                {firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack &&<div>
+                {firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack &&<div >
                 <h4>{firstProject.name.toUpperCase()}</h4>
                   <h5>{firstProject.link}</h5>
                   <div className="other-text">
@@ -177,7 +177,7 @@ const Template1 = () => {
                     {firstProject.stack}
                   </div>
                 </div>}
-                {thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack && <div>
+                {thierdProject.name && thierdProject.link && thierdProject.summary && thierdProject.whatYouDo && thierdProject.stack && <div >
                   <h4>{thierdProject.name.toUpperCase()}</h4>
                   <h5>{thierdProject.link}</h5>
                   <div className="other-text">
@@ -213,7 +213,7 @@ const Template1 = () => {
                   </div>
                 </div>}
                
-                {fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack && <div>
+                {fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack && <div >
                   <h4>{fourthProject.name.toUpperCase()}</h4>
                   <h5>{fourthProject.link}</h5>
                   <div className="other-text">

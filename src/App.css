@@ -18,6 +18,10 @@ body{
 .cont-item{
     position: relative;
 }
+.item-2{
+    
+    margin-top: 70px;
+}
 .MuiButton-containedSecondary {
     color: black;
     background-color:  rgb(247, 77, 51) !important; 
@@ -109,7 +113,7 @@ z-index: 3;
     right: 20px;
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 1000px;
     border: solid white;
     object-fit: cover;
     max-width: 100%;
@@ -176,11 +180,13 @@ z-index: 3;
 .other-info{
     border-bottom: 2px solid black;
     border-right: 1px solid black;
-
+    padding-top: 65px;
+    padding-bottom: 10px;
+    padding-right: 10px;
     display: flex;
     justify-content: space-between;
     width: auto;
-    height: 550px;
+    height: auto;
     background-color: white;
     position: relative;
     padding-bottom: 40px;
@@ -188,13 +194,9 @@ z-index: 3;
 }
 .other-left-info-1>div{
     margin-left: 20px;
-    margin-top: 90px;
+   
 }
-.other-right-info-1>div{
-    margin-left: 20px;
 
-    margin-top: 90px;
-}
 .context{
     left: 37%;
     top: 3%;
