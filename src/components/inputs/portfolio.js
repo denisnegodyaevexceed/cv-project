@@ -37,6 +37,17 @@ const Portfolio = () => {
     const classes = useStyles();
     const classes2 = useStyles2();
 
+    let firstSummaryCounter = (180 - firstProject.summary.length) + ' letters left.'
+    let firstWhatYouDoCounter = (180 - firstProject.whatYouDo.length) + ' letters left.'
+    let secondSummaryCounter = (180 - secondProject.summary.length) + ' letters left.'
+    let secondWhatYouDoCounter = (180 - secondProject.whatYouDo.length) + ' letters left.'
+    let thierdSummaryCounter = (180 - thierdProject.summary.length) + ' letters left.'
+    let thierdWhatYouDoCounter = (180 - thierdProject.whatYouDo.length) + ' letters left.'
+    let fourthSummaryCounter = (180 - fourthProject.summary.length) + ' letters left.'
+    let fourthWhatYouDoCounter = (180 - fourthProject.whatYouDo.length) + ' letters left.'
+
+
+
     return (
         <div className='container'>
             <div className={classes2.root}>
@@ -59,14 +70,16 @@ const Portfolio = () => {
                     <TextField value={firstProject.link} onChange={e=>dispatch(allPortfolioActions.setFirstProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
                     <TextField 
                     value={firstProject.summary}
-                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectSummary(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectSummary(e.target.value.length <= 180 ? e.target.value : firstProject.summary))}
+                    helperText={firstProject.summary.length>0? firstSummaryCounter: ''}
                     label='Summary' 
                     variant='outlined'
                     multiline
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                     <TextField value={firstProject.whatYouDo}
-                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectWhatYouDo(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setFirstProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : firstProject.whatYouDo))}
+                    helperText={firstProject.whatYouDo.length>0? firstWhatYouDoCounter: ''}
                     label='What you did here?' 
                     variant='outlined'
                     multiline
@@ -99,7 +112,8 @@ const Portfolio = () => {
                     <TextField value={secondProject.link} onChange={e=>dispatch(allPortfolioActions.setSecondProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
                     <TextField 
                     value={secondProject.summary}
-                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectSummary(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectSummary(e.target.value.length <= 180 ? e.target.value : secondProject.summary))}
+                    helperText={secondProject.summary.length>0? secondSummaryCounter: ''}
                     label='Summary' 
                     variant='outlined'
                     multiline
@@ -107,7 +121,8 @@ const Portfolio = () => {
                     id="outlined-multiline-flexible"/>
                     <TextField 
                     value={secondProject.whatYouDo}
-                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectWhatYouDo(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setSecondProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : secondProject.whatYouDo))}
+                    helperText={secondProject.whatYouDo.length>0? secondWhatYouDoCounter: ''}
                     label='What you did here?' 
                     variant='outlined'
                     multiline
@@ -140,7 +155,8 @@ const Portfolio = () => {
                     <TextField value={thierdProject.link} onChange={e=>dispatch(allPortfolioActions.setThierdProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
                     <TextField 
                     value={thierdProject.summary}
-                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectSummary(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectSummary(e.target.value.length <= 180 ? e.target.value : thierdProject.summary))}
+                    helperText={thierdProject.summary.length>0? thierdSummaryCounter: ''}
                     label='Summary' 
                     variant='outlined'
                     multiline
@@ -148,7 +164,8 @@ const Portfolio = () => {
                     id="outlined-multiline-flexible"/>
                     <TextField 
                     value={thierdProject.whatYouDo}
-                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectWhatYouDo(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setThierdProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : thierdProject.whatYouDo))}
+                    helperText={thierdProject.whatYouDo.length>0? thierdWhatYouDoCounter: ''}
                     label='What you did here?' 
                     variant='outlined'
                     multiline
@@ -181,7 +198,9 @@ const Portfolio = () => {
                     <TextField value={fourthProject.link} onChange={e=>dispatch(allPortfolioActions.setFourthProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
                     <TextField 
                     value={fourthProject.summary}
-                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectSummary(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectSummary(e.target.value.length <= 180 ? e.target.value : fourthProject.summary))}
+                    
+                    helperText={fourthProject.summary.length>0? fourthSummaryCounter: ''}
                     label='Summary' 
                     variant='outlined'
                     multiline
@@ -189,7 +208,8 @@ const Portfolio = () => {
                     id="outlined-multiline-flexible"/>
                     <TextField 
                     value={fourthProject.whatYouDo}
-                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectWhatYouDo(e.target.value))}
+                    onChange={e=>dispatch(allPortfolioActions.setFourthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : fourthProject.whatYouDo))}
+                    helperText={fourthProject.whatYouDo.length>0? fourthWhatYouDoCounter: ''}
                     label='What you did here?' 
                     variant='outlined'
                     multiline

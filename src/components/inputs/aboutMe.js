@@ -53,11 +53,7 @@ export default function AboutMe() {
     const classes3 = useStyles3()
     
 
-    const ageArr = []
-
-    for (let i = 16; i <= 100; i++) {
-        ageArr.push(i)
-    }
+    
 
     let educationCounter = (180 - education.length) + ' letters left.'
     let aboutMeInfoCounter = (180 - aboutMeInfo.length) + ' letters left.'
