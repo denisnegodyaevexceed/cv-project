@@ -83,7 +83,6 @@ export default function AboutMe() {
                     multiline
                     type='text'
                     helperText={education.length>0? educationCounter: ''}
-                    maxlength = '180'
                     rowsMax={10}
                     value={education}
                     onChange={(e) => {dispatch(allAboutMeActions.setEducationAction(e.target.value.length <= 180 ? e.target.value : education))}}

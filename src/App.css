@@ -115,15 +115,21 @@ z-index: 3;
     height: 150px;
     border-radius: 1000px;
     border: solid white;
-    object-fit: cover;
+    /* object-fit: fill; */
     max-width: 100%;
+    
 }
 
 .avatarImage {
-    object-fit: cover;
-    width: 150px;
-    height: 150px;
+    max-width: 150px;
+    min-height: 150px;
     border-radius: inherit;
+    object-fit: cover;
+
+}
+.contain{
+    object-fit: cover;
+
 }
 
 .main-info-1{

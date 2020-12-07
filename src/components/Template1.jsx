@@ -66,7 +66,13 @@ const Template1 = () => {
                 </div>
         <div className="post-1">{userInfo.careerObjective}</div>
               </div>
-              <div className="avatar-1">{!userInfo.avatar ?<img className='avatarImage' src="./user.png" alt="" />: <img className='avatarImage' src={userInfo.avatar} alt="" />}</div>
+              <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        width: 150,
+                        height: 150,
+                        margin: "auto"}}></div>
+              
             </div>
             <div className="main-info-1">
               <div className="left-info-1">
@@ -146,7 +152,7 @@ const Template1 = () => {
           </div>
           <br />
           {isHavePortfolio && <div className="template-1 page-break">
-            <div class="head-1">
+            <div className="head-1">
               <div className="content-head-1">
                 <div className="head-name-1">
                 <div className="first-name-1">{userInfo.firstName}</div>
@@ -154,7 +160,12 @@ const Template1 = () => {
                 </div>
                 <div className="post-1">{userInfo.careerObjective}</div>
               </div>
-              <img className="avatar-1" src="./user.png" alt="" />
+              <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        width: 150,
+                        height: 150,
+                        margin: "auto"}}></div>
             </div>
 
             <div className="other-info">
