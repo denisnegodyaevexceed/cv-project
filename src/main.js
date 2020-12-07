@@ -158,7 +158,7 @@ export default function CustomizedSteppers() {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
   const [cls, setCls] = useState(["side"]);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);

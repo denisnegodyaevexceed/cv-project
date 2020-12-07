@@ -21,53 +21,16 @@ export default function CenteredGrid() {
   return (
     <div className="page">
     <div className="container-pdf">
+      <h2 className="h2-template">Choose a template</h2>
     <div className={classes.root}>
       <Grid container spacing={1}>
         <Grid item xs={3} className="template-1">
           
               <img className="img-1-1" src="./template-1-1.png" alt="" />
-              <img className="img-1-2" src="./template-1-2.png" alt="" />
+              <img id="1" onClick={(e)=>console.log(e.target.id)}className="img-1-2" src="./template-1-2.png" alt="" />
            
         </Grid>
-        <Grid item xs={3} className="template-1">
-          
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-          
-        </Grid>
-        <Grid item xs={3} className="template-1">
-          
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-          
-        </Grid>
-        <Grid item xs={3} className="template-1">
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-        </Grid>
-        <Grid item xs={3} className="template-1">
-         
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-         
-        </Grid>
-        <Grid item xs={3} className="template-1">
-          <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-        </Grid>
-        <Grid item xs={3} className="template-1">
-          
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-          
-        </Grid>
-        <Grid item xs={3} className="template-1">
-          
-            <img className="img-1-1" src="./template-1-1.png" alt="" />
-            <img className="img-1-2" src="./template-1-2.png" alt="" />
-          
-        </Grid>
-
+       
       </Grid>
     </div>
     <Button 
