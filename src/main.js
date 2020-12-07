@@ -16,6 +16,7 @@ import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import WorkIcon from "@material-ui/icons/Work";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import DescriptionIcon from "@material-ui/icons/Description";
+import { useSelector, useDispatch } from "react-redux";
 
 // import { useSelector } from 'react-redux';
 
@@ -153,6 +154,8 @@ function getStepContent(step,open) {
 
 export default function CustomizedSteppers() {
   
+  const { templateNumber } = useSelector((state) => state.templateReducer);
+  let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
 
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -185,14 +188,16 @@ export default function CustomizedSteppers() {
 
     }
   }, [open]);
-
+const link = `./template-${templateNumber}-1.png`
   return (
     
     <div className="page">
-      {}
+      
       <div  className={cls.join(" ")}>
-        <h2 className="side-h2">Selected template</h2>
-        <img className="side-img" src="./template-1-1.png" alt="" />
+      {templateNumber === ''?<h2 className="side-h2">
+please select a template</h2>:<h2 className="side-h2">Selected template</h2>}
+        
+        {templateNumber === ''?null:<img className="side-img" src={link} alt="" />}
         {!open?(<div onClick={() => setOpen(!open)} className="side-open">
           Open
           </div>):(<div className='side-close' onClick={() => setOpen(!open)}>
@@ -235,13 +240,16 @@ export default function CustomizedSteppers() {
               >
                 Back
               </Button>
-              <Button
+              {firstName,secondName,careerObjective,aboutMeInfo,email,phoneNumber===''?<h2 className="h3-template">
+
+              fill in the fields with *</h2>:<Button
                 variant="contained"
                 onClick={handleNext}
                 className={classes.button}
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
-              </Button>
+              </Button>}
+              
               
             </div>
           </div>
