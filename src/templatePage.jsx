@@ -89,7 +89,7 @@ please select a template</h3>:<Button
         open={open}
         onClose={handleClose}
         TransitionComponent={transition}
-        message="template selected"
+        message="Template selected!"
         key={transition ? transition.name : ""}
       />
       

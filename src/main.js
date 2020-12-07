@@ -240,7 +240,7 @@ please select a template</h2>:<h2 className="side-h2">Selected template</h2>}
               >
                 Back
               </Button>
-              {firstName,secondName,careerObjective,aboutMeInfo,email,phoneNumber===''?<h2 className="h3-template">
+              {!(firstName&&secondName&&careerObjective&&aboutMeInfo&&email&&phoneNumber)?<h2 className="h3-template">
 
               fill in the fields with *</h2>:<Button
                 variant="contained"
