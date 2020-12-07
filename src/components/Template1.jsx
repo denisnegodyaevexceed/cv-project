@@ -61,8 +61,8 @@ const Template1 = () => {
             <div className="head-1">
               <div className="content-head-1">
                 <div className="head-name-1">
-                  <div className="first-name-1">{userInfo.firstName}</div>
-                  <div className="last-name-1">{userInfo.secondName}</div>
+                  <div className="name-1">{userInfo.firstName + ' '+ userInfo.secondName} </div>
+                  {/* <div className="last-name-1">{userInfo.secondName}</div> */}
                 </div>
         <div className="post-1">{userInfo.careerObjective}</div>
               </div>
@@ -156,11 +156,13 @@ const Template1 = () => {
               </div>
               <img className="avatar-1" src="./user.png" alt="" />
             </div>
+<div>
 
             <div className="other-info">
-              <h2 className="context">PORTFOLIO</h2>
                     
+<h2 className="context">PORTFOLIO</h2>
               <div className="other-left-info-1">
+
                 {firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack &&<div >
                 <h4>{firstProject.name.toUpperCase()}</h4>
                   <h5>{firstProject.link}</h5>
@@ -230,9 +232,11 @@ const Template1 = () => {
                   </div>
                 </div>}
               </div>
+              </div>
             </div>
           </div>}
         </div>
+        
       </PDFExport>
     
     </div>
