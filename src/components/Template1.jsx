@@ -80,15 +80,21 @@ const Template1 = () => {
                   </div>
                   <div>
                     {backend&&<h5>Backend</h5>}
-                    <div>{backend}</div>
+                    <div>{backend.split(' ').map((item, index) => {
+                      return <div key={index}>{item}</div>
+                    })}</div>
                   </div>
                   <div>
                     {dbs&&<h5>DBS</h5>}
-                    <div>{dbs}</div>
+                    <div>{dbs.split(' ').map((item, index) => {
+                      return <div key={index}>{item}</div>
+                    })}</div>
                   </div>
                   <div>
                     {other&&<h5>Other</h5>}
-                      <div>{other}</div>
+                      <div>{other.split(' ').map((item, index) => {
+                      return <div key={index}>{item}</div>
+                    })}</div>
                   </div>
                   {userInfo.email && <div>
                     <h4>Contact details</h4>

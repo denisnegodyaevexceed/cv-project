@@ -59,7 +59,8 @@ export default function AboutMe() {
         ageArr.push(i)
     }
 
-    
+    let educationCounter = (180 - education.length) + ' letters left.'
+    let aboutMeInfoCounter = (180 - aboutMeInfo.length) + ' letters left.'
     
     return (
         <div className="container-pdf">
@@ -84,18 +85,23 @@ export default function AboutMe() {
                     id="outlined-multiline-flexible"
                     label="About your education"
                     multiline
+                    type='text'
+                    helperText={education.length>0? educationCounter: ''}
+                    maxlength = '180'
                     rowsMax={10}
                     value={education}
-                    onChange={(e) => {dispatch(allAboutMeActions.setEducationAction(e.target.value))}}
+                    onChange={(e) => {dispatch(allAboutMeActions.setEducationAction(e.target.value.length <= 180 ? e.target.value : education))}}
                     variant="outlined"
                 />
+               
             <TextField
                     id="outlined-multiline-flexible"
                     label="Something about you"
+                    helperText={aboutMeInfo.length>0? aboutMeInfoCounter: ''}
                     multiline
                     rowsMax={10}
                     value={aboutMeInfo}
-                    onChange={(e) => {dispatch(allAboutMeActions.setAboutMeInfoAction(e.target.value))}}
+                    onChange={(e) => {dispatch(allAboutMeActions.setAboutMeInfoAction(e.target.value.length <= 180 ? e.target.value : aboutMeInfo))}}
                     variant="outlined"
                 />
                 {/* <input   className='inputImage' type='file'/> */}
