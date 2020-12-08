@@ -32,7 +32,7 @@ fontSize: theme.typography.pxToRem(15),
 const Portfolio = () => {
     const dispatch =useDispatch()
 
-    const {firstProject, secondProject, thirdProject, fourthProject} = useSelector(state => state.portfolioReducer)
+    const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
 
     const classes = useStyles();
     const classes2 = useStyles2();
@@ -45,6 +45,10 @@ const Portfolio = () => {
     let thirdWhatYouDoCounter = (180 - thirdProject.whatYouDo.length) + ' letters left.'
     let fourthSummaryCounter = (220 - fourthProject.summary.length) + ' letters left.'
     let fourthWhatYouDoCounter = (180 - fourthProject.whatYouDo.length) + ' letters left.'
+    let fifthSummaryCounter = (220 - fifthProject.summary.length) + ' letters left.'
+    let fifthWhatYouDoCounter = (180 - fifthProject.whatYouDo.length) + ' letters left.'
+    let sixthSummaryCounter = (220 - sixthProject.summary.length) + ' letters left.'
+    let sixthWhatYouDoCounter = (180 - sixthProject.whatYouDo.length) + ' letters left.'
 
 
 
@@ -218,6 +222,94 @@ const Portfolio = () => {
                     <TextField 
                     value={fourthProject.stack}
                     onChange={e=>dispatch(allPortfolioActions.setFourthProjectStack(e.target.value))}
+                    label='Stack' 
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
+                    id="outlined-multiline-flexible"/>
+                </form>
+          </div>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <div className={classes2.heading}><h3>Fifth project</h3></div>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div>
+          <form className={classes.root} noValidate autoComplete="off">
+                    <TextField value={fifthProject.name} onChange={e=>dispatch(allPortfolioActions.setFifthProjectName(e.target.value))} label="Project name" variant="outlined"/>
+                    <TextField value={fifthProject.link} onChange={e=>dispatch(allPortfolioActions.setFifthProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
+                    <TextField 
+                    value={fifthProject.summary}
+                    onChange={e=>dispatch(allPortfolioActions.setFifthProjectSummary(e.target.value.length <= 220 ? e.target.value : fifthProject.summary))}
+                    
+                    helperText={fifthProject.summary.length>0? fifthSummaryCounter: ''}
+                    label='Summary' 
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
+                    id="outlined-multiline-flexible"/>
+                    <TextField 
+                    value={fifthProject.whatYouDo}
+                    onChange={e=>dispatch(allPortfolioActions.setFifthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : fifthProject.whatYouDo))}
+                    helperText={fifthProject.whatYouDo.length>0? fifthWhatYouDoCounter: ''}
+                    label='What you did here?' 
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
+                    id="outlined-multiline-flexible"/>
+                    <TextField 
+                    value={fifthProject.stack}
+                    onChange={e=>dispatch(allPortfolioActions.setFifthProjectStack(e.target.value))}
+                    label='Stack' 
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
+                    id="outlined-multiline-flexible"/>
+                </form>
+          </div>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <div className={classes2.heading}><h3>Sixth project</h3></div>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div>
+          <form className={classes.root} noValidate autoComplete="off">
+                    <TextField value={sixthProject.name} onChange={e=>dispatch(allPortfolioActions.setSixthProjectName(e.target.value))} label="Project name" variant="outlined"/>
+                    <TextField value={sixthProject.link} onChange={e=>dispatch(allPortfolioActions.setSixthProjectLink(e.target.value))} label='Link to this project' variant='outlined'/>
+                    <TextField 
+                    value={sixthProject.summary}
+                    onChange={e=>dispatch(allPortfolioActions.setSixthProjectSummary(e.target.value.length <= 220 ? e.target.value : sixthProject.summary))}
+                    
+                    helperText={sixthProject.summary.length>0? sixthSummaryCounter: ''}
+                    label='Summary' 
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
+                    id="outlined-multiline-flexible"/>
+                    <TextField 
+                    value={sixthProject.whatYouDo}
+                    onChange={e=>dispatch(allPortfolioActions.setSixthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : sixthProject.whatYouDo))}
+                    helperText={sixthProject.whatYouDo.length>0? sixthWhatYouDoCounter: ''}
+                    label='What you did here?' 
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
+                    id="outlined-multiline-flexible"/>
+                    <TextField 
+                    value={sixthProject.stack}
+                    onChange={e=>dispatch(allPortfolioActions.setSixthProjectStack(e.target.value))}
                     label='Stack' 
                     variant='outlined'
                     multiline

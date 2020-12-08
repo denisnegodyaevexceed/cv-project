@@ -18,7 +18,10 @@ const Template1 = () => {
   
   const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
 
-  const {firstProject, secondProject, thirdProject, fourthProject} = useSelector(state => state.portfolioReducer)
+  const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
+
+  const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
+
 
   const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
   (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
@@ -176,7 +179,28 @@ const Template1 = () => {
             <div className="other-info">
                     
 <h2 className="context">PORTFOLIO</h2>
-              <div className="other-left-info-1">
+                    <div className='projects'>
+                    {projects.map((item, index) => {
+                      let {name, link, summary, whatYouDo, stack} = item
+                      return ( name && link && summary && whatYouDo && stack && <div className='project' key={index}>
+                        <h4>{name.toUpperCase()}</h4>
+                          <h5>{link}</h5>
+                          <div className="other-text">
+                            <h5>Summary:</h5> 
+                            {summary}
+                          </div>
+                          <div className="other-text">
+                           <h5>What i did here: </h5>
+                           {whatYouDo}
+                          </div>
+                          <div className="other-text">
+                            <h5>Stack:</h5>
+                            {stack}
+                          </div>
+                        </div>)
+                    })}
+                   </div> 
+              {/* <div className="other-left-info-1">
 
                 {firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack &&<div >
                 <h4>{firstProject.name.toUpperCase()}</h4>
@@ -246,7 +270,7 @@ const Template1 = () => {
                     {fourthProject.stack}
                   </div>
                 </div>}
-              </div>
+              </div> */}
               </div>
             </div>
           </div>}

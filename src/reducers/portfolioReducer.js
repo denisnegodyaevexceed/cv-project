@@ -26,6 +26,20 @@ const initialState = {
         summary: '',
         whatYouDo: '',
         stack: '',
+    },
+    fifthProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: ''
+    },
+    sixthProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: '',
     }
 }
 
@@ -132,6 +146,56 @@ const portfolioReducer = (state = initialState, actions) => {
             return {
                 ...state,
                 fourthProject: { ...state.fourthProject, stack: actions.payload }
+            }
+            case "SET_FIFTHPROJECT_NAME":
+            return {
+                ...state,
+                fifthProject: { ...state.fifthProject, name: actions.payload }
+            }
+        case "SET_FIFTHPROJECT_LINK":
+            return {
+                ...state,
+                fifthProject: { ...state.fifthProject, link: actions.payload }
+            }
+        case "SET_FIFTHPROJECT_SUMMARY":
+            return {
+                ...state,
+                fifthProject: { ...state.fifthProject, summary: actions.payload }
+            }
+        case "SET_FIFTHPROJECT_WHATYOUDO":
+            return {
+                ...state,
+                fifthProject: { ...state.fifthProject, whatYouDo: actions.payload }
+            }
+        case "SET_FIFTHPROJECT_STACK":
+            return {
+                ...state,
+                fifthProject: { ...state.fifthProject, stack: actions.payload }
+            }
+            case "SET_SIXTHPROJECT_NAME":
+            return {
+                ...state,
+                sixthProject: { ...state.sixthProject, name: actions.payload }
+            }
+        case "SET_SIXTHPROJECT_LINK":
+            return {
+                ...state,
+                sixthProject: { ...state.sixthProject, link: actions.payload }
+            }
+        case "SET_SIXTHPROJECT_SUMMARY":
+            return {
+                ...state,
+                sixthProject: { ...state.sixthProject, summary: actions.payload }
+            }
+        case "SET_SIXTHPROJECT_WHATYOUDO":
+            return {
+                ...state,
+                sixthProject: { ...state.sixthProject, whatYouDo: actions.payload }
+            }
+        case "SET_SIXTHPROJECT_STACK":
+            return {
+                ...state,
+                sixthProject: { ...state.sixthProject, stack: actions.payload }
             }
         default: 
         return state

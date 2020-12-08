@@ -102,6 +102,56 @@ const setFourthProjectStack = (data) =>({
     payload: data
 })
 
+const setFifthProjectName = (data) =>({
+    type: actions.SET_FIFTHPROJECT_NAME,
+    payload: data
+})
+
+const setFifthProjectLink = (data) =>({
+    type: actions.SET_FIFTHPROJECT_LINK,
+    payload: data
+})
+
+const setFifthProjectSummary = (data) =>({
+    type: actions.SET_FIFTHPROJECT_SUMMARY,
+    payload: data
+})
+
+const setFifthProjectWhatYouDo = (data) =>({
+    type: actions.SET_FIFTHPROJECT_WHATYOUDO,
+    payload: data
+})
+
+const setFifthProjectStack = (data) =>({
+    type: actions.SET_FIFTHPROJECT_STACK,
+    payload: data
+})
+
+const setSixthProjectName = (data) =>({
+    type: actions.SET_SIXTHPROJECT_NAME,
+    payload: data
+})
+
+const setSixthProjectLink = (data) =>({
+    type: actions.SET_SIXTHPROJECT_LINK,
+    payload: data
+})
+
+const setSixthProjectSummary = (data) =>({
+    type: actions.SET_SIXTHPROJECT_SUMMARY,
+    payload: data
+})
+
+const setSixthProjectWhatYouDo = (data) =>({
+    type: actions.SET_SIXTHPROJECT_WHATYOUDO,
+    payload: data
+})
+
+const setSixthProjectStack = (data) =>({
+    type: actions.SET_SIXTHPROJECT_STACK,
+    payload: data
+})
+
 const allPortfolioActions = {
     setFirstProjectName,
     setFirstProjectLink,
@@ -125,7 +175,19 @@ const allPortfolioActions = {
     setFourthProjectLink,
     setFourthProjectSummary,
     setFourthProjectWhatYouDo,
-    setFourthProjectStack
+    setFourthProjectStack,
+
+    setFifthProjectName,
+    setFifthProjectLink,
+    setFifthProjectSummary,
+    setFifthProjectWhatYouDo,
+    setFifthProjectStack,
+
+    setSixthProjectName,
+    setSixthProjectLink,
+    setSixthProjectSummary,
+    setSixthProjectWhatYouDo,
+    setSixthProjectStack,
 }
 
 export default allPortfolioActions
