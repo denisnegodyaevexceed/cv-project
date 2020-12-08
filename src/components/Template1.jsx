@@ -194,6 +194,7 @@ const Template1 = () => {
                     {firstProject.stack}
                   </div>
                 </div>}
+                
                 {thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack && <div >
                   <h4>{thirdProject.name.toUpperCase()}</h4>
                   <h5>{thirdProject.link}</h5>
@@ -246,6 +247,8 @@ const Template1 = () => {
                     {fourthProject.stack}
                   </div>
                 </div>}
+                
+                
               </div>
               </div>
             </div>

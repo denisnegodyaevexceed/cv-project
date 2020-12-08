@@ -91,7 +91,8 @@ z-index: 3;
 }
 .head-1{
     position: relative;
-    height: 240px;;
+    height: 200px;
+    width: 650px;
     background:  no-repeat center/100% url("./1.jpg");
     
 }
@@ -119,7 +120,7 @@ z-index: 3;
 }
 .avatar-1{
     position: absolute;
-    top: 115px;
+    top: 80px;
     right: 20px;
     width: 150px;
     height: 150px;
@@ -148,7 +149,7 @@ z-index: 3;
 
     display: flex;
     justify-content: space-between;
-    width: auto;
+    width: 650px;
     height: auto;
    
 }
@@ -200,7 +201,7 @@ z-index: 3;
     border-right: 1px solid black;
     display: flex;
     justify-content: space-between;
-    width: auto;
+    width: 650px;
     height: auto;
     background-color: white;
     
@@ -218,13 +219,24 @@ z-index: 3;
     width: 50%;
     padding-bottom: 40px;
 }
-.other-left-info-1>div{
+.other-left-info-1 div:first-child{
+    margin-top: 65px;
+   
+}
+.other-right-info-1 div:first-child{
     margin-top: 65px;
    
 }
 .other-right-info-1>div{
-    margin-top: 65px;
+    margin-bottom: 15px;
    
+}
+.other-left-info-1>div{
+    margin-bottom: 15px;
+   
+}
+.other-text{
+    font-size: 12.5px;
 }
 
 .context{
