@@ -20,12 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid() {
   function TransitionLeft(props) {
-    return <Slide {...props} direction="left" />;
+    return <Slide {...props} direction="left" ></Slide>;
   }
   const [open, setOpen] = React.useState(false);
   const [transition, setTransition] = React.useState(undefined);
   const handleClick = (Transition) => {
-    console.log("work ------------->", Transition);
     setTransition(() => Transition);
     setOpen(true);
   };
