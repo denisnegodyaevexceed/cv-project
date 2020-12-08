@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import NoSsr from '@material-ui/core/NoSsr';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 
@@ -27,9 +29,28 @@ const useStyles2 = makeStyles((theme) => ({
         fontWeight: theme.typography.fontWeightRegular,
       },
     }));
+    
 
+
+    const top100Films = [
+      { title: 'The Shawshank Redemption', year: 1994 },
+      { title: 'The Godfather', year: 1972 },
+      { title: 'The Godfather: Part II', year: 1974 },
+      { title: 'The Dark Knight', year: 2008 },
+      { title: '12 Angry Men', year: 1957 },
+      { title: "Schindler's List", year: 1993 },
+      { title: 'Pulp Fiction', year: 1994 },
+      { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
+      { title: 'The Good, the Bad and the Ugly', year: 1966 },
+      { title: 'Fight Club', year: 1999 },
+      { title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
+      { title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
+      { title: 'Forrest Gump', year: 1994 },
+      { title: 'Inception', year: 2010 },
+    ];
 
 const AboutHardSkills = () => {
+    
 
     const classes = useStyles();
     const classes2 = useStyles2();
@@ -37,7 +58,6 @@ const AboutHardSkills = () => {
     const dispatch = useDispatch()
 
     const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
-
 
     return (
         <div className='container-pdf'>
@@ -53,52 +73,102 @@ const AboutHardSkills = () => {
         <AccordionDetails>
           <div>
           <form className={classes.root} noValidate autoComplete="off">
-            <h3>Frontend: </h3>
+            
+            <div style={{ width: 500 }}>
+              <h3>Frontend: </h3>
+        <Autocomplete
+          multiple
+          options={top100Films}
+          getOptionLabel={option => option.title}
+          onChange={(_, values) => dispatch(allHardSkillsActions.setFrontendAction(values))}
+          value={frontend}
+          renderInput={params => (
             <TextField
-                    id="outlined-multiline-flexible"
-                    label="Frontend"
-                    multiline
-                    rowsMax={10}
-                    variant="outlined"
-                    value={frontend}
-                    onChange={e=> dispatch(allHardSkillsActions.setFrontendAction(e.target.value))}
-                />
+
+              {...params}
+              variant="standard"
+              placeholder="Search"
+              margin="normal"
+              fullWidth
+            />
+          )}
+        />
+      </div>
+            
                  </form>
             <h3>Backend: </h3>
             <form className={classes.root} noValidate autoComplete="off">
+            <div style={{ width: 500 }}>
+        <Autocomplete
+          multiple
+          options={top100Films}
+          getOptionLabel={option => option.title}
+          onChange={(_, values) => dispatch(allHardSkillsActions.setBackendAction(values))}
+          value={backend}
+
+          renderInput={params => (
             <TextField
-                    id="outlined-multiline-flexible"
-                    label="Backend"
-                    multiline
-                    rowsMax={10}
-                    variant="outlined"
-                    value={backend}
-                    onChange={e=> dispatch(allHardSkillsActions.setBackendAction(e.target.value))}
-                />
+          
+
+              {...params}
+              variant="standard"
+              placeholder="Search"
+              margin="normal"
+              fullWidth
+            />
+          )}
+        />
+      </div>
+           
                 </form>
             <h3>DBS: </h3>
             <form className={classes.root} noValidate autoComplete="off">
+            <div style={{ width: 500 }}>
+        <Autocomplete
+          multiple
+          options={top100Films}
+          getOptionLabel={option => option.title}
+          onChange={(_, values) => dispatch(allHardSkillsActions.setDbsAction(values))}
+          value={dbs}
+
+          renderInput={params => (
             <TextField
-                    id="outlined-multiline-flexible"
-                    label="DBS"
-                    multiline
-                    rowsMax={10}
-                    variant="outlined"
-                    value={dbs}
-                    onChange={e=> dispatch(allHardSkillsActions.setDbsAction(e.target.value))}
-                />
+         
+
+              {...params}
+              variant="standard"
+              placeholder="Search"
+              margin="normal"
+              fullWidth
+            />
+          )}
+        />
+      </div>
+          
             </form>
             <h3>Other: </h3>
             <form className={classes.root} noValidate autoComplete="off">
+            <div style={{ width: 500 }}>
+        <Autocomplete
+          multiple
+          options={top100Films}
+          getOptionLabel={option => option.title}
+          onChange={(_, values) => dispatch(allHardSkillsActions.setOtherAction(values))}
+          value={other}
+
+          renderInput={params => (
             <TextField
-                    id="outlined-multiline-flexible"
-                    label="Other"
-                    multiline
-                    rowsMax={10}
-                    variant="outlined"
-                    value={other}
-                    onChange={e=> dispatch(allHardSkillsActions.setOtherAction(e.target.value))}
-                />
+
+              {...params}
+              variant="standard"
+              placeholder="Search"
+              margin="normal"
+              fullWidth
+            />
+          )}
+        />
+      </div>
+
         </form>
           </div>
         </AccordionDetails>
@@ -109,6 +179,7 @@ const AboutHardSkills = () => {
         </div>
     )
 }
+
 
 export default AboutHardSkills
 

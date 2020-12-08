@@ -13,7 +13,7 @@ const Test = ()=> {
                
                 
             <div className="background-video">
-            <video className="background-video" loop autoPlay muted playsInline fixed>
+            <video className="background-video" loop autoPlay muted playsInline>
                 <source src='./16.mp4' type="video/mp4" />
                 <source src='./16.mp4' type="video/ogg" />
                 

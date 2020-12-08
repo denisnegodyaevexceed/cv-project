@@ -1,8 +1,8 @@
 const initialState = {
-    frontend: '',
-    backend: '',
-    dbs: '',
-    other: '',
+    frontend: [],
+    backend: [],
+    dbs: [],
+    other: [],
 }
 
 const aboutHardSkillsReducer = (state = initialState, actions) => {

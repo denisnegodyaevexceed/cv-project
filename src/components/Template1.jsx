@@ -28,7 +28,7 @@ const Template1 = () => {
   (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
-  
+  console.log(12,frontend)
 
   return (
     <div className="page">
@@ -84,27 +84,27 @@ const Template1 = () => {
                 <div className="first-info-left-1">
                   <h4>Technical skills</h4>
                   <div className="first">
-                    {frontend&&<h5>Frontend</h5>}
-                    <div>{frontend.split(' ').map((item, index) => {
-                      return <div key={index}>{item}</div>
+                    {(frontend.length>0)&&<h5>Frontend</h5>}
+                    <div>{frontend.map((item, index) => {
+                      return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   <div>
-                    {backend&&<h5>Backend</h5>}
-                    <div>{backend.split(' ').map((item, index) => {
-                      return <div key={index}>{item}</div>
+                    {(backend.length>0)&&<h5>Backend</h5>}
+                    <div>{backend.map((item, index) => {
+                      return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   <div>
-                    {dbs&&<h5>DBS</h5>}
-                    <div>{dbs.split(' ').map((item, index) => {
-                      return <div key={index}>{item}</div>
+                    {(dbs.length>0)&&<h5>DBS</h5>}
+                    <div>{dbs.map((item, index) => {
+                      return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   <div>
-                    {other&&<h5>Other</h5>}
-                      <div>{other.split(' ').map((item, index) => {
-                      return <div key={index}>{item}</div>
+                    {(other.length>0)&&<h5>Other</h5>}
+                      <div>{other.map((item, index) => {
+                      return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   {userInfo.email && <div>
@@ -200,6 +200,7 @@ const Template1 = () => {
                         </div>)
                     })}
                    </div> 
+
               </div>
             </div>
           </div>}

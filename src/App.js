@@ -6,6 +6,7 @@ import CustomizedSteppers from './main'
 import Test from './1';
 import { CSSTransition } from 'react-transition-group';
 import {useSelector} from 'react-redux'
+import CustomizedHook from './test1';
 
 function App() {
   const {templateNumber} = useSelector(state => state.templateReducer)
@@ -17,6 +18,8 @@ function App() {
 
 
     { path: '/steps', Component: CustomizedSteppers },
+    { path: '/test', Component: CustomizedHook },
+
     
     // { path: '/resume', Component: Template1 }, 
 
