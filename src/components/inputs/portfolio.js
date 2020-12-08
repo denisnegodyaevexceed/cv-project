@@ -50,7 +50,11 @@ const Portfolio = () => {
     let sixthSummaryCounter = (220 - sixthProject.summary.length) + ' letters left.'
     let sixthWhatYouDoCounter = (180 - sixthProject.whatYouDo.length) + ' letters left.'
 
-
+  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack)&&!(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject.stack))
+  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack)&&!(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject.stack))
+  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack)&&!(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject.stack))
+  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack)&&!(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack))
+  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject.stack)&&!(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack))
 
     return (
         <div className='container'>
@@ -97,16 +101,18 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
+                <p>
+All fields are required.</p>
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion hidden={showSecond}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <div className={classes2.heading}><h3>Second project</h3></div>
+          <div className={classes2.heading} ><h3>Second project</h3></div>
         </AccordionSummary>
         <AccordionDetails>
           <div>
@@ -141,10 +147,12 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
+                <p>
+All fields are required.</p>
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion hidden={showThird}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -184,10 +192,12 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
+                <p>
+All fields are required.</p>
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion hidden={showFourth}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -228,10 +238,12 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
+                <p>
+All fields are required.</p>
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion hidden={showFifth}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -272,10 +284,12 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
+                <p>
+All fields are required.</p>
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion hidden={showSixth}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -316,6 +330,8 @@ const Portfolio = () => {
                     rowsMax={10}
                     id="outlined-multiline-flexible"/>
                 </form>
+                <p>
+All fields are required.</p>
           </div>
         </AccordionDetails>
       </Accordion>
