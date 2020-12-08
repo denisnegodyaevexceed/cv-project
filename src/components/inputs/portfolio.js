@@ -57,21 +57,6 @@ const Portfolio = () => {
   let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack))
   let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject.stack) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack))
 
-<<<<<<< HEAD
-    return (
-        <div className='container'>
-            <div className={classes2.root}>
-            <h2 className='t-1'>Tell about your best projects.</h2>
-            <Button></Button>
-       <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div >
-            <h3>First project.</h3>
-=======
   return (
     <div className='container'>
       <div className={classes2.root}>
@@ -256,7 +241,6 @@ const Portfolio = () => {
               </form>
               <p>
                 All fields are required.</p>
->>>>>>> 82d0377b127525105f7d82b34c0c2aa53476305f
             </div>
           </AccordionDetails>
         </Accordion>
