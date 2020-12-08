@@ -62,7 +62,7 @@ const Template1 = () => {
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
             <div className="head-1">
-            <div className="bg1">sd</div>
+            <div className="bg1"></div>
 
               <div className="content-head-1">
                 <div className="head-name-1">
@@ -158,7 +158,7 @@ const Template1 = () => {
           <br />
           {isHavePortfolio && <div className="template-1 page-break">
             <div className="head-1">
-            <div className="bg1">sd</div>
+            <div className="bg1"></div>
               
               <div className="content-head-1">
                 <div className="head-name-1">
@@ -218,6 +218,7 @@ const Template1 = () => {
                     {firstProject.stack}
                   </div>
                 </div>}
+                
                 {thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack && <div >
                   <h4>{thirdProject.name.toUpperCase()}</h4>
                   <h5>{thirdProject.link}</h5>
