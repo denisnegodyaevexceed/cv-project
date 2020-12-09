@@ -7,6 +7,11 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { top100Films } from './aboutHardSkills';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,11 +55,11 @@ const Portfolio = () => {
   let sixthSummaryCounter = (220 - sixthProject.summary.length) + ' letters left.'
   let sixthWhatYouDoCounter = (180 - sixthProject.whatYouDo.length) + ' letters left.'
 
-  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) && !(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject.stack))
-  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) && !(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject.stack))
-  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) && !(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject.stack))
-  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack))
-  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject.stack) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack))
+  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack.length>0) && !(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject.stack.length>0))
+  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack.length>0) && !(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject.stack.length>0))
+  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack.length>0) && !(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject.stack.length>0))
+  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack.length>0) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack.length>0))
+  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject.stack.length>0) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack.length>0))
 
   return (
     <div className='container'>
@@ -93,14 +98,36 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                <TextField value={firstProject.stack}
+                {/* <TextField value={firstProject.stack}
                   onChange={e => dispatch(allPortfolioActions.setFirstProjectStack(e.target.value))}
                   label='Stack'
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  id="outlined-multiline-flexible" /> */}
               </form>
+              <form className={classes.root} noValidate autoComplete="off">
+                <div style={{ width: 500 }}>
+                  <Autocomplete
+                    multiple
+                    options={top100Films}
+                    getOptionLabel={option => option.title}
+                    onChange={(_, values) => dispatch(allPortfolioActions.setFirstProjectStack(values))}
+                    value={firstProject.stack}
+
+                    renderInput={params => (
+                      <TextField
+
+                        {...params}
+                        variant="standard"
+                        placeholder="Search"
+                        margin="normal"
+                        fullWidth
+                      />
+                    )}
+                  />
+                </div>
+                </form>
               <p>
                 All fields are required.</p>
             </div>
@@ -138,15 +165,37 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                <TextField
+                {/* <TextField
                   value={secondProject.stack}
                   onChange={e => dispatch(allPortfolioActions.setSecondProjectStack(e.target.value))}
                   label='Stack'
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  id="outlined-multiline-flexible" /> */}
               </form>
+              <form className={classes.root} noValidate autoComplete="off">
+                <div style={{ width: 500 }}>
+                  <Autocomplete
+                    multiple
+                    options={top100Films}
+                    getOptionLabel={option => option.title}
+                    onChange={(_, values) => dispatch(allPortfolioActions.setSecondProjectStack(values))}
+                    value={secondProject.stack}
+
+                    renderInput={params => (
+                      <TextField
+
+                        {...params}
+                        variant="standard"
+                        placeholder="Search"
+                        margin="normal"
+                        fullWidth
+                      />
+                    )}
+                  />
+                </div>
+                </form>
               <p>
                 All fields are required.</p>
             </div>
@@ -183,15 +232,37 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                <TextField
+                {/* <TextField
                   value={thirdProject.stack}
                   onChange={e => dispatch(allPortfolioActions.setThirdProjectStack(e.target.value))}
                   label='Stack'
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  id="outlined-multiline-flexible" /> */}
               </form>
+              <form className={classes.root} noValidate autoComplete="off">
+                <div style={{ width: 500 }}>
+                  <Autocomplete
+                    multiple
+                    options={top100Films}
+                    getOptionLabel={option => option.title}
+                    onChange={(_, values) => dispatch(allPortfolioActions.setThirdProjectStack(values))}
+                    value={thirdProject.stack}
+
+                    renderInput={params => (
+                      <TextField
+
+                        {...params}
+                        variant="standard"
+                        placeholder="Search"
+                        margin="normal"
+                        fullWidth
+                      />
+                    )}
+                  />
+                </div>
+                </form>
               <p>
                 All fields are required.</p>
             </div>
@@ -229,15 +300,37 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                <TextField
+                {/* <TextField
                   value={fourthProject.stack}
                   onChange={e => dispatch(allPortfolioActions.setFourthProjectStack(e.target.value))}
                   label='Stack'
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  id="outlined-multiline-flexible" /> */}
               </form>
+              <form className={classes.root} noValidate autoComplete="off">
+                <div style={{ width: 500 }}>
+                  <Autocomplete
+                    multiple
+                    options={top100Films}
+                    getOptionLabel={option => option.title}
+                    onChange={(_, values) => dispatch(allPortfolioActions.setFourthProjectStack(values))}
+                    value={fourthProject.stack}
+
+                    renderInput={params => (
+                      <TextField
+
+                        {...params}
+                        variant="standard"
+                        placeholder="Search"
+                        margin="normal"
+                        fullWidth
+                      />
+                    )}
+                  />
+                </div>
+                </form>
               <p>
                 All fields are required.</p>
             </div>
@@ -275,15 +368,37 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                <TextField
+                {/* <TextField
                   value={fifthProject.stack}
                   onChange={e => dispatch(allPortfolioActions.setFifthProjectStack(e.target.value))}
                   label='Stack'
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  id="outlined-multiline-flexible" /> */}
               </form>
+              <form className={classes.root} noValidate autoComplete="off">
+                <div style={{ width: 500 }}>
+                  <Autocomplete
+                    multiple
+                    options={top100Films}
+                    getOptionLabel={option => option.title}
+                    onChange={(_, values) => dispatch(allPortfolioActions.setFifthProjectStack(values))}
+                    value={fifthProject.stack}
+
+                    renderInput={params => (
+                      <TextField
+
+                        {...params}
+                        variant="standard"
+                        placeholder="Search"
+                        margin="normal"
+                        fullWidth
+                      />
+                    )}
+                  />
+                </div>
+                </form>
               <p>
                 All fields are required.</p>
             </div>
@@ -321,15 +436,37 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                <TextField
+                {/* <TextField
                   value={sixthProject.stack}
                   onChange={e => dispatch(allPortfolioActions.setSixthProjectStack(e.target.value))}
                   label='Stack'
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  id="outlined-multiline-flexible" /> */}
               </form>
+              <form className={classes.root} noValidate autoComplete="off">
+                <div style={{ width: 500 }}>
+                  <Autocomplete
+                    multiple
+                    options={top100Films}
+                    getOptionLabel={option => option.title}
+                    onChange={(_, values) => dispatch(allPortfolioActions.setSixthProjectStack(values))}
+                    value={sixthProject.stack}
+
+                    renderInput={params => (
+                      <TextField
+
+                        {...params}
+                        variant="standard"
+                        placeholder="Search"
+                        margin="normal"
+                        fullWidth
+                      />
+                    )}
+                  />
+                </div>
+                </form>
               <p>
                 All fields are required.</p>
             </div>

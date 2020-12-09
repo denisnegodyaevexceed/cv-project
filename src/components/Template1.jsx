@@ -22,7 +22,7 @@ const Template1 = () => {
 
   const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
 
-
+ console.log(firstProject.stack, 'sgsdfgsdfgsdfgdsfg')
   const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
   (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
   (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
@@ -195,7 +195,9 @@ const Template1 = () => {
                           </div>
                           <div className="other-text">
                             <h5>Stack:</h5>
-                            {stack}
+                            {stack.map((item, index)=>{
+                              return <span key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
+                            })}
                           </div>
                         </div>)
                     })}

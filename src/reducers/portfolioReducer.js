@@ -4,42 +4,42 @@ const initialState = {
         link: '',
         summary: '',
         whatYouDo: '',
-        stack: '',
+        stack: [],
     },
     secondProject: {
         name: '',
         link: '',
         summary: '',
         whatYouDo: '',
-        stack: '',
+        stack: [],
     },
     thirdProject: {
         name: '',
         link: '',
         summary: '',
         whatYouDo: '',
-        stack: '',
+        stack: [],
     },
     fourthProject: {
         name: '',
         link: '',
         summary: '',
         whatYouDo: '',
-        stack: '',
+        stack: [],
     },
     fifthProject: {
         name: '',
         link: '',
         summary: '',
         whatYouDo: '',
-        stack: ''
+        stack: []
     },
     sixthProject: {
         name: '',
         link: '',
         summary: '',
         whatYouDo: '',
-        stack: '',
+        stack: [],
     }
 }
 
