@@ -155,7 +155,7 @@ function getStepContent(step,open) {
 export default function CustomizedSteppers() {
   
   const { templateNumber } = useSelector((state) => state.templateReducer);
-  let {firstName, secondName, careerObjective, aboutMeInfo, email, phoneNumber, } = useSelector(state => state.aboutMeReducer)
+  let {firstName, secondName, careerObjective, aboutMeInfo, email } = useSelector(state => state.aboutMeReducer)
 
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
