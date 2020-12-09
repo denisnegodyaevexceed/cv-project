@@ -1,27 +1,25 @@
-import React from 'react'
-import TextField from '@material-ui/core/TextField';
-import allHardSkillsActions from '../../actions/aboutHardSkillsActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
+import { useDispatch, useSelector } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
-
-
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
+    "& > *": {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: "25ch",
     },
   },
 }));
 const useStyles2 = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -499,23 +497,25 @@ const AboutHardSkills = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <div className={classes2.heading}><h2>Tell about your technical skills.</h2></div>
+            <div className={classes2.heading}>
+              <h2>Tell about your technical skills.</h2>
+            </div>
           </AccordionSummary>
           <AccordionDetails>
             <div>
               <form className={classes.root} noValidate autoComplete="off">
-
                 <div style={{ width: 500 }}>
                   <h3>Frontend: </h3>
                   <Autocomplete
                     multiple
                     options={top100Films}
-                    getOptionLabel={option => option.title}
-                    onChange={(_, values) => dispatch(allHardSkillsActions.setFrontendAction(values))}
+                    getOptionLabel={(option) => option.title}
+                    onChange={(_, values) =>
+                      dispatch(allHardSkillsActions.setFrontendAction(values))
+                    }
                     value={frontend}
-                    renderInput={params => (
+                    renderInput={(params) => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
@@ -525,7 +525,6 @@ const AboutHardSkills = () => {
                     )}
                   />
                 </div>
-
               </form>
               <h3>Backend: </h3>
               <form className={classes.root} noValidate autoComplete="off">
@@ -550,7 +549,6 @@ const AboutHardSkills = () => {
                     )}
                   />
                 </div>
-
               </form>
               <h3>DBS: </h3>
               <form className={classes.root} noValidate autoComplete="off">
@@ -575,7 +573,6 @@ const AboutHardSkills = () => {
                     )}
                   />
                 </div>
-
               </form>
               <h3>Other: </h3>
               <form className={classes.root} noValidate autoComplete="off">
@@ -599,7 +596,6 @@ const AboutHardSkills = () => {
                     )}
                   />
                 </div>
-
               </form>
             </div>
           </AccordionDetails>

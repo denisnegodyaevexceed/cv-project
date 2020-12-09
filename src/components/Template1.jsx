@@ -58,6 +58,7 @@ const Template1 = () => {
       <PDFExport
         forcePageBreak=".page-break"
         ref={(component) => (pdfExportComponent = component)}
+        // paperSize="A4"
       >
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
@@ -82,33 +83,33 @@ const Template1 = () => {
             <div className="main-info-1">
               <div className="left-info-1">
                 <div className="first-info-left-1">
-                  <h4>Technical skills</h4>
+                  <div className='h4-1'>Technical skills</div>
                   <div className="first">
-                    {(frontend.length>0)&&<h5>Frontend</h5>}
+                    {(frontend.length>0)&&<div className='h4-1'>Frontend</div>}
                     <div>{frontend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   <div>
-                    {(backend.length>0)&&<h5>Backend</h5>}
+                    {(backend.length>0)&&<div className='h4-1'>Backend</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   <div>
-                    {(dbs.length>0)&&<h5>DBS</h5>}
+                    {(dbs.length>0)&&<div className='h4-1'>DBS</div>}
                     <div>{dbs.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   <div>
-                    {(other.length>0)&&<h5>Other</h5>}
+                    {(other.length>0)&&<div className='h4-1'>Other</div>}
                       <div>{other.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                   </div>
                   {userInfo.email && <div>
-                    <h4>Contact details</h4>
+                    <div className='h4-1'>Contact details</div>
                     <div>Email: {userInfo.email}</div>
                     {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
                     {userInfo.vkontakte && <div>Vkontakte: {userInfo.vkontakte}</div>}
@@ -123,30 +124,30 @@ const Template1 = () => {
               <div className="right-info-1">
                 <div className="first-info-right-1">
                   <div>
-                    <h4>Personal Profile</h4>
+                    <div className='h4-1'>Personal Profile</div>
                     <div className="text">
                      {userInfo.aboutMeInfo}
                     </div>
                   </div>
                 {((firstCompany&&firstPosition&&firstDescription) || (secondCompany&&secondPosition&&secondDescription))&& <div>
                   <div>
-                    <h4>Work History</h4>
-                    {firstCompany && <h5>{firstCompany.toUpperCase()}</h5>}
-        {firstPosition && <h6>{firstPosition}</h6>}
+                    <div className='h4-1'>Work History</div>
+                    {firstCompany && <div className='h4-1'>{firstCompany.toUpperCase()}</div>}
+        {firstPosition && <div className='h4-1'>{firstPosition}</div>}
                     {firstDescription &&<div className="text">
                       {firstDescription}
                     </div>}
                   </div>
                   <div>
-                    {secondCompany&&<h5>{secondCompany.toUpperCase()}</h5>}
-                        {secondPosition&&<h6>{secondPosition}</h6>}
+                    {secondCompany&&<div className='h4-1'>{secondCompany.toUpperCase()}</div>}
+                        {secondPosition&&<div className='h4-1'>{secondPosition}</div>}
                     {secondDescription&&<div className="text">
                           {secondDescription}
                     </div>}
                   </div>
                   </div>}
                   {userInfo.education && <div>
-                    <h4>Education History</h4>
+                    <div className='h4-1'>Education History</div>
                     <div className="text">
                       {userInfo.education}
                     </div>
@@ -178,23 +179,23 @@ const Template1 = () => {
 
             <div className="other-info">
                     
-<h2 className="context">PORTFOLIO</h2>
+<div className="context">PORTFOLIO</div>
                     <div className='projects'>
                     {projects.map((item, index) => {
                       let {name, link, summary, whatYouDo, stack} = item
                       return ( name && link && summary && whatYouDo && stack && <div className='project' key={index}>
-                        <h4>{name.toUpperCase()}</h4>
-                          <h5>{link}</h5>
+                        <div className='h4-1'>{name.toUpperCase()+' - '+link}</div>
+                          {/* <h5>{link}</h5> */}
                           <div className="other-text">
-                            <h5>Summary:</h5> 
+                            <div className='h5-1'>Summary:</div> 
                             {summary}
                           </div>
                           <div className="other-text">
-                           <h5>What i did here: </h5>
+                           <div className='h5-1'>What i did here: </div>
                            {whatYouDo}
                           </div>
                           <div className="other-text">
-                            <h5>Stack:</h5>
+                            <div className='h5-1'>Stack:</div> 
                             {stack.map((item, index)=>{
                               return <span key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
                             })}
