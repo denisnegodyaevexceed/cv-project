@@ -1,8 +1,20 @@
 const initialState = {
-    frontend: [],
-    backend: [],
-    dbs: [],
-    other: [],
+    frontend: [{ title: 'Z shell' },
+    { title: 'Html' },
+    { title: 'CSS' },
+    { title: 'Redux' },],
+    backend: [{ title: 'Z shell' },
+    { title: 'Html' },
+    { title: 'CSS' },
+    { title: 'Redux' },],
+    dbs: [{ title: 'Z shell' },
+    { title: 'Html' },
+    { title: 'CSS' },
+    { title: 'Redux' },],
+    other: [{ title: 'Z shell' },
+    { title: 'Html' },
+    { title: 'CSS' },
+    { title: 'Redux' },],
 }
 
 const aboutHardSkillsReducer = (state = initialState, actions) => {

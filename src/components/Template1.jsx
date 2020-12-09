@@ -70,56 +70,74 @@ const Template1 = () => {
                   <div className="name-1">{userInfo.firstName + ' '+ userInfo.secondName} </div>
                   {/* <div className="last-name-1">{userInfo.secondName}</div> */}
                 </div>
-        <div className="post-1">{userInfo.careerObjective}</div>
+        <div className="post-1">{userInfo.careerObjective.toUpperCase()}</div>
               </div>
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        width: 150,
-                        height: 150,
+                        width: 190,
+                        height: 190,
                         margin: "auto"}}></div>
               
             </div>
             <div className="main-info-1">
               <div className="left-info-1">
+              <div className='h h4-1'>Technical skills</div>
+
                 <div className="first-info-left-1">
-                  <div className='h4-1'>Technical skills</div>
                   <div className="first">
-                    {(frontend.length>0)&&<div className='h4-1'>Frontend</div>}
+                    <div className="content-center">
+                    {(frontend.length>0)&&<div className='h4-1'>Frontend:</div>}
                     <div>{frontend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
+                    </div>
                   </div>
-                  <div>
-                    {(backend.length>0)&&<div className='h4-1'>Backend</div>}
+                  <div className="first">
+                  <div className="content-center">
+
+                    {(backend.length>0)&&<div className='h4-1'>Backend:</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
+                    </div>
+
                   </div>
-                  <div>
-                    {(dbs.length>0)&&<div className='h4-1'>DBS</div>}
+                  <div className="first">
+                  <div className="content-center">
+
+                    {(dbs.length>0)&&<div className='h4-1'>DBS:</div>}
                     <div>{dbs.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
+                    </div>
+
                   </div>
-                  <div>
-                    {(other.length>0)&&<div className='h4-1'>Other</div>}
+                  <div className="first">
+                  <div className="content-center">
+
+                    {(other.length>0)&&<div className='h4-1'>Other:</div>}
                       <div>{other.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
-                  </div>
-                  {userInfo.email && <div>
-                    <div className='h4-1'>Contact details</div>
-                    <div>Email: {userInfo.email}</div>
-                    {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
-                    {userInfo.vkontakte && <div>Vkontakte: {userInfo.vkontakte}</div>}
-                    {userInfo.github && <div>GitHub: {userInfo.github}</div>}
-                    {userInfo.phoneNumber && <div>Tel: {userInfo.phoneNumber}</div>}
-                    {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
+                    </div>
 
+                  </div>
+                  
+                </div>
+                {userInfo.email && <div className="contact">
+                    <div className='h-center h4-1'>Contact details</div>
+                    <div className="contact-content">
+
+                    <div><strong className='h4-2'>Email:</strong> {userInfo.email}</div>
+                    {userInfo.skype && <div><strong className='h4-2'>Skype:</strong> {userInfo.skype}</div>}
+                    {userInfo.vkontakte && <div><strong className='h4-2'>Vkontakte:</strong> {userInfo.vkontakte}</div>}
+                    {userInfo.github && <div><strong className='h4-2'>GitHub:</strong> {userInfo.github}</div>}
+                    {userInfo.phoneNumber && <div><strong className='h4-2'>Tel:</strong> {userInfo.phoneNumber}</div>}
+                    {userInfo.facebook && <div><strong className='h4-2'>Facebook:</strong> {userInfo.facebook}</div>}
+                    </div>
 
                   </div>}
-                </div>
               </div>
               <div className="right-info-1">
                 <div className="first-info-right-1">
@@ -171,8 +189,8 @@ const Template1 = () => {
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        width: 150,
-                        height: 150,
+                        width: 190,
+                        height: 190,
                         margin: "auto"}}></div>
             </div>
 <div>
