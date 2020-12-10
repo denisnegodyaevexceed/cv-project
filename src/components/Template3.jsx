@@ -98,7 +98,7 @@ const Template3 = () => {
                                 </div>
                                 <div className='template3__languages'>
                                     <div className='template3__languages_header title'>LANGUAGES</div>
-                                    <div className='template3__languages_item'>English/Spanish/Italian</div>
+                                    <div className='template3__languages_item'>{userInfo.languages}</div>
                                 </div>
                                 <div className='template3__contactDetails'>
                                     <div className='template3__contactDetails_header title'>CONTACT DETAILS</div>

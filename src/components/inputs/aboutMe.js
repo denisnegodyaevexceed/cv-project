@@ -45,7 +45,7 @@ export default function AboutMe() {
 
     const dispatch = useDispatch()
 
-    let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education} = useSelector(state => state.aboutMeReducer)
+    let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education,languages} = useSelector(state => state.aboutMeReducer)
 
 
     const classes = useStyles();
@@ -86,6 +86,17 @@ export default function AboutMe() {
                     rowsMax={10}
                     value={education}
                     onChange={(e) => {dispatch(allAboutMeActions.setEducationAction(e.target.value.length <= 180 ? e.target.value : education))}}
+                    variant="outlined"
+                />
+                <TextField
+                    id="outlined-multiline-flexible"
+                    label="Languages"
+                    multiline
+                    type='text'
+                    helperText={languages.length>0? educationCounter: ''}
+                    rowsMax={10}
+                    value={languages}
+                    onChange={(e) => {dispatch(allAboutMeActions.setLanguagesAction(e.target.value.length <= 180 ? e.target.value : education))}}
                     variant="outlined"
                 />
                

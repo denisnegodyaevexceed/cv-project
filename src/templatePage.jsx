@@ -80,7 +80,7 @@ export default function CenteredGrid() {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-2-1.png"
+                src="./template-2-2.png"
                 alt=""
               />
              
@@ -104,7 +104,7 @@ export default function CenteredGrid() {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-3-1.png"
+                src="./template-3-2.png"
                 alt=""
               />
              

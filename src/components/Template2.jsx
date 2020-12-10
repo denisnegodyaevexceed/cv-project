@@ -116,7 +116,7 @@ const Template2 = () => {
           </div> */}
           <div className="languages-2">
               <div className="title-other-skils-2">LANGUAGES</div>
-              <div className="content-other-skils-2"> Fuga, eveniet dolore.</div>
+              <div className="content-other-skils-2"> {userInfo.languages}</div>
           </div>
           {/* <div className="contacts-2">
               <div className="title-contacts-2">CONTACTS</div>
