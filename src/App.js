@@ -19,7 +19,7 @@ function App() {
   const routes = [
     { path: '/', Component: Test },
     { path: '/templates', Component: templatePage },
-    {path: '/template3', Component: Template3},
+    // {path: '/template3', Component: Template3},
 
 
     { path: '/steps', Component: CustomizedSteppers },
@@ -39,6 +39,8 @@ const correctTemplate = (templateNumber) => {
           return  Template1
           case '2':
           return  Template2
+          case '3':
+            return  Template3
             
       default:
           return templatePage    
