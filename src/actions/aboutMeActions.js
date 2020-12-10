@@ -60,6 +60,10 @@ const setEducationAction = (data) => ({
     type: actions.SET_EDUCATION,
     payload: data
 })
+const setLanguagesAction = (data) => ({
+    type: actions.SET_LANGUAGES,
+    payload: data
+})
 
 const setAvatarAction = (data) => ({
     type: actions.SET_AVATAR,
@@ -80,6 +84,7 @@ const allAboutMeActions = {
     setGithubAction,
     setFacebookAction,
     setEducationAction,
+    setLanguagesAction,
     setAvatarAction
 }
 

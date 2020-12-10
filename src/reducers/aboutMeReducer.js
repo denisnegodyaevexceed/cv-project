@@ -11,7 +11,8 @@ const initialState = {
     github: '',
     facebook: '',
     education: '',
-    avatar: ''
+    avatar: '',
+    languages:'',
 }
 
 
@@ -72,6 +73,11 @@ const aboutMeReducer = (state=initialState, actions) => {
                 ...state,
                 education: actions.payload
             }
+            case 'SET_LANGUAGES':
+                return{
+                    ...state,
+                    languages: actions.payload
+                }
         case 'SET_AVATAR':
             return{
                 ...state,

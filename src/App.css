@@ -289,10 +289,17 @@ cursor: pointer;
 .img-1-1{
    position: absolute;
     width: 150px;
+    height: 200px;
    z-index: 2;
+}
+.container-laguages{
+    position: absolute;
+    top: 60%;
+    left: 53px;
 }
 .img-1-2{
     position: relative;
+    height: 200px;
     
     z-index: 1;
     width: 150px;
