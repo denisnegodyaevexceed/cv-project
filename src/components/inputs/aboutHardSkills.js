@@ -495,15 +495,21 @@ const AboutHardSkills = () => {
 
   const { frontend, backend, dbs, other } = useSelector(state => state.aboutHardSkillsReducer)
 
-  const {frontendTech, techList} = useSelector(state => state.addTechnologyReducer)
+  const {frontendTech, backendTech, dbsTech, otherTech, techList} = useSelector(state => state.addTechnologyReducer)
 
   console.log(frontendTech, 'frontendTech')
   console.log(techList, 'techlist')
 
-  const addTech= (e) => {
+  const addTech= (e, technology) => {
     e.preventDefault()
-    dispatch(allTechnologyActions.addTechnologyAction(frontendTech, techList))
+    console.log(technology, 'technology')
+    dispatch(allTechnologyActions.addTechnologyAction(technology, techList, top100Films))
   }
+
+  let showFrontendButton = !frontendTech
+  let showBackendButton = !backendTech
+  let showDbsButton = !dbsTech
+  let showOtherButton = !otherTech
 
   return (
     <div className='container-pdf'>
@@ -523,9 +529,7 @@ const AboutHardSkills = () => {
               <form  className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: 500 }}>
                   <h3>Frontend: </h3>
-                  <Fab onClick={(e) => addTech(e)} size="small" color="primary" type='submit' aria-label="add">
-                          <AddIcon />
-                        </Fab>
+                  
                   <Autocomplete
                     multiple
                     options={top100Films.concat(techList)}
@@ -536,15 +540,18 @@ const AboutHardSkills = () => {
                     value={frontend}
                     inputValue={frontendTech}
                     renderInput={(params) => (
-                      <div><TextField
+                      <div className='bloblo'><TextField
                         {...params}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
+                        
                         fullWidth
                         value={frontendTech}
                         onChange={e=>dispatch(allTechnologyActions.setFrontendTechnologyAction(e.target.value))}
-                      />
+                      /><div hidden={showFrontendButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, frontendTech)} size="small" color="primary" type='submit' aria-label="add">
+                      <AddIcon />
+                    </Fab></div>
                         
                       </div>
                     )}
@@ -556,21 +563,26 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={top100Films.concat(techList)}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allHardSkillsActions.setBackendAction(values))}
                     value={backend}
-
+                    inputValue={backendTech}
                     renderInput={params => (
-                      <TextField
+                      <div className='bloblo'><TextField
 
 
                         {...params}
+                        value={backendTech}
+                        onChange={e=>dispatch(allTechnologyActions.setBackendTechnologyAction(e.target.value))}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
                         fullWidth
                       />
+                      <div hidden={showBackendButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, backendTech)} size="small" color="primary" type='submit' aria-label="add">
+                      <AddIcon />
+                    </Fab></div></div>
                     )}
                   />
                 </div>
@@ -580,21 +592,27 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={top100Films.concat(techList)}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allHardSkillsActions.setDbsAction(values))}
                     value={dbs}
-
+                    inputValue={dbsTech}
                     renderInput={params => (
-                      <TextField
+                      <div className='bloblo'><TextField
 
 
                         {...params}
+                        value={dbsTech}
+                        onChange={e=>dispatch(allTechnologyActions.setDbsTechnologyAction(e.target.value))}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
                         fullWidth
                       />
+                      <div hidden={showDbsButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, dbsTech)} size="small" color="primary" type='submit' aria-label="add">
+                      <AddIcon />
+                    </Fab></div>
+                      </div>
                     )}
                   />
                 </div>
@@ -604,20 +622,27 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={top100Films.concat(techList)}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allHardSkillsActions.setOtherAction(values))}
                     value={other}
+                    inputValue={otherTech}
 
                     renderInput={params => (
-                      <TextField
+                      <div className='bloblo'><TextField
 
                         {...params}
+                        value={otherTech}
+                        onChange={e=>dispatch(allTechnologyActions.setOtherTechnologyAction(e.target.value))}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
                         fullWidth
                       />
+                      <div hidden={showOtherButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, otherTech)} size="small" color="primary" type='submit' aria-label="add">
+                      <AddIcon />
+                    </Fab></div>
+                    </div>
                     )}
                   />
                 </div>
