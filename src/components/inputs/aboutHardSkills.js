@@ -7,8 +7,12 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import allTechnologyActions from "../../actions/addTechnologyActions";
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -445,48 +449,61 @@ export const top100Films = [
   { title: 'Html' },
   { title: 'CSS' },
   { title: 'Redux' },
-  { title: 'Oracle'},
-  { title: 'MySQL'},
-  { title: 'Microsoft SQL Server'},
-  { title: 'PostgreSQL'},
-  { title: 'MongoDB'},
-  { title: 'DB2'},
-  { title: 'Cassandra'},
-  { title: 'Microsoft Access'},
-  {title: 'Redis'},
-  {title: 'SQLite'},
-  {title: 'Socket.IO'},
-  {title: 'OrientDB'},
-  {title: 'MariaDB'},
-  {title: 'CouchDB'},
-  {title: 'DynamoDB'},
-  {title: 'Neo4j'},
-  {title: 'Firebirdsql'},
-  {title: 'Vanilla JS'},
-  {title: 'Nginx'},
-  {title: 'Webpack'},
-  {title: 'Grunt'},
-  {title: 'Brunch'},
-  {title: 'Yeoman'},
-  {title: 'Assemble'},
-  {title: 'Broccoli'},
-  {title: 'Feri'},
-  {title: 'Lineman'},
-  {title: 'Mimosa'},
-  {title: 'Angus'},
-  {title: 'Yoga'},
+  { title: 'Oracle' },
+  { title: 'MySQL' },
+  { title: 'Microsoft SQL Server' },
+  { title: 'PostgreSQL' },
+  { title: 'MongoDB' },
+  { title: 'DB2' },
+  { title: 'Cassandra' },
+  { title: 'Microsoft Access' },
+  { title: 'Redis' },
+  { title: 'SQLite' },
+  { title: 'Socket.IO' },
+  { title: 'OrientDB' },
+  { title: 'MariaDB' },
+  { title: 'CouchDB' },
+  { title: 'DynamoDB' },
+  { title: 'Neo4j' },
+  { title: 'Firebirdsql' },
+  { title: 'Vanilla JS' },
+  { title: 'Nginx' },
+  { title: 'Webpack' },
+  { title: 'Grunt' },
+  { title: 'Brunch' },
+  { title: 'Yeoman' },
+  { title: 'Assemble' },
+  { title: 'Broccoli' },
+  { title: 'Feri' },
+  { title: 'Lineman' },
+  { title: 'Mimosa' },
+  { title: 'Angus' },
+  { title: 'Yoga' },
 
 ];
+
+
 
 const AboutHardSkills = () => {
 
 
   const classes = useStyles();
   const classes2 = useStyles2();
+ 
 
   const dispatch = useDispatch()
 
   const { frontend, backend, dbs, other } = useSelector(state => state.aboutHardSkillsReducer)
+
+  const {frontendTech, techList} = useSelector(state => state.addTechnologyReducer)
+
+  console.log(frontendTech, 'frontendTech')
+  console.log(techList, 'techlist')
+
+  const addTech= (e) => {
+    e.preventDefault()
+    dispatch(allTechnologyActions.addTechnologyAction(frontendTech, techList))
+  }
 
   return (
     <div className='container-pdf'>
@@ -503,25 +520,33 @@ const AboutHardSkills = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <form className={classes.root} noValidate autoComplete="off">
+              <form  className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: 500 }}>
                   <h3>Frontend: </h3>
+                  <Fab onClick={(e) => addTech(e)} size="small" color="primary" type='submit' aria-label="add">
+                          <AddIcon />
+                        </Fab>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={top100Films.concat(techList)}
                     getOptionLabel={(option) => option.title}
                     onChange={(_, values) =>
                       dispatch(allHardSkillsActions.setFrontendAction(values))
                     }
                     value={frontend}
+                    inputValue={frontendTech}
                     renderInput={(params) => (
-                      <TextField
+                      <div><TextField
                         {...params}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
                         fullWidth
+                        value={frontendTech}
+                        onChange={e=>dispatch(allTechnologyActions.setFrontendTechnologyAction(e.target.value))}
                       />
+                        
+                      </div>
                     )}
                   />
                 </div>

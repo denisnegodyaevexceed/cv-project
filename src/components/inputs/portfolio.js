@@ -106,6 +106,7 @@ const Portfolio = () => {
                   rowsMax={10}
                   id="outlined-multiline-flexible" /> */}
               </form>
+              <h3>Stack:</h3>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: 500 }}>
                   <Autocomplete
@@ -128,8 +129,8 @@ const Portfolio = () => {
                   />
                 </div>
                 </form>
-              <p>
-                All fields are required.</p>
+              <h4>
+                All fields are required.</h4>
             </div>
           </AccordionDetails>
         </Accordion>

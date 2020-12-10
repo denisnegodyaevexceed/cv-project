@@ -6,7 +6,10 @@ import CustomizedSteppers from './main'
 import Test from './1';
 import { CSSTransition } from 'react-transition-group';
 import {useSelector} from 'react-redux'
+import Template3 from './components/Template3';
 // import CustomizedHook from './test1';
+
+
 
 function App() {
   const {templateNumber} = useSelector(state => state.templateReducer)
@@ -15,6 +18,7 @@ function App() {
   const routes = [
     { path: '/', Component: Test },
     { path: '/templates', Component: templatePage },
+    {path: '/template3', Component: Template3},
 
 
     { path: '/steps', Component: CustomizedSteppers },

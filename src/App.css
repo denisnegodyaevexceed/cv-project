@@ -64,7 +64,7 @@ h4{
 .container-pdf{
     margin: 0 auto;
     width: 650px;
-z-index: 3;
+    z-index: 3;
     height: auto;
 }
 .stepper{
