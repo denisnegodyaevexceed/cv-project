@@ -1,20 +1,8 @@
 const initialState = {
-    frontend: [ { title: 'XSLT' },
-    { title: 'XQuery' },
-    { title: 'yacc' },
-    { title: 'Yorick' },],
-    backend: [{ title: 'XSLT' },
-    { title: 'XQuery' },
-    { title: 'yacc' },
-    { title: 'Yorick' },],
-    dbs: [ { title: 'XSLT' },
-    { title: 'XQuery' },
-    { title: 'yacc' },
-    { title: 'Yorick' },],
-    other: [{ title: 'XSLT' },
-    { title: 'XQuery' },
-    { title: 'yacc' },
-    { title: 'Yorick' },],
+    frontend: [],
+    backend: [],
+    dbs: [ ],
+    other: [],
 }
 
 const aboutHardSkillsReducer = (state = initialState, actions) => {

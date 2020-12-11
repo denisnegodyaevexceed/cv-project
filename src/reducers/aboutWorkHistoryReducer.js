@@ -1,11 +1,11 @@
 const initialState = {
-    firstCompany: 'Name',
-    firstPosition: 'Post',
-    firstDescription: 'Content',
+    firstCompany: '',
+    firstPosition: '',
+    firstDescription: '',
     
-    secondCompany: 'Name2',
-    secondPosition: 'Post2',
-    secondDescription: 'Content2',
+    secondCompany: '',
+    secondPosition: '',
+    secondDescription: '',
 }
 
 
