@@ -8,6 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 import {useSelector} from 'react-redux'
 import Template3 from './components/Template3';
 import Template2 from './components/Template2';
+import Template4 from './components/Template4';
 // import CustomizedHook from './test1';
 
 
@@ -23,7 +24,7 @@ function App() {
 
 
     { path: '/steps', Component: CustomizedSteppers },
-    // { path: '/template2', Component: Template2 },
+    { path: '/template4', Component: Template4 },
 
     // { path: '/test', Component: CustomizedHook },
 
@@ -36,7 +37,7 @@ const correctTemplate = (templateNumber) => {
 
   switch(templateNumber){
       case '1':
-          return  Template1
+          return  Template4
           case '2':
           return  Template2
           case '3':

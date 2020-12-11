@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'RobotoSlab-Light';
+    src: 
+            url('../fonts/RobotoSlab-Light.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'RobotoSlab-Regular';
+    src: 
+            url('../fonts/RobotoSlab-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'RobotoSlab-Bold';
+    src: 
+            url('../fonts/RobotoSlab-Bold.ttf') format("truetype");
+}
+
+.h-4-m{
+    font-family: 'RobotoSlab-Regular';
+
+}
+.h4-4{
+    font-family: 'RobotoSlab-Regular';
+    font-weight: 100;
+
+}
+.inblock{
+    display: inline-block;
+}
+.h-4-b{
+    font-family: 'RobotoSlab-Bold';
+    font-size: 30px;
+    color: #b66e21;
+
+}
+.template-4{
+    font-family: 'RobotoSlab-Light';
+
+    width: 700px;
+    height: auto;
+    position: relative;
+    background-color: white;
+    margin: 0 auto ;
+    
+}
+.title-portfolio-4{
+    z-index: 3;
+  position: relative;
+  font-family: 'RobotoSlab-Bold';
+
+        font-size: 20px;
+        color: #b66e21;
+        text-align: center;
+        padding-top:50px ;
+        padding-bottom: 50px;
+}
+.case-4{
+    font-size: 14px;
+    max-width: 50%;
+    margin-bottom: 30px;
+}
+.title-case-4{
+    font-family: 'RobotoSlab-Bold';
+
+    margin-bottom: 5px;
+}
+.summary-4{
+    width: 300px;
+    margin-bottom: 10px;
+    font-family: 'RobotoSlab-Regular';
+
+}
+.span-4{
+    font-family: 'RobotoSlab-Regular';
+
+}
+.what-4{
+    width: 300px;
+    margin-bottom: 10px;
+    font-family: 'RobotoSlab-Regular';
+
+}
+.title-con-4{
+    font-family: 'RobotoSlab-Bold';
+
+
+}
+
+.portfolio-cases-4{
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+/* .content-4{
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+} */
+.header-4{
+    position: absolute;
+  z-index: 0; 
+}
+.footer-4{
+    position: absolute;
+    bottom: 0;
+    z-index: 0; 
+}
+.content-4{
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.left-info-4{
+    margin-top: 60px;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    /* background-color: red; */
+}
+.name-4{
+    font-size: 50px;
+}
+.right-info-4{
+    position: relative;
+    margin-top: 30px;
+    z-index: 2;
+    width: 50%;
+    /* background-color: red; */
+}
+.content-right{
+  
+
+}
+.ava-4{
+    
+}
