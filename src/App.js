@@ -9,6 +9,7 @@ import {useSelector} from 'react-redux'
 import Template3 from './components/Template3';
 import Template2 from './components/Template2';
 import Template4 from './components/Template4';
+import Template5 from './components/Template5';
 // import CustomizedHook from './test1';
 
 
@@ -20,11 +21,11 @@ function App() {
   const routes = [
     { path: '/', Component: Test },
     { path: '/templates', Component: templatePage },
-    // {path: '/template3', Component: Template3},
+    // {path: '/template5', Component: Template5},
 
 
     { path: '/steps', Component: CustomizedSteppers },
-    { path: '/template4', Component: Template4 },
+    // { path: '/template4', Component: Template4 },
 
     // { path: '/test', Component: CustomizedHook },
 
@@ -37,11 +38,15 @@ const correctTemplate = (templateNumber) => {
 
   switch(templateNumber){
       case '1':
-          return  Template4
+          return  Template1
           case '2':
           return  Template2
           case '3':
             return  Template3
+            case '4':
+            return  Template4
+            case '5':
+            return  Template5
             
       default:
           return templatePage    
