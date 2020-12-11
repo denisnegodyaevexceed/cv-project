@@ -55,7 +55,7 @@ const Template5 = () => {
                     <div className='template5'>
                         <div className='template5__fistPage'>
                             <div className='template5__header'>
-                                <div className='template5__avatar' style={{backgroundImage: `url('./user.png')`,backgroundRepeat: "no-repeat",
+                                <div className='template5__avatar' style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         width: 150,
@@ -160,8 +160,8 @@ const Template5 = () => {
                                 {projects.map((item, index)=>{
                                     let {name, link, summary, whatYouDo, stack} = item
                                     return(name && summary && whatYouDo && stack && <div key={index}className='template5__project'>
-                                        <div className='template5__project_title template5__title'>{name.toUpperCase()}{link && <div className='template5__project_link '>{link}</div>}</div>
-                                        {link && <div className='template5__project_link '>{link}</div>}
+                                        <div className='template5__project_title template5__title'>{name.toUpperCase()}{link && <div className='template5__project_link'>{link.toUpperCase()}</div>}</div>
+                                        
                                         <div className='template5__project_summary'>
                                         <div>Summary:</div>
                                         {summary}
