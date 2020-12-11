@@ -90,7 +90,7 @@ const Template2 = () => {
             </div>
             <div className="db-2">
                 {/* <div className="title-2">-Databases</div> */}
-                {(backend.length>0)&&<div className='title-2'>-Databases</div>}
+                {(dbs.length>0)&&<div className='title-2'>-Databases</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
@@ -103,7 +103,7 @@ const Template2 = () => {
                     })}</div>
             </div>
             <div className="other-2">
-                {(dbs.length>0)&&<div className='title-2'>-Other</div>}
+                {(other.length>0)&&<div className='title-2'>-Other</div>}
                     <div>{dbs.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
@@ -199,7 +199,7 @@ const Template2 = () => {
       </div>
     </div>
     <br/>
-    <div className="template-2-2 page-break">
+    {isHavePortfolio&& <div className="template-2-2 page-break">
       <div className="portfolio-container-2">
       <div className="k1"></div>
         <div className="title-portfolio-2">PORTFOLIO</div>
@@ -229,7 +229,7 @@ const Template2 = () => {
                    <div className="k"></div>
       </div>
       
-    </div>
+    </div>}
     </PDFExport>
 
     </div>

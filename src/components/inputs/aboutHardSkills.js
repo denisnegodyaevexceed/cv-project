@@ -511,6 +511,14 @@ const AboutHardSkills = () => {
   let showDbsButton = !dbsTech
   let showOtherButton = !otherTech
 
+  let uniqueArray = top100Films.concat(techList).concat()
+
+  uniqueArray = uniqueArray.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.title.toLowerCase() === item.title.toLowerCase() 
+  ))
+)
+
   return (
     <div className='container-pdf'>
       <div className={classes2.root}>
@@ -532,7 +540,7 @@ const AboutHardSkills = () => {
                   
                   <Autocomplete
                     multiple
-                    options={top100Films.concat(techList)}
+                    options={uniqueArray}
                     getOptionLabel={(option) => option.title}
                     onChange={(_, values) =>
                       dispatch(allHardSkillsActions.setFrontendAction(values))
@@ -563,7 +571,7 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films.concat(techList)}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allHardSkillsActions.setBackendAction(values))}
                     value={backend}
@@ -592,7 +600,7 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films.concat(techList)}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allHardSkillsActions.setDbsAction(values))}
                     value={dbs}
@@ -622,7 +630,7 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films.concat(techList)}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allHardSkillsActions.setOtherAction(values))}
                     value={other}
