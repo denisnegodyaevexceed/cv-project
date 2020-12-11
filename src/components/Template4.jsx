@@ -128,7 +128,7 @@ const Template4 = () => {
         <img className="footer-4" src="./template4.2.png" alt="" />
       </div>
       <br/>
-      <div className="template-4 page-break">
+      {isHavePortfolio && <div className="template-4 page-break">
         <img className="header-4" src="./template4.1.png" alt="" />
         <div className="title-portfolio-4">PORTFOLIO</div>
 
@@ -160,7 +160,7 @@ const Template4 = () => {
         </div>
 
         <img className="footer-4" src="./template4.2.png" alt="" />
-      </div>
+      </div>}
       </PDFExport>
     </div>
   );
