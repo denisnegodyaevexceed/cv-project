@@ -33,6 +33,8 @@ const useStyles2 = makeStyles((theme) => ({
 }));
 
 
+
+
 const AboutHardSkills = () => {
 
 
@@ -46,12 +48,8 @@ const AboutHardSkills = () => {
 
   const {frontendTech, backendTech, dbsTech, otherTech, techList} = useSelector(state => state.addTechnologyReducer)
 
-  console.log(frontendTech, 'frontendTech')
-  console.log(techList, 'techlist')
-
   const addTech= (e, technology) => {
     e.preventDefault()
-    console.log(technology, 'technology')
     dispatch(allTechnologyActions.addTechnologyAction(technology, techList, top100Films))
   }
 
@@ -92,7 +90,8 @@ const AboutHardSkills = () => {
                     options={uniqueArray}
                     getOptionLabel={(option) => option.title}
                     onChange={(_, values) =>
-                      dispatch(allHardSkillsActions.setFrontendAction(values))
+                      {dispatch(allHardSkillsActions.setFrontendAction(values))
+                      dispatch(allTechnologyActions.setClearTechnologiesAction())}
                     }
                     value={frontend}
                     inputValue={frontendTech}
@@ -122,7 +121,8 @@ const AboutHardSkills = () => {
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
-                    onChange={(_, values) => dispatch(allHardSkillsActions.setBackendAction(values))}
+                    onChange={(_, values) => {dispatch(allHardSkillsActions.setBackendAction(values))
+                      dispatch(allTechnologyActions.setClearTechnologiesAction())}}
                     value={backend}
                     inputValue={backendTech}
                     renderInput={params => (
@@ -151,7 +151,8 @@ const AboutHardSkills = () => {
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
-                    onChange={(_, values) => dispatch(allHardSkillsActions.setDbsAction(values))}
+                    onChange={(_, values) => {dispatch(allHardSkillsActions.setDbsAction(values))
+                      dispatch(allTechnologyActions.setClearTechnologiesAction())}}
                     value={dbs}
                     inputValue={dbsTech}
                     renderInput={params => (
@@ -181,7 +182,8 @@ const AboutHardSkills = () => {
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
-                    onChange={(_, values) => dispatch(allHardSkillsActions.setOtherAction(values))}
+                    onChange={(_, values) => {dispatch(allHardSkillsActions.setOtherAction(values))
+                      dispatch(allTechnologyActions.setClearTechnologiesAction())}}
                     value={other}
                     inputValue={otherTech}
 

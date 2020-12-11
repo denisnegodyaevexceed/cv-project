@@ -29,7 +29,7 @@ function App() {
   ];
 
   const correctTemplate = (templateNumber) => {
-    console.log("===================>", templateNumber);
+    
 
     switch (templateNumber) {
       case "1":

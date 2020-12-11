@@ -34,7 +34,14 @@ const addTechnologyReducer = (state = initialState, actions) => {
                 ...state,
                 techList: actions.payload
             }
-
+        case 'SET_CLEAR_TECHNOLOGIES':
+            return {
+                ...state,
+                frontendTech: '',
+                backend: '',
+                dbs: '',
+                other: '',
+                 }
         default:
             return state
     }

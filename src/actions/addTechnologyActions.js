@@ -21,6 +21,12 @@ const setOtherTechnologyAction = (data) => ({
     payload: data
 })
 
+const setClearTechnologiesAction = () => ({
+    type: actions.SET_CLEAR_TECHNOLOGIES
+})
+
+
+
 const addTechnologyAction = (frontendTech, techList, alltech) =>{
     console.log('TH' , techList)
     console.log('T!' , frontendTech)
@@ -53,7 +59,8 @@ const allTechnologyActions = {
     setBackendTechnologyAction,
     setDbsTechnologyAction,
     setOtherTechnologyAction,
-    addTechnologyAction
+    addTechnologyAction,
+    setClearTechnologiesAction,
 }
 
 export default allTechnologyActions
