@@ -8,6 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 import {useSelector} from 'react-redux'
 import Template3 from './components/Template3';
 import Template2 from './components/Template2';
+import Template5 from './components/Template5';
 // import CustomizedHook from './test1';
 
 
@@ -19,7 +20,7 @@ function App() {
   const routes = [
     { path: '/', Component: Test },
     { path: '/templates', Component: templatePage },
-    // {path: '/template3', Component: Template3},
+    {path: '/template5', Component: Template5},
 
 
     { path: '/steps', Component: CustomizedSteppers },
