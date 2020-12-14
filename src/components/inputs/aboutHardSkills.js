@@ -14,6 +14,7 @@ import allTechnologyActions from "../../actions/addTechnologyActions";
 import top100Films from "../../constants/stack";
 
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
