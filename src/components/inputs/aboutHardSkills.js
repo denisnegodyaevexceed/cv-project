@@ -13,6 +13,10 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import allTechnologyActions from "../../actions/addTechnologyActions";
 import top100Films from "../../constants/stack";
 import frontendStack from "../../constants/frontendStack";
+import backendStack from "../../constants/backendStack";
+import dbsStack from "../../constants/dbsStack";
+
+
 
 
 
@@ -60,6 +64,25 @@ const AboutHardSkills = () => {
   let showBackendButton = !backendTech
   let showDbsButton = !dbsTech
   let showOtherButton = !otherTech
+
+
+  let uniqueDbsStack = dbsStack.concat(techList).concat()
+
+  uniqueDbsStack = uniqueDbsStack.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.title.toLowerCase() === item.title.toLowerCase() 
+  ))
+)
+
+  let uniqueBackendStack = backendStack.concat(techList).concat()
+
+
+  uniqueBackendStack = uniqueBackendStack.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.title.toLowerCase() === item.title.toLowerCase() 
+  ))
+)
+
 
 
 
@@ -134,7 +157,7 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={uniqueArray}
+                    options={uniqueBackendStack}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => {dispatch(allHardSkillsActions.setBackendAction(values))
                       dispatch(allTechnologyActions.setClearTechnologiesAction())}}
@@ -164,7 +187,7 @@ const AboutHardSkills = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={uniqueArray}
+                    options={uniqueDbsStack}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => {dispatch(allHardSkillsActions.setDbsAction(values))
                       dispatch(allTechnologyActions.setClearTechnologiesAction())}}
