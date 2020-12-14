@@ -12,6 +12,9 @@ import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import allTechnologyActions from "../../actions/addTechnologyActions";
 import top100Films from "../../constants/stack";
+import frontendStack from "../../constants/frontendStack";
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,6 +61,18 @@ const AboutHardSkills = () => {
   let showDbsButton = !dbsTech
   let showOtherButton = !otherTech
 
+
+
+  let uniqueFrontendStack = frontendStack.concat(techList).concat()
+
+
+  uniqueFrontendStack = uniqueFrontendStack.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.title.toLowerCase() === item.title.toLowerCase() 
+  ))
+)
+
+
   let uniqueArray = top100Films.concat(techList).concat()
 
   uniqueArray = uniqueArray.filter((item, index, self) =>
@@ -87,7 +102,7 @@ const AboutHardSkills = () => {
                   
                   <Autocomplete
                     multiple
-                    options={uniqueArray}
+                    options={uniqueFrontendStack}
                     getOptionLabel={(option) => option.title}
                     onChange={(_, values) =>
                       {dispatch(allHardSkillsActions.setFrontendAction(values))
