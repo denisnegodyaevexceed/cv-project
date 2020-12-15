@@ -8,6 +8,7 @@ import allTemplateActions from "./actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
 import Slide from "@material-ui/core/Slide";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import MuiAlert from '@material-ui/lab/Alert';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -19,19 +20,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid() {
-  function TransitionLeft(props) {
-    return <Slide {...props} direction="left" ></Slide>;
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
   const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
-  const handleClick = (Transition) => {
-    setTransition(() => Transition);
+
+  const handleClick = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
     setOpen(false);
   };
+
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -52,7 +57,7 @@ export default function CenteredGrid() {
                 id="1"
                 onClick={(e) => {
                   
-                  handleClick(TransitionLeft)
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -76,7 +81,7 @@ export default function CenteredGrid() {
                 id="2"
                 onClick={(e) => {
                   
-                  handleClick(TransitionLeft)
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -100,7 +105,7 @@ export default function CenteredGrid() {
                 id="3"
                 onClick={(e) => {
                   
-                  handleClick(TransitionLeft)
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -124,7 +129,7 @@ export default function CenteredGrid() {
                 id="4"
                 onClick={(e) => {
                   
-                  handleClick(TransitionLeft)
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -148,7 +153,7 @@ export default function CenteredGrid() {
                 id="5"
                 onClick={(e) => {
                   
-                  handleClick(TransitionLeft)
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -162,6 +167,30 @@ export default function CenteredGrid() {
               
               <h3 className="h3-template">Template 5</h3>
               {templateNumber==='5'?<CheckCircleOutlineIcon className="icon"/>:null}
+              </div>
+              </div>
+            </Grid>
+            <Grid item xs={3} className="template-1">
+              <div className="cont-temp">
+              <img className="img-1-1" src="./create.png" alt="" />
+              <img
+                id="6"
+                onClick={(e) => {
+                  
+                  handleClick(Alert)
+                  dispatch(allTemplateActions.setTemplateAction(e.target.id));
+                }}
+                className="img-1-2"
+                src="./create.png"
+                alt=""
+              />
+             
+
+              
+             <div className="cont-item">
+              
+              <h3 className="h3-template">Create template</h3>
+              {templateNumber==='6'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
@@ -179,14 +208,11 @@ please select a template</h3>:<Button
           Далее
         </Button>}
       </div>
-      <Snackbar
-        className="snack"
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={transition}
-        message="Template selected!"
-        key={transition ? transition.name : ""}
-      />
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          This is a success message!
+        </Alert>
+      </Snackbar>
       
     </div>
   );
