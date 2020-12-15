@@ -11,7 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
@@ -129,6 +128,7 @@ export default function AboutMe() {
           </div>
         </AccordionDetails>
       </Accordion>
+    
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

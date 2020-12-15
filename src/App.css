@@ -442,7 +442,7 @@ z-index: 3;
       0%{
     
           opacity: 0;
-          transform: translateX(-400px);
+          transform: translateY(-400px);
 
       }
       100%{
@@ -460,7 +460,6 @@ z-index: 3;
     }
     100%{
         transform: translateY(-400px);
-
         opacity: 0;
     }
 }
@@ -477,10 +476,10 @@ z-index: 3;
       
    }
    .page-enter-active{
-       animation:fade-in 1.2s forwards;
+       animation:fade-in 0.7s forwards;
    }
    .page-exit-active{
-    animation:fade-out 1.2s forwards;
+    animation:fade-out 0.7s forwards;
 }
   
 
@@ -577,3 +576,90 @@ z-index: 3;
     right: -50px;
     top: 10px;
 }
+.container{
+ 
+}
+.column{
+    
+    width: 300px;
+    height: 500px;
+}
+.first-column{
+    font-weight: bold;
+    color: white;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    background-color: red;
+}
+.second-column{
+    position: relative;
+    color: white;
+    font-weight: bold;
+
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+}
+.movable-item{
+    width: 150px;
+    height:150px;
+    background-color: gray;
+}
+.movable-item2{
+    width: 150px;
+    height:150px;
+    background-color: wheat;
+}
+
+.head-template{
+    height: 300px;
+    background-color: red;
+}
+.body-template{
+    height: 500px;
+    background-color: royalblue;
+}
+/* .ava-temp{
+    position:absolute;
+    z-index: 4;
+    top: 20%;
+} */
+#test{
+    width: 700px;
+    margin:0 auto;
+}
+#ball{
+    /* position: absolute; */
+}
+
+.exportArea{
+    width: 700px;
+    /* position: relative; */
+    /* margin: 0 auto; */
+    height: 800px;
+    background-color: red;
+}
+
+.customizeWindow {
+    position: fixed;
+    right: 30px;
+    top: 40%;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px 0 15px 0;
+    align-items: center;
+    padding: 15px;
+}
+
+.leftControlButton{
+    height: 59px;
+}
+
+.rightControlButton{
+    height: 59px
+}
+
+

@@ -48,6 +48,7 @@ const Template4 = () => {
       <PDFExport
         forcePageBreak=".page-break"
         ref={(component) => (pdfExportComponent = component)}
+        fileName={`${userInfo.firstName + userInfo.secondName}`+`${userInfo.careerObjective}`}
         
       >
       <div className="template-4">
