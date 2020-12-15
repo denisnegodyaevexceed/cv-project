@@ -21,6 +21,7 @@ const Test = ()=> {
             </div> */}
             <div className="wrap" >
     <Box className="btn2" to="/templates" component={Link} >Create Resume</Box>
+    
     {/* <Box to="/steps" component={Link} className="button1" >Create Resume</Box> */}
     </div>
             </div>

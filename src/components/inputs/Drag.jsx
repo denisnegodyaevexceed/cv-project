@@ -1,121 +1,120 @@
 import React, { useState } from 'react';
-// import './App.css';
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { PDFExport } from "@progress/kendo-react-pdf";
-import Button from "@material-ui/core/Button";
-
-const MovableItem = ({setIsFirstColumn}) => {
-    const [{isDragging}, drag] = useDrag({
-        item: {name: 'Any custom name', type: 'Our first type'},
-        end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
-            if(dropResult && dropResult.name === 'Column 1'){
-                setIsFirstColumn(true)
-            } else {
-                setIsFirstColumn(false);
-            }
-        },
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging(),
-        }),
-    });
-
-    const opacity = isDragging ? 0.4 : 1;
-
-    return (
-        
-        <div ref={drag} className='movable-item' style={{opacity}}>
-            We will move this item
-        </div>
-    )
-}
-const MovableItem2 = ({setIsFirstColumn2}) => {
-    const [{isDragging2}, drag2] = useDrag({
-        item: {name: 'Any custom name', type: 'Our first type'},
-        end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
-            if(dropResult && dropResult.name === 'Column 1'){
-                setIsFirstColumn2(true)
-            } else {
-                setIsFirstColumn2(false);
-            }
-        },
-        collect: (monitor) => ({
-            isDragging2: monitor.isDragging(),
-        }),
-    });
-
-    const opacity = isDragging2 ? 0.4 : 1;
-
-    return (
-        
-        <div ref={drag2} className='movable-item' style={{opacity}}>
-           123
-        </div>
-    )
-}
+import  Muuri  from "muuri";
+import { useSelector} from "react-redux";
+import {
+    Button,
+    Container,
+    Grid,
+} from "@material-ui/core";
 
 
-const Column = ({children, className, title}) => {
-    const [, drop] = useDrop({
-        accept: 'Our first type',
-        drop: () => ({name: title}),
-    });
-
-    return (
-        <div ref={drop} className={className}>
-            {title}
-            {children}
-        </div>
-    )
-}
+import 'gridstack/dist/gridstack.min.css';
+import {GridStack} from 'gridstack';
+// THEN to get HTML5 drag&drop
+import 'gridstack/dist/h5/gridstack-dd-native';
+// OR to get legacy jquery-ui drag&drop
+import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 
 const Drag = () => {
-  let pdfExportComponent;
+    const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
+    const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
+    const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
+    const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
+  const userInfo = useSelector((state) => state.aboutMeReducer);
+    
+    let pdfExportComponent;
 
-    const [isFirstColumn, setIsFirstColumn] = useState(true);
-    const [isFirstColumn2, setIsFirstColumn2] = useState(true);
+    const [items, setItems] = useState([{id: '1'}, {id: '2'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}]);
 
+    var phPool = [];
+    var phElem = document.createElement('div');
+    React.useEffect(() => {
+        var options = { // put in gridstack options here
+            disableOneColumnMode: true, // for jfiddle small window size
+            float: false
+          };
+          var grid = GridStack.init(options);
+          
+          var count = 0;
+          var items = [
+              {x: 0, y: 0, w: 2, h: 2},
+              {x: 2, y: 0, w: 2},
+            {x: 3, y: 1, h: 2},
+            {x: 0, y: 2, w: 2},
+          ];
+          
+          const addNewWidget = () => {
+            var node = items[count] || {
+              x: Math.round(12 * Math.random()),
+              y: Math.round(5 * Math.random()),
+              w: Math.round(1 + 3 * Math.random()),
+              h: Math.round(1 + 3 * Math.random())
+            };
+            node.content = String(count++);
+            grid.addWidget(node);
+            return false;
+          };
 
-    const Item = <MovableItem setIsFirstColumn={setIsFirstColumn}/>;
-    const Item2 = <MovableItem2 setIsFirstColumn2={setIsFirstColumn2}/>;
+    }, [])
+
 
     return (
-        <div className="container">
-            <Button
-        
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        onClick={() => {
-          pdfExportComponent.save();
-        }}
-      >
-        Скачать PDF
-      </Button>
-            {/* Wrap components that will be "draggable" and "droppable" */}
-            <DndProvider backend={HTML5Backend}>
-                <Column title='Column 1' className='column first-column'>
-                    {isFirstColumn && Item}
-                    {isFirstColumn2 && Item2}
-
-                </Column>
-                 <PDFExport
-        forcePageBreak=".page-break"
-        ref={(component) => (pdfExportComponent = component)}
-        // fileName={`${userInfo.firstName + userInfo.secondName}`+`${userInfo.careerObjective}`}
-        // paperSize="A4"
-      >
-          <div title='Column 2' className='column second-column'>
-                    {!isFirstColumn && Item}
-                    {!isFirstColumn2 && Item2}
-
-                </div>
-      </PDFExport>
+        <Container>
+            <Grid container>
+                <Grid item xs={12}>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        className="k-button"
+                        onClick={() => {
+                        pdfExportComponent.save();
+                        }}
+                    >
+                        Скачать PDF
+                    </Button>
+                </Grid>
+                <Grid item xs={12}>
+                <PDFExport
                 
-            </DndProvider>
-        </div>
+                    forcePageBreak=".page-break"
+                    ref={(component) => (pdfExportComponent = component)}
+                    fileName={`${userInfo.firstName + userInfo.secondName}`+`${userInfo.careerObjective}`}
+                    // paperSize="A4"
+                >
+                    <div className='qqqqq'></div>
+
+                    <div className="grid-stack">
+                        <div className="grid-stack-item" gs-w="6" gs-h='6'>
+                            <div className="grid-stack-item-content"><div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        width: '100%',
+                        height: '100%',
+                        boxSizing: 'border-box',
+                        margin: "auto"}}></div></div>
+                        </div>
+                        <div className="grid-stack-item" gs-w="6" gs-h='1'>
+                    <div className="grid-stack-item-content">{userInfo.firstName}{userInfo.secondName}</div>
+                        </div>
+                        <div className="grid-stack-item" gs-w="2" gs-h='2'>
+                            <div className="grid-stack-item-content">Item 2 wider</div>
+                        </div>
+                        <div className="grid-stack-item" gs-w="2" gs-h='2'>
+                            <div className="grid-stack-item-content">Item 1</div>
+                        </div>
+                        <div className="grid-stack-item" gs-w="2" gs-h='2'>
+                            <div className="grid-stack-item-content">Item 2 wider</div>
+                        </div>
+                        <div className="grid-stack-item" gs-w="2" gs-h='2'>
+                            <div className="grid-stack-item-content">Item 2 wider</div>
+                        </div>
+                   
+                    </div> 
+                </PDFExport>
+                </Grid>
+            </Grid>
+        </Container>
     );
 }
 export default Drag

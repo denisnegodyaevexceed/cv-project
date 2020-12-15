@@ -1,6 +1,6 @@
 const initialState = {
-    firstName: '',
-    secondName: '',
+    firstName: 'Denis',
+    secondName: 'Negodyaev',
     careerObjective: '',
     age: '',
     aboutMeInfo: '',
