@@ -4,12 +4,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import templatePage from "./templatePage";
 import CustomizedSteppers from "./main";
 import Test from "./1";
+
 import { CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
 import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
+import Drag from "./components/inputs/Drag";
+
 // import CustomizedHook from './test1';
 
 function App() {
@@ -21,7 +24,8 @@ function App() {
     // {path: '/template5', Component: Template5},
 
     { path: "/steps", Component: CustomizedSteppers },
-    // { path: '/template4', Component: Template4 },
+    { path: '/test', Component: Test },
+    { path: '/drag', Component: Drag},
 
     // { path: '/test', Component: CustomizedHook },
 
