@@ -170,6 +170,30 @@ export default function CenteredGrid() {
               </div>
               </div>
             </Grid>
+            <Grid item xs={3} className="template-1">
+              <div className="cont-temp">
+              <img className="img-1-1" src="./create.png" alt="" />
+              <img
+                id="6"
+                onClick={(e) => {
+                  
+                  handleClick(Alert)
+                  dispatch(allTemplateActions.setTemplateAction(e.target.id));
+                }}
+                className="img-1-2"
+                src="./create.png"
+                alt=""
+              />
+             
+
+              
+             <div className="cont-item">
+              
+              <h3 className="h3-template">Create template</h3>
+              {templateNumber==='6'?<CheckCircleOutlineIcon className="icon"/>:null}
+              </div>
+              </div>
+            </Grid>
             
           </Grid>
         </div>

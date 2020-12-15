@@ -1,5 +1,6 @@
 import "./App.css";
 import Template1 from "./components/Template1.jsx";
+import React from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import templatePage from "./templatePage";
 import CustomizedSteppers from "./main";
@@ -46,6 +47,8 @@ function App() {
         return Template4;
       case "5":
         return Template5;
+        case "6":
+        return Drag;
 
       default:
         return templatePage;
