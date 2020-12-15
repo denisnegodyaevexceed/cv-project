@@ -56,6 +56,7 @@ const MovableItem2 = ({setIsFirstColumn2}) => {
     )
 }
 
+
 const Column = ({children, className, title}) => {
     const [, drop] = useDrop({
         accept: 'Our first type',

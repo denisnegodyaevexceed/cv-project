@@ -607,6 +607,13 @@ z-index: 3;
     height:150px;
     background-color: blue;
 }
+.movable-item2{
+position: relative;
+z-index: 5;
+background-color: green;
+width: 60px;
+height: 60px;
+}
 
 .head-template{
     height: 300px;
@@ -635,4 +642,9 @@ z-index: 3;
     /* margin: 0 auto; */
     height: 800px;
     background-color: red;
+}
+.abc{
+    width: 60px;
+    height: 60px;
+    background-color: green;
 }
