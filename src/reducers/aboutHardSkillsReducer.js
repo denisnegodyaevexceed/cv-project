@@ -1,8 +1,20 @@
 const initialState = {
-    frontend: [],
-    backend: [],
-    dbs: [ ],
-    other: [],
+    frontend: [ { title: 'Cassandra' },
+    { title: 'Microsoft SQL' },
+    { title: 'CouchDB' },
+    { title: 'Oracle' },],
+    backend: [ { title: 'Cassandra' },
+    { title: 'Microsoft SQL' },
+    { title: 'CouchDB' },
+    { title: 'Oracle' },],
+    dbs: [  { title: 'Cassandra' },
+    { title: 'Microsoft SQL' },
+    { title: 'CouchDB' },
+    { title: 'Oracle' },],
+    other: [ { title: 'Cassandra' },
+    { title: 'Microsoft SQL' },
+    { title: 'CouchDB' },
+    { title: 'Oracle' },],
 }
 
 const aboutHardSkillsReducer = (state = initialState, actions) => {

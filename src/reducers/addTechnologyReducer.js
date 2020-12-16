@@ -3,7 +3,10 @@ const initialState = {
     backendTech: '',
     dbsTech: '',
     otherTech: '',
-    techList: [],
+    techList: [{ title: 'Cassandra' },
+    { title: 'Microsoft SQL' },
+    { title: 'CouchDB' },
+    { title: 'Oracle' },],
 }
 
 
