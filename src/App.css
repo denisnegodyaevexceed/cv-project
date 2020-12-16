@@ -736,7 +736,7 @@ height: 60px;
 
   .grid-stack {
     background: lightgoldenrodyellow;
-    max-width: 700px;
+    width: 700px;
   }
   
   .grid-stack-item-content {
@@ -749,6 +749,10 @@ height: 60px;
     /* background-color: #18bc9c; */
   }
 
-  .qqqqq{
-      width: 700px;
-  }
+.noBorder  * {
+    border: none !important;
+}
+
+.grid-stack-body{
+    border-top: 1px solid black;
+}
