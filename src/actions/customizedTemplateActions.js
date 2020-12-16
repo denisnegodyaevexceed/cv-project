@@ -10,9 +10,9 @@ const setElementYAction = (data) => ({
     payload: data
 })
 
-const allElementPositionActions = {
+const allCustomizedTemplateActions = {
     setElementXAction,
     setElementYAction,
 }
 
-export default allElementPositionActions
+export default allCustomizedTemplateActions

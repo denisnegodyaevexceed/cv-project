@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import allElementPositionActions from '../actions/elementPositionActions'
 import aboutHardSkillsReducer from './aboutHardSkillsReducer'
 import aboutMeReducer from './aboutMeReducer'
 import aboutWorkHistoryReducer from './aboutWorkHistoryReducer'
 import addTechnologyReducer from './addTechnologyReducer'
-import elementPositionReducer from './elementPositionReducer'
+import customizedTemplateReducer from './customizedTemplateReducer'
 import portfolioReducer from './portfolioReducer'
 import templateReducer from './templateReducer'
+
 
 
 
@@ -17,5 +17,5 @@ export default combineReducers({
     portfolioReducer,
     templateReducer,
     addTechnologyReducer,
-    elementPositionReducer
+    customizedTemplateReducer
 })

@@ -3,7 +3,7 @@ const initialState = {
     left: 0,
 }
 
-const elementPositionReducer = (state=initialState, actions) => {
+const customizedTemplateReducer = (state=initialState, actions) => {
     switch(actions.type){
         case 'SET_ELEMENT_X':
             return{
@@ -20,4 +20,4 @@ const elementPositionReducer = (state=initialState, actions) => {
     }
 }
 
-export default elementPositionReducer;
+export default customizedTemplateReducer;

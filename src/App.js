@@ -12,6 +12,7 @@ import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
+import Drag from "./components/inputs/Drag";
 
 
 // import CustomizedHook from './test1';
