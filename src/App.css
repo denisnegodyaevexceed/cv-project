@@ -652,10 +652,10 @@ height: 60px;
 .customizeWindow {
     position: fixed;
     right: 30px;
-    top: 40%;
+    top: 10%;
     background-color: white;
     width: 300px;
-    height: 300px;
+    
     border-radius: 15px 0 15px 0;
     align-items: center;
     padding: 15px;

@@ -12,6 +12,8 @@ const DragBody = () => {
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
+    const {bodyBackground} = useSelector(state=>state.customizedTemplateReducer)
+
     React.useEffect(() => {
         let options = { 
             disableOneColumnMode: true,
@@ -22,7 +24,7 @@ const DragBody = () => {
     }, [])
 
     return (
-        <div className='grid-stack grid-stack-body'>
+        <div className='grid-stack grid-stack-body' style={{backgroundColor: `${bodyBackground}`}}>
             <div className="grid-stack-item" gs-w="2" gs-h='2'>
                 <div className="grid-stack-item-content">Item 2 wider</div>
             </div>
