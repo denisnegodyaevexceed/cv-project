@@ -1,18 +1,14 @@
 import actions from '../constants/actionTypes'
 
-const setElementXAction = (data) => ({
-    type: actions.SET_ELEMENT_X,
+
+const setHeaderBackgroundAction = (data) => ({
+    type: actions.SET_HEADER_BACKGROUND,
     payload: data
 })
 
-const setElementYAction = (data) => ({
-    type: actions.SET_ELEMENT_Y,
-    payload: data
-})
 
 const allCustomizedTemplateActions = {
-    setElementXAction,
-    setElementYAction,
+    setHeaderBackgroundAction
 }
 
 export default allCustomizedTemplateActions
