@@ -51,7 +51,6 @@ const Drag = () => {
 
     const classes3 = useStyles3()
 
-    const [items, setItems] = useState([{id: '1'}, {id: '2'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}, {id: '3'}]);
 
 
     const [isPDF, setIsPDF] = useState(false);
@@ -61,7 +60,7 @@ const Drag = () => {
         pdfExportComponent.save();
         setTimeout(() => {
             setIsPDF(false); 
-        }, 50);
+        }, 500);
     }
 
     return (
