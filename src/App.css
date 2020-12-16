@@ -726,3 +726,7 @@ height: 60px;
 .noBorder  * {
     border: none !important;
 }
+
+.grid-stack-body{
+    border-top: 1px solid black;
+}
