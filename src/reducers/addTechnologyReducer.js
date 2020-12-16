@@ -41,9 +41,9 @@ const addTechnologyReducer = (state = initialState, actions) => {
             return {
                 ...state,
                 frontendTech: '',
-                backend: '',
-                dbs: '',
-                other: '',
+                backendTech: '',
+                dbsTech: '',
+                otherTech: '',
                  }
         default:
             return state

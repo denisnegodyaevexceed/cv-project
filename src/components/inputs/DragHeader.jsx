@@ -12,6 +12,10 @@ const DragHeader = () => {
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
+    const {headerBackground} = useSelector(state=>state.customizedTemplateReducer)
+
+    console.log(headerBackground , 'gfhfh')
+
     React.useEffect(() => {
         let options = { 
             disableOneColumnMode: true,

@@ -104,6 +104,8 @@ const AboutHardSkills = () => {
   ))
 )
 
+
+
   return (
     <div className='container-pdf'>
       <div className={classes2.root}>
@@ -189,10 +191,11 @@ const AboutHardSkills = () => {
                     multiple
                     options={uniqueDbsStack}
                     getOptionLabel={option => option.title}
+                    inputValue={dbsTech}
                     onChange={(_, values) => {dispatch(allHardSkillsActions.setDbsAction(values))
                       dispatch(allTechnologyActions.setClearTechnologiesAction())}}
                     value={dbs}
-                    inputValue={dbsTech}
+                    
                     renderInput={params => (
                       <div className='bloblo'><TextField
 

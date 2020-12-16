@@ -14,6 +14,7 @@ import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
 import Drag from "./components/inputs/Drag";
 
+
 // import CustomizedHook from './test1';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
     { path: "/steps", Component: CustomizedSteppers },
     { path: '/test', Component: Test },
-    { path: '/drag', Component: Drag},
+    
 
     // { path: '/test', Component: CustomizedHook },
 

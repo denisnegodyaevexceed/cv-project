@@ -600,12 +600,17 @@ z-index: 3;
     width: 700px;
     height: auto;
     margin: 0 auto;
-    background-color: red;
+    background-color: white;
 }
 .movable-item{
     width: 150px;
     height:150px;
-    background-color: blue;
+    background-color: gray;
+}
+.movable-item2{
+    width: 150px;
+    height:150px;
+    background-color: wheat;
 }
 .movable-item2{
 position: relative;
@@ -643,6 +648,27 @@ height: 60px;
     height: 800px;
     background-color: red;
 }
+
+.customizeWindow {
+    position: fixed;
+    right: 30px;
+    top: 40%;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px 0 15px 0;
+    align-items: center;
+    padding: 15px;
+}
+
+.leftControlButton{
+    height: 59px;
+}
+
+.rightControlButton{
+    height: 59px
+}
+
 
 .grid{
     margin-bottom: 20px !important;
