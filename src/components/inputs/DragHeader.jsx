@@ -25,7 +25,7 @@ const DragHeader = () => {
     }, [])
 
     return (
-        <div className='grid-stack grid-stack-header'>
+        <div className='grid-stack grid-stack-header' style={{backgroundColor: `${headerBackground}`}}>
             <div className="grid-stack-item" gs-w="4" gs-h='4'>
                 <div className="grid-stack-item-content">
                     <div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",

@@ -6,9 +6,15 @@ const setHeaderBackgroundAction = (data) => ({
     payload: data
 })
 
+const setBodyBackgroundAction = (data) => ({
+    type: actions.SET_BODY_BACKGROUND,
+    payload: data
+})
+
 
 const allCustomizedTemplateActions = {
-    setHeaderBackgroundAction
+    setHeaderBackgroundAction,
+    setBodyBackgroundAction
 }
 
 export default allCustomizedTemplateActions

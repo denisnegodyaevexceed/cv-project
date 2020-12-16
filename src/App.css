@@ -692,6 +692,27 @@ height: 60px;
     background-color: red;
 }
 
+.customizeWindow {
+    position: fixed;
+    right: 30px;
+    top: 10%;
+    background-color: white;
+    width: 300px;
+    
+    border-radius: 15px 0 15px 0;
+    align-items: center;
+    padding: 15px;
+}
+
+.leftControlButton{
+    height: 59px;
+}
+
+.rightControlButton{
+    height: 59px
+}
+
+
 .grid{
     margin-bottom: 20px !important;
     background-color: blueviolet;

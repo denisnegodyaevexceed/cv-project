@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
 import { Button, Container, Grid } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
@@ -32,6 +34,9 @@ const useStyles3 = makeStyles((theme) => ({
 }));
 
 const Drag = () => {
+  const dispatch = useDispatch();
+
+    const { headerBackground, bodyBackground } = useSelector(state => state.customizedTemplateReducer)
     const [cls, setCls] = useState(["side1"]);
   const [open, setOpen] = useState(true);
   useEffect(() => {
@@ -43,8 +48,12 @@ const Drag = () => {
 
     }
   }, [open]);
-
-
+  const handleChangeHeaderBackgroungComplete = (color) => {
+    dispatch(allCustomizedTemplateActions.setHeaderBackgroundAction(color.hex));
+};
+const handleChangeBodyBackgroungComplete = (color) => {
+  dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
+};
   const {
     firstCompany,
     firstPosition,
@@ -75,10 +84,7 @@ const Drag = () => {
 
   const userInfo = useSelector((state) => state.aboutMeReducer);
 
-  const dispatch = useDispatch();
-  const { headerBackground } = useSelector(
-    (state) => state.customizedTemplateReducer
-  );
+  
 
   let [color, setColor] = useState("#fff");
 
@@ -165,6 +171,11 @@ const Drag = () => {
           <PhotoCamera className='photoInput'/>
         </IconButton>
       </label>
+      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                        <Button>One</Button>
+                        <Button>Two</Button>
+                        <Button>Three</Button>
+                    </ButtonGroup>
       </form>
       <div className="cont-edit">
 
@@ -177,7 +188,8 @@ const Drag = () => {
           <div className={classes2.heading} ><h2>Color</h2></div>
         </AccordionSummary>
         <AccordionDetails>
-      <SketchPicker  color={color} onChangeComplete={handleChangeComplete} />
+        Header:
+      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />
       </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -187,25 +199,15 @@ const Drag = () => {
           id="panel1a-header"
         >
           <div className={classes2.heading} ><h2>Color</h2></div>
-
         </AccordionSummary>
         <AccordionDetails>
-      <SketchPicker  color={color} onChangeComplete={handleChangeComplete} />
+        Body:
+      <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
       </AccordionDetails>
       </Accordion>
-      <Accordion>
-      <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h2>Color</h2></div>
-
-        </AccordionSummary>
-        <AccordionDetails>
-      <SketchPicker  color={color} onChangeComplete={handleChangeComplete} />
-      </AccordionDetails>
-      </Accordion>
+     
+      
+      
       </div>
             </div> 
         
