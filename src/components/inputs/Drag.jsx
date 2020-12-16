@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { PDFExport } from "@progress/kendo-react-pdf";
-import { useSelector} from "react-redux";
 import {
     Button,
     Container,
@@ -19,6 +18,7 @@ import 'gridstack/dist/h5/gridstack-dd-native';
 import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 import DragHeader from './DragHeader'
 import DragBody from './DragBody'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const useStyles3 = makeStyles((theme) => ({
@@ -37,7 +37,12 @@ const Drag = () => {
     const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
     const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
-  const userInfo = useSelector((state) => state.aboutMeReducer);
+    
+    const userInfo = useSelector((state) => state.aboutMeReducer);
+
+    const dispatch = useDispatch()
+    const {headerBackground} = useSelector(state=>state.customizedTemplateReducer)
+
 
     let [color, setColor] = useState('#fff')
     

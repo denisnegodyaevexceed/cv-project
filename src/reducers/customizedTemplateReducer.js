@@ -1,19 +1,14 @@
 const initialState = {
-    top: 0,
-    left: 0,
+    headerBackground: '#fff',
+    bodyBackground: '#fff',
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
     switch(actions.type){
-        case 'SET_ELEMENT_X':
+        case 'SET_HEADER_BACKGROUND':
             return{
                 ...state,
-                left: actions.payload
-            }
-        case 'SET_ELEMENT_Y':
-            return{
-                ...state,
-                top: actions.payload
+                headerBackground: actions.payload
             }
         default :
             return state

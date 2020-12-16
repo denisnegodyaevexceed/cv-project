@@ -12,6 +12,10 @@ const DragHeader = () => {
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
+    const {headerBackground} = useSelector(state=>state.customizedTemplateReducer)
+
+    console.log(headerBackground , 'gfhfh')
+
     React.useEffect(() => {
         let options = { 
             disableOneColumnMode: true,
@@ -38,7 +42,7 @@ const DragHeader = () => {
                 <div className="grid-stack-item-content">{userInfo.firstName}{userInfo.secondName}</div>
             </div>
             <div className="grid-stack-item" gs-w="2" gs-h='2'>
-                <div className="grid-stack-item-content">Item 2 wider</div>
+                <div className="grid-stack-item-content">{userInfo.careerObjective}</div>
             </div>
         </div> 
     )
