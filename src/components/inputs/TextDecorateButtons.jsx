@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 
 const TextDecorateButtons = () => {
     const {setVerticalPosAction, setTextAlignAction, setAvaBorderRadiusAction} = allCustomizedTemplateActions;
-    const {activeBlock} = useSelector(state=>state.customizedTemplateReducer);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -49,7 +48,7 @@ const TextDecorateButtons = () => {
     }
 
     const setRadius = (_, value) => {
-        dispatch(setAvaBorderRadiusAction(value+'%'))
+        dispatch(setAvaBorderRadiusAction(value))
         
     }
 
@@ -77,10 +76,10 @@ const TextDecorateButtons = () => {
                 <Slider
                     defaultValue={0}
                     onChangeCommitted={setRadius}
-                    step={1}
+                    step={5}
                     marks
                     min={0}
-                    max={50}
+                    max={500}
                     aria-labelledby="non-linear-slider"
                 />
             </Grid>
