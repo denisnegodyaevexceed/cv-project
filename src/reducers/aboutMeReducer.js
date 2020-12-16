@@ -1,18 +1,18 @@
 const initialState = {
     firstName: 'Denis',
     secondName: 'Negodyaev',
-    careerObjective: '',
+    careerObjective: 'Developer',
     age: '',
-    aboutMeInfo: '',
-    email: '',
-    vkontakte: '',
-    skype: '',
-    phoneNumber: '',
-    github: '',
-    facebook: '',
-    education: '',
+    aboutMeInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    email: 'mail@mail.ru',
+    vkontakte: 'http://localhost:3000/',
+    skype: 'localhost:3000',
+    phoneNumber: '89009009090',
+    github: 'http://localhost:3000/',
+    facebook: 'http://localhost:3000/',
+    education: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     avatar: '',
-    languages:'',
+    languages:'English, Russian',
 }
 
 
