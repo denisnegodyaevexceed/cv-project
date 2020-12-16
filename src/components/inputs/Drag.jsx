@@ -36,25 +36,25 @@ const Drag = () => {
           };
           var grid = GridStack.init(options);
           
-          var count = 0;
-          var items = [
-              {x: 0, y: 0, w: 2, h: 2},
-              {x: 2, y: 0, w: 2},
-            {x: 3, y: 1, h: 2},
-            {x: 0, y: 2, w: 2},
-          ];
+        //   var count = 0;
+        //   var items = [
+        //       {x: 0, y: 0, w: 2, h: 2},
+        //       {x: 2, y: 0, w: 2},
+        //     {x: 3, y: 1, h: 2},
+        //     {x: 0, y: 2, w: 2},
+        //   ];
           
-          const addNewWidget = () => {
-            var node = items[count] || {
-              x: Math.round(12 * Math.random()),
-              y: Math.round(5 * Math.random()),
-              w: Math.round(1 + 3 * Math.random()),
-              h: Math.round(1 + 3 * Math.random())
-            };
-            node.content = String(count++);
-            grid.addWidget(node);
-            return false;
-          };
+        //   const addNewWidget = () => {
+        //     var node = items[count] || {
+        //       x: Math.round(12 * Math.random()),
+        //       y: Math.round(5 * Math.random()),
+        //       w: Math.round(1 + 3 * Math.random()),
+        //       h: Math.round(1 + 3 * Math.random())
+        //     };
+        //     node.content = String(count++);
+        //     grid.addWidget(node);
+        //     return false;
+        //   };
 
     }, [])
 
@@ -98,10 +98,12 @@ const Drag = () => {
                     <div className="grid-stack-item-content">{userInfo.firstName}{userInfo.secondName}</div>
                         </div>
                         <div className="grid-stack-item" gs-w="2" gs-h='2'>
-                            <div className="grid-stack-item-content">Item 2 wider</div>
+                            <div className="grid-stack-item-content">{userInfo.careerObjective.toUpperCase()}</div>
                         </div>
                         <div className="grid-stack-item" gs-w="2" gs-h='2'>
-                            <div className="grid-stack-item-content">Item 1</div>
+                            <div className="grid-stack-item-content">
+                                
+                            </div>
                         </div>
                         <div className="grid-stack-item" gs-w="2" gs-h='2'>
                             <div className="grid-stack-item-content">Item 2 wider</div>
