@@ -12,7 +12,7 @@ import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
-import Brag from "./components/inputs/Brag";
+
 
 // import CustomizedHook from './test1';
 
@@ -26,7 +26,7 @@ function App() {
 
     { path: "/steps", Component: CustomizedSteppers },
     { path: '/test', Component: Test },
-    { path: '/brag', Component: Brag},
+    
 
     // { path: '/test', Component: CustomizedHook },
 
