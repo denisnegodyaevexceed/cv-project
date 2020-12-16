@@ -6,9 +6,33 @@ const setHeaderBackgroundAction = (data) => ({
     payload: data
 })
 
+const setVerticalPosAction = (data) => ({
+    type: actions.SET_VERTICAL_POS,
+    payload: data
+})
+
+const setTextAlignAction = (data) => ({
+    type: actions.SET_TEXT_ALIGN,
+    payload: data
+})
+
+const setActiveBlockAction = (data) => ({
+    type: actions.SET_ACTIVE_BLOCK,
+    payload: data
+})
+
+const setAvaBorderRadiusAction = data => ({
+    type: actions.SET_BORDER_RADIUS_AVATAR,
+    payload: data
+})
+
 
 const allCustomizedTemplateActions = {
-    setHeaderBackgroundAction
+    setHeaderBackgroundAction,
+    setVerticalPosAction,
+    setTextAlignAction,
+    setAvaBorderRadiusAction,
+    setActiveBlockAction,
 }
 
 export default allCustomizedTemplateActions

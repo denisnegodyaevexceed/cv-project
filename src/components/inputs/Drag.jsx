@@ -9,15 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import { makeStyles } from '@material-ui/core/styles';
 import { SketchPicker } from 'react-color';
-
-import 'gridstack/dist/gridstack.min.css';
-import {GridStack} from 'gridstack';
-// THEN to get HTML5 drag&drop
-import 'gridstack/dist/h5/gridstack-dd-native';
-// OR to get legacy jquery-ui drag&drop
-import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 import DragHeader from './DragHeader'
 import DragBody from './DragBody'
+import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -82,6 +76,7 @@ const Drag = () => {
                     >
                         Скачать PDF
                     </Button>
+                    <TextDecorateButtons />
                 </Grid>
                 <Grid item xs={12} className={`${isPDF && 'noBorder'}`}>
                 <PDFExport

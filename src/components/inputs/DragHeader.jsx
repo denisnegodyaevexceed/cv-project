@@ -5,12 +5,12 @@ import {GridStack} from 'gridstack';
 import 'gridstack/dist/h5/gridstack-dd-native';
 import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 
+import DragItem from './DragItem';
+
 const DragHeader = () => {
-    const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
-    const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
     const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
-    const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
     const userInfo = useSelector((state) => state.aboutMeReducer);
+    const {avaBorderRadius} = useSelector(state=>state.customizedTemplateReducer);
 
     const {headerBackground} = useSelector(state=>state.customizedTemplateReducer)
 
@@ -26,24 +26,19 @@ const DragHeader = () => {
 
     return (
         <div className='grid-stack grid-stack-header'>
-            <div className="grid-stack-item" gs-w="4" gs-h='4'>
-                <div className="grid-stack-item-content">
-                    <div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        width: '100%',
-                        height: '100%',
-                        boxSizing: 'border-box',
-                        margin: "auto"}} 
-                    />
-                </div>
-            </div>
-            <div className="grid-stack-item" gs-w="6" gs-h='1'>
-                <div className="grid-stack-item-content">{userInfo.firstName}{userInfo.secondName}</div>
-            </div>
-            <div className="grid-stack-item" gs-w="2" gs-h='2'>
-                <div className="grid-stack-item-content">{userInfo.careerObjective}</div>
-            </div>
+            <DragItem id={1} gsh={4} gsw={4} renderContent={
+                <div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    width: '100%',
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    borderRadius: avaBorderRadius,
+                    margin: "auto"}} 
+                />} 
+            />
+            <DragItem id={2} gsh={2} gsw={2} renderContent={<span>{userInfo.firstName} {userInfo.secondName}</span>}/>
+            <DragItem id={3} gsh={1} gsw={6} renderContent={<span>{userInfo.careerObjective}</span>} />
         </div> 
     )
 }
