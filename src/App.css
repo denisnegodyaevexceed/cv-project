@@ -495,6 +495,26 @@ z-index: 3;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: white;
 }
+.side1{
+    position: absolute;
+    padding: 50px;
+    right: -360px;
+    top: 3%;
+    width: 300px;
+    height: 800px;
+   transition: 1s;
+   border-radius: 30px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: white; 
+}
+.open1{
+   
+    overflow-x: hidden;
+    right: 20px;
+
+
+    background-color: white;
+}
 .side-h2{
     text-align: center;
 
@@ -520,6 +540,19 @@ z-index: 3;
     cursor: pointer;
 
 }
+.side-open1{
+    color: rgb(247, 77, 51) ;
+
+    position: absolute;
+    left: -45px;
+    top: 43%;
+    transform: rotate(-90deg);
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+
+}
 .side-img{
     position: absolute;
     left: 70px;
@@ -530,6 +563,21 @@ z-index: 3;
     position: absolute;
     left: 85px;
     top: 245px;
+    font-size: 30px;
+    font-weight: bold;
+
+    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+
+}
+.sketch-picker {
+    margin: 0 auto;
+}
+.side-close1{
+    color: rgb(247, 77, 51) ;
+    position: absolute;
+    left: 137px;
+    bottom: 1px;
     font-size: 30px;
     font-weight: bold;
 
@@ -600,17 +648,12 @@ z-index: 3;
     width: 700px;
     height: auto;
     margin: 0 auto;
-    background-color: white;
+    background-color: red;
 }
 .movable-item{
     width: 150px;
     height:150px;
-    background-color: gray;
-}
-.movable-item2{
-    width: 150px;
-    height:150px;
-    background-color: wheat;
+    background-color: blue;
 }
 .movable-item2{
 position: relative;
@@ -648,27 +691,6 @@ height: 60px;
     height: 800px;
     background-color: red;
 }
-
-.customizeWindow {
-    position: fixed;
-    right: 30px;
-    top: 40%;
-    background-color: white;
-    width: 300px;
-    height: 300px;
-    border-radius: 15px 0 15px 0;
-    align-items: center;
-    padding: 15px;
-}
-
-.leftControlButton{
-    height: 59px;
-}
-
-.rightControlButton{
-    height: 59px
-}
-
 
 .grid{
     margin-bottom: 20px !important;
