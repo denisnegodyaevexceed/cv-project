@@ -503,9 +503,11 @@ z-index: 3;
     width: 300px;
     height: 800px;
    transition: 1s;
-   border-radius: 30px;
+   border-radius: 10px;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: white; 
+    overflow-x: hidden;
+
 }
 .open1{
    
@@ -540,11 +542,19 @@ z-index: 3;
     cursor: pointer;
 
 }
+.cont-edit{
+   
+    
+}
+.flex-cont-edit{
+    display: flex;
+    flex-direction: column;
+}
 .side-open1{
     color: rgb(247, 77, 51) ;
 
     position: absolute;
-    left: -45px;
+    left: -30px;
     top: 43%;
     transform: rotate(-90deg);
     font-size: 30px;
@@ -570,10 +580,11 @@ z-index: 3;
     cursor: pointer;
 
 }
+
 .sketch-picker {
     margin: 0 auto;
 }
-.side-close1{
+/* .side-close1{
     color: rgb(247, 77, 51) ;
     position: absolute;
     left: 137px;
@@ -584,6 +595,60 @@ z-index: 3;
     margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 
+} */
+.side-close1{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+ 
+    border-radius: 50%;
+}
+
+    
+   
+    
+    ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: rgb(61, 61, 61);
+    }
+    
+    
+    
+    ::-webkit-resizer{
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:4px;
+    height:0px
+    }
+    
+    ::-webkit-scrollbar{
+    width: 2px;
+
+    }
+
+.side-close1:before,
+.side-close1:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    width: 25px;
+    height: 4px;
+    background: red ;
+}
+
+.side-close1:before {
+    webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.side-close1:after {
+    webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 
@@ -780,6 +845,10 @@ height: 60px;
   .grid-stack {
     background: white;
     width: 700px;
+    
+  }
+  .grid-stack-item .ui-draggable .ui-resizable .ui-resizable-autohide{
+    overflow: hidden !important;
   }
   
   .grid-stack-item-content {
@@ -788,6 +857,8 @@ height: 60px;
     width: 30px;
     cursor: pointer;
     border: 1px dashed black;
+    overflow-y: hidden;
+
     /* box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.45); */
     /* background-color: #18bc9c; */
   }

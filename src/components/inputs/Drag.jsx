@@ -177,6 +177,31 @@ const handleChangeBodyBackgroungComplete = (color) => {
                         <Button>Three</Button>
                     </ButtonGroup>
       </form>
+      <div>
+<Accordion>
+<AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className={classes2.heading} ><h2>Color</h2></div>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div className="flex-cont-edit">
+            <div className="cont-edit">
+      <Accordion>
+      <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className={classes2.heading} ><h2>Color header</h2></div>
+        </AccordionSummary>
+        <AccordionDetails>
+      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />
+      </AccordionDetails>
+      </Accordion>
+      </div>
       <div className="cont-edit">
 
       <Accordion>
@@ -185,27 +210,17 @@ const handleChangeBodyBackgroungComplete = (color) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <div className={classes2.heading} ><h2>Color</h2></div>
+          <div className={classes2.heading} ><h2>Color main <main></main></h2></div>
         </AccordionSummary>
         <AccordionDetails>
-        Header:
-      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />
-      </AccordionDetails>
-      </Accordion>
-      <Accordion>
-      <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h2>Color</h2></div>
-        </AccordionSummary>
-        <AccordionDetails>
-        Body:
       <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
       </AccordionDetails>
       </Accordion>
-     
+      </div>
+      </div>
+
+      </AccordionDetails>
+      </Accordion>
       
       
       </div>
@@ -213,11 +228,11 @@ const handleChangeBodyBackgroungComplete = (color) => {
         
         {!open ? (
           <div onClick={() => setOpen(!open)} className="side-open1">
-            Open
+            Edit
           </div>
         ) : (
           <div className="side-close1" onClick={() => setOpen(!open)}>
-            Close
+            
           </div>
         )}
       </div>
