@@ -5,6 +5,9 @@ const initialState = {
     posVertical: 'flex-start',
     activeBlock: 1,
     avaBorderRadius: '0',
+    headerImage: null,
+    headerImagePosition: 'cover',
+    headerImageValue: ''
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
@@ -12,7 +15,9 @@ const customizedTemplateReducer = (state=initialState, actions) => {
         case 'SET_HEADER_BACKGROUND':
             return{
                 ...state,
-                headerBackground: actions.payload
+                headerBackground: actions.payload,
+                headerImage: '',
+                headerImageValue: ''
             }
 
         case 'SET_VERTICAL_POS':
@@ -39,6 +44,25 @@ const customizedTemplateReducer = (state=initialState, actions) => {
                 activeBlock: actions.payload
             }
 
+        case 'SET_BODY_BACKGROUND':
+            return{
+                ...state,
+                bodyBackground: actions.payload
+            }
+            
+        case 'SET_HEADER_IMAGE':
+            return{
+                ...state,
+                headerImage: actions.payload.url,
+                headerBackground: '',
+                headerImageValue: actions.payload.value
+            }
+
+        case 'SET_HEADER_IMAGE_POSITION':
+            return{
+                ...state,
+                headerImagePosition: actions.payload
+            }
         default :
             return state
     }

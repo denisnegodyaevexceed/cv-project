@@ -12,9 +12,9 @@ const DragHeader = () => {
     const userInfo = useSelector((state) => state.aboutMeReducer);
     const {avaBorderRadius} = useSelector(state=>state.customizedTemplateReducer);
 
-    const {headerBackground} = useSelector(state=>state.customizedTemplateReducer)
+    const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
-    console.log(headerBackground , 'gfhfh')
+    console.log(headerImage , 'gfhfh')
 
     React.useEffect(() => {
         let options = { 
@@ -24,8 +24,16 @@ const DragHeader = () => {
         GridStack.init(options, '.grid-stack-header');
     }, [])
 
+    const backgroundControll = headerImage? headerImagePosition === 'cover' ? {backgroundImage: `url(${headerImage})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
+
+    
+    
+
+
     return (
-        <div className='grid-stack grid-stack-header'>
+        <div className='grid-stack grid-stack-header' style={backgroundControll}>
             <DragItem id={1} gsh={4} gsw={4} renderContent={
                 <div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",

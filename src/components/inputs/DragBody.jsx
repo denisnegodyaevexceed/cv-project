@@ -34,6 +34,7 @@ const DragBody = () => {
     sixthProject,
   ];
   const userInfo = useSelector((state) => state.aboutMeReducer);
+  const {bodyBackground} = useSelector(state=>state.customizedTemplateReducer)
 
     React.useEffect(() => {
     let options = {
@@ -44,7 +45,7 @@ const DragBody = () => {
     }, []);
 
     return (
-        <div className="grid-stack grid-stack-body">
+        <div className="grid-stack grid-stack-body" style={{backgroundColor: bodyBackground}}>
             <DragItem id={4} gsh={4} gsw={4} renderContent={
                 <span>
                     <div className="">
