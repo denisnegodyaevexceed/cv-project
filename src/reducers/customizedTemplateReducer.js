@@ -1,8 +1,9 @@
 const initialState = {
     headerBackground: '#fff',
     bodyBackground: '#fff',
-    headerImage: '',
-    headerImagePosition: '',
+    headerImage: null,
+    headerImagePosition: 'cover',
+    headerImageValue: ''
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
@@ -10,7 +11,9 @@ const customizedTemplateReducer = (state=initialState, actions) => {
         case 'SET_HEADER_BACKGROUND':
             return{
                 ...state,
-                headerBackground: actions.payload
+                headerBackground: actions.payload,
+                headerImage: '',
+                headerImageValue: ''
             }
         case 'SET_BODY_BACKGROUND':
             return{
@@ -20,9 +23,15 @@ const customizedTemplateReducer = (state=initialState, actions) => {
         case 'SET_HEADER_IMAGE':
             return{
                 ...state,
-                headerImage: actions.payload
+                headerImage: actions.payload.url,
+                headerBackground: '',
+                headerImageValue: actions.payload.value
             }
-        
+            case 'SET_HEADER_IMAGE_POSITION':
+                return{
+                    ...state,
+                    headerImagePosition: actions.payload
+                }
         default :
             return state
     }

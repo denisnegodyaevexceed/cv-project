@@ -11,10 +11,25 @@ const setBodyBackgroundAction = (data) => ({
     payload: data
 })
 
+const setHeaderImageAction = (url, value) => ({
+    type: actions.SET_HEADER_IMAGE,
+    payload: {
+        url,
+        value
+    }
+})
+
+const setHeaderImagePosition = (data) => ({
+    type: actions.SET_HEADER_IMAGE_POSITION,
+    payload: data
+})
+
 
 const allCustomizedTemplateActions = {
     setHeaderBackgroundAction,
-    setBodyBackgroundAction
+    setBodyBackgroundAction,
+    setHeaderImageAction,
+    setHeaderImagePosition
 }
 
 export default allCustomizedTemplateActions

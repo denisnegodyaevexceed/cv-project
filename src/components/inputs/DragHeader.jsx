@@ -12,9 +12,9 @@ const DragHeader = () => {
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
-    const {headerBackground} = useSelector(state=>state.customizedTemplateReducer)
+    const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
-    console.log(headerBackground , 'gfhfh')
+    console.log(headerImage , 'gfhfh')
 
     React.useEffect(() => {
         let options = { 
@@ -24,8 +24,16 @@ const DragHeader = () => {
         GridStack.init(options, '.grid-stack-header');
     }, [])
 
+    const backgroundControll = headerImage? headerImagePosition === 'cover' ? {backgroundImage: `url(${headerImage})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
+
+    
+    
+
+
     return (
-        <div className='grid-stack grid-stack-header' style={{backgroundColor: `${headerBackground}`}}>
+        <div className='grid-stack grid-stack-header' style={backgroundControll}>
             <div className="grid-stack-item" gs-w="4" gs-h='4'>
                 <div className="grid-stack-item-content">
                     <div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",

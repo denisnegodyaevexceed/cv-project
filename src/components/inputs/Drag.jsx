@@ -20,6 +20,7 @@ import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import { useDispatch, useSelector } from "react-redux";
+
 const useStyles3 = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -32,14 +33,17 @@ const useStyles3 = makeStyles((theme) => ({
 }));
 const Drag = () => {
   const dispatch = useDispatch();
-    const { headerBackground, bodyBackground } = useSelector(state => state.customizedTemplateReducer)
+
+    const { headerBackground, bodyBackground, headerImageValue, headerImagePosition } = useSelector(state => state.customizedTemplateReducer)
     const [cls, setCls] = useState(["side1"]);
   const [open, setOpen] = useState(true);
   useEffect(() => {
     if (open) {
       setCls((oldArr) => [...oldArr, "open1"]);
+      
     } else {
       setCls(['side1']);
+
     }
   }, [open]);
   const handleChangeHeaderBackgroungComplete = (color) => {
@@ -75,12 +79,21 @@ const handleChangeBodyBackgroungComplete = (color) => {
     fifthProject,
     sixthProject,
   ];
+
   const userInfo = useSelector((state) => state.aboutMeReducer);
-  let [color, setColor] = useState("#fff");
-  console.log(color, "color");
-  const handleChangeComplete = (color) => {
-    setColor(color.hex);
-  };
+
+  
+  
+  
+  const addHeaderBackground = (e) => {
+    console.log(e.target.value, 'in drag')
+    dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+  }
+
+  console.log(headerImagePosition, 'fsafsf')
+
+
+
   let pdfExportComponent;
   const classes3 = useStyles3();
   const useStyles2 = makeStyles((theme) => ({
@@ -94,6 +107,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
   }));
   const [isPDF, setIsPDF] = useState(false);
   const classes2 = useStyles2();
+
   const pdfExport = () => {
     setIsPDF(true);
     pdfExportComponent.save();
@@ -101,6 +115,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
       setIsPDF(false);
     }, 500);
   };
+
   return (
     <Container>
       <Grid container>
@@ -137,29 +152,32 @@ const handleChangeBodyBackgroungComplete = (color) => {
             <input accept="image/*" className={classes3.input} id="icon-button-file" type="file" />
             <label htmlFor="icon-button-file">
         <IconButton  aria-label="upload picture" component="span">
+          
           <PhotoCamera className='photoInput'/>
         </IconButton>
       </label>
       </form>
       <SketchPicker color={color} onChangeComplete={handleChangeComplete} />
             </div> */}
+
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
             <form>
-            <input accept="image/*" className={classes3.input} id="icon-button-file" type="file" />
+            <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
             <label htmlFor="icon-button-file">
         <IconButton  aria-label="upload picture" component="span">
+          
           <PhotoCamera className='photoInput'/>
         </IconButton>
       </label>
       <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button>One</Button>
-                        <Button>Two</Button>
-                        <Button>Three</Button>
-                    </ButtonGroup>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePosition('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePosition('repeat'))}>Repeat</Button>
+                        </ButtonGroup>
       </form>
       <div className="cont-edit">
+
       <Accordion>
       <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -186,8 +204,12 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
       </AccordionDetails>
       </Accordion>
+     
+      
+      
       </div>
             </div> 
+        
         {!open ? (
           <div onClick={() => setOpen(!open)} className="side-open1">
             Open
@@ -202,21 +224,3 @@ const handleChangeBodyBackgroungComplete = (color) => {
   );
 };
 export default Drag;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
