@@ -51,7 +51,9 @@ const customizedTemplateReducer = (state=initialState, actions) => {
         case 'SET_BODY_BACKGROUND':
             return{
                 ...state,
-                bodyBackground: actions.payload
+                bodyBackground: actions.payload,
+                bodyImage: '',
+                bodyImageValue: ''
             }
             
         case 'SET_HEADER_IMAGE':
