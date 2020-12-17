@@ -159,31 +159,3 @@ const DragBody = () => {
 };
 
 export default DragBody;
-
-
-
-// <div className="grid-stack-item" gs-w="2" gs-h="2">
-// <div className="grid-stack-item-content">
-
-// </div>
-// </div>
-// <div className="grid-stack-item" gs-w="2" gs-h="2">
-// <div className="grid-stack-item-content">
-
-// </div>
-// </div>
-// <div className="grid-stack-item" gs-w="2" gs-h="2">
-// <div className="grid-stack-item-content">
-  
-// </div>
-// </div>
-// <div className="grid-stack-item" gs-w="2" gs-h="2">
-// <div className="grid-stack-item-content">
-  
-// </div>
-// </div>
-// <div className="grid-stack-item" gs-w="2" gs-h="2">
-// <div className="grid-stack-item-content">
-
-// </div>
-// </div>

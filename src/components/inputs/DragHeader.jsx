@@ -11,10 +11,7 @@ const DragHeader = () => {
     const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
     const userInfo = useSelector((state) => state.aboutMeReducer);
     const {avaBorderRadius} = useSelector(state=>state.customizedTemplateReducer);
-
     const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
-
-    console.log(headerImage , 'gfhfh')
 
     React.useEffect(() => {
         let options = { 
@@ -27,9 +24,6 @@ const DragHeader = () => {
     const backgroundControll = headerImage? headerImagePosition === 'cover' ? {backgroundImage: `url(${headerImage})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
-
-    
-    
 
 
     return (

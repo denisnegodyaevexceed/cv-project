@@ -45,9 +45,10 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
     }, [textAlign]);    
 
     const handleClickItem = () => {
-        dispatch(setActiveBlockAction(id));
-        dispatch(setVerticalPosAction(newStyle.posVertical));
-        dispatch(setTextAlignAction(newStyle.textAlign));
+            console.log(newStyle)
+            dispatch(setActiveBlockAction(id));
+            dispatch(setVerticalPosAction(newStyle.alignItems));
+            dispatch(setTextAlignAction(newStyle.textAlign));
     }
 
     return (
