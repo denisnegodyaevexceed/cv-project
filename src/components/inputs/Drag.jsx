@@ -125,7 +125,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
           >
             Скачать PDF
           </Button>
-          <TextDecorateButtons />
         </Grid>
         <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
           <PDFExport
@@ -211,11 +210,14 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
       </AccordionDetails>
       </Accordion>
+      
       </div>
       </div>
 
       </AccordionDetails>
       </Accordion>
+      <TextDecorateButtons />
+
       
       
       </div>

@@ -52,7 +52,9 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
 
     return (
         <div className="grid-stack-item" gs-w={gsw} gs-h={gsh} onMouseDown={() => handleClickItem()}>
-            <div className={`${classes.root} ${activeBlock === id ? 'active-block' : null } grid-stack-item-content`}>{renderContent}</div>
+            <div className={`${classes.root} ${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
+                // style={{textAlign: textAlign, alignItems: posVertical}}
+            >{renderContent}</div>
         </div>
     );
 };
