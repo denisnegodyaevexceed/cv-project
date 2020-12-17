@@ -59,6 +59,25 @@ const setBodyImagePositionAction = (data) => {
     payload: data}
 }
 
+const setActiveTextTypeAction = data => ({
+    type: actions.SET_ACTIVE_TEXT_TYPE,
+    payload: data
+})
+
+const setTypeSizeAction = data => {
+    return {
+        type: actions.SET_ACTIVE_TEXT_SIZE,
+        payload: data
+    }
+}
+
+const setTypeColorAction = data => {
+    return {
+        type: actions.SET_ACTIVE_TEXT_COLOR,
+        payload: data
+    }
+}
+    
 
 
 
@@ -72,7 +91,10 @@ const allCustomizedTemplateActions = {
     setHeaderImageAction,
     setHeaderImagePositionAction,
     setBodyImageAction,
-    setBodyImagePositionAction
+    setBodyImagePositionAction,
+    setActiveTextTypeAction,
+    setTypeSizeAction,
+    setTypeColorAction,
 }
 
 export default allCustomizedTemplateActions

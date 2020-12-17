@@ -7,7 +7,7 @@ import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 
 import DragItem from './DragItem';
 
-const DragHeader = () => {
+const DragHeader = ({styleName, stylePosition}) => {
     
     
     
@@ -44,8 +44,8 @@ const DragHeader = () => {
                     margin: "auto"}} 
                 />} 
             />
-            <DragItem id={2} gsh={2} gsw={2} renderContent={<span>{userInfo.firstName} {userInfo.secondName}</span>}/>
-            <DragItem id={3} gsh={1} gsw={6} renderContent={<span>{userInfo.careerObjective}</span>} />
+            <DragItem id={2} gsh={2} gsw={8} renderContent={<span style={styleName}>{userInfo.firstName} {userInfo.secondName}</span>}/>
+            <DragItem id={3} gsh={2} gsw={8} renderContent={<span style={stylePosition}>{userInfo.careerObjective}</span>} />
         </div> 
     )
 }

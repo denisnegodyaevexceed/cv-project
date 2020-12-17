@@ -6,7 +6,12 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragItem from './DragItem';
 
-const DragPortfolio = () => {
+const DragPortfolio = ({
+  styleTitle,
+  styleSubTitle,
+  styleText,
+  styleSmallText
+}) => {
   const {
     firstCompany,
     firstPosition,
@@ -55,23 +60,23 @@ const DragPortfolio = () => {
         <div className="grid-stack grid-stack-page2 page-break " style={backgroundControll}>
             {projects.map((item, index) => {
                 let {name, link, summary, whatYouDo, stack} = item
-                return ( name && link && summary && whatYouDo && stack && 
+                return ( name && summary && whatYouDo && stack && 
                     <DragItem key={index} id={index + 9} gsh={4} gsw={12} renderContent={
                         <span>
-                            <div className='' key={index}>
-                                <div className=''>{name.toUpperCase()+' - '+link}</div>
+                            <div key={index}>
+                                <div style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
                                 <div className="">
-                                    <div className=''>Summary:</div> 
-                                    {summary}
+                                    <div style={styleSubTitle}>Summary:</div> 
+                                    <span style={styleText}>{summary}</span>
                                 </div>
                                 <div className="">
-                                <div className=''>What i did here: </div>
-                                {whatYouDo}
+                                <div style={styleSubTitle}>What i did here: </div>
+                                  <span style={styleText}>{whatYouDo}</span>
                                 </div>
                                 <div className="">
-                                    <div className=''>Stack:</div> 
+                                    <div style={styleSubTitle}>Stack:</div> 
                                     {stack.map((item, index)=>{
-                                    return <span key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
+                                    return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
                                     })}
                                 </div>
                             </div>

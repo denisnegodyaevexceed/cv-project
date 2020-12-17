@@ -5,7 +5,12 @@ import { GridStack } from "gridstack";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragItem from './DragItem';
-const DragBody = () => {
+const DragBody = ({
+    styleTitle,
+    styleSubTitle,
+    styleText,
+    styleSmallText
+}) => {
   const {
     firstCompany,
     firstPosition,
@@ -55,37 +60,37 @@ const DragBody = () => {
             <DragItem id={4} gsh={4} gsw={4} renderContent={
                 <span>
                     <div className="">
-                        <div className="">TECH STACK</div>
+                        <div className="" style={styleTitle}>TECH STACK</div>
                         <div className="">
-                            {frontend.length > 0 && <div className="">Frontend</div>}
-                            <div>
+                            {frontend.length > 0 && <div className="" style={styleSubTitle}>Frontend</div>}
+                            
+                            
                                 {frontend.map((item, index) => {
-                                return <div key={index}>{item.title}</div>;
+                                return <div style={styleText} key={index}>{item.title}</div>;
                                 })}
-                            </div>
                         <div className="">
                             <div>
-                            {backend.length > 0 && <div className="">Backend</div>}
+                            {backend.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
                             <div>
                                 {backend.map((item, index) => {
-                                return <div key={index}>{item.title}</div>;
+                                return <div style={styleText} key={index}>{item.title}</div>;
                                 })}
                             </div>
                             </div>
                         </div>
                         <div className="">
-                            {dbs.length > 0 && <div className="">DBS</div>}
+                            {dbs.length > 0 && <div className="" style={styleSubTitle}>DBS</div>}
                             <div>
                                 {dbs.map((item, index) => {
-                                return <div key={index}>{item.title}</div>;
+                                return <div style={styleText} key={index}>{item.title}</div>;
                                 })}
                             </div>
                         </div>
                         <div className="">
-                            {other.length > 0 && <div className="">Other</div>}
+                            {other.length > 0 && <div className="" style={styleSubTitle}>Other</div>}
                             <div>
                                 {other.map((item, index) => {
-                                return <div key={index}>{item.title}</div>;
+                                return <div style={styleText} key={index}>{item.title}</div>;
                                 })}
                             </div>
                         </div>
@@ -97,8 +102,8 @@ const DragBody = () => {
                 <span>
                     {userInfo.education && (
                         <>
-                        <div className="">EDUCATION</div>
-                        <div className="">{userInfo.education}</div>
+                        <div className="" style={styleTitle}>EDUCATION</div>
+                        <div className=""style={styleText}>{userInfo.education}</div>
                         </>
                     )}
                 </span>} 
@@ -107,8 +112,8 @@ const DragBody = () => {
                 <span>
                     {userInfo.aboutMeInfo && (
                         <>
-                        <div className="">PERSONAL PROFILE</div>
-                        <div className="">{userInfo.aboutMeInfo}</div>
+                        <div className="" style={styleTitle}>PERSONAL PROFILE</div>
+                        <div className=""style={styleText}  >{userInfo.aboutMeInfo}</div>
                         </>
                     )}
                 </span>} 
@@ -118,28 +123,28 @@ const DragBody = () => {
                     {((firstCompany && firstPosition && firstDescription) ||
                         (secondCompany && secondPosition && secondDescription)) && (
                         <>
-                        <div className="">
+                        <div className="" style={styleTitle}>
                             WORK HISTORY
                         </div>
                         <div className="">
-                            <div className="">
+                            <div className="" style={styleSubTitle}>
                             {firstCompany}
                             </div>
-                            <div className="">
+                            <div className="" style={styleSubTitle}>
                             {firstPosition}
                             </div>
-                            <div className="">
+                            <div className="" style={styleText}>
                             {firstDescription}
                             </div>
                         </div>
                         <div className="">
-                            <div className="">
+                            <div className="" style={styleSubTitle}>
                             {secondCompany}
                             </div>
-                            <div className="">
+                            <div className="" style={styleSubTitle}>
                             {secondPosition}
                             </div>
-                            <div className="">
+                            <div className="" style={styleText}>
                             {secondDescription}
                             </div>
                         </div>
@@ -148,9 +153,9 @@ const DragBody = () => {
                 </span>} 
             />
             <DragItem id={8} gsh={4} gsw={4} renderContent={
-                <span>
+                <span style={styleSmallText}>
                     <>
-                        <div className=''>CONTACTS</div>
+                        <div className='' style={styleTitle}>CONTACTS</div>
                         <div>Email: {userInfo.email}</div>
                         {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
                         {userInfo.skype && <div>Skype: {userInfo.skype}</div>}

@@ -22,6 +22,9 @@ import DragBody from "./DragBody";
 import DragPortfolio from './DragPortfolio'
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -36,7 +39,26 @@ const useStyles3 = makeStyles((theme) => ({
 const Drag = () => {
   const dispatch = useDispatch();
 
-    const { headerBackground, bodyBackground, headerImageValue, bodyImagePosition, bodyImageValue } = useSelector(state => state.customizedTemplateReducer)
+    const { 
+      headerBackground, 
+      bodyBackground, 
+      headerImageValue, 
+      bodyImagePosition, 
+      bodyImageValue,
+      nameSize,
+      posSize,
+      titleSize,
+      subTitleSize,
+      textSize,
+      smallTextSize,
+
+      nameColor,
+      posColor,
+      titleColor,
+      subTitleColor,
+      textColor,
+      smallTextColor,
+    } = useSelector(state => state.customizedTemplateReducer)
     const [cls, setCls] = useState(["side1"]);
   const [open, setOpen] = useState(true);
   useEffect(() => {
@@ -115,11 +137,53 @@ const handleChangeBodyBackgroungComplete = (color) => {
   const [isPDF, setIsPDF] = useState(false);
   const classes2 = useStyles2();
 
+  const [font, setFont] = useState('Raleway');
+
+  const handleChangeFont = (e) => {
+    setFont(e.target.value)
+  }
+
   const pdfExport = () => {
    
     pdfExportComponent.save();
     
   };
+
+  let styleName = {
+    fontSize: nameSize+'px',
+    color: nameColor,
+    fontFamily: font+'-Bold',
+  }
+
+  let stylePosition = {
+    fontSize: posSize+'px',
+    color: posColor,
+    fontFamily: font+'-Bold',
+  }
+
+  let styleTitle = {
+    fontSize: titleSize+'px',
+    color: titleColor,
+    fontFamily: font+'-Bold',
+  }
+
+  let styleSubTitle = {
+    fontSize: subTitleSize+'px',
+    color: subTitleColor,
+    fontFamily: font+'-Bold',
+  }
+
+  let styleText = {
+    fontSize: textSize+'px',
+    color: textColor,
+    fontFamily: font+'-Light',
+  }
+
+  let styleSmallText = {
+    fontSize: smallTextSize+'px',
+    color: smallTextColor,
+    fontFamily: font+'-Light',
+  }
 
   return (
     <Container>
@@ -146,10 +210,10 @@ const handleChangeBodyBackgroungComplete = (color) => {
             }
             // paperSize="A4"
           >
-            <DragHeader />
-            <DragBody />
+            <DragHeader styleName={styleName} stylePosition={stylePosition} />
+            <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
             <br />
-            <DragPortfolio />
+            <DragPortfolio styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
           </PDFExport>
         </Grid>
       </Grid>
@@ -246,6 +310,32 @@ const handleChangeBodyBackgroungComplete = (color) => {
       </Accordion>
       
       <TextDecorateButtons/>
+      <TextField
+          id="standard-select-currency-native"
+          select
+          label="Native select"
+          value={font}
+          onChange={(e) => handleChangeFont(e)}
+          SelectProps={{
+            native: true,
+          }}
+          helperText="Please select your currency"
+        >
+          <option  value='Raleway'>
+            Raleway
+          </option>
+          <option  value='Caviar'>
+            Caviar
+          </option>
+          <option  value='Walkway'>
+          Walkway
+          </option>
+          <option  value='JetBrains'>
+          JetBrains
+          </option>
+          
+        </TextField>
+      
       </div>
             </div> 
         

@@ -12,6 +12,20 @@ const initialState = {
     bodyImage: null,
     bodyImagePosition: 'cover',
     bodyImageValue: '',
+    activeTextType: 'nameSize',
+    nameSize: 40,
+    posSize: 24,
+    titleSize: 21,
+    subTitleSize: 19,
+    textSize: 15,
+    smallTextSize: 12,
+
+    nameColor: '#990011',
+    posColor: '#9824f1',
+    titleColor: '#2240a9',
+    subTitleColor: '#f04444',
+    textColor: '#aa1060',
+    smallTextColor: '#004545',
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
@@ -51,7 +65,9 @@ const customizedTemplateReducer = (state=initialState, actions) => {
         case 'SET_BODY_BACKGROUND':
             return{
                 ...state,
-                bodyBackground: actions.payload
+                bodyBackground: actions.payload,
+                bodyImage: '',
+                bodyImageValue: ''
             }
             
         case 'SET_HEADER_IMAGE':
@@ -61,31 +77,61 @@ const customizedTemplateReducer = (state=initialState, actions) => {
                 headerBackground: '',
                 headerImageValue: actions.payload.value
             }
-            case 'SET_HEADER_IMAGE_POSITION':
+        case 'SET_HEADER_IMAGE_POSITION':
                 return{
                     ...state,
                     headerImagePosition: actions.payload,
                     
                 }
-                case 'SET_BODY_BACKGROUND':
+        case 'SET_BODY_BACKGROUND':
             return{
                 ...state,
                 bodyBackground: actions.payload,
                 bodyImage: '',
                 bodyImageValue: ''
             }
-                case 'SET_BODY_IMAGE_POSITION':
+        case 'SET_BODY_IMAGE_POSITION':
                 return{
                     ...state,
                     bodyImagePosition: actions.payload
                 }
-                case 'SET_BODY_IMAGE':
+        case 'SET_BODY_IMAGE':
             return{
                 ...state,
                 bodyImage: actions.payload.url,
                 bodyBackground: '',
                 bodyImageValue: actions.payload.value
             }
+
+        case 'SET_ACTIVE_TEXT_TYPE':
+                return{
+                    ...state,
+                    activeTextType: actions.payload
+                }
+
+        case 'SET_ACTIVE_TEXT_SIZE':
+            return{
+                ...state,
+                nameSize: actions.payload.name === 'nameSize' ? actions.payload.value : state.nameSize,
+                posSize: actions.payload.name === 'posSize' ? actions.payload.value : state.posSize,
+                titleSize: actions.payload.name === 'titleSize' ? actions.payload.value : state.titleSize,
+                subTitleSize: actions.payload.name === 'subTitleSize' ? actions.payload.value : state.subTitleSize,
+                textSize: actions.payload.name === 'textSize' ? actions.payload.value : state.textSize,
+                smallTextSize: actions.payload.name === 'smallTextSize' ? actions.payload.value : state.smallTextSize,
+            }
+
+        case 'SET_ACTIVE_TEXT_COLOR':
+         console.log(actions.payload)
+            return{
+                ...state,
+                nameColor: actions.payload.name === 'nameSize' ? actions.payload.value : state.nameColor,
+                posColor: actions.payload.name === 'posSize' ? actions.payload.value : state.posColor,
+                titleColor: actions.payload.name === 'titleSize' ? actions.payload.value : state.titleColor,
+                subTitleColor: actions.payload.name === 'subTitleSize' ? actions.payload.value : state.subTitleColor,
+                textColor: actions.payload.name === 'textSize' ? actions.payload.value : state.textColor,
+                smallTextColor: actions.payload.name === 'smallTextSize' ? actions.payload.value : state.smallTextColor,
+            }
+
         default :
             return state
     }

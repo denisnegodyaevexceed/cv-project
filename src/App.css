@@ -15,6 +15,40 @@ body{
     font-family: 'Raleway-Bold';
     src:  url('./fonts/Raleway-Bold.ttf') format("truetype");
 }
+
+
+@font-face {
+    font-family: 'Caviar-Light';
+    src: 
+            url('./fonts/CaviarDreams.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Caviar-Bold';
+    src:  url('./fonts/Caviar_Dreams_Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Walkway-Light';
+    src: 
+            url('./fonts/Walkway_Bold.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Walkway-Bold';
+    src:  url('./fonts/Walkway_Black.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'JetBrains-Light';
+    src: 
+            url('./fonts/JetBrainsMono-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'JetBrains-Bold';
+    src:  url('./fonts/JetBrainsMono-Bold.ttf') format("truetype");
+}
+
+
 .App {
     width: 100%;
 }
@@ -498,9 +532,9 @@ z-index: 3;
 .side1{
     position: absolute;
     padding: 50px;
-    right: -360px;
+    right: -460px;
     top: 3%;
-    width: 405px;
+    width: 400px;
     height: 800px;
    transition: 1s;
    border-radius: 10px;
@@ -508,6 +542,9 @@ z-index: 3;
     background-color: white; 
     overflow-x: hidden;
 
+}
+.slider-border{
+    width: 100%;
 }
 .open1{
    
@@ -547,12 +584,8 @@ z-index: 3;
     
 }
 .flex-cont-edit{
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-}
-.slider-border{
-    width: 100%;
 }
 .side-open1{
     color: rgb(247, 77, 51) ;
@@ -623,7 +656,7 @@ z-index: 3;
     
     
     ::-webkit-resizer{
-    
+    background-image:url('');
     background-repeat:no-repeat;
     width:4px;
     height:0px
@@ -877,6 +910,7 @@ height: 60px;
 }
 
 .active-block{
+
     box-shadow:  0px 0px 0px 1px #000000, 0px 0px 11px 0px #F74D33;
 }
 
