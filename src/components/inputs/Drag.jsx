@@ -19,6 +19,7 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
+import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 
 const useStyles3 = makeStyles((theme) => ({
@@ -114,11 +115,9 @@ const handleChangeBodyBackgroungComplete = (color) => {
   const classes2 = useStyles2();
 
   const pdfExport = () => {
-    setIsPDF(true);
+   
     pdfExportComponent.save();
-    setTimeout(() => {
-      setIsPDF(false);
-    }, 500);
+    
   };
 
   return (
@@ -243,7 +242,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
       </AccordionDetails>
       </Accordion>
       
-      
+      <TextDecorateButtons/>
       </div>
             </div> 
         
