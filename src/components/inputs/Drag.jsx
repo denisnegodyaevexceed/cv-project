@@ -10,14 +10,18 @@ import { SketchPicker } from "react-color";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import "gridstack/dist/gridstack.min.css";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { GridStack } from "gridstack";
+// THEN to get HTML5 drag&drop
+import "gridstack/dist/h5/gridstack-dd-native";
+// OR to get legacy jquery-ui drag&drop
+import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
-import { useDispatch, useSelector } from "react-redux";
+import DragPortfolio from './DragPortfolio'
 import TextDecorateButtons from './TextDecorateButtons'
-import ReactDOMServer from 'react-dom/server'
-import jsPDF from 'jspdf'
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { useDispatch, useSelector } from "react-redux";
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -31,8 +35,9 @@ const useStyles3 = makeStyles((theme) => ({
 }));
 const Drag = () => {
   const dispatch = useDispatch();
-  const { headerBackground, bodyBackground, headerImageValue, headerImagePosition } = useSelector(state => state.customizedTemplateReducer)
-  const [cls, setCls] = useState(["side1"]);
+
+    const { headerBackground, bodyBackground, headerImageValue, bodyImagePosition, bodyImageValue } = useSelector(state => state.customizedTemplateReducer)
+    const [cls, setCls] = useState(["side1"]);
   const [open, setOpen] = useState(true);
   useEffect(() => {
     if (open) {
@@ -83,11 +88,16 @@ const handleChangeBodyBackgroungComplete = (color) => {
   
   
   const addHeaderBackground = (e) => {
-    console.log(e.target.value, 'in drag')
+    console.log(e.target.value, 'in drag header')
     dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
   }
 
-  console.log(headerImagePosition, 'fsafsf')
+  const addBodyBackground = (e) => {
+    console.log(e.target.value, 'in drag body')
+    dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+  }
+
+  
 
 
 
@@ -102,10 +112,13 @@ const handleChangeBodyBackgroungComplete = (color) => {
       fontWeight: theme.typography.fontWeightRegular,
     },
   }));
+  const [isPDF, setIsPDF] = useState(false);
   const classes2 = useStyles2();
 
   const pdfExport = () => {
+   
     pdfExportComponent.save();
+    
   };
 
   return (
@@ -123,33 +136,41 @@ const handleChangeBodyBackgroungComplete = (color) => {
             Скачать PDF
           </Button>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
-            paperSize="auto"
-            margin={40}
-            author="KendoReact Team"
             fileName={
               `${userInfo.firstName + userInfo.secondName}` +
               `${userInfo.careerObjective}`
             }
             // paperSize="A4"
           >
-            <div id='forCopy'>
             <DragHeader />
             <DragBody />
-            </div>
+            <br />
+            <DragPortfolio />
           </PDFExport>
         </Grid>
-        <Grid>
-          
-        </Grid>
       </Grid>
+      {/*             
+            <div className='customizeWindow'>
+            <form>
+            <input accept="image/*" className={classes3.input} id="icon-button-file" type="file" />
+            <label htmlFor="icon-button-file">
+        <IconButton  aria-label="upload picture" component="span">
+          
+          <PhotoCamera className='photoInput'/>
+        </IconButton>
+      </label>
+      </form>
+      <SketchPicker color={color} onChangeComplete={handleChangeComplete} />
+            </div> */}
+
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
-            <form>
+            <div><form>
             <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
             <label htmlFor="icon-button-file">
         <IconButton  aria-label="upload picture" component="span">
@@ -158,10 +179,26 @@ const handleChangeBodyBackgroungComplete = (color) => {
         </IconButton>
       </label>
       <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePosition('cover'))}>Cover</Button>
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePosition('repeat'))}>Repeat</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('repeat'))}>Repeat</Button>
                         </ButtonGroup>
       </form>
+      </div>
+      <div><form>
+            <input accept="image/*" value={bodyImageValue}  className={classes3.input} id="icon-button-file2" type="file" onChange={(e)=>addBodyBackground(e)}/>
+            <label htmlFor="icon-button-file2">
+        <IconButton  aria-label="upload picture" component="span">
+          
+          <PhotoCamera className='photoInput'/>
+        </IconButton>
+      </label>
+      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('repeat'))}>Repeat</Button>
+                        </ButtonGroup>
+      </form>
+      </div>
+      
       <div>
 <Accordion>
 <AccordionSummary
@@ -183,7 +220,8 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <div className={classes2.heading} ><h2>Color header</h2></div>
         </AccordionSummary>
         <AccordionDetails>
-      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />
+        
+      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />      
       </AccordionDetails>
       </Accordion>
       </div>
@@ -201,16 +239,13 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
       </AccordionDetails>
       </Accordion>
-      
       </div>
       </div>
 
       </AccordionDetails>
       </Accordion>
-      <TextDecorateButtons />
-
       
-      
+      <TextDecorateButtons/>
       </div>
             </div> 
         

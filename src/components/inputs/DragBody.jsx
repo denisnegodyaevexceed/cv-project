@@ -34,7 +34,13 @@ const DragBody = () => {
     sixthProject,
   ];
   const userInfo = useSelector((state) => state.aboutMeReducer);
-  const {bodyBackground} = useSelector(state=>state.customizedTemplateReducer)
+  const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
+
+
+  const backgroundControll = bodyImage? bodyImagePosition === 'cover' ? {backgroundImage: `url(${bodyImage})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
+
 
     React.useEffect(() => {
     let options = {
@@ -45,13 +51,13 @@ const DragBody = () => {
     }, []);
 
     return (
-        <div className="grid-stack grid-stack-body" style={{backgroundColor: bodyBackground}}>
+        <div className="grid-stack grid-stack-body" style={backgroundControll}>
             <DragItem id={4} gsh={4} gsw={4} renderContent={
                 <span>
                     <div className="">
                         <div className="">TECH STACK</div>
                         <div className="">
-                            {frontend.length > 0 && <div className="h4-1">Frontend</div>}
+                            {frontend.length > 0 && <div className="">Frontend</div>}
                             <div>
                                 {frontend.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
@@ -59,7 +65,7 @@ const DragBody = () => {
                             </div>
                         <div className="">
                             <div>
-                            {backend.length > 0 && <div className="h4-1">Backend</div>}
+                            {backend.length > 0 && <div className="">Backend</div>}
                             <div>
                                 {backend.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
@@ -68,7 +74,7 @@ const DragBody = () => {
                             </div>
                         </div>
                         <div className="">
-                            {dbs.length > 0 && <div className="h4-1">DBS</div>}
+                            {dbs.length > 0 && <div className="">DBS</div>}
                             <div>
                                 {dbs.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
@@ -76,7 +82,7 @@ const DragBody = () => {
                             </div>
                         </div>
                         <div className="">
-                            {other.length > 0 && <div className="h4-1">Other</div>}
+                            {other.length > 0 && <div className="">Other</div>}
                             <div>
                                 {other.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;

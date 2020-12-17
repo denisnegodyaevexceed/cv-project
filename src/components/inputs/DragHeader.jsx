@@ -8,10 +8,15 @@ import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 import DragItem from './DragItem';
 
 const DragHeader = () => {
-    const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
+    
+    
+    
+    
     const userInfo = useSelector((state) => state.aboutMeReducer);
     const {avaBorderRadius} = useSelector(state=>state.customizedTemplateReducer);
     const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
+
+     
 
     React.useEffect(() => {
         let options = { 

@@ -7,7 +7,11 @@ const initialState = {
     avaBorderRadius: '0',
     headerImage: null,
     headerImagePosition: 'cover',
-    headerImageValue: ''
+    headerImageValue: '',
+    bodyBackground: '#fff',
+    bodyImage: null,
+    bodyImagePosition: 'cover',
+    bodyImageValue: '',
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
@@ -57,11 +61,30 @@ const customizedTemplateReducer = (state=initialState, actions) => {
                 headerBackground: '',
                 headerImageValue: actions.payload.value
             }
-
-        case 'SET_HEADER_IMAGE_POSITION':
+            case 'SET_HEADER_IMAGE_POSITION':
+                return{
+                    ...state,
+                    headerImagePosition: actions.payload,
+                    
+                }
+                case 'SET_BODY_BACKGROUND':
             return{
                 ...state,
-                headerImagePosition: actions.payload
+                bodyBackground: actions.payload,
+                bodyImage: '',
+                bodyImageValue: ''
+            }
+                case 'SET_BODY_IMAGE_POSITION':
+                return{
+                    ...state,
+                    bodyImagePosition: actions.payload
+                }
+                case 'SET_BODY_IMAGE':
+            return{
+                ...state,
+                bodyImage: actions.payload.url,
+                bodyBackground: '',
+                bodyImageValue: actions.payload.value
             }
         default :
             return state
