@@ -51,7 +51,7 @@ const DragBody = () => {
                     <div className="">
                         <div className="">TECH STACK</div>
                         <div className="">
-                            {frontend.length > 0 && <div className="h4-1">Frontend</div>}
+                            {frontend.length > 0 && <div className="">Frontend</div>}
                             <div>
                                 {frontend.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
@@ -59,7 +59,7 @@ const DragBody = () => {
                             </div>
                         <div className="">
                             <div>
-                            {backend.length > 0 && <div className="h4-1">Backend</div>}
+                            {backend.length > 0 && <div className="">Backend</div>}
                             <div>
                                 {backend.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
@@ -68,7 +68,7 @@ const DragBody = () => {
                             </div>
                         </div>
                         <div className="">
-                            {dbs.length > 0 && <div className="h4-1">DBS</div>}
+                            {dbs.length > 0 && <div className="">DBS</div>}
                             <div>
                                 {dbs.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
@@ -76,7 +76,7 @@ const DragBody = () => {
                             </div>
                         </div>
                         <div className="">
-                            {other.length > 0 && <div className="h4-1">Other</div>}
+                            {other.length > 0 && <div className="">Other</div>}
                             <div>
                                 {other.map((item, index) => {
                                 return <div key={index}>{item.title}</div>;
