@@ -11,7 +11,8 @@ import Slider from '@material-ui/core/Slider';
 import {
     Grid,
     Divider,
-    Button
+    Button,
+    Accordion
 } from '@material-ui/core';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions'
 
@@ -24,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
       color: theme.palette.text.secondary,
       '& svg': {
-        margin: theme.spacing(1.5),
+        margin: theme.spacing(1),
+        // fontSize:15,
+        padding:4,
       },
       '& hr': {
         margin: theme.spacing(0, 0.5),
@@ -73,6 +76,8 @@ const TextDecorateButtons = () => {
                 <Button onClick={() => {setVertical('flex-end')}}>
                     <VerticalAlignBottomIcon />
                 </Button>
+                <div className="slider-border">
+                    <h4>Border radius avatar</h4>
                 <Slider
                     defaultValue={0}
                     onChangeCommitted={setRadius}
@@ -82,6 +87,7 @@ const TextDecorateButtons = () => {
                     max={500}
                     aria-labelledby="non-linear-slider"
                 />
+                </div>
             </Grid>
     );
 };

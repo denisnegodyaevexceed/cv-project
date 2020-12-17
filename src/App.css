@@ -500,7 +500,7 @@ z-index: 3;
     padding: 50px;
     right: -360px;
     top: 3%;
-    width: 300px;
+    width: 405px;
     height: 800px;
    transition: 1s;
    border-radius: 10px;
@@ -547,8 +547,12 @@ z-index: 3;
     
 }
 .flex-cont-edit{
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+}
+.slider-border{
+    width: 100%;
 }
 .side-open1{
     color: rgb(247, 77, 51) ;
