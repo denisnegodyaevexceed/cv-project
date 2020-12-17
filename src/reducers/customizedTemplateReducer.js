@@ -1,8 +1,8 @@
 const initialState = {
     headerBackground: '#fff',
     bodyBackground: '#fff',
-    textAlign: 'left !important',
-    posVertical: 'flex-start !important',
+    textAlign: 'left',
+    posVertical: 'flex-start',
     activeBlock: 1,
     avaBorderRadius: '0',
     headerImage: null,
