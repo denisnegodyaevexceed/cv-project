@@ -20,12 +20,12 @@ const initialState = {
     textSize: 15,
     smallTextSize: 12,
 
-    nameColor: '#990011',
-    posColor: '#9824f1',
-    titleColor: '#2240a9',
-    subTitleColor: '#f04444',
+    nameColor: '#333',
+    posColor: '#333',
+    titleColor: '#333',
+    subTitleColor: '#aa1060',
     textColor: '#aa1060',
-    smallTextColor: '#004545',
+    smallTextColor: '#aa1060',
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {

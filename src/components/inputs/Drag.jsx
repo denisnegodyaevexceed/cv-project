@@ -20,6 +20,8 @@ import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import DragPortfolio from './DragPortfolio'
+import { Link } from 'react-router-dom'
+
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import TextField from '@material-ui/core/TextField';
@@ -199,6 +201,13 @@ const handleChangeBodyBackgroungComplete = (color) => {
           >
             Скачать PDF
           </Button>
+          <Button
+                    to="/steps"
+                    component={Link}
+                    variant="contained"
+                    color="secondary">
+                    Изменить
+                </Button>
         </Grid>
         <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
           <PDFExport
@@ -234,92 +243,24 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
-            <div><form>
-            <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
-            <label htmlFor="icon-button-file">
-        <IconButton  aria-label="upload picture" component="span">
-          
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('cover'))}>Cover</Button>
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('repeat'))}>Repeat</Button>
-                        </ButtonGroup>
-      </form>
-      </div>
-      <div><form>
-            <input accept="image/*" value={bodyImageValue}  className={classes3.input} id="icon-button-file2" type="file" onChange={(e)=>addBodyBackground(e)}/>
-            <label htmlFor="icon-button-file2">
-        <IconButton  aria-label="upload picture" component="span">
-          
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('cover'))}>Cover</Button>
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('repeat'))}>Repeat</Button>
-                        </ButtonGroup>
-      </form>
-      </div>
+            
+     
       
       <div>
-<Accordion>
-<AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h2>Color</h2></div>
-          </AccordionSummary>
-          <AccordionDetails>
-            <div className="flex-cont-edit">
-            <div className="cont-edit">
-      <Accordion>
-      <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h2>Color header</h2></div>
-        </AccordionSummary>
-        <AccordionDetails>
+      <br/>
         
-      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />      
-      </AccordionDetails>
-      </Accordion>
-      </div>
-      <div className="cont-edit">
-
-      <Accordion>
-      <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h2>Color main <main></main></h2></div>
-        </AccordionSummary>
-        <AccordionDetails>
-      <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
-      </AccordionDetails>
-      </Accordion>
-      </div>
-      </div>
-
-      </AccordionDetails>
-      </Accordion>
-      
       <TextDecorateButtons/>
+      <br/>
       <TextField
+      className='select-font'
           id="standard-select-currency-native"
           select
-          label="Native select"
+          label="Select font"
           value={font}
           onChange={(e) => handleChangeFont(e)}
           SelectProps={{
             native: true,
           }}
-          helperText="Please select your currency"
         >
           <option  value='Raleway'>
             Raleway
@@ -335,6 +276,85 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </option>
           
         </TextField>
+        <br/>
+        <br/>
+<Accordion>
+<AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className={classes2.heading} ><h2>Backgrounds</h2></div>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div className="flex-cont-edit">
+            <div className="cont-edit">
+      <Accordion>
+      <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className={classes2.heading} ><h2>Background header</h2></div>
+        </AccordionSummary>
+        <AccordionDetails>
+        <div>
+
+          <form>
+            <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
+            <label htmlFor="icon-button-file">
+        <IconButton  aria-label="upload picture" component="span">
+          
+          <PhotoCamera className='photoInput'/>
+        </IconButton>
+      </label>
+      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('repeat'))}>Repeat</Button>
+                        </ButtonGroup>
+      </form>
+      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />      
+
+      </div>
+      </AccordionDetails>
+      </Accordion>
+      </div>
+      <div className="cont-edit">
+
+      <Accordion>
+      <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className={classes2.heading} ><h2>Background main <main></main></h2></div>
+        </AccordionSummary>
+        <AccordionDetails>
+        <div><form>
+            <input accept="image/*" value={bodyImageValue}  className={classes3.input} id="icon-button-file2" type="file" onChange={(e)=>addBodyBackground(e)}/>
+            <label htmlFor="icon-button-file2">
+        <IconButton  aria-label="upload picture" component="span">
+          
+          <PhotoCamera className='photoInput'/>
+        </IconButton>
+      </label>
+      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('repeat'))}>Repeat</Button>
+                        </ButtonGroup>
+      </form>
+      <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
+
+      </div>
+      </AccordionDetails>
+      </Accordion>
+      </div>
+      </div>
+
+      </AccordionDetails>
+      </Accordion>
+      
+     
       
       </div>
             </div> 

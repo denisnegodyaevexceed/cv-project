@@ -530,11 +530,11 @@ z-index: 3;
     background-color: white;
 }
 .side1{
-    position: absolute;
+    position: fixed;
     padding: 50px;
     right: -460px;
     top: 3%;
-    width: 400px;
+    width: 405px;
     height: 800px;
    transition: 1s;
    border-radius: 10px;
@@ -921,4 +921,10 @@ height: 60px;
 #forCopy{
     position: relative;
     z-index: 1;
+}
+.radio-small{
+    margin: 0 !important;
+}
+.select-font{
+    width: 100%;
 }
