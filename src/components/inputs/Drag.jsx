@@ -113,12 +113,12 @@ const handleChangeBodyBackgroungComplete = (color) => {
   
   const addHeaderBackground = (e) => {
     console.log(e.target.value, 'in drag header')
-    dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+    {e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))}
   }
 
   const addBodyBackground = (e) => {
     console.log(e.target.value, 'in drag body')
-    dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+    {e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))}
   }
 
   
