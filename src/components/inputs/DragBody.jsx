@@ -34,7 +34,13 @@ const DragBody = () => {
     sixthProject,
   ];
   const userInfo = useSelector((state) => state.aboutMeReducer);
-  const {bodyBackground} = useSelector(state=>state.customizedTemplateReducer)
+  const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
+
+
+  const backgroundControll = bodyImage? bodyImagePosition === 'cover' ? {backgroundImage: `url(${bodyImage})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
+
 
   React.useEffect(() => {
     let options = {
@@ -45,7 +51,7 @@ const DragBody = () => {
   }, []);
 
   return (
-    <div className="grid-stack grid-stack-body" style={{backgroundColor: `${bodyBackground}`}}>
+    <div className="grid-stack grid-stack-body" style={backgroundControll}>
       <div className="grid-stack-item" gs-w="2" gs-h="2">
         <div className="grid-stack-item-content">
           <div className="">

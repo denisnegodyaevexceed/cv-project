@@ -6,15 +6,15 @@ import 'gridstack/dist/h5/gridstack-dd-native';
 import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 
 const DragHeader = () => {
-    const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
-    const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
-    const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
-    const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
+    
+    
+    
+    
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
     const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
-    console.log(headerImage , 'gfhfh')
+     
 
     React.useEffect(() => {
         let options = { 

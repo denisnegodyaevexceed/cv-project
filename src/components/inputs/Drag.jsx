@@ -34,7 +34,7 @@ const useStyles3 = makeStyles((theme) => ({
 const Drag = () => {
   const dispatch = useDispatch();
 
-    const { headerBackground, bodyBackground, headerImageValue, headerImagePosition } = useSelector(state => state.customizedTemplateReducer)
+    const { headerBackground, bodyBackground, headerImageValue, bodyImagePosition, bodyImageValue } = useSelector(state => state.customizedTemplateReducer)
     const [cls, setCls] = useState(["side1"]);
   const [open, setOpen] = useState(true);
   useEffect(() => {
@@ -86,11 +86,16 @@ const handleChangeBodyBackgroungComplete = (color) => {
   
   
   const addHeaderBackground = (e) => {
-    console.log(e.target.value, 'in drag')
+   
     dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
   }
 
-  console.log(headerImagePosition, 'fsafsf')
+  const addBodyBackground = (e) => {
+    
+    dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+  }
+
+
 
 
 
@@ -163,7 +168,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
-            <form>
+            <div><form>
             <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
             <label htmlFor="icon-button-file">
         <IconButton  aria-label="upload picture" component="span">
@@ -172,10 +177,26 @@ const handleChangeBodyBackgroungComplete = (color) => {
         </IconButton>
       </label>
       <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePosition('cover'))}>Cover</Button>
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePosition('repeat'))}>Repeat</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('repeat'))}>Repeat</Button>
                         </ButtonGroup>
       </form>
+      </div>
+      <div><form>
+            <input accept="image/*" value={bodyImageValue}  className={classes3.input} id="icon-button-file2" type="file" onChange={(e)=>addBodyBackground(e)}/>
+            <label htmlFor="icon-button-file2">
+        <IconButton  aria-label="upload picture" component="span">
+          
+          <PhotoCamera className='photoInput'/>
+        </IconButton>
+      </label>
+      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('cover'))}>Cover</Button>
+                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('repeat'))}>Repeat</Button>
+                        </ButtonGroup>
+      </form>
+      </div>
+      
       <div>
 <Accordion>
 <AccordionSummary
@@ -197,7 +218,8 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <div className={classes2.heading} ><h2>Color header</h2></div>
         </AccordionSummary>
         <AccordionDetails>
-      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />
+        
+      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />      
       </AccordionDetails>
       </Accordion>
       </div>

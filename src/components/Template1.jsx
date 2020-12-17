@@ -58,7 +58,7 @@ const Template1 = () => {
       <PDFExport
         forcePageBreak=".page-break"
         ref={(component) => (pdfExportComponent = component)}
-        fileName={`${userInfo.firstName + userInfo.secondName}`+`${userInfo.careerObjective}`}
+        fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
         // paperSize="A4"
       >
         <div style={{ width: "595px", height: "420px" }}>
