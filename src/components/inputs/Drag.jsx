@@ -15,6 +15,9 @@ import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import { useDispatch, useSelector } from "react-redux";
 import TextDecorateButtons from './TextDecorateButtons'
+import ReactDOMServer from 'react-dom/server'
+import jsPDF from 'jspdf'
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -28,9 +31,8 @@ const useStyles3 = makeStyles((theme) => ({
 }));
 const Drag = () => {
   const dispatch = useDispatch();
-
-    const { headerBackground, bodyBackground, headerImageValue, headerImagePosition } = useSelector(state => state.customizedTemplateReducer)
-    const [cls, setCls] = useState(["side1"]);
+  const { headerBackground, bodyBackground, headerImageValue, headerImagePosition } = useSelector(state => state.customizedTemplateReducer)
+  const [cls, setCls] = useState(["side1"]);
   const [open, setOpen] = useState(true);
   useEffect(() => {
     if (open) {
@@ -100,15 +102,10 @@ const handleChangeBodyBackgroungComplete = (color) => {
       fontWeight: theme.typography.fontWeightRegular,
     },
   }));
-  const [isPDF, setIsPDF] = useState(false);
   const classes2 = useStyles2();
 
   const pdfExport = () => {
-    setIsPDF(true);
     pdfExportComponent.save();
-    setTimeout(() => {
-      setIsPDF(false);
-    }, 500);
   };
 
   return (
@@ -127,35 +124,29 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </Button>
           <TextDecorateButtons />
         </Grid>
-        <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
+        <Grid item xs={12}>
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
+            paperSize="auto"
+            margin={40}
+            author="KendoReact Team"
             fileName={
               `${userInfo.firstName + userInfo.secondName}` +
               `${userInfo.careerObjective}`
             }
             // paperSize="A4"
           >
+            <div id='forCopy'>
             <DragHeader />
             <DragBody />
+            </div>
           </PDFExport>
         </Grid>
-      </Grid>
-      {/*             
-            <div className='customizeWindow'>
-            <form>
-            <input accept="image/*" className={classes3.input} id="icon-button-file" type="file" />
-            <label htmlFor="icon-button-file">
-        <IconButton  aria-label="upload picture" component="span">
+        <Grid>
           
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      </form>
-      <SketchPicker color={color} onChangeComplete={handleChangeComplete} />
-            </div> */}
-
+        </Grid>
+      </Grid>
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
