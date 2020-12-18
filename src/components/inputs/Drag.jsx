@@ -217,7 +217,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
               `${userInfo.firstName + userInfo.secondName}` +
               `${userInfo.careerObjective}`
             }
-            // paperSize="A4"
+          
           >
             <DragHeader styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
@@ -226,19 +226,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </PDFExport>
         </Grid>
       </Grid>
-      {/*             
-            <div className='customizeWindow'>
-            <form>
-            <input accept="image/*" className={classes3.input} id="icon-button-file" type="file" />
-            <label htmlFor="icon-button-file">
-        <IconButton  aria-label="upload picture" component="span">
-          
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      </form>
-      <SketchPicker color={color} onChangeComplete={handleChangeComplete} />
-            </div> */}
+     
 
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
@@ -253,54 +241,57 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <br/>
       <TextField
       className='select-font'
-          id="standard-select-currency-native"
-          select
-          label="Select font"
+          
           value={font}
           onChange={(e) => handleChangeFont(e)}
-          SelectProps={{
-            native: true,
-          }}
+          id="filled-select-currency"
+          select
+          label="Select font"
+          variant="outlined"
         >
-          <option  value='Raleway'>
+          
+           
+           <MenuItem value='Raleway'>
             Raleway
-          </option>
-          <option  value='Caviar'>
+            </MenuItem>
+            <MenuItem  value='Caviar'>
             Caviar
-          </option>
-          <option  value='Walkway'>
+            </MenuItem>
+            <MenuItem value='Walkway'>
           Walkway
-          </option>
-          <option  value='JetBrains'>
+          </MenuItem>
+          <MenuItem  value='JetBrains'>
           JetBrains
-          </option>
-          <option  value='Dancing'>
+          </MenuItem>
+          <MenuItem  value='Dancing'>
           Dancing
-          </option>
-          <option  value='Vonique'>
+          </MenuItem>
+          <MenuItem  value='Vonique'>
           Vonique
-          </option>
-          <option  value='Monterey'>
+          </MenuItem>
+          <MenuItem value='Monterey'>
           Monterey
-          </option>
-          <option  value='Titillium'>
+          </MenuItem>
+          <MenuItem  value='Titillium'>
           Titillium
-          </option>
-          <option  value='Monoglyceride'>
+          </MenuItem>
+          <MenuItem  value='Monoglyceride'>
           Monoglyceride
-          </option>
-          <option  value='Flamenco'>
+          </MenuItem>
+          <MenuItem   value='Flamenco'>
           Flamenco
-          </option>
-          <option  value='Cinzel'>
+          </MenuItem>
+          <MenuItem  value='Cinzel'>
           Cinzel
-          </option>
-          <option  value='Optimus'>
+          </MenuItem>
+          <MenuItem  value='Optimus'>
           Optimus Princeps
-          </option>
-          <option  value='Neou'>
+          </MenuItem>
+          <MenuItem  value='Neou'>
           Neou
-          </option>
+          </MenuItem>
+          
+         
           
         </TextField>
         <br/>

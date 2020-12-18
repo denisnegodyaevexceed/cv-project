@@ -205,13 +205,18 @@ const TextDecorateButtons = () => {
                             labelPlacement="top"
                         />
                     </RadioGroup>
-                    <TextField type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
+                    <div className="font-size-picker">
+                    <TextField  type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
+                    </div>
+           
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Font color</h4>
-                    
+                    <div className="color-picker">
                     <CompactPicker 
+                    className='picker'
                         color={valueColor} 
                         onChangeComplete={handleChangeColor}
                     />
+                    </div>
                 </FormControl>
 
 
@@ -220,15 +225,14 @@ const TextDecorateButtons = () => {
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Border radius avatar</h4>
 
                     {/* <h4>Border radius avatar</h4> */}
+                    <div className="slider">
                 <Slider
-                    defaultValue={0}
+                     min={0}
+                     max={500}
                     onChangeCommitted={setRadius}
-                    step={5}
-                    marks
-                    min={0}
-                    max={500}
-                    aria-labelledby="non-linear-slider"
+                    aria-labelledby="continuous-slider"
                 />
+                </div>
                 </div>
             </Grid>
             </>

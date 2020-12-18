@@ -620,19 +620,39 @@ z-index: 3;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: white;
 }
+.slider{
+    margin: 0 auto;
+    width: 280px;
+}
 .side1{
     position: fixed;
     padding: 50px;
-    right: -460px;
-    top: 3%;
+    right: -455px;
+    top: -2%;
+    padding: 45px;
     width: 405px;
-    height: 800px;
+    height: 90vh;
    transition: 1s;
-   border-radius: 10px;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: white; 
     overflow-x: hidden;
 
+}
+.picker{
+    margin: 0 auto;
+
+    width: 200px;
+    
+
+    left: 34px;
+    right: 34px;
+}
+.font-size-picker{
+    margin-left: 90px ;
+    width: 200px;
+}
+.color-picker{
+    margin: 0 auto;
 }
 .slider-border{
     width: 100%;
@@ -712,21 +732,10 @@ z-index: 3;
 .sketch-picker {
     margin: 0 auto;
 }
-/* .side-close1{
-    color: rgb(247, 77, 51) ;
-    position: absolute;
-    left: 137px;
-    bottom: 1px;
-    font-size: 30px;
-    font-weight: bold;
 
-    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
-
-} */
 .side-close1{
     position: absolute;
-    top: 5px;
+    top: 28px;
     right: 5px;
     width: 33px;
     height: 33px;
