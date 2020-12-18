@@ -113,12 +113,12 @@ const handleChangeBodyBackgroungComplete = (color) => {
   
   const addHeaderBackground = (e) => {
     console.log(e.target.value, 'in drag header')
-    dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+    {e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))}
   }
 
   const addBodyBackground = (e) => {
     console.log(e.target.value, 'in drag body')
-    dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))
+    {e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))}
   }
 
   
@@ -273,6 +273,33 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </option>
           <option  value='JetBrains'>
           JetBrains
+          </option>
+          <option  value='Dancing'>
+          Dancing
+          </option>
+          <option  value='Vonique'>
+          Vonique
+          </option>
+          <option  value='Monterey'>
+          Monterey
+          </option>
+          <option  value='Titillium'>
+          Titillium
+          </option>
+          <option  value='Monoglyceride'>
+          Monoglyceride
+          </option>
+          <option  value='Flamenco'>
+          Flamenco
+          </option>
+          <option  value='Cinzel'>
+          Cinzel
+          </option>
+          <option  value='Optimus'>
+          Optimus Princeps
+          </option>
+          <option  value='Neou'>
+          Neou
           </option>
           
         </TextField>

@@ -49,6 +49,97 @@ body{
 }
 
 
+@font-face {
+    font-family: 'Dancing-Light';
+    src: 
+            url('./fonts/DancingScript-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Dancing-Bold';
+    src:  url('./fonts/DancingScript-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Vonique-Light';
+    src: 
+            url('./fonts/Vonique.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Vonique-Bold';
+    src:  url('./fonts/Vonique-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Monterey-Light';
+    src: 
+            url('./fonts/MontereyFLF.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Monterey-Bold';
+    src:  url('./fonts/MontereyFLF-Bold.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Titillium-Light';
+    src: 
+            url('./fonts/TitilliumWeb-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Titillium-Bold';
+    src:  url('./fonts/TitilliumWeb-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Monoglyceride-Light';
+    src: 
+            url('./fonts/Monoglyceride.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Monoglyceride-Bold';
+    src:  url('./fonts/MonoglycerideBold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Flamenco-Light';
+    src: 
+            url('./fonts/Flamenco-Light.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Flamenco-Bold';
+    src:  url('./fonts/Flamenco-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Cinzel-Light';
+    src: 
+            url('./fonts/CinzelDecorative-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Cinzel-Bold';
+    src:  url('./fonts/CinzelDecorative-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Optimus-Light';
+    src: 
+            url('./fonts/OptimusPrinceps.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Optimus-Bold';
+    src:  url('./fonts/OptimusPrincepsSemiBold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Neou-Light';
+    src: 
+            url('./fonts/Neou-Thin.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Neou-Bold';
+    src:  url('./fonts/Neou-Bold.ttf') format("truetype");
+}
+
+
+
 .App {
     width: 100%;
 }
