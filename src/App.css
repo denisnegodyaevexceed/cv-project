@@ -138,6 +138,397 @@ body{
     src:  url('./fonts/Neou-Bold.ttf') format("truetype");
 }
 
+@font-face {
+    font-family: 'NK57-Light';
+    src: 
+            url('./fonts/nk57-monospace-cd-bd.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'NK57-Bold';
+    src:  url('./fonts/nk57-monospace-cd-bk.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'SEGMENT16C-Light';
+    src: 
+            url('./fonts/Segment16C\ Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'SEGMENT16C-Bold';
+    src:  url('./fonts/Segment16C\ Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'BPMono-Light';
+    src: 
+            url('./fonts/BPmono.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'BPMono-Bold';
+    src:  url('./fonts/BPmonoBold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'SpaceMono-Light';
+    src: 
+            url('./fonts/SpaceMono-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'SpaceMono-Bold';
+    src:  url('./fonts/SpaceMono-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'SicretMono-Light';
+    src: 
+            url('./fonts/SicretMono_PERSONAL-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'SicretMono-Bold';
+    src:  url('./fonts/SicretMono_PERSONAL-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Yoshitoshi-Light';
+    src: 
+            url('./fonts/yoshi.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Yoshitoshi-Bold';
+    src:  url('./fonts/yoshi\ bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'PiecesOfEight-Light';
+    src: 
+            url('./fonts/Pieces\ of\ Eight.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'PiecesOfEight-Bold';
+    src:  url('./fonts/Pieces\ of\ Eight.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Vogue-Light';
+    src: 
+            url('./fonts/Vogue.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Vogue-Bold';
+    src:  url('./fonts/Vonique-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'HalfElven-Light';
+    src: 
+            url('./fonts/halfelven.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'HalfElven-Bold';
+    src:  url('./fonts/halfelvenbold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Gatsby-Light';
+    src: 
+            url('./fonts/GatsbyFLF.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Gatsby-Bold';
+    src:  url('./fonts/GatsbyFLF-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'LifeSavers-Light';
+    src: 
+            url('./fonts/LifeSavers-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'LifeSavers-Bold';
+    src:  url('./fonts/LifeSavers-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Lato-Light';
+    src: 
+            url('./fonts/Lato-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Lato-Bold';
+    src:  url('./fonts/Lato-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: 
+            url('./fonts/OpenSans-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src:  url('./fonts/OpenSans-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'ChampagneLimousines-Light';
+    src: 
+            url('./fonts/Champagne\ &\ Limousines.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'ChampagneLimousines-Bold';
+    src:  url('./fonts/Champagne\ &\ Limousines\ Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Ubuntu-Light';
+    src: 
+            url('./fonts/Ubuntu-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Ubuntu-Bold';
+    src:  url('./fonts/Ubuntu-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Cabin-Light';
+    src: 
+            url('./fonts/Cabin-Regular-TTF.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Cabin-Bold';
+    src:  url('./fonts/Cabin-Bold-TTF.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Newtown-Light';
+    src: 
+            url('./fonts/NEWTOW__.TTF') format("truetype");
+}
+@font-face {
+    font-family: 'Newtown-Bold';
+    src:  url('./fonts/NEWTOW_B.TTF') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Hind-Light';
+    src: 
+            url('./fonts/Hind-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Hind-Bold';
+    src:  url('./fonts/Hind-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Kanit-Light';
+    src: 
+            url('./fonts/Kanit-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Kanit-Bold';
+    src:  url('./fonts/Kanit-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Capoon-Light';
+    src: 
+            url('./fonts/CapoonLigh_PERSONAL.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Capoon-Bold';
+    src:  url('./fonts/CapoonBold_PERSONAL.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Abenda-Light';
+    src: 
+            url('./fonts/Abenda.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Abenda-Bold';
+    src:  url('./fonts/Abenda\ Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'KenyanCoffee-Light';
+    src: 
+            url('./fonts/KENYC___.TTF') format("truetype");
+}
+@font-face {
+    font-family: 'KenyanCoffee-Bold';
+    src:  url('./fonts/KENYCB__.TTF') format("truetype");
+}
+
+@font-face {
+    font-family: 'LJDesignStudiosIs-Light';
+    src: 
+            url('./fonts/LJ\ Design\ Studios\ IS.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'LJDesignStudiosIs-Bold';
+    src:  url('./fonts/LJ\ Design\ Studios\ IS\ Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Karla-Light';
+    src: 
+            url('./fonts/Karla-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Karla-Bold';
+    src:  url('./fonts/Karla-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Sharpe-Light';
+    src: 
+            url('./fonts/SharpeLi_PERSONAL.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Sharpe-Bold';
+    src:  url('./fonts/SharpeBo_PERSONAL.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'ForgottenFuturist-Light';
+    src: 
+            url('./fonts/Forgotte.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'ForgottenFuturist-Bold';
+    src:  url('./fonts/Forgottb.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'UbicadaPro-Light';
+    src: 
+            url('./fonts/Ubicada-regular-ffp.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'UbicadaPro-Bold';
+    src:  url('./fonts/Ubicada-bold-ffp.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Aniron-Light';
+    src: 
+            url('./fonts/anirm___.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Aniron-Bold';
+    src:  url('./fonts/anirb___.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Playfair-Light';
+    src: 
+            url('./fonts/PlayfairDisplay-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Playfair-Bold';
+    src:  url('./fonts/PlayfairDisplay-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Alexandria-Light';
+    src: 
+            url('./fonts/AlexandriaFLF.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Alexandria-Bold';
+    src:  url('./fonts/AlexandriaFLF-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Rufina-Light';
+    src: 
+            url('./fonts/Rufina-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Rufina-Bold';
+    src:  url('./fonts/Rufina-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Cardiff-Light';
+    src: 
+            url('./fonts/CARDIF__.TTF') format("truetype");
+}
+@font-face {
+    font-family: 'Cardiff-Bold';
+    src:  url('./fonts/CARDIF_B.TTF') format("truetype");
+}
+
+@font-face {
+    font-family: 'Lusitana-Light';
+    src: 
+            url('./fonts/Lusitana-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Lusitana-Bold';
+    src:  url('./fonts/Lusitana-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'AlegreyaSC-Light';
+    src: 
+            url('./fonts/AlegreyaSC-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'AlegreyaSC-Bold';
+    src:  url('./fonts/AlegreyaSC-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Delia-Light';
+    src: 
+            url('./fonts/DELIA\ regular\ FREE.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Delia-Bold';
+    src:  url('./fonts/DELIA\ Bold\ FREE.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Domine-Light';
+    src: 
+            url('./fonts/Domine-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Domine-Bold';
+    src:  url('./fonts/Domine-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Vollkorn-Light';
+    src: 
+            url('./fonts/Vollkorn-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Vollkorn-Bold';
+    src:  url('./fonts/Vollkorn-Bold.ttf') format("truetype");
+}
+
+
 
 
 .App {
@@ -831,9 +1222,7 @@ z-index: 3;
     right: -50px;
     top: 10px;
 }
-.container{
- 
-}
+
 .column{
     
     width: 300px;

@@ -1,10 +1,10 @@
 const initialState = {
-    firstCompany: 'Company1',
-    firstPosition: 'Developer1',
+    firstCompany: 'Google',
+    firstPosition: 'Senior Web Developer',
     firstDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     
-    secondCompany: 'Company2',
-    secondPosition: 'Developer2',
+    secondCompany: 'Facebook',
+    secondPosition: 'Middle Web Developer',
     secondDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
 }
 

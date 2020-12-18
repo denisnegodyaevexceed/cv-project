@@ -354,7 +354,86 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <MenuItem  value='LifeSavers'>
           Life Savers
           </MenuItem>
-           
+          <MenuItem  value='Lato'>
+          Lato
+          </MenuItem>
+          <MenuItem  value='OpenSans'>
+          Open Sans
+          </MenuItem>
+          <MenuItem  value='ChampagneLimousines'>
+          Champagne Limousines
+          </MenuItem>
+          <MenuItem  value='Ubuntu'>
+          Ubuntu
+          </MenuItem>
+          <MenuItem  value='Cabin'>
+          Cabin
+          </MenuItem>
+          <MenuItem  value='Newtown'>
+          Newtown
+          </MenuItem>
+          <MenuItem  value='Hind'>
+          Hind
+          </MenuItem>
+          <MenuItem  value='Kanit'>
+          Kanit
+          </MenuItem>
+          <MenuItem  value='Capoon'>
+          Capoon
+          </MenuItem>
+          <MenuItem  value='Abenda'>
+          Abenda
+          </MenuItem>
+          <MenuItem  value='KenyanCoffee'>
+          Kenyan Coffee
+          </MenuItem>
+          <MenuItem  value='LJDesignStudiosIs'>
+          LJ Design Studios Is
+          </MenuItem>
+          <MenuItem  value='Karla'>
+          Karla
+          </MenuItem>
+          <MenuItem  value='Sharpe'>
+          Sharpe
+          </MenuItem>
+          <MenuItem  value='ForgottenFuturist'>
+          Forgotten Futurist
+          </MenuItem>
+
+          <MenuItem  value='UbicadaPro'>
+          Ubicada Pro
+          </MenuItem>
+          <MenuItem  value='Aniron'>
+          Aniron
+          </MenuItem>
+          <MenuItem  value='Playfair'>
+          Playfair
+          </MenuItem>
+          <MenuItem  value='Alexandria'>
+          Alexandria
+          </MenuItem>
+          <MenuItem  value='Rufina'>
+          Rufina
+          </MenuItem>
+          <MenuItem  value='Cardiff'>
+          Cardiff
+          </MenuItem>
+          <MenuItem  value='Lusitana'>
+          Lusitana
+          </MenuItem>
+          <MenuItem  value='AlegreyaSC'>
+          Alegreya SC
+          </MenuItem>
+          <MenuItem  value='Delia'>
+          Delia
+          </MenuItem>
+          <MenuItem  value='Domine'>
+          Domine
+          </MenuItem>
+          <MenuItem  value='Vollkorn'>
+          Vollkorn
+          </MenuItem>
+
           
         </Select>
         </Grid>
