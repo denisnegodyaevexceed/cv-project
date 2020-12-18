@@ -301,6 +301,40 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <option  value='Neou'>
           Neou
           </option>
+          <option  value='NK57'>
+          NK57 Monospace
+          </option>
+          <option  value='SEGMENT16C'>
+          SEGMENT16C
+          </option>
+          <option  value='BPMono'>
+          BP Mono
+          </option>
+          <option  value='SpaceMono'>
+          Space Mono
+          </option>
+          <option  value='SicretMono'>
+          Sicret Mono
+          </option>
+          <option  value='Yoshitoshi'>
+          Yoshitoshi
+          </option>
+          <option  value='PiecesOfEight'>
+          Pieces Of Eight
+          </option>
+          <option  value='Vogue'>
+          Vogue
+          </option>
+          <option  value='HalfElven'>
+          Half Elven
+          </option>
+          <option  value='Gatsby'>
+          Gatsby
+          </option>
+          <option  value='LifeSavers'>
+          Life Savers
+          </option>
+           
           
         </TextField>
         <br/>

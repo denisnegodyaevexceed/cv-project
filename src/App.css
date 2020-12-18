@@ -137,6 +137,116 @@ body{
     font-family: 'Neou-Bold';
     src:  url('./fonts/Neou-Bold.ttf') format("truetype");
 }
+@font-face {
+    font-family: 'NK57-Light';
+    src: 
+            url('./fonts/nk57-monospace-cd-bk.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'NK57-Bold';
+    src:  url('./fonts/nk57-monospace-cd-bd.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'SEGMENT16C-Light';
+    src: 
+            url('./fonts/Segment16C\ Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'SEGMENT16C-Bold';
+    src:  url('./fonts/Segment16C\ Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'BPMono-Light';
+    src: 
+            url('./fonts/BPmono.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'BPMono-Bold';
+    src:  url('./fonts/BPmonoBold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'SpaceMono-Light';
+    src: 
+            url('./fonts/SpaceMono-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'SpaceMono-Bold';
+    src:  url('./fonts/SpaceMono-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'SicretMono-Light';
+    src: 
+            url('./fonts/SicretMono_PERSONAL-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'SicretMono-Bold';
+    src:  url('./fonts/SicretMono_PERSONAL-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Yoshitoshi-Light';
+    src: 
+            url('./fonts/yoshi.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Yoshitoshi-Bold';
+    src:  url('./fonts/yoshi\ bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'PiecesOfEight-Light';
+    src: 
+            url('./fonts/Pieces\ of\ Eight.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'PiecesOfEight-Bold';
+    src:  url('./fonts/Pieces\ of\ Eight.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Vogue-Light';
+    src: 
+            url('./fonts/Vogue.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Vogue-Bold';
+    src:  url('./fonts/Vogue.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'HalfElven-Light';
+    src: 
+            url('./fonts/halfelven.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'HalfElven-Bold';
+    src:  url('./fonts/halfelvenbold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Gatsby-Light';
+    src: 
+            url('./fonts/GatsbyFLF.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Gatsby-Bold';
+    src:  url('./fonts/GatsbyFLF-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'LifeSavers-Light';
+    src: 
+            url('./fonts/LifeSavers-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'LifeSavers-Bold';
+    src:  url('./fonts/LifeSavers-Bold.ttf') format("truetype");
+}
+
 
 
 
