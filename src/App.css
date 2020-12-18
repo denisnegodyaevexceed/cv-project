@@ -434,6 +434,102 @@ body{
     src:  url('./fonts/anirb___.ttf') format("truetype");
 }
 
+@font-face {
+    font-family: 'Playfair-Light';
+    src: 
+            url('./fonts/PlayfairDisplay-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Playfair-Bold';
+    src:  url('./fonts/PlayfairDisplay-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Alexandria-Light';
+    src: 
+            url('./fonts/AlexandriaFLF.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Alexandria-Bold';
+    src:  url('./fonts/AlexandriaFLF-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Rufina-Light';
+    src: 
+            url('./fonts/Rufina-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Rufina-Bold';
+    src:  url('./fonts/Rufina-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Cardiff-Light';
+    src: 
+            url('./fonts/CARDIF__.TTF') format("truetype");
+}
+@font-face {
+    font-family: 'Cardiff-Bold';
+    src:  url('./fonts/CARDIF_B.TTF') format("truetype");
+}
+
+@font-face {
+    font-family: 'Lusitana-Light';
+    src: 
+            url('./fonts/Lusitana-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Lusitana-Bold';
+    src:  url('./fonts/Lusitana-Bold.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'AlegreyaSC-Light';
+    src: 
+            url('./fonts/AlegreyaSC-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'AlegreyaSC-Bold';
+    src:  url('./fonts/AlegreyaSC-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Delia-Light';
+    src: 
+            url('./fonts/DELIA\ regular\ FREE.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Delia-Bold';
+    src:  url('./fonts/DELIA\ Bold\ FREE.ttf') format("truetype");
+}
+
+
+@font-face {
+    font-family: 'Domine-Light';
+    src: 
+            url('./fonts/Domine-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Domine-Bold';
+    src:  url('./fonts/Domine-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Vollkorn-Light';
+    src: 
+            url('./fonts/Vollkorn-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Vollkorn-Bold';
+    src:  url('./fonts/Vollkorn-Bold.ttf') format("truetype");
+}
+
+
+
 
 .App {
     width: 100%;
@@ -919,17 +1015,24 @@ z-index: 3;
     margin: 0 auto;
     width: 280px;
 }
+.text-decor{
+    width: 100%;
+}
+.forms{
+    width: 397px;
+}
 .side1{
     position: fixed;
     padding: 50px;
     right: -455px;
-    top: -2%;
+    top: 3%;
     padding: 45px;
     width: 405px;
-    height: 90vh;
+    height: 85vh;
    transition: 1s;
+   border-radius: 30px;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
-    background-color: white; 
+    background-color: black; 
     overflow-x: hidden;
 
 }
@@ -943,7 +1046,7 @@ z-index: 3;
     right: 34px;
 }
 .font-size-picker{
-    margin-left: 90px ;
+    margin-left: 95px ;
     width: 200px;
 }
 .color-picker{
@@ -992,6 +1095,7 @@ z-index: 3;
 .flex-cont-edit{
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 }
 .side-open1{
     color: rgb(247, 77, 51) ;

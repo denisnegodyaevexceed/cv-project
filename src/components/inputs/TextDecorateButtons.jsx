@@ -24,7 +24,7 @@ import allCustomizedTemplateActions from '../../actions/customizedTemplateAction
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      width: 'fit-content',
+      width: '100%',
       border: `1px solid ${theme.palette.divider}`,
       borderRadius: theme.shape.borderRadius,
       backgroundColor: theme.palette.background.paper,
@@ -125,7 +125,7 @@ const TextDecorateButtons = () => {
     }
 
     return (
-        <>
+        <div className='text-decor'>
 
             <Grid container alignItems="center" className={classes.root}>
             <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Text position</h3>
@@ -152,11 +152,12 @@ const TextDecorateButtons = () => {
                 <br/>
             <Grid container alignItems="center" className={classes.root}>
             <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>General style</h3>
-                
-                <FormControl component="fieldset">
+                <div >
+                <FormControl className="forms" >
                     <RadioGroup row aria-label="position" name="position" defaultValue="nameSize" onChange={(e) => handlerChangeTypeText(e)}>
                         <FormControlLabel
                             value="nameSize"
+                            fullWidth={true}
                             className='radio-small'
                             control={<Radio 
                                 size='small'
@@ -218,7 +219,7 @@ const TextDecorateButtons = () => {
                     />
                     </div>
                 </FormControl>
-
+                </div>
 
                 
                 <div className="slider-border">
@@ -235,7 +236,7 @@ const TextDecorateButtons = () => {
                 </div>
                 </div>
             </Grid>
-            </>
+            </div>
     );
 };
 

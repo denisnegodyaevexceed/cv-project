@@ -265,7 +265,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <div>
       <br/>
         
-      <TextDecorateButtons/>
       <br/>
       <Grid container alignItems="center" className={classes.root}>
       <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
@@ -406,17 +405,49 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <MenuItem  value='Aniron'>
           Aniron
           </MenuItem>
+          <MenuItem  value='Playfair'>
+          Playfair
+          </MenuItem>
+          <MenuItem  value='Alexandria'>
+          Alexandria
+          </MenuItem>
+          <MenuItem  value='Rufina'>
+          Rufina
+          </MenuItem>
+          <MenuItem  value='Cardiff'>
+          Cardiff
+          </MenuItem>
+          <MenuItem  value='Lusitana'>
+          Lusitana
+          </MenuItem>
+          <MenuItem  value='AlegreyaSC'>
+          Alegreya SC
+          </MenuItem>
+          <MenuItem  value='Delia'>
+          Delia
+          </MenuItem>
+          <MenuItem  value='Domine'>
+          Domine
+          </MenuItem>
+          <MenuItem  value='Vollkorn'>
+          Vollkorn
+          </MenuItem>
+
           
         </Select>
         </Grid>
         <br/>
+      <TextDecorateButtons/>
+      <br/>
+
 <Accordion>
 <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <div className={classes2.heading} ><h2>Backgrounds</h2></div>
+          <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background</h3>
+</div>
           </AccordionSummary>
           <AccordionDetails>
             <div className="flex-cont-edit">
@@ -427,7 +458,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <div className={classes2.heading} ><h2>Background header</h2></div>
+          <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background header</h3></div>
         </AccordionSummary>
         <AccordionDetails>
         <div>
@@ -459,7 +490,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <div className={classes2.heading} ><h2>Background main <main></main></h2></div>
+          <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background main</h3></div>
         </AccordionSummary>
         <AccordionDetails>
         <div><form>
