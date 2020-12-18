@@ -26,7 +26,7 @@ import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import Select from '@material-ui/core/Select';
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -38,6 +38,8 @@ const useStyles3 = makeStyles((theme) => ({
     display: "none",
   },
 }));
+
+
 const Drag = () => {
   const dispatch = useDispatch();
 
@@ -187,6 +189,32 @@ const handleChangeBodyBackgroungComplete = (color) => {
     fontFamily: font+'-Light',
   }
 
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight:300,
+        width: 250,
+      },
+    },
+  };
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      border: `1px solid ${theme.palette.divider}`,
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      '& svg': {
+        margin: theme.spacing(1),
+        // fontSize:15,
+        padding:4,
+      },
+      '& hr': {
+        margin: theme.spacing(0, 0.5),
+      },
+    },
+  }));
+  const classes = useStyles();
   return (
     <Container>
       <Grid container>
@@ -217,7 +245,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
               `${userInfo.firstName + userInfo.secondName}` +
               `${userInfo.careerObjective}`
             }
-            // paperSize="A4"
+          
           >
             <DragHeader styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
@@ -226,19 +254,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </PDFExport>
         </Grid>
       </Grid>
-      {/*             
-            <div className='customizeWindow'>
-            <form>
-            <input accept="image/*" className={classes3.input} id="icon-button-file" type="file" />
-            <label htmlFor="icon-button-file">
-        <IconButton  aria-label="upload picture" component="span">
-          
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      </form>
-      <SketchPicker color={color} onChangeComplete={handleChangeComplete} />
-            </div> */}
+     
 
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
@@ -251,93 +267,148 @@ const handleChangeBodyBackgroungComplete = (color) => {
         
       <TextDecorateButtons/>
       <br/>
-      <TextField
+      <Grid container alignItems="center" className={classes.root}>
+      <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
+
+      <Select
       className='select-font'
-          id="standard-select-currency-native"
-          select
-          label="Select font"
+          
           value={font}
           onChange={(e) => handleChangeFont(e)}
-          SelectProps={{
-            native: true,
-          }}
+          id="filled-select-currency"
+          select
+          variant="outlined"
+          MenuProps={MenuProps}
         >
-          <option  value='Raleway'>
-            Raleway
-          </option>
-          <option  value='Caviar'>
-            Caviar
-          </option>
-          <option  value='Walkway'>
-          Walkway
-          </option>
-          <option  value='JetBrains'>
-          JetBrains
-          </option>
-          <option  value='Dancing'>
-          Dancing
-          </option>
-          <option  value='Vonique'>
-          Vonique
-          </option>
-          <option  value='Monterey'>
-          Monterey
-          </option>
-          <option  value='Titillium'>
-          Titillium
-          </option>
-          <option  value='Monoglyceride'>
-          Monoglyceride
-          </option>
-          <option  value='Flamenco'>
-          Flamenco
-          </option>
-          <option  value='Cinzel'>
-          Cinzel
-          </option>
-          <option  value='Optimus'>
-          Optimus Princeps
-          </option>
-          <option  value='Neou'>
-          Neou
-          </option>
-          <option  value='NK57'>
-          NK57 Monospace
-          </option>
-          <option  value='SEGMENT16C'>
-          SEGMENT16C
-          </option>
-          <option  value='BPMono'>
-          BP Mono
-          </option>
-          <option  value='SpaceMono'>
-          Space Mono
-          </option>
-          <option  value='SicretMono'>
-          Sicret Mono
-          </option>
-          <option  value='Yoshitoshi'>
-          Yoshitoshi
-          </option>
-          <option  value='PiecesOfEight'>
-          Pieces Of Eight
-          </option>
-          <option  value='Vogue'>
-          Vogue
-          </option>
-          <option  value='HalfElven'>
-          Half Elven
-          </option>
-          <option  value='Gatsby'>
-          Gatsby
-          </option>
-          <option  value='LifeSavers'>
-          Life Savers
-          </option>
-           
           
-        </TextField>
-        <br/>
+           
+           <MenuItem value='Raleway'>
+            Raleway
+            </MenuItem>
+            <MenuItem  value='Caviar'>
+            Caviar
+            </MenuItem>
+            <MenuItem value='Walkway'>
+          Walkway
+          </MenuItem>
+          <MenuItem  value='JetBrains'>
+          JetBrains
+          </MenuItem>
+          <MenuItem  value='Dancing'>
+          Dancing
+          </MenuItem>
+          <MenuItem  value='Vonique'>
+          Vonique
+          </MenuItem>
+          <MenuItem value='Monterey'>
+          Monterey
+          </MenuItem>
+          <MenuItem  value='Titillium'>
+          Titillium
+          </MenuItem>
+          <MenuItem  value='Monoglyceride'>
+          Monoglyceride
+          </MenuItem>
+          <MenuItem   value='Flamenco'>
+          Flamenco
+          </MenuItem>
+          <MenuItem  value='Cinzel'>
+          Cinzel
+          </MenuItem>
+          <MenuItem  value='Optimus'>
+          Optimus Princeps
+          </MenuItem>
+          <MenuItem  value='Neou'>
+          Neou
+          </MenuItem>
+          <MenuItem   value='NK57'>
+          NK57 Monospace
+          </MenuItem>
+          <MenuItem  value='SEGMENT16C'>
+          SEGMENT16C
+          </MenuItem>
+          <MenuItem  value='BPMono'>
+          BP Mono
+          </MenuItem>
+          <MenuItem  value='SpaceMono'>
+          Space Mono
+          </MenuItem>
+          <MenuItem  value='SicretMono'>
+          Sicret Mono
+          </MenuItem>
+          <MenuItem   value='Yoshitoshi'>
+          Yoshitoshi
+          </MenuItem>
+          <MenuItem  value='PiecesOfEight'>
+          Pieces Of Eight
+          </MenuItem>
+          <MenuItem  value='Vogue'>
+          Vogue
+          </MenuItem>
+          <MenuItem value='HalfElven'>
+          Half Elven
+          </MenuItem>
+          <MenuItem  value='Gatsby'>
+          Gatsby
+          </MenuItem>
+          <MenuItem  value='LifeSavers'>
+          Life Savers
+          </MenuItem>
+          <MenuItem  value='Lato'>
+          Lato
+          </MenuItem>
+          <MenuItem  value='OpenSans'>
+          Open Sans
+          </MenuItem>
+          <MenuItem  value='ChampagneLimousines'>
+          Champagne Limousines
+          </MenuItem>
+          <MenuItem  value='Ubuntu'>
+          Ubuntu
+          </MenuItem>
+          <MenuItem  value='Cabin'>
+          Cabin
+          </MenuItem>
+          <MenuItem  value='Newtown'>
+          Newtown
+          </MenuItem>
+          <MenuItem  value='Hind'>
+          Hind
+          </MenuItem>
+          <MenuItem  value='Kanit'>
+          Kanit
+          </MenuItem>
+          <MenuItem  value='Capoon'>
+          Capoon
+          </MenuItem>
+          <MenuItem  value='Abenda'>
+          Abenda
+          </MenuItem>
+          <MenuItem  value='KenyanCoffee'>
+          Kenyan Coffee
+          </MenuItem>
+          <MenuItem  value='LJDesignStudiosIs'>
+          LJ Design Studios Is
+          </MenuItem>
+          <MenuItem  value='Karla'>
+          Karla
+          </MenuItem>
+          <MenuItem  value='Sharpe'>
+          Sharpe
+          </MenuItem>
+          <MenuItem  value='ForgottenFuturist'>
+          Forgotten Futurist
+          </MenuItem>
+
+          <MenuItem  value='UbicadaPro'>
+          Ubicada Pro
+          </MenuItem>
+          <MenuItem  value='Aniron'>
+          Aniron
+          </MenuItem>
+          
+        </Select>
+        </Grid>
         <br/>
 <Accordion>
 <AccordionSummary
