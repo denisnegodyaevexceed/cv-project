@@ -265,7 +265,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
       <div>
       <br/>
         
-      <TextDecorateButtons/>
       <br/>
       <Grid container alignItems="center" className={classes.root}>
       <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
@@ -359,6 +358,9 @@ const handleChangeBodyBackgroungComplete = (color) => {
         </Select>
         </Grid>
         <br/>
+      <TextDecorateButtons/>
+      <br/>
+
 <Accordion>
 <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
