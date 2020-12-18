@@ -26,7 +26,7 @@ import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import Select from '@material-ui/core/Select';
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -38,6 +38,8 @@ const useStyles3 = makeStyles((theme) => ({
     display: "none",
   },
 }));
+
+
 const Drag = () => {
   const dispatch = useDispatch();
 
@@ -187,6 +189,32 @@ const handleChangeBodyBackgroungComplete = (color) => {
     fontFamily: font+'-Light',
   }
 
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight:300,
+        width: 250,
+      },
+    },
+  };
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      border: `1px solid ${theme.palette.divider}`,
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      '& svg': {
+        margin: theme.spacing(1),
+        // fontSize:15,
+        padding:4,
+      },
+      '& hr': {
+        margin: theme.spacing(0, 0.5),
+      },
+    },
+  }));
+  const classes = useStyles();
   return (
     <Container>
       <Grid container>
@@ -239,15 +267,18 @@ const handleChangeBodyBackgroungComplete = (color) => {
         
       <TextDecorateButtons/>
       <br/>
-      <TextField
+      <Grid container alignItems="center" className={classes.root}>
+      <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
+
+      <Select
       className='select-font'
           
           value={font}
           onChange={(e) => handleChangeFont(e)}
           id="filled-select-currency"
           select
-          label="Select font"
           variant="outlined"
+          MenuProps={MenuProps}
         >
           
            
@@ -290,11 +321,43 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <MenuItem  value='Neou'>
           Neou
           </MenuItem>
+          <MenuItem   value='NK57'>
+          NK57 Monospace
+          </MenuItem>
+          <MenuItem  value='SEGMENT16C'>
+          SEGMENT16C
+          </MenuItem>
+          <MenuItem  value='BPMono'>
+          BP Mono
+          </MenuItem>
+          <MenuItem  value='SpaceMono'>
+          Space Mono
+          </MenuItem>
+          <MenuItem  value='SicretMono'>
+          Sicret Mono
+          </MenuItem>
+          <MenuItem   value='Yoshitoshi'>
+          Yoshitoshi
+          </MenuItem>
+          <MenuItem  value='PiecesOfEight'>
+          Pieces Of Eight
+          </MenuItem>
+          <MenuItem  value='Vogue'>
+          Vogue
+          </MenuItem>
+          <MenuItem value='HalfElven'>
+          Half Elven
+          </MenuItem>
+          <MenuItem  value='Gatsby'>
+          Gatsby
+          </MenuItem>
+          <MenuItem  value='LifeSavers'>
+          Life Savers
+          </MenuItem>
+           
           
-         
-          
-        </TextField>
-        <br/>
+        </Select>
+        </Grid>
         <br/>
 <Accordion>
 <AccordionSummary
