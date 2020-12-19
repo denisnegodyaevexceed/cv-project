@@ -541,6 +541,14 @@ h4{
 
     color: white;
 }
+.icon-2{
+  position: absolute;
+   z-index: 5;
+   top: 0;
+  right: -7%;
+
+    color: white;
+}
 .t-1{
     color: white;
 }
