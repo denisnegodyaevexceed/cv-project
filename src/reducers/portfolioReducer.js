@@ -1,7 +1,7 @@
 const initialState = {
     firstProject: {
-        name: 'name name',
-        link: 'link',
+        name: 'YouTube',
+        link: 'youtube.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [ { title: 'Cassandra' },
@@ -10,8 +10,8 @@ const initialState = {
                 { title: 'Oracle' },],
     },
     secondProject: {
-        name: 'name name',
-        link: 'link',
+        name: 'Instargram',
+        link: 'instagram.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [ { title: 'Cassandra' },
@@ -20,8 +20,8 @@ const initialState = {
                 { title: 'Oracle' },],
     },
     thirdProject: {
-        name: 'name name',
-        link: 'link',
+        name: 'Whatsup',
+        link: 'whatsup.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [ { title: 'Cassandra' },
@@ -30,8 +30,8 @@ const initialState = {
                 { title: 'Oracle' },],
     },
     fourthProject: {
-        name: 'name name',
-        link: 'link',
+        name: 'TikTok',
+        link: 'tiktok.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [ { title: 'Cassandra' },
@@ -40,8 +40,8 @@ const initialState = {
                 { title: 'Oracle' },],
     },
     fifthProject: {
-        name: 'name name',
-        link: 'link',
+        name: 'Azino777',
+        link: 'Azino777.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [ { title: 'Cassandra' },
@@ -50,14 +50,11 @@ const initialState = {
                 { title: 'Oracle' },],
     },
     sixthProject: {
-        name: 'name name',
-        link: 'link',
-        summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        stack: [ { title: 'Cassandra' },
-                { title: 'Microsoft SQL' },
-                { title: 'CouchDB' },
-                { title: 'Oracle' },],
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
     }
 }
 

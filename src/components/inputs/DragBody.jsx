@@ -4,7 +4,9 @@ import "gridstack/dist/gridstack.min.css";
 import { GridStack } from "gridstack";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
+import "../grid.scss"
 import DragItem from './DragItem';
+
 const DragBody = ({
     styleTitle,
     styleSubTitle,
@@ -48,16 +50,17 @@ const DragBody = ({
 
 
     React.useEffect(() => {
-    let options = {
-        disableOneColumnMode: true,
-        float: false,
+        let options = {
+            disableOneColumnMode: true,
+            float: false,
+            cellHeight: 5,
     };
     GridStack.init(options, ".grid-stack-body");
     }, []);
 
     return (
         <div className="grid-stack grid-stack-body" style={backgroundControll}>
-            <DragItem id={4} gsh={4} gsw={4} renderContent={
+            <DragItem id={4} gsh={48} gsw={4} renderContent={
                 <span>
                     <div className="">
                         <div className="" style={styleTitle}>TECH STACK</div>
@@ -98,7 +101,7 @@ const DragBody = ({
                     </div>
                 </span>} 
             />
-            <DragItem id={5} gsh={4} gsw={4} renderContent={
+            <DragItem id={5} gsh={48} gsw={4} renderContent={
                 <span>
                     {userInfo.education && (
                         <>
@@ -108,7 +111,7 @@ const DragBody = ({
                     )}
                 </span>} 
             />
-            <DragItem id={6} gsh={4} gsw={4} renderContent={
+            <DragItem id={6} gsh={48} gsw={4} renderContent={
                 <span>
                     {userInfo.aboutMeInfo && (
                         <>
@@ -118,7 +121,7 @@ const DragBody = ({
                     )}
                 </span>} 
             />
-            <DragItem id={7} gsh={4} gsw={4} renderContent={
+            <DragItem id={7} gsh={48} gsw={4} renderContent={
                 <span>
                     {((firstCompany && firstPosition && firstDescription) ||
                         (secondCompany && secondPosition && secondDescription)) && (
@@ -152,7 +155,7 @@ const DragBody = ({
                     )}
                 </span>} 
             />
-            <DragItem id={8} gsh={4} gsw={4} renderContent={
+            <DragItem id={8} gsh={48} gsw={4} renderContent={
                 <span style={styleSmallText}>
                     <>
                         <div className='' style={styleTitle}>CONTACTS</div>

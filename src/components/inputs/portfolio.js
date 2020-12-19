@@ -8,7 +8,10 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import allTechnologyActions from "../../actions/addTechnologyActions";
 import top100Films from '../../constants/stack';
+
+
 
 
 
@@ -41,6 +44,10 @@ const Portfolio = () => {
 
   const classes = useStyles();
   const classes2 = useStyles2();
+
+
+  const {techList} = useSelector(state => state.addTechnologyReducer)
+  let uniqueArray = top100Films.concat(techList).concat()
 
   let firstSummaryCounter = (220 - firstProject.summary.length) + ' letters left.'
   let firstWhatYouDoCounter = (180 - firstProject.whatYouDo.length) + ' letters left.'
@@ -111,7 +118,7 @@ const Portfolio = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setFirstProjectStack(values))}
                     value={firstProject.stack}
@@ -179,7 +186,7 @@ const Portfolio = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setSecondProjectStack(values))}
                     value={secondProject.stack}
@@ -246,7 +253,7 @@ const Portfolio = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setThirdProjectStack(values))}
                     value={thirdProject.stack}
@@ -314,7 +321,7 @@ const Portfolio = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setFourthProjectStack(values))}
                     value={fourthProject.stack}
@@ -382,7 +389,7 @@ const Portfolio = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setFifthProjectStack(values))}
                     value={fifthProject.stack}
@@ -450,7 +457,7 @@ const Portfolio = () => {
                 <div style={{ width: 500 }}>
                   <Autocomplete
                     multiple
-                    options={top100Films}
+                    options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setSixthProjectStack(values))}
                     value={sixthProject.stack}

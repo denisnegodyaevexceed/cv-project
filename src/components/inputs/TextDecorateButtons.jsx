@@ -24,7 +24,7 @@ import allCustomizedTemplateActions from '../../actions/customizedTemplateAction
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      width: 'fit-content',
+      width: '100%',
       border: `1px solid ${theme.palette.divider}`,
       borderRadius: theme.shape.borderRadius,
       backgroundColor: theme.palette.background.paper,
@@ -125,7 +125,7 @@ const TextDecorateButtons = () => {
     }
 
     return (
-        <>
+        <div className='text-decor'>
 
             <Grid container alignItems="center" className={classes.root}>
             <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Text position</h3>
@@ -152,11 +152,12 @@ const TextDecorateButtons = () => {
                 <br/>
             <Grid container alignItems="center" className={classes.root}>
             <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>General style</h3>
-                
-                <FormControl component="fieldset">
+                <div >
+                <FormControl className="forms" >
                     <RadioGroup row aria-label="position" name="position" defaultValue="nameSize" onChange={(e) => handlerChangeTypeText(e)}>
                         <FormControlLabel
                             value="nameSize"
+                            fullWidth={true}
                             className='radio-small'
                             control={<Radio 
                                 size='small'
@@ -205,33 +206,37 @@ const TextDecorateButtons = () => {
                             labelPlacement="top"
                         />
                     </RadioGroup>
-                    <TextField type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
+                    <div className="font-size-picker">
+                    <TextField  type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
+                    </div>
+           
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Font color</h4>
-                    
+                    <div className="color-picker">
                     <CompactPicker 
+                    className='picker'
                         color={valueColor} 
                         onChangeComplete={handleChangeColor}
                     />
+                    </div>
                 </FormControl>
-
+                </div>
 
                 
                 <div className="slider-border">
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Border radius avatar</h4>
 
                     {/* <h4>Border radius avatar</h4> */}
+                    <div className="slider">
                 <Slider
-                    defaultValue={0}
+                     min={0}
+                     max={500}
                     onChangeCommitted={setRadius}
-                    step={5}
-                    marks
-                    min={0}
-                    max={500}
-                    aria-labelledby="non-linear-slider"
+                    aria-labelledby="continuous-slider"
                 />
                 </div>
+                </div>
             </Grid>
-            </>
+            </div>
     );
 };
 

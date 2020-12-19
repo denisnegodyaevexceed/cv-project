@@ -52,6 +52,7 @@ const DragPortfolio = ({
     let options = {
         disableOneColumnMode: true,
         float: false,
+        cellHeight: 5,
     };
     GridStack.init(options, ".grid-stack-page2");
     }, []);
@@ -61,7 +62,7 @@ const DragPortfolio = ({
             {projects.map((item, index) => {
                 let {name, link, summary, whatYouDo, stack} = item
                 return ( name && summary && whatYouDo && stack && 
-                    <DragItem key={index} id={index + 9} gsh={4} gsw={12} renderContent={
+                    <DragItem key={index} id={index + 9} gsh={42} gsw={12} renderContent={
                         <span>
                             <div key={index}>
                                 <div style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
