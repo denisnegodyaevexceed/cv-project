@@ -12,7 +12,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 // import "gridstack/dist/gridstack.min.css";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { GridStack } from "gridstack";
 // THEN to get HTML5 drag&drop
 import "gridstack/dist/h5/gridstack-dd-native";
 // OR to get legacy jquery-ui drag&drop
@@ -24,7 +23,6 @@ import { Link } from 'react-router-dom'
 import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
-import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
@@ -46,8 +44,7 @@ const Drag = () => {
     const { 
       headerBackground, 
       bodyBackground, 
-      headerImageValue, 
-      bodyImagePosition, 
+      headerImageValue,  
       bodyImageValue,
       nameSize,
       posSize,
@@ -55,7 +52,6 @@ const Drag = () => {
       subTitleSize,
       textSize,
       smallTextSize,
-
       nameColor,
       posColor,
       titleColor,
@@ -80,34 +76,7 @@ const Drag = () => {
 const handleChangeBodyBackgroungComplete = (color) => {
   dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
 };
-  const {
-    firstCompany,
-    firstPosition,
-    firstDescription,
-    secondCompany,
-    secondPosition,
-    secondDescription,
-  } = useSelector((state) => state.aboutWorkHistoryReducer);
-  const { frontend, backend, dbs, other } = useSelector(
-    (state) => state.aboutHardSkillsReducer
-  );
-  const {
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  } = useSelector((state) => state.portfolioReducer);
-  const projects = [
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  ];
-
+  
   const userInfo = useSelector((state) => state.aboutMeReducer);
 
   
@@ -115,12 +84,12 @@ const handleChangeBodyBackgroungComplete = (color) => {
   
   const addHeaderBackground = (e) => {
     console.log(e.target.value, 'in drag header')
-    {e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))}
+    return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
 
   const addBodyBackground = (e) => {
     console.log(e.target.value, 'in drag body')
-    {e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value))}
+    return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
 
   
@@ -138,7 +107,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
       fontWeight: theme.typography.fontWeightRegular,
     },
   }));
-  const [isPDF, setIsPDF] = useState(false);
+  const [isPDF] = useState(false);
   const classes2 = useStyles2();
 
   const [font, setFont] = useState('Raleway');
@@ -369,9 +338,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <MenuItem  value='Cabin'>
           Cabin
           </MenuItem>
-          <MenuItem  value='Newtown'>
-          Newtown
-          </MenuItem>
           <MenuItem  value='Hind'>
           Hind
           </MenuItem>
@@ -414,9 +380,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </MenuItem>
           <MenuItem  value='Rufina'>
           Rufina
-          </MenuItem>
-          <MenuItem  value='Cardiff'>
-          Cardiff
           </MenuItem>
           <MenuItem  value='Lusitana'>
           Lusitana
