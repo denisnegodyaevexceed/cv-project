@@ -8,7 +8,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import allTechnologyActions from "../../actions/addTechnologyActions";
 import top100Films from '../../constants/stack';
 
 
