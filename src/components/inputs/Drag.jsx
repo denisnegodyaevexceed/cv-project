@@ -10,7 +10,7 @@ import { SketchPicker } from "react-color";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import "gridstack/dist/gridstack.min.css";
+// import "gridstack/dist/gridstack.min.css";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // THEN to get HTML5 drag&drop
 import "gridstack/dist/h5/gridstack-dd-native";
@@ -20,6 +20,7 @@ import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import DragPortfolio from './DragPortfolio'
 import { Link } from 'react-router-dom'
+import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import MenuItem from '@material-ui/core/MenuItem';
@@ -182,6 +183,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
       },
     },
   }));
+  
   const classes = useStyles();
   return (
     <Container>
