@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import allTemplateActions from "./actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
-import Slide from "@material-ui/core/Slide";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import MuiAlert from '@material-ui/lab/Alert';
 const useStyles = makeStyles((theme) => ({

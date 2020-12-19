@@ -12,17 +12,7 @@ const DragPortfolio = ({
   styleText,
   styleSmallText
 }) => {
-  const {
-    firstCompany,
-    firstPosition,
-    firstDescription,
-    secondCompany,
-    secondPosition,
-    secondDescription,
-  } = useSelector((state) => state.aboutWorkHistoryReducer);
-  const { frontend, backend, dbs, other } = useSelector(
-    (state) => state.aboutHardSkillsReducer
-  );
+  
   const {
     firstProject,
     secondProject,
@@ -39,7 +29,7 @@ const DragPortfolio = ({
     fifthProject,
     sixthProject,
   ];
-  const userInfo = useSelector((state) => state.aboutMeReducer);
+ 
   const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
 

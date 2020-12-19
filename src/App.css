@@ -308,17 +308,6 @@ body{
 
 
 @font-face {
-    font-family: 'Newtown-Light';
-    src: 
-            url('./fonts/NEWTOW__.TTF') format("truetype");
-}
-@font-face {
-    font-family: 'Newtown-Bold';
-    src:  url('./fonts/NEWTOW_B.TTF') format("truetype");
-}
-
-
-@font-face {
     font-family: 'Hind-Light';
     src: 
             url('./fonts/Hind-Regular.ttf') format("truetype");
@@ -466,15 +455,6 @@ body{
 }
 
 
-@font-face {
-    font-family: 'Cardiff-Light';
-    src: 
-            url('./fonts/CARDIF__.TTF') format("truetype");
-}
-@font-face {
-    font-family: 'Cardiff-Bold';
-    src:  url('./fonts/CARDIF_B.TTF') format("truetype");
-}
 
 @font-face {
     font-family: 'Lusitana-Light';
@@ -1088,10 +1068,7 @@ z-index: 3;
     cursor: pointer;
 
 }
-.cont-edit{
-   
-    
-}
+
 .flex-cont-edit{
     display: flex;
     flex-direction: column;
@@ -1155,7 +1132,6 @@ z-index: 3;
     
     
     ::-webkit-resizer{
-    background-image:url('');
     background-repeat:no-repeat;
     width:4px;
     height:0px
@@ -1178,12 +1154,12 @@ z-index: 3;
 }
 
 .side-close1:before {
-    webkit-transform: rotate(45deg);
+    /* webkit-transform: rotate(45deg); */
     transform: rotate(45deg);
 }
 
 .side-close1:after {
-    webkit-transform: rotate(-45deg);
+    /* webkit-transform: rotate(-45deg); */
     transform: rotate(-45deg);
 }
 
@@ -1279,9 +1255,7 @@ height: 60px;
     width: 700px;
     margin:0 auto;
 }
-#ball{
-    /* position: absolute; */
-}
+
 
 .exportArea{
     width: 700px;

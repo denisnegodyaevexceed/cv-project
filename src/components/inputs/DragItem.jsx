@@ -18,6 +18,8 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
     const {setActiveBlockAction, setVerticalPosAction, setTextAlignAction} = allCustomizedTemplateActions;
     const dispatch = useDispatch();
 
+    
+
     const updateStyleVer = () => {
         if(id === activeBlock){
             setNewStyle({
@@ -36,20 +38,23 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => { 
+
         updateStyleVer();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [posVertical]);
 
     useEffect(() => {
         updateStyleText();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [textAlign]);    
 
     const handleClickItem = () => {
-            console.log(newStyle)
-            dispatch(setActiveBlockAction(id));
-            dispatch(setVerticalPosAction(newStyle.alignItems));
-            dispatch(setTextAlignAction(newStyle.textAlign));
-    }
+        console.log(newStyle)
+        dispatch(setActiveBlockAction(id));
+        dispatch(setVerticalPosAction(newStyle.alignItems));
+        dispatch(setTextAlignAction(newStyle.textAlign));
+}
 
     return (
         <div className="grid-stack-item" gs-w={gsw} gs-h={gsh} onMouseDown={() => handleClickItem()}>

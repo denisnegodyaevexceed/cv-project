@@ -22,22 +22,8 @@ const DragBody = ({
   const { frontend, backend, dbs, other } = useSelector(
     (state) => state.aboutHardSkillsReducer
   );
-  const {
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  } = useSelector((state) => state.portfolioReducer);
-  const projects = [
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  ];
+  
+  
   const userInfo = useSelector((state) => state.aboutMeReducer);
   const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
