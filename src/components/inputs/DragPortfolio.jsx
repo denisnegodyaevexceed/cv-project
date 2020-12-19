@@ -64,16 +64,16 @@ const DragPortfolio = ({
                     <DragItem key={index} id={index + 9} gsh={4} gsw={12} renderContent={
                         <span>
                             <div key={index}>
-                                <div style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
-                                <div className="">
+                                <div className="mar-bot" style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
+                                <div className="mar-bot">
                                     <div style={styleSubTitle}>Summary:</div> 
                                     <span style={styleText}>{summary}</span>
                                 </div>
-                                <div className="">
+                                <div className="mar-bot">
                                 <div style={styleSubTitle}>What i did here: </div>
                                   <span style={styleText}>{whatYouDo}</span>
                                 </div>
-                                <div className="">
+                                <div >
                                     <div style={styleSubTitle}>Stack:</div> 
                                     {stack.map((item, index)=>{
                                     return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>

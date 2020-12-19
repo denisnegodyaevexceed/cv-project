@@ -1011,6 +1011,9 @@ z-index: 3;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: white;
 }
+.mar-bot{
+    margin-bottom: 5px;
+}
 .slider{
     margin: 0 auto;
     width: 280px;

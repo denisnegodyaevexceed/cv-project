@@ -63,13 +63,19 @@ const DragBody = ({
                     <div className="">
                         <div className="" style={styleTitle}>TECH STACK</div>
                         <div className="">
-                            {frontend.length > 0 && <div className="" style={styleSubTitle}>Frontend</div>}
+                            {frontend.length > 0 && <div  style={styleSubTitle}>Frontend</div>}
                             
-                            
+                            <div className="mar-bot"> 
                                 {frontend.map((item, index) => {
-                                return <div style={styleText} key={index}>{item.title}</div>;
+                                return<div  style={styleText} key={index}>{item.title}</div>;
+
                                 })}
-                        <div className="">
+                                </div>
+                                
+                        <div className="mar-bot">
+                  
+                            
+                            
                             <div>
                             {backend.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
                             <div>
@@ -79,7 +85,7 @@ const DragBody = ({
                             </div>
                             </div>
                         </div>
-                        <div className="">
+                        <div className="mar-bot">
                             {dbs.length > 0 && <div className="" style={styleSubTitle}>DBS</div>}
                             <div>
                                 {dbs.map((item, index) => {
@@ -127,22 +133,22 @@ const DragBody = ({
                         <div className="" style={styleTitle}>
                             WORK HISTORY
                         </div>
-                        <div className="">
-                            <div className="" style={styleSubTitle}>
+                        <div className="mar-bot">
+                            <div className="mar-bot" style={styleSubTitle}>
                             {firstCompany}
                             </div>
-                            <div className="" style={styleSubTitle}>
+                            <div className="mar-bot" style={styleSubTitle}>
                             {firstPosition}
                             </div>
-                            <div className="" style={styleText}>
+                            <div className="mar-bot" style={styleText}>
                             {firstDescription}
                             </div>
                         </div>
-                        <div className="">
-                            <div className="" style={styleSubTitle}>
+                        <div className="mar-bot">
+                            <div className="mar-bot" style={styleSubTitle}>
                             {secondCompany}
                             </div>
-                            <div className="" style={styleSubTitle}>
+                            <div className="mar-bot" style={styleSubTitle}>
                             {secondPosition}
                             </div>
                             <div className="" style={styleText}>
