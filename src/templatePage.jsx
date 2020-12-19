@@ -196,16 +196,17 @@ export default function CenteredGrid() {
             
           </Grid>
         </div>
-       
+
         {templateNumber===""?<h3 className="h3-template">
 please select a template</h3>:<Button
-          to="/steps"
+          to="/resume"
           component={Link}
           variant="contained"
           color="secondary"
         >
-          Далее
+          Next
         </Button>}
+        
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">

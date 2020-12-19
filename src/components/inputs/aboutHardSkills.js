@@ -120,9 +120,9 @@ const AboutHardSkills = () => {
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <div>
+            <div style={{ width: '100%' }}>
               <form  className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <h3>Frontend: </h3>
                   
                   <Autocomplete
@@ -156,7 +156,7 @@ const AboutHardSkills = () => {
               </form>
               <h3>Backend: </h3>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueBackendStack}
@@ -186,7 +186,7 @@ const AboutHardSkills = () => {
               </form>
               <h3>DBS: </h3>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueDbsStack}
@@ -218,7 +218,7 @@ const AboutHardSkills = () => {
               </form>
               <h3>Other: </h3>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}

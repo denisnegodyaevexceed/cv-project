@@ -48,7 +48,7 @@ const DragPortfolio = ({
     }, []);
 
     return (
-        <div className="grid-stack grid-stack-page2 page-break " style={backgroundControll}>
+        <div className="grid-stack grid-stack-page2 page-break grid-stack-portfolio " style={backgroundControll}>
             {projects.map((item, index) => {
                 let {name, link, summary, whatYouDo, stack} = item
                 return ( name && summary && whatYouDo && stack && 

@@ -530,8 +530,8 @@ h4{
     width: auto;
 }
 .MuiButton-containedSecondary {
-    color: black;
-    background-color:  rgb(247, 77, 51) !important; 
+    color: black !important;
+    background-color: white !important; 
 }
 .icon{
    position: absolute;
@@ -566,10 +566,16 @@ h4{
 }
 .container-pdf{
     margin: 0 auto;
-    width: 650px;
+    max-width: 650px;
+    width: 100%;
     z-index: 3;
     height: auto;
 }
+
+/* .container-pdf div {
+  width: 100%;
+} */
+
 .stepper{
     background-color: grey;
 }
@@ -588,7 +594,7 @@ h4{
 }
 .button{
     top: 40px;
-    left: 20px;
+    right: 70px;
     position: fixed;
 }
 .button>:last-child{
@@ -1025,7 +1031,23 @@ z-index: 3;
    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     background-color: black; 
     overflow-x: hidden;
+    
 
+}
+.side2{
+  position: fixed;
+  padding: 50px;
+  left: -455px;
+  top: 3%;
+  padding: 45px;
+  width: 405px;
+  height: 85vh;
+ transition: 1s;
+ border-radius: 30px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+  background-color: white; 
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .picker{
     margin: 0 auto;
@@ -1053,6 +1075,14 @@ z-index: 3;
 
 
     background-color: white;
+}
+.open2{
+   
+  overflow-x: hidden;
+  left: 20px;
+
+
+  background-color: white;
 }
 .side-h2{
     text-align: center;
@@ -1098,6 +1128,18 @@ z-index: 3;
     cursor: pointer;
 
 }
+.side-open2{
+  color: rgb(247, 77, 51) ;
+
+  position: absolute;
+  right: -30px;
+  top: 43%;
+  transform: rotate(-90deg);
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
 .side-img{
     position: absolute;
     left: 70px;
@@ -1129,6 +1171,16 @@ z-index: 3;
     cursor: pointer;
  
     border-radius: 50%;
+}
+.side-close2{
+  position: absolute;
+  top: 10px;
+  right: 4px;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+
+  border-radius: 50%;
 }
 
     
@@ -1170,6 +1222,27 @@ z-index: 3;
 }
 
 .side-close1:after {
+    /* webkit-transform: rotate(-45deg); */
+    transform: rotate(-45deg);
+}
+
+.side-close2:before,
+.side-close2:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    width: 25px;
+    height: 4px;
+    background: red ;
+}
+
+.side-close2:before {
+    /* webkit-transform: rotate(45deg); */
+    transform: rotate(45deg);
+}
+
+.side-close2:after {
     /* webkit-transform: rotate(-45deg); */
     transform: rotate(-45deg);
 }
@@ -1384,9 +1457,16 @@ height: 60px;
     border: none !important;
 }
 
-/* .grid-stack-body{
-    border-top: 1px solid black;
-} */
+.grid-stack-body{
+margin: 0 auto;
+}
+.grid-stack-header{
+  margin: 0 auto;
+  }
+
+  .grid-stack-portfolio{
+    margin: 0 auto;
+    }
 .grid-stack span{
     width: 100%;
 }
