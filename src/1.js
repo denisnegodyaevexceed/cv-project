@@ -10,19 +10,11 @@ const Test = ()=> {
            
             <div className="page">
                 
-               
-{/*                 
-            <div className="background-video">
-            <video className="background-video" loop autoPlay muted playsInline>
-                <source src='./16.mp4' type="video/mp4" />
-                <source src='./16.mp4' type="video/ogg" />
-                
-            </video>
-            </div> */}
+              
+            
             <div className="wrap" >
     <Box className="btn2" to="/templates" component={Link} >Create Resume</Box>
     
-    {/* <Box to="/steps" component={Link} className="button1" >Create Resume</Box> */}
     </div>
             </div>
             

@@ -3,9 +3,7 @@ import Template1 from "./components/Template1.jsx";
 import React from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import templatePage from "./templatePage";
-import CustomizedSteppers from "./main";
 import Test from "./1";
-
 import { CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
 import Template3 from "./components/Template3";
@@ -15,7 +13,6 @@ import Template5 from "./components/Template5";
 import Drag from "./components/inputs/Drag";
 
 
-// import CustomizedHook from './test1';
 
 function App() {
   const { templateNumber } = useSelector((state) => state.templateReducer);
@@ -23,15 +20,7 @@ function App() {
   const routes = [
     { path: "/", Component: Test },
     { path: "/templates", Component: templatePage },
-    // {path: '/template5', Component: Template5},
-
-    { path: "/steps", Component: CustomizedSteppers },
     { path: '/test', Component: Test },
-    
-
-    // { path: '/test', Component: CustomizedHook },
-
-    // { path: '/resume', Component: Template1 },
   ];
 
   const correctTemplate = (templateNumber) => {

@@ -40,12 +40,9 @@
 .template5__avatar{
     
     border-radius: 1000px;
-    /* background-repeat: no-repeat; */
+
     margin-right: 65px;
-    /* background-image: url('../testAvatar.jpg');
-    background-size: cover;
-    background-position: center;
-    margin: auto; */
+
     width: 150px;
     height: 150px;
 }

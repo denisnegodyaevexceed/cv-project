@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
       '& svg': {
         margin: theme.spacing(1),
-        // fontSize:15,
         padding:4,
       },
       '& hr': {

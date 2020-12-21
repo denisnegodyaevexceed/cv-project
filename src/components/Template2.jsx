@@ -2,6 +2,7 @@ import "./Template2.css";
 import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
+import {Link} from 'react-router-dom';
 import { useSelector} from "react-redux";
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
@@ -57,6 +58,14 @@ const Template2 = () => {
         >
           to PDF
         </Button>
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
 
       </div>
 
@@ -106,7 +115,7 @@ const Template2 = () => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
             </div>
-            <div className="backend-2">               
+            <div className="backend-2">
                 {(backend.length>0)&&<div className='title-2'>-Backend</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
@@ -120,12 +129,10 @@ const Template2 = () => {
             </div>
           </div>
           </div>
-          
           <div className="languages-2">
               <div className="title-other-skils-2">LANGUAGES</div>
               <div className="content-other-skils-2"> {userInfo.languages}</div>
           </div>
-                   
           {userInfo.email && <div className="contacts-2">
                     <div className='title-contacts-2'>CONTACTS</div>
                     <div className="content-contacts-2">
