@@ -168,7 +168,6 @@ const TextDecorateButtons = () => {
                         <FormControlLabel
                             value="posSize"
                             className='radio-small'
-
                             control={<Radio size='small'  color="primary" />}
                             label="Position"
                             labelPlacement="top"
@@ -176,7 +175,6 @@ const TextDecorateButtons = () => {
                         <FormControlLabel
                             value="titleSize"
                             className='radio-small'
-
                             control={<Radio size='small' color="primary" />}
                             label="Title"
                             labelPlacement="top"
@@ -184,7 +182,6 @@ const TextDecorateButtons = () => {
                         <FormControlLabel
                             value="subTitleSize"
                             className='radio-small'
-
                             control={<Radio  size='small' color="primary" />}
                             label="SubTitle"
                             labelPlacement="top"
@@ -192,7 +189,6 @@ const TextDecorateButtons = () => {
                         <FormControlLabel
                             value="textSize"
                             className='radio-small'
-
                             control={<Radio size='small' color="primary" />}
                             label="Text"
                             labelPlacement="top"
@@ -200,7 +196,6 @@ const TextDecorateButtons = () => {
                         <FormControlLabel
                             value="smallTextSize"
                             className='radio-small'
-
                             control={<Radio size='small' color="primary" />}
                             label="Small Text"
                             labelPlacement="top"
@@ -209,7 +204,6 @@ const TextDecorateButtons = () => {
                     <div className="font-size-picker">
                     <TextField  type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
                     </div>
-           
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Font color</h4>
                     <div className="color-picker">
                     <CompactPicker 
@@ -224,7 +218,6 @@ const TextDecorateButtons = () => {
                 
                 <div className="slider-border">
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Border radius avatar</h4>
-
                     {/* <h4>Border radius avatar</h4> */}
                     <div className="slider">
                 <Slider

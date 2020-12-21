@@ -13,27 +13,22 @@ const DragBody = ({
     styleText,
     styleSmallText
 }) => {
-  const {
-    firstCompany,
-    firstPosition,
-    firstDescription,
-    secondCompany,
-    secondPosition,
-    secondDescription,
-  } = useSelector((state) => state.aboutWorkHistoryReducer);
-  const { frontend, backend, dbs, other } = useSelector(
-    (state) => state.aboutHardSkillsReducer
-  );
-  
-  
-  const userInfo = useSelector((state) => state.aboutMeReducer);
-  const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
+    const {
+        firstCompany,
+        firstPosition,
+        firstDescription,
+        secondCompany,
+        secondPosition,
+        secondDescription,
+    } = useSelector((state) => state.aboutWorkHistoryReducer);
+    const { frontend, backend, dbs, other } = useSelector((state) => state.aboutHardSkillsReducer);
+    
+    const userInfo = useSelector((state) => state.aboutMeReducer);
+    const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
-
-  const backgroundControll = bodyImage? bodyImagePosition === 'cover' ? {backgroundImage: `url(${bodyImage})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
-
+    const backgroundControll = bodyImage? bodyImagePosition === 'cover' ? {backgroundImage: `url(${bodyImage})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
     React.useEffect(() => {
         let options = {
@@ -61,9 +56,6 @@ const DragBody = ({
                                 </div>
                                 
                         <div className="mar-bot">
-                  
-                            
-                            
                             <div>
                             {backend.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
                             <div>
