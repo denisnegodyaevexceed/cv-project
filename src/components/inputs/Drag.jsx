@@ -15,6 +15,7 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
+import {Link} from 'react-router-dom';
 import DragPortfolio from './DragPortfolio'
 import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'

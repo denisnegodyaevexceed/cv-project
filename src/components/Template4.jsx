@@ -6,6 +6,7 @@ import { useSelector} from "react-redux";
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
+import {Link} from 'react-router-dom';
 import AboutHardSkills from "./inputs/aboutHardSkills";
 
 const Template4 = () => {

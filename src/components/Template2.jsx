@@ -2,6 +2,7 @@ import "./Template2.css";
 import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
+import {Link} from 'react-router-dom';
 import { useSelector} from "react-redux";
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
