@@ -95,7 +95,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                />
                 <TextField value={firstProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setFirstProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : firstProject.whatYouDo))}
                   helperText={firstProject.whatYouDo.length > 0 ? firstWhatYouDoCounter : ''}
@@ -103,14 +103,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
-                {/* <TextField value={firstProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setFirstProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+                />
               </form>
               <h3>Stack:</h3>
               <form className={classes.root} noValidate autoComplete="off">
@@ -162,7 +155,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  />
                 <TextField
                   value={secondProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setSecondProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : secondProject.whatYouDo))}
@@ -171,15 +164,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={secondProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setSecondProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+                  />
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -229,7 +214,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  />
                 <TextField
                   value={thirdProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setThirdProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : thirdProject.whatYouDo))}
@@ -238,15 +223,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={thirdProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setThirdProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+                  />
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -297,7 +274,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  />
                 <TextField
                   value={fourthProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setFourthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : fourthProject.whatYouDo))}
@@ -306,15 +283,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={fourthProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setFourthProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+                  />
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -365,7 +334,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  />
                 <TextField
                   value={fifthProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setFifthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : fifthProject.whatYouDo))}
@@ -374,15 +343,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={fifthProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setFifthProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+                  />
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -433,7 +394,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
+                  />
                 <TextField
                   value={sixthProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setSixthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : sixthProject.whatYouDo))}
@@ -442,15 +403,7 @@ const Portfolio = () => {
                   variant='outlined'
                   multiline
                   rowsMax={10}
-                  id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={sixthProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setSixthProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+                  />}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>

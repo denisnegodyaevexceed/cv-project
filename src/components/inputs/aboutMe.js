@@ -77,7 +77,6 @@ export default function AboutMe() {
             <TextField required value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setCareerObjectiveAction(e.target.value))}} id="firstName" label="Your position" variant="outlined" />
 
             <TextField
-                    id="outlined-multiline-flexible"
                     label="About your education"
                     multiline
                     type='text'
@@ -88,7 +87,6 @@ export default function AboutMe() {
                     variant="outlined"
                 />
                 <TextField
-                    id="outlined-multiline-flexible"
                     label="Languages"
                     multiline
                     type='text'
@@ -101,7 +99,6 @@ export default function AboutMe() {
                
             <TextField
             required
-                    id="outlined-multiline-flexible"
                     label="Something about you"
                     helperText={aboutMeInfo.length>0? aboutMeInfoCounter: ''}
                     multiline
