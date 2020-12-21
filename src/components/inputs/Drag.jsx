@@ -25,6 +25,10 @@ import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import AboutMe from "./aboutMe";
+import Portfolio from "./portfolio";
+import AboutWorkHistory from "./aboutWorkHistory";
+import AboutHardSkills from "./aboutHardSkills";
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -60,7 +64,21 @@ const Drag = () => {
       smallTextColor,
     } = useSelector(state => state.customizedTemplateReducer)
     const [cls, setCls] = useState(["side1"]);
-  const [open, setOpen] = useState(true);
+    const [cls2, setCls2] = useState(["side2"]);
+
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(true);
+
+  useEffect(() => {
+    if (open2) {
+      setCls2((oldArr) => [...oldArr, "open2"]);
+      
+    } else {
+      setCls2(['side2']);
+
+    }
+  }, [open2]);
+
   useEffect(() => {
     if (open) {
       setCls((oldArr) => [...oldArr, "open1"]);
@@ -94,6 +112,13 @@ const handleChangeBodyBackgroungComplete = (color) => {
 
   
 
+  React.useEffect(() => {
+    open&&setOpen2(false);
+  },[open])
+
+  React.useEffect(() => {
+    open2&&setOpen(false);
+  },[open2])
 
 
   let pdfExportComponent;
@@ -189,6 +214,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
     <Container>
       <Grid container>
         <Grid item xs={12}>
+          <div className="button">
           <Button
             variant="contained"
             color="secondary"
@@ -199,13 +225,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
           >
             Скачать PDF
           </Button>
-          <Button
-                    to="/steps"
-                    component={Link}
-                    variant="contained"
-                    color="secondary">
-                    Изменить
-                </Button>
+                </div>
         </Grid>
         <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
           <PDFExport
@@ -224,7 +244,30 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </PDFExport>
         </Grid>
       </Grid>
-     
+      <div className={cls2.join(" ")}>
+       <AboutMe/>
+       <br/>
+      <AboutWorkHistory/>
+       <br/>
+       <AboutHardSkills/>
+       <br/>
+       <Portfolio/>
+        
+        {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="side-open2">
+            Edit
+          </div>
+        ) : (
+          <div className="side-close2" onClick={() => setOpen2(!open2)}>
+            
+          </div>
+        )}
+      </div>
+
+
+
+
+
 
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
@@ -241,7 +284,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
 
       <Select
       className='select-font'
-          
           value={font}
           onChange={(e) => handleChangeFont(e)}
           id="filled-select-currency"
@@ -251,14 +293,14 @@ const handleChangeBodyBackgroungComplete = (color) => {
         >
           
            
-           <MenuItem value='Raleway'>
+          <MenuItem value='Raleway'>
             Raleway
-            </MenuItem>
-            <MenuItem  value='Caviar'>
+          </MenuItem>
+          <MenuItem  value='Caviar'>
             Caviar
-            </MenuItem>
-            <MenuItem value='Walkway'>
-          Walkway
+          </MenuItem>
+          <MenuItem value='Walkway'>
+            Walkway
           </MenuItem>
           <MenuItem  value='JetBrains'>
           JetBrains

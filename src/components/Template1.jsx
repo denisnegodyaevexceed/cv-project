@@ -1,8 +1,12 @@
-import * as React from "react";
+import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 import { useSelector} from "react-redux";
+import AboutMe from "./inputs/aboutMe";
+import Portfolio from "./inputs/portfolio";
+import AboutWorkHistory from "./inputs/aboutWorkHistory";
+import AboutHardSkills from "./inputs/aboutHardSkills";
 
 
 
@@ -29,6 +33,31 @@ const Template1 = () => {
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
   console.log(12,frontend)
+  const [cls, setCls] = useState(["side1"]);
+  const [cls2, setCls2] = useState(["side2"]);
+
+const [open, setOpen] = useState(false);
+const [open2, setOpen2] = useState(true);
+
+useEffect(() => {
+  if (open2) {
+    setCls2((oldArr) => [...oldArr, "open2"]);
+    
+  } else {
+    setCls2(['side2']);
+
+  }
+}, [open2]);
+
+useEffect(() => {
+  if (open) {
+    setCls((oldArr) => [...oldArr, "open1"]);
+    
+  } else {
+    setCls(['side1']);
+
+  }
+}, [open]);
 
   return (
     <div className="page">
@@ -46,13 +75,7 @@ const Template1 = () => {
         >
           Скачать PDF
         </Button>
-        <Button 
-        to="/steps"
-        component={Link}
-        variant="contained" 
-        color="secondary">
-          Изменить
-        </Button>
+       
       </div>
 
       <PDFExport
@@ -235,6 +258,25 @@ const Template1 = () => {
       </PDFExport>
     
     </div>
+    <div className={cls2.join(" ")}>
+       <AboutMe/>
+       <br/>
+      <AboutWorkHistory/>
+       <br/>
+       <AboutHardSkills/>
+       <br/>
+       <Portfolio/>
+        
+        {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="side-open2">
+            Edit
+          </div>
+        ) : (
+          <div className="side-close2" onClick={() => setOpen2(!open2)}>
+            
+          </div>
+        )}
+      </div>
     </div>
   );
 };

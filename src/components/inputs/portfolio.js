@@ -114,7 +114,7 @@ const Portfolio = () => {
               </form>
               <h3>Stack:</h3>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}
@@ -182,7 +182,7 @@ const Portfolio = () => {
                   id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}
@@ -249,7 +249,7 @@ const Portfolio = () => {
                   id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}
@@ -317,7 +317,7 @@ const Portfolio = () => {
                   id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}
@@ -385,7 +385,7 @@ const Portfolio = () => {
                   id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}
@@ -453,7 +453,7 @@ const Portfolio = () => {
                   id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
-                <div style={{ width: 500 }}>
+                <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}

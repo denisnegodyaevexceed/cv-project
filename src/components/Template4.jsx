@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "./Template4.css";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 import { useSelector} from "react-redux";
+import AboutMe from "./inputs/aboutMe";
+import Portfolio from "./inputs/portfolio";
+import AboutWorkHistory from "./inputs/aboutWorkHistory";
+import AboutHardSkills from "./inputs/aboutHardSkills";
 
 const Template4 = () => {
     let pdfExportComponent;
@@ -17,6 +21,36 @@ const Template4 = () => {
   
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
   
+
+    const [cls, setCls] = useState(["side1"]);
+    const [cls2, setCls2] = useState(["side2"]);
+  
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(true);
+  
+  useEffect(() => {
+    if (open2) {
+      setCls2((oldArr) => [...oldArr, "open2"]);
+      
+    } else {
+      setCls2(['side2']);
+  
+    }
+  }, [open2]);
+  
+  useEffect(() => {
+    if (open) {
+      setCls((oldArr) => [...oldArr, "open1"]);
+      
+    } else {
+      setCls(['side1']);
+  
+    }
+  }, [open]);
+
+
+
+
    console.log(firstProject.stack, 'sgsdfgsdfgsdfgdsfg')
     const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
     (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
@@ -36,13 +70,6 @@ const Template4 = () => {
           }}
         >
           Скачать PDF
-        </Button>
-        <Button 
-        to="/steps"
-        component={Link}
-        variant="contained" 
-        color="secondary">
-          Изменить
         </Button>
       </div>
       <PDFExport
@@ -163,6 +190,25 @@ const Template4 = () => {
         <img className="footer-4" src="./template4.2.png" alt="" />
       </div>}
       </PDFExport>
+      <div className={cls2.join(" ")}>
+       <AboutMe/>
+       <br/>
+      <AboutWorkHistory/>
+       <br/>
+       <AboutHardSkills/>
+       <br/>
+       <Portfolio/>
+        
+        {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="side-open2">
+            Edit
+          </div>
+        ) : (
+          <div className="side-close2" onClick={() => setOpen2(!open2)}>
+            
+          </div>
+        )}
+      </div>
     </div>
   );
 };

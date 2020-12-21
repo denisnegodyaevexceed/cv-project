@@ -171,7 +171,7 @@ export default function CenteredGrid() {
             </Grid>
             <Grid item xs={3} className="template-1">
               <div className="cont-temp">
-              <img className="img-1-1" src="./create.png" alt="" />
+              <img className="img-1-1" src="./template-6-1.png" alt="" />
               <img
                 id="6"
                 onClick={(e) => {
@@ -180,7 +180,7 @@ export default function CenteredGrid() {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./create.png"
+                src="./template-6-1.png"
                 alt=""
               />
              
@@ -189,23 +189,24 @@ export default function CenteredGrid() {
              <div className="cont-item">
               
               <h3 className="h3-template">Create template</h3>
-              {templateNumber==='6'?<CheckCircleOutlineIcon className="icon"/>:null}
+              {templateNumber==='6'?<CheckCircleOutlineIcon className="icon-2"/>:null}
               </div>
               </div>
             </Grid>
             
           </Grid>
         </div>
-       
+
         {templateNumber===""?<h3 className="h3-template">
 please select a template</h3>:<Button
-          to="/steps"
+          to="/resume"
           component={Link}
           variant="contained"
           color="secondary"
         >
-          Далее
+          Next
         </Button>}
+        
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
