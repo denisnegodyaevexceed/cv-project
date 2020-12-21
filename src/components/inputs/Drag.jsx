@@ -194,23 +194,7 @@ const Drag = () => {
       },
     },
   };
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-      border: `1px solid ${theme.palette.divider}`,
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.background.paper,
-      color: theme.palette.text.secondary,
-      '& svg': {
-        margin: theme.spacing(1),
-
-        padding:4,
-      },
-      '& hr': {
-        margin: theme.spacing(0, 0.5),
-      },
-    },
-  }));
+ 
 
   const fontList = ['Raleway','Caviar','Walkway',
     'JetBrains','Dancing','Vonique','Monterey',
