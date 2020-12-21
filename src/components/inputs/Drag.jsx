@@ -284,7 +284,6 @@ const Drag = () => {
           value={font}
           onChange={(e) => handleChangeFont(e)}
           id="filled-select-currency"
-          select
           variant="outlined"
           MenuProps={MenuProps}
         > 

@@ -84,7 +84,6 @@ const AboutWorkHistory = () => {
                   variant="outlined"
                 />
                 <TextField
-                  id="outlined-multiline-flexible"
                   label="Tell us more"
                   multiline
                   rowsMax={10}
@@ -124,7 +123,6 @@ const AboutWorkHistory = () => {
                   variant="outlined"
                 />
                 <TextField
-                  id="outlined-multiline-flexible"
                   label="Tell us more"
                   multiline
                   rowsMax={10}

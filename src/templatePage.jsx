@@ -42,7 +42,6 @@ export default function CenteredGrid() {
 
   const { templateNumber } = useSelector((state) => state.templateReducer);
 
-  console.log(templateNumber, "num");
   return (
     <div className="page">
       <div className="container-pdf">
