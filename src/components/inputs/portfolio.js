@@ -104,13 +104,6 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                {/* <TextField value={firstProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setFirstProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
               </form>
               <h3>Stack:</h3>
               <form className={classes.root} noValidate autoComplete="off">
@@ -172,14 +165,6 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={secondProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setSecondProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -239,14 +224,7 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={thirdProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setThirdProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -307,14 +285,7 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={fourthProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setFourthProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -375,14 +346,6 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={fifthProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setFifthProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
@@ -443,14 +406,7 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   id="outlined-multiline-flexible" />
-                {/* <TextField
-                  value={sixthProject.stack}
-                  onChange={e => dispatch(allPortfolioActions.setSixthProjectStack(e.target.value))}
-                  label='Stack'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
-                  id="outlined-multiline-flexible" /> */}
+
               </form>
               <form className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>

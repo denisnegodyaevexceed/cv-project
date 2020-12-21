@@ -71,11 +71,18 @@ const Template5 = () => {
                 >
                     Скачать PDF
                 </Button>
+                <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Изменить
+        </Button>
             </div>
             <PDFExport
                     forcePageBreak=".page-break"
                     ref={(component) => (pdfExportComponent = component)}
-                // paperSize="A4"
         fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
 
                 >

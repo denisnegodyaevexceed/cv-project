@@ -10,11 +10,8 @@ import { SketchPicker } from "react-color";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-// import "gridstack/dist/gridstack.min.css";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// THEN to get HTML5 drag&drop
 import "gridstack/dist/h5/gridstack-dd-native";
-// OR to get legacy jquery-ui drag&drop
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
@@ -200,7 +197,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
       color: theme.palette.text.secondary,
       '& svg': {
         margin: theme.spacing(1),
-        // fontSize:15,
+
         padding:4,
       },
       '& hr': {
@@ -225,6 +222,14 @@ const handleChangeBodyBackgroungComplete = (color) => {
           >
             Скачать PDF
           </Button>
+          <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Изменить
+        </Button>
                 </div>
         </Grid>
         <Grid item xs={12} className={`${isPDF && "noBorder"}`}>

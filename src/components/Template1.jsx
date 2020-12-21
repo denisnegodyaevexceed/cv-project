@@ -75,6 +75,14 @@ useEffect(() => {
         >
           Скачать PDF
         </Button>
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Изменить
+        </Button>
        
       </div>
 
@@ -82,7 +90,6 @@ useEffect(() => {
         forcePageBreak=".page-break"
         ref={(component) => (pdfExportComponent = component)}
         fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
-        // paperSize="A4"
       >
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
@@ -92,7 +99,6 @@ useEffect(() => {
               <div className="content-head-1">
                 <div className="head-name-1">
                   <div className="name-1">{userInfo.firstName + ' '+ userInfo.secondName} </div>
-                  {/* <div className="last-name-1">{userInfo.secondName}</div> */}
                 </div>
         <div className="post-1">{userInfo.careerObjective.toUpperCase()}</div>
               </div>
@@ -231,7 +237,6 @@ useEffect(() => {
                       let {name, link, summary, whatYouDo, stack} = item
                       return ( name && link && summary && whatYouDo && stack && <div className='project' key={index}>
                         <div className='h4-1'>{name.toUpperCase()+' - '+link}</div>
-                          {/* <h5>{link}</h5> */}
                           <div className="other-text">
                             <div className='h5-1'>Summary:</div> 
                             {summary}

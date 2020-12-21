@@ -71,6 +71,14 @@ const Template4 = () => {
         >
           Скачать PDF
         </Button>
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Изменить
+        </Button>
       </div>
       <PDFExport
         forcePageBreak=".page-break"
@@ -167,7 +175,6 @@ const Template4 = () => {
                       let {name, link, summary, whatYouDo, stack} = item
                       return ( name && link && summary && whatYouDo && stack && <div className='case-4' key={index}>
                         <div className='title-case-4'>{name.toUpperCase()+' - '+link}</div>
-                          {/* <h5>{link}</h5> */}
                           <div className="summary-4">
                             <div className='title-con-4'>Summary:</div> 
                             {summary}

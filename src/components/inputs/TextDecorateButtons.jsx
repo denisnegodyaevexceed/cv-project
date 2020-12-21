@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
       '& svg': {
         margin: theme.spacing(1),
-        // fontSize:15,
         padding:4,
       },
       '& hr': {
@@ -224,8 +223,6 @@ const TextDecorateButtons = () => {
                 
                 <div className="slider-border">
             <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Border radius avatar</h4>
-
-                    {/* <h4>Border radius avatar</h4> */}
                     <div className="slider">
                 <Slider
                      min={0}
