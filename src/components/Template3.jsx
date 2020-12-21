@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
-import { Link } from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 import { useSelector } from "react-redux";
 import './Template3Styles.css'
@@ -29,10 +28,10 @@ const Template3 = () => {
         (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
         (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
-        const [cls, setCls] = useState(["side1"]);
+        
         const [cls2, setCls2] = useState(["side2"]);
       
-      const [open, setOpen] = useState(false);
+      
       const [open2, setOpen2] = useState(true);
       
       useEffect(() => {
@@ -45,15 +44,7 @@ const Template3 = () => {
         }
       }, [open2]);
       
-      useEffect(() => {
-        if (open) {
-          setCls((oldArr) => [...oldArr, "open1"]);
-          
-        } else {
-          setCls(['side1']);
       
-        }
-      }, [open]);
 
 
 
@@ -70,7 +61,7 @@ const Template3 = () => {
                             pdfExportComponent.save();
                         }}
                     >
-                        Скачать PDF
+                        to PDF
                     </Button>
                 </div>
                 <PDFExport

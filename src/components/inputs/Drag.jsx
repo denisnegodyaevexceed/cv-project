@@ -19,7 +19,6 @@ import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import DragPortfolio from './DragPortfolio'
-import { Link } from 'react-router-dom'
 import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
@@ -223,7 +222,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
               pdfExport();
             }}
           >
-            Скачать PDF
+            to PDF
           </Button>
                 </div>
         </Grid>
