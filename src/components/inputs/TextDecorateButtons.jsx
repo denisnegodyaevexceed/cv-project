@@ -79,32 +79,32 @@ const TextDecorateButtons = () => {
     const handlerChangeTypeText = (e) => {
         dispatch(setActiveTextTypeAction(e.target.value))
         switch(e.target.value){
-            case 'nameSize':
+            case 'nameActive':
                 setValueSize(nameSize);
                 setValueColor(nameColor);
                 break;
                 
-            case 'posSize':
+            case 'posActive':
                 setValueSize(posSize);
                 setValueColor(posColor);
                 break;
 
-            case 'titleSize':
+            case 'titleActive':
                 setValueSize(titleSize);
                 setValueColor(titleColor);
                 break;
 
-            case 'subTitleSize':
+            case 'subTitleActive':
                 setValueSize(subTitleSize);
                 setValueColor(subTitleColor);
                 break;
 
-            case 'textSize':
+            case 'textActive':
                 setValueSize(textSize);
                 setValueColor(textColor);
                 break;
 
-            case 'smallTextSize':
+            case 'smallTextActive':
                 setValueSize(smallTextSize);
                 setValueColor(smallTextColor);
                 break;
@@ -154,9 +154,9 @@ const TextDecorateButtons = () => {
             <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>General style</h3>
                 <div >
                 <FormControl className="forms" >
-                    <RadioGroup row aria-label="position" name="position" defaultValue="nameSize" onChange={(e) => handlerChangeTypeText(e)}>
+                    <RadioGroup row aria-label="position" name="position" defaultValue="nameActive" onChange={(e) => handlerChangeTypeText(e)}>
                         <FormControlLabel
-                            value="nameSize"
+                            value="nameActive"
                             fullWidth={true}
                             className='radio-small'
                             control={<Radio 
@@ -166,35 +166,35 @@ const TextDecorateButtons = () => {
                             labelPlacement="top"
                         />  
                         <FormControlLabel
-                            value="posSize"
+                            value="posActive"
                             className='radio-small'
                             control={<Radio size='small'  color="primary" />}
                             label="Position"
                             labelPlacement="top"
                         />
                         <FormControlLabel
-                            value="titleSize"
+                            value="titleActive"
                             className='radio-small'
                             control={<Radio size='small' color="primary" />}
                             label="Title"
                             labelPlacement="top"
                         />
                         <FormControlLabel
-                            value="subTitleSize"
+                            value="subTitleActive"
                             className='radio-small'
                             control={<Radio  size='small' color="primary" />}
                             label="SubTitle"
                             labelPlacement="top"
                         />
                         <FormControlLabel
-                            value="textSize"
+                            value="textActive"
                             className='radio-small'
                             control={<Radio size='small' color="primary" />}
                             label="Text"
                             labelPlacement="top"
                         />
                         <FormControlLabel
-                            value="smallTextSize"
+                            value="smallTextActive"
                             className='radio-small'
                             control={<Radio size='small' color="primary" />}
                             label="Small Text"
