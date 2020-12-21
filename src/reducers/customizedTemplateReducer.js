@@ -111,7 +111,7 @@ const customizedTemplateReducer = (state=initialState, actions) => {
             }
 
         case 'SET_ACTIVE_TEXT_COLOR':
-         console.log(actions.payload)
+         
             return{
                 ...state,
                 nameColor: actions.payload.name === 'nameActive' ? actions.payload.value : state.nameColor,

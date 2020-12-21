@@ -14,12 +14,12 @@ const Template1 = () => {
   const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
   const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
   const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
- console.log(firstProject.stack, 'sgsdfgsdfgsdfgdsfg')
+ 
   const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
   (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
   (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
-  console.log(12,frontend)
+  
   const [cls2, setCls2] = useState(["side2"]);
 const [open2, setOpen2] = useState(true);
 useEffect(() => {

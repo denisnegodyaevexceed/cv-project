@@ -134,12 +134,12 @@ const Drag = () => {
   };
   
   const addHeaderBackground = (e) => {
-    console.log(e.target.value, 'in drag header')
+  
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
 
   const addBodyBackground = (e) => {
-    console.log(e.target.value, 'in drag body')
+   
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }  
 

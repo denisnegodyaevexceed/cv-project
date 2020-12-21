@@ -40,7 +40,7 @@ const Template2 = () => {
   
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
   
-   console.log(firstProject.stack, 'sgsdfgsdfgsdfgdsfg')
+   
     const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
     (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
     (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||

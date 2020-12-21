@@ -43,7 +43,7 @@ const Template4 = () => {
     (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
     (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
     (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
-    console.log(1,userInfo)
+    
   return (
     <div className='page'>
         <div className="button">
