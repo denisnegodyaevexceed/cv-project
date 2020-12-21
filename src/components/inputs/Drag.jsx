@@ -16,7 +16,6 @@ import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import DragPortfolio from './DragPortfolio'
-import { Link } from 'react-router-dom'
 import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
@@ -40,31 +39,61 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
+  let pdfExportComponent;
   const dispatch = useDispatch();
-
-    const { 
-      headerBackground, 
-      bodyBackground, 
-      headerImageValue,  
-      bodyImageValue,
-      nameSize,
-      posSize,
-      titleSize,
-      subTitleSize,
-      textSize,
-      smallTextSize,
-      nameColor,
-      posColor,
-      titleColor,
-      subTitleColor,
-      textColor,
-      smallTextColor,
-    } = useSelector(state => state.customizedTemplateReducer)
-    const [cls, setCls] = useState(["side1"]);
-    const [cls2, setCls2] = useState(["side2"]);
-
+  const { 
+    headerBackground, 
+    bodyBackground, 
+    headerImageValue,  
+    bodyImageValue,
+    nameSize,
+    posSize,
+    titleSize,
+    subTitleSize,
+    textSize,
+    smallTextSize,
+    nameColor,
+    posColor,
+    titleColor,
+    subTitleColor,
+    textColor,
+    smallTextColor,
+  } = useSelector(state => state.customizedTemplateReducer);
+  const userInfo = useSelector((state) => state.aboutMeReducer);
+  const [cls, setCls] = useState(["side1"]);
+  const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(true);
+  const [font, setFont] = useState('Raleway');
+  const useStyles2 = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+    },
+    heading: {
+      fontSize: theme.typography.pxToRem(15),
+      fontWeight: theme.typography.fontWeightRegular,
+    },
+  }));
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      border: `1px solid ${theme.palette.divider}`,
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      '& svg': {
+        margin: theme.spacing(1),
+        // fontSize:15,
+        padding:4,
+      },
+      '& hr': {
+        margin: theme.spacing(0, 0.5),
+      },
+    },
+  }));
+  const classes = useStyles();
+  const classes2 = useStyles2();
+  const classes3 = useStyles3();
 
   useEffect(() => {
     if (open2) {
@@ -85,17 +114,23 @@ const Drag = () => {
 
     }
   }, [open]);
+
+  useEffect(() => {
+    open&&setOpen2(false);
+  },[open])
+
+  useEffect(() => {
+    open2&&setOpen(false);
+  },[open2])
+
+
   const handleChangeHeaderBackgroungComplete = (color) => {
     dispatch(allCustomizedTemplateActions.setHeaderBackgroundAction(color.hex));
-};
-const handleChangeBodyBackgroungComplete = (color) => {
-  dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
-};
-  
-  const userInfo = useSelector((state) => state.aboutMeReducer);
+  };
 
-  
-  
+  const handleChangeBodyBackgroungComplete = (color) => {
+    dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
+  };
   
   const addHeaderBackground = (e) => {
     console.log(e.target.value, 'in drag header')
@@ -105,44 +140,15 @@ const handleChangeBodyBackgroungComplete = (color) => {
   const addBodyBackground = (e) => {
     console.log(e.target.value, 'in drag body')
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
-  }
+  }  
 
-  
-
-  React.useEffect(() => {
-    open&&setOpen2(false);
-  },[open])
-
-  React.useEffect(() => {
-    open2&&setOpen(false);
-  },[open2])
-
-
-  let pdfExportComponent;
-  const classes3 = useStyles3();
-  const useStyles2 = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-  }));
-  const [isPDF] = useState(false);
-  const classes2 = useStyles2();
-
-  const [font, setFont] = useState('Raleway');
+  const pdfExport = () => {
+    pdfExportComponent.save();
+  };
 
   const handleChangeFont = (e) => {
     setFont(e.target.value)
   }
-
-  const pdfExport = () => {
-   
-    pdfExportComponent.save();
-    
-  };
 
   let styleName = {
     fontSize: nameSize+'px',
@@ -205,8 +211,21 @@ const handleChangeBodyBackgroungComplete = (color) => {
       },
     },
   }));
+
+  const fontList = ['Raleway','Caviar','Walkway',
+    'JetBrains','Dancing','Vonique','Monterey',
+    'Titillium', 'Monoglyceride','Flamenco',
+    'Cinzel','Optimus','Neou','NK57','SEGMENT16C','BPMono',
+    'SpaceMono','SicretMono','Yoshitoshi','PiecesOfEight',
+    'Vogue','HalfElven','Gatsby','LifeSavers','Lato','OpenSans',
+    'ChampagneLimousines','Ubuntu','Cabin','Hind','Kanit',
+    'Capoon','Abenda','KenyanCoffee','LJDesignStudiosIs',
+    'Karla','Sharpe','ForgottenFuturist','UbicadaPro',
+    'Aniron','Playfair','Alexandria','Rufina','Lusitana',
+    'AlegreyaSC','Delia','Domine','Vollkorn']
+
+
   
-  const classes = useStyles();
   return (
     <Container>
       <Grid container>
@@ -220,7 +239,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
               pdfExport();
             }}
           >
-            Скачать PDF
+            to PDF
           </Button>
           <Button
         variant="contained"
@@ -232,7 +251,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
         </Button>
                 </div>
         </Grid>
-        <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
+        <Grid item xs={12}>
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
@@ -268,25 +287,14 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </div>
         )}
       </div>
-
-
-
-
-
-
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
-            
-     
-      
       <div>
       <br/>
-        
       <br/>
       <Grid container alignItems="center" className={classes.root}>
       <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
-
       <Select
       className='select-font'
           value={font}
@@ -295,156 +303,14 @@ const handleChangeBodyBackgroungComplete = (color) => {
           select
           variant="outlined"
           MenuProps={MenuProps}
-        >
-          
-           
-          <MenuItem value='Raleway'>
-            Raleway
-          </MenuItem>
-          <MenuItem  value='Caviar'>
-            Caviar
-          </MenuItem>
-          <MenuItem value='Walkway'>
-            Walkway
-          </MenuItem>
-          <MenuItem  value='JetBrains'>
-          JetBrains
-          </MenuItem>
-          <MenuItem  value='Dancing'>
-          Dancing
-          </MenuItem>
-          <MenuItem  value='Vonique'>
-          Vonique
-          </MenuItem>
-          <MenuItem value='Monterey'>
-          Monterey
-          </MenuItem>
-          <MenuItem  value='Titillium'>
-          Titillium
-          </MenuItem>
-          <MenuItem  value='Monoglyceride'>
-          Monoglyceride
-          </MenuItem>
-          <MenuItem   value='Flamenco'>
-          Flamenco
-          </MenuItem>
-          <MenuItem  value='Cinzel'>
-          Cinzel
-          </MenuItem>
-          <MenuItem  value='Optimus'>
-          Optimus Princeps
-          </MenuItem>
-          <MenuItem  value='Neou'>
-          Neou
-          </MenuItem>
-          <MenuItem   value='NK57'>
-          NK57 Monospace
-          </MenuItem>
-          <MenuItem  value='SEGMENT16C'>
-          SEGMENT16C
-          </MenuItem>
-          <MenuItem  value='BPMono'>
-          BP Mono
-          </MenuItem>
-          <MenuItem  value='SpaceMono'>
-          Space Mono
-          </MenuItem>
-          <MenuItem  value='SicretMono'>
-          Sicret Mono
-          </MenuItem>
-          <MenuItem   value='Yoshitoshi'>
-          Yoshitoshi
-          </MenuItem>
-          <MenuItem  value='PiecesOfEight'>
-          Pieces Of Eight
-          </MenuItem>
-          <MenuItem  value='Vogue'>
-          Vogue
-          </MenuItem>
-          <MenuItem value='HalfElven'>
-          Half Elven
-          </MenuItem>
-          <MenuItem  value='Gatsby'>
-          Gatsby
-          </MenuItem>
-          <MenuItem  value='LifeSavers'>
-          Life Savers
-          </MenuItem>
-          <MenuItem  value='Lato'>
-          Lato
-          </MenuItem>
-          <MenuItem  value='OpenSans'>
-          Open Sans
-          </MenuItem>
-          <MenuItem  value='ChampagneLimousines'>
-          Champagne Limousines
-          </MenuItem>
-          <MenuItem  value='Ubuntu'>
-          Ubuntu
-          </MenuItem>
-          <MenuItem  value='Cabin'>
-          Cabin
-          </MenuItem>
-          <MenuItem  value='Hind'>
-          Hind
-          </MenuItem>
-          <MenuItem  value='Kanit'>
-          Kanit
-          </MenuItem>
-          <MenuItem  value='Capoon'>
-          Capoon
-          </MenuItem>
-          <MenuItem  value='Abenda'>
-          Abenda
-          </MenuItem>
-          <MenuItem  value='KenyanCoffee'>
-          Kenyan Coffee
-          </MenuItem>
-          <MenuItem  value='LJDesignStudiosIs'>
-          LJ Design Studios Is
-          </MenuItem>
-          <MenuItem  value='Karla'>
-          Karla
-          </MenuItem>
-          <MenuItem  value='Sharpe'>
-          Sharpe
-          </MenuItem>
-          <MenuItem  value='ForgottenFuturist'>
-          Forgotten Futurist
-          </MenuItem>
-
-          <MenuItem  value='UbicadaPro'>
-          Ubicada Pro
-          </MenuItem>
-          <MenuItem  value='Aniron'>
-          Aniron
-          </MenuItem>
-          <MenuItem  value='Playfair'>
-          Playfair
-          </MenuItem>
-          <MenuItem  value='Alexandria'>
-          Alexandria
-          </MenuItem>
-          <MenuItem  value='Rufina'>
-          Rufina
-          </MenuItem>
-          <MenuItem  value='Lusitana'>
-          Lusitana
-          </MenuItem>
-          <MenuItem  value='AlegreyaSC'>
-          Alegreya SC
-          </MenuItem>
-          <MenuItem  value='Delia'>
-          Delia
-          </MenuItem>
-          <MenuItem  value='Domine'>
-          Domine
-          </MenuItem>
-          <MenuItem  value='Vollkorn'>
-          Vollkorn
-          </MenuItem>
-
-          
+        > 
+        {fontList.map((item, index)=> {
+          return (
+            <MenuItem key={index} value={item}>
+              {item}
+            </MenuItem>
+          )
+        })}
         </Select>
         </Grid>
         <br/>

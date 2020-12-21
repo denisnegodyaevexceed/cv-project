@@ -12,7 +12,6 @@ const DragPortfolio = ({
   styleText,
   styleSmallText
 }) => {
-  
   const {
     firstProject,
     secondProject,
@@ -29,7 +28,6 @@ const DragPortfolio = ({
     fifthProject,
     sixthProject,
   ];
- 
   const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
 
@@ -67,7 +65,7 @@ const DragPortfolio = ({
                                 <div >
                                     <div style={styleSubTitle}>Stack:</div> 
                                     {stack.map((item, index)=>{
-                                    return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
+                                      return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
                                     })}
                                 </div>
                             </div>
