@@ -156,7 +156,7 @@ const TextDecorateButtons = () => {
                         <RadioGroup row aria-label="position" name="position" defaultValue="nameActive" onChange={(e) => handlerChangeTypeText(e)}>
                             <FormControlLabel
                                 value="nameActive"
-                                fullWidth={true}
+                            
                                 className='radio-small'
                                 control={<Radio size='small' color="primary" />}
                                 label="Name"

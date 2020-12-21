@@ -37,12 +37,7 @@ const Template4 = () => {
     }
   }, [open2]);
   
-  
 
-
-
-
-   console.log(firstProject.stack, 'sgsdfgsdfgsdfgdsfg')
     const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
     (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
     (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
@@ -158,7 +153,7 @@ const Template4 = () => {
                       let {name, link, summary, whatYouDo, stack} = item
                       return ( name && link && summary && whatYouDo && stack && <div className='case-4' key={index}>
                         <div className='title-case-4'>{name.toUpperCase()+' - '+link}</div>
-                          {/* <h5>{link}</h5> */}
+
                           <div className="summary-4">
                             <div className='title-con-4'>Summary:</div> 
                             {summary}

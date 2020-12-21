@@ -254,8 +254,7 @@ const Drag = () => {
        <AboutHardSkills/>
        <br/>
        <Portfolio/>
-        
-        {!open2 ? (
+         {!open2 ? (
           <div onClick={() => setOpen2(!open2)} className="side-open2">
             Edit
           </div>
@@ -294,7 +293,6 @@ const Drag = () => {
         <br/>
       <TextDecorateButtons/>
       <br/>
-
 <Accordion>
 <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -317,7 +315,6 @@ const Drag = () => {
         </AccordionSummary>
         <AccordionDetails>
         <div>
-
           <form>
             <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
             <label htmlFor="icon-button-file">
