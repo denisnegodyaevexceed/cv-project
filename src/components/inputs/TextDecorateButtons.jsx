@@ -79,32 +79,32 @@ const TextDecorateButtons = () => {
     const handlerChangeTypeText = (e) => {
         dispatch(setActiveTextTypeAction(e.target.value))
         switch(e.target.value){
-            case 'nameSize':
+            case 'nameActive':
                 setValueSize(nameSize);
                 setValueColor(nameColor);
                 break;
                 
-            case 'posSize':
+            case 'posActive':
                 setValueSize(posSize);
                 setValueColor(posColor);
                 break;
 
-            case 'titleSize':
+            case 'titleActive':
                 setValueSize(titleSize);
                 setValueColor(titleColor);
                 break;
 
-            case 'subTitleSize':
+            case 'subTitleActive':
                 setValueSize(subTitleSize);
                 setValueColor(subTitleColor);
                 break;
 
-            case 'textSize':
+            case 'textActive':
                 setValueSize(textSize);
                 setValueColor(textColor);
                 break;
 
-            case 'smallTextSize':
+            case 'smallTextActive':
                 setValueSize(smallTextSize);
                 setValueColor(smallTextColor);
                 break;
@@ -126,9 +126,8 @@ const TextDecorateButtons = () => {
 
     return (
         <div className='text-decor'>
-
             <Grid container alignItems="center" className={classes.root}>
-            <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Text position</h3>
+                <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Text position</h3>
                 <Button onClick={() => {setAlign('left')}}>
                     <FormatAlignLeftIcon />
                 </Button>
@@ -151,85 +150,80 @@ const TextDecorateButtons = () => {
                 </Grid>
                 <br/>
             <Grid container alignItems="center" className={classes.root}>
-            <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>General style</h3>
-                <div >
-                <FormControl className="forms" >
-                    <RadioGroup row aria-label="position" name="position" defaultValue="nameSize" onChange={(e) => handlerChangeTypeText(e)}>
-                        <FormControlLabel
-                            value="nameSize"
-                            fullWidth={true}
-                            className='radio-small'
-                            control={<Radio 
-                                size='small'
-                                color="primary" />}
-                            label="Name"
-                            labelPlacement="top"
-                        />  
-                        <FormControlLabel
-                            value="posSize"
-                            className='radio-small'
-                            control={<Radio size='small'  color="primary" />}
-                            label="Position"
-                            labelPlacement="top"
-                        />
-                        <FormControlLabel
-                            value="titleSize"
-                            className='radio-small'
-                            control={<Radio size='small' color="primary" />}
-                            label="Title"
-                            labelPlacement="top"
-                        />
-                        <FormControlLabel
-                            value="subTitleSize"
-                            className='radio-small'
-                            control={<Radio  size='small' color="primary" />}
-                            label="SubTitle"
-                            labelPlacement="top"
-                        />
-                        <FormControlLabel
-                            value="textSize"
-                            className='radio-small'
-                            control={<Radio size='small' color="primary" />}
-                            label="Text"
-                            labelPlacement="top"
-                        />
-                        <FormControlLabel
-                            value="smallTextSize"
-                            className='radio-small'
-                            control={<Radio size='small' color="primary" />}
-                            label="Small Text"
-                            labelPlacement="top"
-                        />
-                    </RadioGroup>
-                    <div className="font-size-picker">
-                    <TextField  type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
-                    </div>
-            <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Font color</h4>
-                    <div className="color-picker">
-                    <CompactPicker 
-                    className='picker'
-                        color={valueColor} 
-                        onChangeComplete={handleChangeColor}
-                    />
-                    </div>
-                </FormControl>
+                <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>General style</h3>
+                <div>
+                    <FormControl className="forms" >
+                        <RadioGroup row aria-label="position" name="position" defaultValue="nameActive" onChange={(e) => handlerChangeTypeText(e)}>
+                            <FormControlLabel
+                                value="nameActive"
+                                fullWidth={true}
+                                className='radio-small'
+                                control={<Radio size='small' color="primary" />}
+                                label="Name"
+                                labelPlacement="top"
+                            />  
+                            <FormControlLabel
+                                value="posActive"
+                                className='radio-small'
+                                control={<Radio size='small'  color="primary" />}
+                                label="Position"
+                                labelPlacement="top"
+                            />
+                            <FormControlLabel
+                                value="titleActive"
+                                className='radio-small'
+                                control={<Radio size='small' color="primary" />}
+                                label="Title"
+                                labelPlacement="top"
+                            />
+                            <FormControlLabel
+                                value="subTitleActive"
+                                className='radio-small'
+                                control={<Radio  size='small' color="primary" />}
+                                label="SubTitle"
+                                labelPlacement="top"
+                            />
+                            <FormControlLabel
+                                value="textActive"
+                                className='radio-small'
+                                control={<Radio size='small' color="primary" />}
+                                label="Text"
+                                labelPlacement="top"
+                            />
+                            <FormControlLabel
+                                value="smallTextActive"
+                                className='radio-small'
+                                control={<Radio size='small' color="primary" />}
+                                label="Small Text"
+                                labelPlacement="top"
+                            />
+                        </RadioGroup>
+                        <div className="font-size-picker">
+                            <TextField  type='number' id="outlined-basic" label="font size" variant="outlined" onChange={(e) => handlerChangeSize(e)}  value={valueSize}/>
+                        </div>
+                        <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Font color</h4>
+                        <div className="color-picker">
+                            <CompactPicker 
+                            className='picker'
+                                color={valueColor} 
+                                onChangeComplete={handleChangeColor}
+                            />
+                        </div>
+                    </FormControl>
                 </div>
-
-                
                 <div className="slider-border">
-            <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Border radius avatar</h4>
-                    {/* <h4>Border radius avatar</h4> */}
+                    <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Border radius avatar</h4>
                     <div className="slider">
-                <Slider
-                     min={0}
-                     max={500}
-                    onChangeCommitted={setRadius}
-                    aria-labelledby="continuous-slider"
-                />
-                </div>
+                        <Slider
+                            min={0}
+                            max={500}
+                            onChangeCommitted={setRadius}
+                            aria-labelledby="continuous-slider"
+                        />
+                    </div>
                 </div>
             </Grid>
-            </div>
+        </div>
     );
 };
 

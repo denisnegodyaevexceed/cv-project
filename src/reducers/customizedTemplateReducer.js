@@ -11,7 +11,7 @@ const initialState = {
     bodyImage: null,
     bodyImagePosition: 'cover',
     bodyImageValue: '',
-    activeTextType: 'nameSize',
+    activeTextType: 'nameActive',
     nameSize: 40,
     posSize: 24,
     titleSize: 21,
@@ -102,24 +102,24 @@ const customizedTemplateReducer = (state=initialState, actions) => {
         case 'SET_ACTIVE_TEXT_SIZE':
             return{
                 ...state,
-                nameSize: actions.payload.name === 'nameSize' ? actions.payload.value : state.nameSize,
-                posSize: actions.payload.name === 'posSize' ? actions.payload.value : state.posSize,
-                titleSize: actions.payload.name === 'titleSize' ? actions.payload.value : state.titleSize,
-                subTitleSize: actions.payload.name === 'subTitleSize' ? actions.payload.value : state.subTitleSize,
-                textSize: actions.payload.name === 'textSize' ? actions.payload.value : state.textSize,
-                smallTextSize: actions.payload.name === 'smallTextSize' ? actions.payload.value : state.smallTextSize,
+                nameSize: actions.payload.name === 'nameActive' ? actions.payload.value : state.nameSize,
+                posSize: actions.payload.name === 'posActive' ? actions.payload.value : state.posSize,
+                titleSize: actions.payload.name === 'titleActive' ? actions.payload.value : state.titleSize,
+                subTitleSize: actions.payload.name === 'subTitleActive' ? actions.payload.value : state.subTitleSize,
+                textSize: actions.payload.name === 'textActive' ? actions.payload.value : state.textSize,
+                smallTextSize: actions.payload.name === 'smallTextActive' ? actions.payload.value : state.smallTextSize,
             }
 
         case 'SET_ACTIVE_TEXT_COLOR':
          console.log(actions.payload)
             return{
                 ...state,
-                nameColor: actions.payload.name === 'nameSize' ? actions.payload.value : state.nameColor,
-                posColor: actions.payload.name === 'posSize' ? actions.payload.value : state.posColor,
-                titleColor: actions.payload.name === 'titleSize' ? actions.payload.value : state.titleColor,
-                subTitleColor: actions.payload.name === 'subTitleSize' ? actions.payload.value : state.subTitleColor,
-                textColor: actions.payload.name === 'textSize' ? actions.payload.value : state.textColor,
-                smallTextColor: actions.payload.name === 'smallTextSize' ? actions.payload.value : state.smallTextColor,
+                nameColor: actions.payload.name === 'nameActive' ? actions.payload.value : state.nameColor,
+                posColor: actions.payload.name === 'posActive' ? actions.payload.value : state.posColor,
+                titleColor: actions.payload.name === 'titleActive' ? actions.payload.value : state.titleColor,
+                subTitleColor: actions.payload.name === 'subTitleActive' ? actions.payload.value : state.subTitleColor,
+                textColor: actions.payload.name === 'textActive' ? actions.payload.value : state.textColor,
+                smallTextColor: actions.payload.name === 'smallTextActive' ? actions.payload.value : state.smallTextColor,
             }
 
         default :

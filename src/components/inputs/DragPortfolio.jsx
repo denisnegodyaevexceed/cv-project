@@ -65,7 +65,7 @@ const DragPortfolio = ({
                                 <div >
                                     <div style={styleSubTitle}>Stack:</div> 
                                     {stack.map((item, index)=>{
-                                    return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
+                                      return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
                                     })}
                                 </div>
                             </div>
