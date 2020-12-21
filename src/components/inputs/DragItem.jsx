@@ -41,12 +41,12 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
     useEffect(() => { 
 
         updateStyleVer();
-       
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [posVertical]);
 
     useEffect(() => {
         updateStyleText();
-      
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [textAlign]);    
 
     const handleClickItem = () => {
