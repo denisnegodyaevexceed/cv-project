@@ -7,16 +7,10 @@ import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 import DragItem from './DragItem';
 
 const DragHeader = ({styleName, stylePosition}) => {
-    
-    
-    
-    
     const userInfo = useSelector((state) => state.aboutMeReducer);
     const {avaBorderRadius} = useSelector(state=>state.customizedTemplateReducer);
     const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
-
-     
-
+    
     React.useEffect(() => {
         let options = { 
             cellHeight: 5,
@@ -27,9 +21,8 @@ const DragHeader = ({styleName, stylePosition}) => {
     }, [])
 
     const backgroundControll = headerImage? headerImagePosition === 'cover' ? {backgroundImage: `url(${headerImage})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
-
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
 
     return (
         <div className='grid-stack grid-stack-header' style={backgroundControll}>

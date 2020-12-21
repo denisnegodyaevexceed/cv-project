@@ -43,31 +43,61 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
+  let pdfExportComponent;
   const dispatch = useDispatch();
-
-    const { 
-      headerBackground, 
-      bodyBackground, 
-      headerImageValue,  
-      bodyImageValue,
-      nameSize,
-      posSize,
-      titleSize,
-      subTitleSize,
-      textSize,
-      smallTextSize,
-      nameColor,
-      posColor,
-      titleColor,
-      subTitleColor,
-      textColor,
-      smallTextColor,
-    } = useSelector(state => state.customizedTemplateReducer)
-    const [cls, setCls] = useState(["side1"]);
-    const [cls2, setCls2] = useState(["side2"]);
-
+  const { 
+    headerBackground, 
+    bodyBackground, 
+    headerImageValue,  
+    bodyImageValue,
+    nameSize,
+    posSize,
+    titleSize,
+    subTitleSize,
+    textSize,
+    smallTextSize,
+    nameColor,
+    posColor,
+    titleColor,
+    subTitleColor,
+    textColor,
+    smallTextColor,
+  } = useSelector(state => state.customizedTemplateReducer);
+  const userInfo = useSelector((state) => state.aboutMeReducer);
+  const [cls, setCls] = useState(["side1"]);
+  const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(true);
+  const [font, setFont] = useState('Raleway');
+  const useStyles2 = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+    },
+    heading: {
+      fontSize: theme.typography.pxToRem(15),
+      fontWeight: theme.typography.fontWeightRegular,
+    },
+  }));
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      border: `1px solid ${theme.palette.divider}`,
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      '& svg': {
+        margin: theme.spacing(1),
+        // fontSize:15,
+        padding:4,
+      },
+      '& hr': {
+        margin: theme.spacing(0, 0.5),
+      },
+    },
+  }));
+  const classes = useStyles();
+  const classes2 = useStyles2();
+  const classes3 = useStyles3();
 
   useEffect(() => {
     if (open2) {
@@ -88,17 +118,23 @@ const Drag = () => {
 
     }
   }, [open]);
+
+  useEffect(() => {
+    open&&setOpen2(false);
+  },[open])
+
+  useEffect(() => {
+    open2&&setOpen(false);
+  },[open2])
+
+
   const handleChangeHeaderBackgroungComplete = (color) => {
     dispatch(allCustomizedTemplateActions.setHeaderBackgroundAction(color.hex));
-};
-const handleChangeBodyBackgroungComplete = (color) => {
-  dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
-};
-  
-  const userInfo = useSelector((state) => state.aboutMeReducer);
+  };
 
-  
-  
+  const handleChangeBodyBackgroungComplete = (color) => {
+    dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
+  };
   
   const addHeaderBackground = (e) => {
     console.log(e.target.value, 'in drag header')
@@ -108,44 +144,15 @@ const handleChangeBodyBackgroungComplete = (color) => {
   const addBodyBackground = (e) => {
     console.log(e.target.value, 'in drag body')
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
-  }
+  }  
 
-  
-
-  React.useEffect(() => {
-    open&&setOpen2(false);
-  },[open])
-
-  React.useEffect(() => {
-    open2&&setOpen(false);
-  },[open2])
-
-
-  let pdfExportComponent;
-  const classes3 = useStyles3();
-  const useStyles2 = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-  }));
-  const [isPDF] = useState(false);
-  const classes2 = useStyles2();
-
-  const [font, setFont] = useState('Raleway');
+  const pdfExport = () => {
+    pdfExportComponent.save();
+  };
 
   const handleChangeFont = (e) => {
     setFont(e.target.value)
   }
-
-  const pdfExport = () => {
-   
-    pdfExportComponent.save();
-    
-  };
 
   let styleName = {
     fontSize: nameSize+'px',
@@ -191,25 +198,8 @@ const handleChangeBodyBackgroungComplete = (color) => {
       },
     },
   };
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-      border: `1px solid ${theme.palette.divider}`,
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.background.paper,
-      color: theme.palette.text.secondary,
-      '& svg': {
-        margin: theme.spacing(1),
-        // fontSize:15,
-        padding:4,
-      },
-      '& hr': {
-        margin: theme.spacing(0, 0.5),
-      },
-    },
-  }));
+
   
-  const classes = useStyles();
   return (
     <Container>
       <Grid container>
@@ -227,7 +217,7 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </Button>
                 </div>
         </Grid>
-        <Grid item xs={12} className={`${isPDF && "noBorder"}`}>
+        <Grid item xs={12}>
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
@@ -263,25 +253,14 @@ const handleChangeBodyBackgroungComplete = (color) => {
           </div>
         )}
       </div>
-
-
-
-
-
-
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
-            
-     
-      
       <div>
       <br/>
-        
       <br/>
       <Grid container alignItems="center" className={classes.root}>
       <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
-
       <Select
       className='select-font'
           value={font}
@@ -291,8 +270,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
           variant="outlined"
           MenuProps={MenuProps}
         >
-          
-           
           <MenuItem value='Raleway'>
             Raleway
           </MenuItem>
@@ -407,7 +384,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <MenuItem  value='ForgottenFuturist'>
           Forgotten Futurist
           </MenuItem>
-
           <MenuItem  value='UbicadaPro'>
           Ubicada Pro
           </MenuItem>
@@ -438,8 +414,6 @@ const handleChangeBodyBackgroungComplete = (color) => {
           <MenuItem  value='Vollkorn'>
           Vollkorn
           </MenuItem>
-
-          
         </Select>
         </Grid>
         <br/>

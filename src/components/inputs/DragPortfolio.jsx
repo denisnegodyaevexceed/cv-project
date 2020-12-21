@@ -12,7 +12,6 @@ const DragPortfolio = ({
   styleText,
   styleSmallText
 }) => {
-  
   const {
     firstProject,
     secondProject,
@@ -29,7 +28,6 @@ const DragPortfolio = ({
     fifthProject,
     sixthProject,
   ];
- 
   const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
 
 
