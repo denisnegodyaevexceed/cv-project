@@ -28,8 +28,7 @@ const setClearTechnologiesAction = () => ({
 
 
 const addTechnologyAction = (frontendTech, techList, alltech) =>{
-    console.log('TH' , techList)
-    console.log('T!' , frontendTech)
+   
     let arr = [...techList]
 
   
