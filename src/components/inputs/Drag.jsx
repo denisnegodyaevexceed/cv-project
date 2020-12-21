@@ -198,6 +198,19 @@ const Drag = () => {
     },
   };
 
+  const fontList = ['Raleway','Caviar','Walkway',
+    'JetBrains','Dancing','Vonique','Monterey',
+    'Titillium', 'Monoglyceride','Flamenco',
+    'Cinzel','Optimus','Neou','NK57','SEGMENT16C','BPMono',
+    'SpaceMono','SicretMono','Yoshitoshi','PiecesOfEight',
+    'Vogue','HalfElven','Gatsby','LifeSavers','Lato','OpenSans',
+    'ChampagneLimousines','Ubuntu','Cabin','Hind','Kanit',
+    'Capoon','Abenda','KenyanCoffee','LJDesignStudiosIs',
+    'Karla','Sharpe','ForgottenFuturist','UbicadaPro',
+    'Aniron','Playfair','Alexandria','Rufina','Lusitana',
+    'AlegreyaSC','Delia','Domine','Vollkorn']
+
+
   
   return (
     <Container>
@@ -268,151 +281,14 @@ const Drag = () => {
           select
           variant="outlined"
           MenuProps={MenuProps}
-        >
-          <MenuItem value='Raleway'>
-            Raleway
-          </MenuItem>
-          <MenuItem  value='Caviar'>
-            Caviar
-          </MenuItem>
-          <MenuItem value='Walkway'>
-            Walkway
-          </MenuItem>
-          <MenuItem  value='JetBrains'>
-          JetBrains
-          </MenuItem>
-          <MenuItem  value='Dancing'>
-          Dancing
-          </MenuItem>
-          <MenuItem  value='Vonique'>
-          Vonique
-          </MenuItem>
-          <MenuItem value='Monterey'>
-          Monterey
-          </MenuItem>
-          <MenuItem  value='Titillium'>
-          Titillium
-          </MenuItem>
-          <MenuItem  value='Monoglyceride'>
-          Monoglyceride
-          </MenuItem>
-          <MenuItem   value='Flamenco'>
-          Flamenco
-          </MenuItem>
-          <MenuItem  value='Cinzel'>
-          Cinzel
-          </MenuItem>
-          <MenuItem  value='Optimus'>
-          Optimus Princeps
-          </MenuItem>
-          <MenuItem  value='Neou'>
-          Neou
-          </MenuItem>
-          <MenuItem   value='NK57'>
-          NK57 Monospace
-          </MenuItem>
-          <MenuItem  value='SEGMENT16C'>
-          SEGMENT16C
-          </MenuItem>
-          <MenuItem  value='BPMono'>
-          BP Mono
-          </MenuItem>
-          <MenuItem  value='SpaceMono'>
-          Space Mono
-          </MenuItem>
-          <MenuItem  value='SicretMono'>
-          Sicret Mono
-          </MenuItem>
-          <MenuItem   value='Yoshitoshi'>
-          Yoshitoshi
-          </MenuItem>
-          <MenuItem  value='PiecesOfEight'>
-          Pieces Of Eight
-          </MenuItem>
-          <MenuItem  value='Vogue'>
-          Vogue
-          </MenuItem>
-          <MenuItem value='HalfElven'>
-          Half Elven
-          </MenuItem>
-          <MenuItem  value='Gatsby'>
-          Gatsby
-          </MenuItem>
-          <MenuItem  value='LifeSavers'>
-          Life Savers
-          </MenuItem>
-          <MenuItem  value='Lato'>
-          Lato
-          </MenuItem>
-          <MenuItem  value='OpenSans'>
-          Open Sans
-          </MenuItem>
-          <MenuItem  value='ChampagneLimousines'>
-          Champagne Limousines
-          </MenuItem>
-          <MenuItem  value='Ubuntu'>
-          Ubuntu
-          </MenuItem>
-          <MenuItem  value='Cabin'>
-          Cabin
-          </MenuItem>
-          <MenuItem  value='Hind'>
-          Hind
-          </MenuItem>
-          <MenuItem  value='Kanit'>
-          Kanit
-          </MenuItem>
-          <MenuItem  value='Capoon'>
-          Capoon
-          </MenuItem>
-          <MenuItem  value='Abenda'>
-          Abenda
-          </MenuItem>
-          <MenuItem  value='KenyanCoffee'>
-          Kenyan Coffee
-          </MenuItem>
-          <MenuItem  value='LJDesignStudiosIs'>
-          LJ Design Studios Is
-          </MenuItem>
-          <MenuItem  value='Karla'>
-          Karla
-          </MenuItem>
-          <MenuItem  value='Sharpe'>
-          Sharpe
-          </MenuItem>
-          <MenuItem  value='ForgottenFuturist'>
-          Forgotten Futurist
-          </MenuItem>
-          <MenuItem  value='UbicadaPro'>
-          Ubicada Pro
-          </MenuItem>
-          <MenuItem  value='Aniron'>
-          Aniron
-          </MenuItem>
-          <MenuItem  value='Playfair'>
-          Playfair
-          </MenuItem>
-          <MenuItem  value='Alexandria'>
-          Alexandria
-          </MenuItem>
-          <MenuItem  value='Rufina'>
-          Rufina
-          </MenuItem>
-          <MenuItem  value='Lusitana'>
-          Lusitana
-          </MenuItem>
-          <MenuItem  value='AlegreyaSC'>
-          Alegreya SC
-          </MenuItem>
-          <MenuItem  value='Delia'>
-          Delia
-          </MenuItem>
-          <MenuItem  value='Domine'>
-          Domine
-          </MenuItem>
-          <MenuItem  value='Vollkorn'>
-          Vollkorn
-          </MenuItem>
+        > 
+        {fontList.map((item, index)=> {
+          return (
+            <MenuItem key={index} value={item}>
+              {item}
+            </MenuItem>
+          )
+        })}
         </Select>
         </Grid>
         <br/>
