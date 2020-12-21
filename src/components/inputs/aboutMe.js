@@ -52,7 +52,7 @@ export default function AboutMe() {
     const classes3 = useStyles3()
     
 
-    
+  
 
     let educationCounter = (180 - education.length) + ' letters left.'
     let aboutMeInfoCounter = (180 - aboutMeInfo.length) + ' letters left.'
