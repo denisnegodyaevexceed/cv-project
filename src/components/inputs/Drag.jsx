@@ -15,6 +15,7 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
+import {Link} from 'react-router-dom';
 import DragPortfolio from './DragPortfolio'
 import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'
@@ -194,6 +195,7 @@ const Drag = () => {
       },
     },
   };
+ 
 
   const fontList = ['Raleway','Caviar','Walkway',
     'JetBrains','Dancing','Vonique','Monterey',
@@ -224,6 +226,14 @@ const Drag = () => {
           >
             to PDF
           </Button>
+          <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
                 </div>
         </Grid>
         <Grid item xs={12}>
@@ -251,8 +261,7 @@ const Drag = () => {
        <AboutHardSkills/>
        <br/>
        <Portfolio/>
-        
-        {!open2 ? (
+         {!open2 ? (
           <div onClick={() => setOpen2(!open2)} className="side-open2">
             Edit
           </div>
@@ -290,7 +299,6 @@ const Drag = () => {
         <br/>
       <TextDecorateButtons/>
       <br/>
-
 <Accordion>
 <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -313,7 +321,6 @@ const Drag = () => {
         </AccordionSummary>
         <AccordionDetails>
         <div>
-
           <form>
             <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
             <label htmlFor="icon-button-file">

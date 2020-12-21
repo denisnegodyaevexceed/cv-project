@@ -2,6 +2,7 @@ import "./Template2.css";
 import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
+import {Link} from 'react-router-dom';
 import { useSelector} from "react-redux";
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
@@ -48,8 +49,7 @@ const Template2 = () => {
       <div className="page">
           <div className="button">
         <Button
-        
-          variant="contained"
+         variant="contained"
           color="secondary"
           className="k-button"
           onClick={() => {
@@ -58,6 +58,14 @@ const Template2 = () => {
         >
           to PDF
         </Button>
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
 
       </div>
 
@@ -65,10 +73,9 @@ const Template2 = () => {
         forcePageBreak=".page-break"
         ref={(component) => (pdfExportComponent = component)}
         fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
-        
-      >
-          
-    <div className="template-2">
+         >
+            
+             <div className="template-2">
       <div className="head-2">
       <div className="avatar-2" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
@@ -97,21 +104,18 @@ const Template2 = () => {
                 <div className="title-tech">TECH SKILS</div>
           <div className="tech-skills-2">
               <div className="frontend-2">
-                  {/* <div className="title-2">-Frontend development</div> */}
                   {(frontend.length>0)&&<div className='title-2'>-Frontend development</div>}
                     <div>{frontend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
             </div>
             <div className="db-2">
-                {/* <div className="title-2">-Databases</div> */}
                 {(dbs.length>0)&&<div className='title-2'>-Databases</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
             </div>
             <div className="backend-2">
-                {/* <div className="title-2">-Backend</div> */}
                 {(backend.length>0)&&<div className='title-2'>-Backend</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
@@ -125,21 +129,10 @@ const Template2 = () => {
             </div>
           </div>
           </div>
-          {/* <div className="other-skills-2">
-              <div className="title-other-skils-2">OTHER SKILLS</div>
-              <div className="content-other-skils-2"><div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos aspernatur impedit recusandae molestiae eum. Sapiente, dicta repellendus error cupiditate vel sed iusto temporibus quibusdam consequuntur incidunt non! Fuga, eveniet dolore.</div></div>
-          </div> */}
           <div className="languages-2">
               <div className="title-other-skils-2">LANGUAGES</div>
               <div className="content-other-skils-2"> {userInfo.languages}</div>
           </div>
-          {/* <div className="contacts-2">
-              <div className="title-contacts-2">CONTACTS</div>
-              <div className="content-contacts-2">
-            <div className="mail-contacts-2">email:</div>
-            <div className="skype-contacts-2">skype:</div>
-            </div>
-          </div> */}
           {userInfo.email && <div className="contacts-2">
                     <div className='title-contacts-2'>CONTACTS</div>
                     <div className="content-contacts-2">
@@ -164,34 +157,6 @@ const Template2 = () => {
             {userInfo.education}
             </div>
           </div>
-          {/* <div className="work-exp-2">
-            <div>
-              <div className="title-right-2">WORK HISTORY</div>
-            </div>
-            <div className="first-work-2">
-                <div className="title-2">
-              <div className="name-work-2">Developer</div>
-              <div className="year-work-2">2018-2019</div>
-              </div>
-              <div className="content-work-2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-              esse, dignissimos soluta dolorum at atque mollitia aspernatur
-              voluptate
-            </div>
-            </div>
-            <div className="second-work-2">
-            <div className="title-2">
-                
-            <div className="name-work-2">Developer</div>
-              <div className="year-work-2">2018-2019</div>
-              </div>
-              <div className="content-work-2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-              esse, dignissimos soluta dolorum at atque mollitia aspernatur
-              voluptate
-            </div>
-            </div>
-          </div> */}
           {((firstCompany&&firstPosition&&firstDescription) || (secondCompany&&secondPosition&&secondDescription))&& <div className="work-exp-2">
                   <div>
                     <div className='title-right-2'>WORK HISTORY</div>
@@ -223,7 +188,6 @@ const Template2 = () => {
                       let {name, link, summary, whatYouDo, stack} = item
                       return ( name && link && summary && whatYouDo && stack && <div className='case-2' key={index}>
                         <div className='title-case-2'>{name.toUpperCase()+' - '+link}</div>
-                          {/* <h5>{link}</h5> */}
                           <div className="summary-2">
                             <div className='title-con-2'>Summary:</div> 
                             {summary}

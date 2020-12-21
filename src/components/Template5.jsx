@@ -6,6 +6,7 @@ import './Template5Styles.css'
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
+import {Link} from 'react-router-dom';
 import AboutHardSkills from "./inputs/aboutHardSkills";
 
 
@@ -59,11 +60,18 @@ const Template5 = () => {
                 >
                     to PDF
                 </Button>
+                <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
             </div>
             <PDFExport
                     forcePageBreak=".page-break"
                     ref={(component) => (pdfExportComponent = component)}
-                // paperSize="A4"
         fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
 
                 >

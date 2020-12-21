@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
       '& svg': {
         margin: theme.spacing(1),
-        // fontSize:15,
         padding:4,
       },
       '& hr': {
@@ -156,7 +155,7 @@ const TextDecorateButtons = () => {
                         <RadioGroup row aria-label="position" name="position" defaultValue="nameActive" onChange={(e) => handlerChangeTypeText(e)}>
                             <FormControlLabel
                                 value="nameActive"
-                                fullWidth={true}
+                            
                                 className='radio-small'
                                 control={<Radio size='small' color="primary" />}
                                 label="Name"

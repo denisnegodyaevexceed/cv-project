@@ -83,9 +83,6 @@ const AboutHardSkills = () => {
   ))
 )
 
-
-
-
   let uniqueFrontendStack = frontendStack.concat(techList).concat()
 
 
@@ -142,7 +139,7 @@ const AboutHardSkills = () => {
                         placeholder="Search"
                         margin="normal"
                         
-                        fullWidth
+                      
                         value={frontendTech}
                         onChange={e=>dispatch(allTechnologyActions.setFrontendTechnologyAction(e.target.value))}
                       /><div hidden={showFrontendButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, frontendTech)} size="small" color="primary" type='submit' aria-label="add">
@@ -175,7 +172,7 @@ const AboutHardSkills = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                       
                       />
                       <div hidden={showBackendButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, backendTech)} size="small" color="primary" type='submit' aria-label="add">
                       <AddIcon />
@@ -206,7 +203,7 @@ const AboutHardSkills = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                       
                       />
                       <div hidden={showDbsButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, dbsTech)} size="small" color="primary" type='submit' aria-label="add">
                       <AddIcon />
@@ -237,7 +234,7 @@ const AboutHardSkills = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                     
                       />
                       <div hidden={showOtherButton} className='inoutinput'><Fab  onClick={(e) => addTech(e, otherTech)} size="small" color="primary" type='submit' aria-label="add">
                       <AddIcon />

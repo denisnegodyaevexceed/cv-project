@@ -122,7 +122,7 @@ const Portfolio = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                      
                       />
                     )}
                   />
@@ -182,7 +182,7 @@ const Portfolio = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                      
                       />
                     )}
                   />
@@ -241,7 +241,6 @@ const Portfolio = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
                       />
                     )}
                   />
@@ -301,7 +300,7 @@ const Portfolio = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                       
                       />
                     )}
                   />
@@ -361,7 +360,7 @@ const Portfolio = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                       
                       />
                     )}
                   />
@@ -421,7 +420,7 @@ const Portfolio = () => {
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                        fullWidth
+                       
                       />
                     )}
                   />

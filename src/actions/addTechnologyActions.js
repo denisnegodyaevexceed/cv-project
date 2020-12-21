@@ -32,12 +32,7 @@ const addTechnologyAction = (frontendTech, techList, alltech) =>{
     console.log('T!' , frontendTech)
     let arr = [...techList]
 
-    // let correctTech = arr.find(function(element){
-    //     console.log(element, 'element')
-    //     if(arr.length>0){return element.title.toLowerCase()!=frontendTech.toLowerCase()}
-    // })
-
-    // if(!correctTech){arr.push({title: frontendTech})}
+  
     
     
     arr.push({title: frontendTech})
@@ -48,11 +43,7 @@ const addTechnologyAction = (frontendTech, techList, alltech) =>{
         payload: arr
     })
 }
-//     {
-//     type: actions.ADD_YOUR_TECHNOLOGY,
-//     payload: techList.push({title: tech})
-// }
-// )
+
 
 const allTechnologyActions = {
     setFrontendTechnologyAction,

@@ -1,62 +1,39 @@
 import React, { useState,useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
+import {Link} from 'react-router-dom';
 import { useSelector} from "react-redux";
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
 import AboutHardSkills from "./inputs/aboutHardSkills";
-
-
-
-
-
 const Template1 = () => {
   let pdfExportComponent;
   const userInfo = useSelector((state) => state.aboutMeReducer);
-
-  
-
   const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
-  
   const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
-
   const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
-
   const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
-
  console.log(firstProject.stack, 'sgsdfgsdfgsdfgdsfg')
   const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
   (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
   (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
-
   console.log(12,frontend)
-  
   const [cls2, setCls2] = useState(["side2"]);
-
-
 const [open2, setOpen2] = useState(true);
-
 useEffect(() => {
   if (open2) {
     setCls2((oldArr) => [...oldArr, "open2"]);
-    
   } else {
     setCls2(['side2']);
-
   }
 }, [open2]);
-
-
-
   return (
     <div className="page">
     <div className="container-pdf">
-
       <div className="button">
         <Button
-        
           variant="contained"
           color="secondary"
           className="k-button"
@@ -66,24 +43,27 @@ useEffect(() => {
         >
           to PDF
         </Button>
-       
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
       </div>
-
       <PDFExport
         forcePageBreak=".page-break"
         ref={(component) => (pdfExportComponent = component)}
         fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
-        // paperSize="A4"
       >
         <div style={{ width: "595px", height: "420px" }}>
           <div className="template-1">
             <div className="head-1">
             <div className="bg1"></div>
-
               <div className="content-head-1">
                 <div className="head-name-1">
                   <div className="name-1">{userInfo.firstName + ' '+ userInfo.secondName} </div>
-                  {/* <div className="last-name-1">{userInfo.secondName}</div> */}
                 </div>
         <div className="post-1">{userInfo.careerObjective.toUpperCase()}</div>
               </div>
@@ -93,12 +73,10 @@ useEffect(() => {
                         width: 190,
                         height: 190,
                         margin: "auto"}}></div>
-              
             </div>
             <div className="main-info-1">
               <div className="left-info-1">
               <div className='h h4-1'>Technical skills</div>
-
                 <div className="first-info-left-1">
                   <div className="first">
                     <div className="content-center">
@@ -110,44 +88,36 @@ useEffect(() => {
                   </div>
                   <div className="first">
                   <div className="content-center">
-
                     {(backend.length>0)&&<div className='h4-1'>Backend:</div>}
                     <div>{backend.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                     </div>
-
                   </div>
                   <div className="first">
                   <div className="content-center">
-
                     {(dbs.length>0)&&<div className='h4-1'>DBS:</div>}
                     <div>{dbs.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                     </div>
-
                   </div>
                   <div className="first">
                   <div className="content-center">
-
                     {(other.length>0)&&<div className='h4-1'>Other:</div>}
                       <div>{other.map((item, index) => {
                       return <div key={index}>{item.title}</div>
                     })}</div>
                     </div>
-
                   </div>
                   <div className="container-laguages">
                     <div className="h4-1">Languages</div>
                   <div className="languages-1">{userInfo.languages}</div>
                   </div>
-                  
                 </div>
                 {userInfo.email && <div className="contact">
                     <div className='h-center h4-1'>Contact details</div>
                     <div className="contact-content">
-
                     <div><strong className='h4-2'>Email:</strong> {userInfo.email}</div>
                     {userInfo.skype && <div><strong className='h4-2'>Skype:</strong> {userInfo.skype}</div>}
                     {userInfo.vkontakte && <div><strong className='h4-2'>Vkontakte:</strong> {userInfo.vkontakte}</div>}
@@ -155,7 +125,6 @@ useEffect(() => {
                     {userInfo.phoneNumber && <div><strong className='h4-2'>Tel:</strong> {userInfo.phoneNumber}</div>}
                     {userInfo.facebook && <div><strong className='h4-2'>Facebook:</strong> {userInfo.facebook}</div>}
                     </div>
-
                   </div>}
               </div>
               <div className="right-info-1">
@@ -197,11 +166,9 @@ useEffect(() => {
           {isHavePortfolio && <div className="template-1 page-break">
             <div className="head-1">
             <div className="bg1"></div>
-              
               <div className="content-head-1">
                 <div className="head-name-1">
                 <div className='name-1'>{userInfo.firstName + ' '+ userInfo.secondName}</div>
-                  
                 </div>
                 <div className="post-1">{userInfo.careerObjective}</div>
               </div>
@@ -213,16 +180,13 @@ useEffect(() => {
                         margin: "auto"}}></div>
             </div>
 <div>
-
             <div className="other-info">
-                    
 <div className="context">PORTFOLIO</div>
                     <div className='projects'>
                     {projects.map((item, index) => {
                       let {name, link, summary, whatYouDo, stack} = item
                       return ( name && link && summary && whatYouDo && stack && <div className='project' key={index}>
                         <div className='h4-1'>{name.toUpperCase()+' - '+link}</div>
-                          {/* <h5>{link}</h5> */}
                           <div className="other-text">
                             <div className='h5-1'>Summary:</div> 
                             {summary}
@@ -240,14 +204,11 @@ useEffect(() => {
                         </div>)
                     })}
                    </div> 
-
               </div>
             </div>
           </div>}
         </div>
-        
       </PDFExport>
-    
     </div>
     <div className={cls2.join(" ")}>
        <AboutMe/>
@@ -257,19 +218,16 @@ useEffect(() => {
        <AboutHardSkills/>
        <br/>
        <Portfolio/>
-        
         {!open2 ? (
           <div onClick={() => setOpen2(!open2)} className="side-open2">
             Edit
           </div>
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
-            
           </div>
         )}
       </div>
     </div>
   );
 };
-
 export default Template1;
