@@ -30,8 +30,14 @@ import firebase from 'firebase';
 import {
   useParams,
 } from "react-router-dom";
-
+import { useHistory } from 'react-router'
 import allAboutMeActions from '../../actions/aboutMeActions';
+import allAboutWorkActions from '../../actions/aboutWorkActions';
+import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
+import allPortfolioActions from "../../actions/portfolioActions";
+
+
+
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -46,6 +52,7 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
+  const history = useHistory()
   let { uid } = useParams();
   let pdfExportComponent;
   const dispatch = useDispatch();
@@ -109,29 +116,43 @@ const Drag = () => {
   const classes3 = useStyles3();
 
 
-  let s = (a) => JSON.stringify(a, null, 2);
+
 
 
 
   //SAVE
+  // useEffect(() => {history.go(0)}, [history,uid])
 
   useEffect(() => {
     let cleanupFunction = false;
     if(uid){
-
       dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(uid));
       const fetchData = () => {
         firebase.database().ref(`templates/${uid}`).on('value', (snapshot) => {
           const data = snapshot.val();
-          console.log(data);
           dispatch(allAboutMeActions.setAllAction(data.info));
-          // dispatch(allCustomizedTemplateActions.setAllAction(data.info));
+          dispatch(allCustomizedTemplateActions.setAllAction(data.stylesMain));
+          dispatch(allAboutWorkActions.setAllHistoryAction(data.userWorkHistory));
+          dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
+          dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
+          
+          setFont(data.font);
+          let blocksArr = document.querySelectorAll('.grid-stack-item-content');
+          blocksArr.forEach((item, i) => {
+            data.stylesBlock.map(itemArr => {
+              if (itemArr.id === item.getAttribute('data-id')){
+                item.style.alignItems = itemArr.ver; 
+                item.style.textAlign = itemArr.hor; 
+              }
+            })
+          })
+
         });
       }
   
-      if(!cleanupFunction){
+      // if(!cleanupFunction){
         fetchData();
-      }
+      // }
 
 
     }
@@ -148,6 +169,20 @@ const Drag = () => {
         ver: getComputedStyle(item).alignItems,
         hor: getComputedStyle(item).textAlign,
       })
+    });
+
+
+    let matrixBlock = [];
+    let blocksArrMatrix = document.querySelectorAll('.grid-stack-item');
+    blocksArrMatrix.forEach((item, i) => {
+      matrixBlock.push({
+        h: item.getAttribute('gs-h'),
+        w: item.getAttribute('gs-w'),
+        x: item.getAttribute('gs-x'),
+        y: item.getAttribute('gs-y'),
+      })
+
+      console.log(matrixBlock,11)
     })
 
     if( customizedTemplateUid ){
@@ -159,6 +194,8 @@ const Drag = () => {
         stylesBlock: stylesBlock,
         userWorkHistory,
         userAboutHardSkills,
+        font: font,
+        matrixBlock: matrixBlock,
       });
     } else {
       let newTemplate = firebase.database().ref('templates/');
@@ -169,6 +206,8 @@ const Drag = () => {
         stylesBlock: stylesBlock,
         userWorkHistory,
         userAboutHardSkills,
+        font: font, 
+        matrixBlock: matrixBlock,
       }).then((snap) => {
         dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key)) 
       });

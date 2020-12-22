@@ -86,7 +86,7 @@ const setCustomTemplateUidAction = data => {
 }
     
 const setAllAction = data => ({
-    type: actions.SET_ACTIVE_TEXT_TYPE,
+    type: actions.SET_MAIN_STYLES,
     payload: data
 })
 

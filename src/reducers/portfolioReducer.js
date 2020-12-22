@@ -4,42 +4,60 @@ const initialState = {
         link: 'youtube.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        stack: [],
+        stack: [{ title: 'DB2' },
+        { title: 'Microsoft Access' },
+        { title: 'Redis' },
+        { title: 'Elasticsearch' },],
     },
     secondProject: {
         name: 'Instargram',
         link: 'instagram.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        stack: [],
+        stack: [{ title: 'DB2' },
+        { title: 'Microsoft Access' },
+        { title: 'Redis' },
+        { title: 'Elasticsearch' },],
     },
     thirdProject: {
         name: 'Whatsup',
         link: 'whatsup.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        stack: [],
+        stack: [{ title: 'DB2' },
+        { title: 'Microsoft Access' },
+        { title: 'Redis' },
+        { title: 'Elasticsearch' },],
     },
     fourthProject: {
         name: 'TikTok',
         link: 'tiktok.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        stack: [],
+        stack: [{ title: 'DB2' },
+        { title: 'Microsoft Access' },
+        { title: 'Redis' },
+        { title: 'Elasticsearch' },],
     },
     fifthProject: {
         name: 'Azino777',
         link: 'Azino777.com',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-        stack: [],
+        stack: [{ title: 'DB2' },
+        { title: 'Microsoft Access' },
+        { title: 'Redis' },
+        { title: 'Elasticsearch' },],
     },
     sixthProject: {
-        name: '',
-        link: '',
-        summary: '',
-        whatYouDo: '',
-        stack: [],
+        name: 'asd',
+        link: 'asd',
+        summary: 'asd',
+        whatYouDo: 'asd',
+        stack: [{ title: 'DB2' },
+        { title: 'Microsoft Access' },
+        { title: 'Redis' },
+        { title: 'Elasticsearch' },],
     }
 }
 
@@ -197,6 +215,18 @@ const portfolioReducer = (state = initialState, actions) => {
                 ...state,
                 sixthProject: { ...state.sixthProject, stack: actions.payload }
             }
+
+        case "SET_PORTFOLIO_ALL":
+                return {
+                    ...state,
+                    firstProject:actions.payload?.firstProject,
+                    secondProject:actions.payload?.secondProject,
+                    thirdProject:actions.payload?.thirdProject,
+                    fourthProject:actions.payload?.fourthProject,
+                    fifthProject:actions.payload?.fifthProject,
+                    sixthProject:actions.payload?.sixthProject,
+                }
+
         default: 
         return state
     }

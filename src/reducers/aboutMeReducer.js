@@ -17,22 +17,22 @@ const initialState = {
 
 const aboutMeReducer = (state=initialState, actions) => {
     switch(actions.type){
-        case 'SET_ALL':
+        case 'SET_ALL_USER_INFO':
             return {
             ...state,
-            firstName: actions.payload.firstName,
-            secondName: actions.payload.secondName,
-            careerObjective: actions.payload.careerObjective,
-            aboutMeInfo: actions.payload.aboutMeInfo,
-            email: actions.payload.email,
-            vkontakte: actions.payload.vkontakte,
-            skype: actions.payload.skype,
-            phoneNumber: actions.payload.phoneNumber,
-            github: actions.payload.github,
-            facebook: actions.payload.facebook,
-            education: actions.payload.education,
-            avatar: actions.payload.avatar,
-            languages: actions.payload.languages,
+            firstName: actions.payload?.firstName,
+            secondName: actions.payload?.secondName,
+            careerObjective: actions.payload?.careerObjective,
+            aboutMeInfo: actions.payload?.aboutMeInfo,
+            email: actions.payload?.email,
+            vkontakte: actions.payload?.vkontakte,
+            skype: actions.payload?.skype,
+            phoneNumber: actions.payload?.phoneNumber,
+            github: actions.payload?.github,
+            facebook: actions.payload?.facebook,
+            education: actions.payload?.education,
+            avatar: actions.payload?.avatar,
+            languages: actions.payload?.languages,
         }
         case 'SET_FIRSTNAME':
             return {

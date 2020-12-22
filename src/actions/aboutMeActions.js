@@ -71,7 +71,7 @@ const setAvatarAction = (data) => ({
 })
 
 const setAllAction = (data) => ({
-    type: actions.SET_ALL,
+    type: actions.SET_ALL_USER_INFO,
     payload: data
 })
 

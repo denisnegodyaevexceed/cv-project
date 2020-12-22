@@ -12,6 +12,19 @@ const initialState = {
 const aboutWorkHistoryReducer = (state = initialState, actions) => {
 
     switch (actions.type) {
+
+        case 'SET_ALL_HISTORY':
+            return {
+                ...state,
+                firstCompany: actions.payload?.firstCompany,
+                firstPosition: actions.payload?.firstPosition,
+                firstDescription: actions.payload?.firstDescription,
+                secondCompany: actions.payload?.secondCompany,
+                secondPosition: actions.payload?.secondPosition,
+                secondDescription: actions.payload?.secondDescription,
+            }
+        
+
         case 'SET_FIRSTCOMPANY_NAME':
             return {
                 ...state,

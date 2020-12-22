@@ -49,6 +49,7 @@ const TextDecorateButtons = () => {
         subTitleSize,
         textSize,
         smallTextSize,
+        avaBorderRadius,
         nameColor,
         posColor,
         titleColor,
@@ -70,10 +71,18 @@ const TextDecorateButtons = () => {
         dispatch(setTextAlignAction(type))
     }
 
-    const setRadius = (_, value) => {
-        dispatch(setAvaBorderRadiusAction(value))
-        
+    const onChangeSlider = (event, value) => {
+        dispatch(setAvaBorderRadiusAction(value));
     }
+
+    React.useEffect(() => { 
+        setValueSize(nameSize);
+    }, [nameSize]);
+
+
+    React.useEffect(() => { 
+        setValueColor(nameColor);
+    }, [nameColor]);
 
     const handlerChangeTypeText = (e) => {
         dispatch(setActiveTextTypeAction(e.target.value))
@@ -216,7 +225,7 @@ const TextDecorateButtons = () => {
                         <Slider
                             min={0}
                             max={500}
-                            onChangeCommitted={setRadius}
+                            onChangeCommitted={onChangeSlider}
                             aria-labelledby="continuous-slider"
                         />
                     </div>

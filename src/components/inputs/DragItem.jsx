@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
-import firebase from 'firebase';
 
 
 const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
@@ -12,15 +11,12 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
         textAlign: textAlign,
         alignItems: posVertical,
     });
-    const useStyles = makeStyles((theme) => ({
-        root: newStyle,
-    }));
-    const classes = useStyles();
     const {setActiveBlockAction, setVerticalPosAction, setTextAlignAction} = allCustomizedTemplateActions;
     const dispatch = useDispatch();
 
     const updateStyleVer = () => {
         if(id === activeBlock){
+        console.log(200, posVertical, id)
             setNewStyle({
                 ...newStyle,
                 alignItems: posVertical,
@@ -38,7 +34,6 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
     }
 
     useEffect(() => { 
-
         updateStyleVer();
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [posVertical]);
@@ -57,7 +52,11 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
 
     return (
         <div  className="grid-stack-item" gs-w={gsw} gs-h={gsh} onMouseDown={() => handleClickItem()}>
-            <div data-id={id} className={`${classes.root} ${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
+            <div data-id={id} style={{
+                display: "flex",
+                textAlign: newStyle.textAlign,
+                alignItems: newStyle.alignItems,
+            }} className={`${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
             >{renderContent}</div>
         </div>
     );
