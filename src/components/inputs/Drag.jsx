@@ -26,6 +26,12 @@ import AboutMe from "./aboutMe";
 import Portfolio from "./portfolio";
 import AboutWorkHistory from "./aboutWorkHistory";
 import AboutHardSkills from "./aboutHardSkills";
+import firebase from 'firebase';
+import {
+  useParams,
+} from "react-router-dom";
+
+import allAboutMeActions from '../../actions/aboutMeActions';
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -40,6 +46,7 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
+  let { uid } = useParams();
   let pdfExportComponent;
   const dispatch = useDispatch();
   const { 
@@ -59,8 +66,13 @@ const Drag = () => {
     subTitleColor,
     textColor,
     smallTextColor,
+    customizedTemplateUid,
   } = useSelector(state => state.customizedTemplateReducer);
+  const usersStyles = useSelector(state => state.customizedTemplateReducer);
   const userInfo = useSelector((state) => state.aboutMeReducer);
+  const userAboutHardSkills = useSelector((state) => state.aboutHardSkillsReducer);
+  const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
+  const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
   const [cls, setCls] = useState(["side1"]);
   const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
@@ -95,6 +107,77 @@ const Drag = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
   const classes3 = useStyles3();
+
+
+  let s = (a) => JSON.stringify(a, null, 2);
+
+
+
+  //SAVE
+
+  useEffect(() => {
+    let cleanupFunction = false;
+    if(uid){
+
+      dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(uid));
+      const fetchData = () => {
+        firebase.database().ref(`templates/${uid}`).on('value', (snapshot) => {
+          const data = snapshot.val();
+          console.log(data);
+          dispatch(allAboutMeActions.setAllAction(data.info));
+          // dispatch(allCustomizedTemplateActions.setAllAction(data.info));
+        });
+      }
+  
+      if(!cleanupFunction){
+        fetchData();
+      }
+
+
+    }
+    return () => cleanupFunction = true;
+  }, [uid]);
+
+
+  const handlerSaveTemplate = () => {
+    let stylesBlock = [];
+    let blocksArr = document.querySelectorAll('.grid-stack-item-content');
+    blocksArr.forEach((item, i) => {
+      stylesBlock.push({
+        id: item.getAttribute('data-id'),
+        ver: getComputedStyle(item).alignItems,
+        hor: getComputedStyle(item).textAlign,
+      })
+    })
+
+    if( customizedTemplateUid ){
+      let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);
+      newTemplate.update({
+        stylesMain: usersStyles,
+        info: userInfo,
+        portfolio: userInfoPortfolio,
+        stylesBlock: stylesBlock,
+        userWorkHistory,
+        userAboutHardSkills,
+      });
+    } else {
+      let newTemplate = firebase.database().ref('templates/');
+      newTemplate.push({
+        stylesMain: usersStyles,
+        info: userInfo,
+        portfolio: userInfoPortfolio,
+        stylesBlock: stylesBlock,
+        userWorkHistory,
+        userAboutHardSkills,
+      }).then((snap) => {
+        dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key)) 
+      });
+    }
+  }
+
+//SAVE
+
+
 
   useEffect(() => {
     if (open2) {
@@ -234,6 +317,16 @@ const Drag = () => {
         >
           Change Template
         </Button>
+
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        onClick={()=>{handlerSaveTemplate();}}
+        >
+          save{customizedTemplateUid}
+        </Button>
+
                 </div>
         </Grid>
         <Grid item xs={12}>

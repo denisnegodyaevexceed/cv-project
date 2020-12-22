@@ -36,14 +36,21 @@ const DragPortfolio = ({
     backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
 
+    let grid;
     React.useEffect(() => {
     let options = {
         disableOneColumnMode: true,
         float: false,
         cellHeight: 5,
     };
-    GridStack.init(options, ".grid-stack-page2");
+    grid = GridStack.init(options, ".grid-stack-page2");
     }, []);
+
+
+    // React.useEffect(() => {
+    //   grid?.update('grid-stack-page2');
+    // }, [projects]);
+  
 
     return (
         <div className="grid-stack grid-stack-page2 page-break grid-stack-portfolio " style={backgroundControll}>

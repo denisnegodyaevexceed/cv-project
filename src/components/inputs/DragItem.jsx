@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
+import firebase from 'firebase';
 
 
 const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
@@ -17,8 +18,6 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
     const classes = useStyles();
     const {setActiveBlockAction, setVerticalPosAction, setTextAlignAction} = allCustomizedTemplateActions;
     const dispatch = useDispatch();
-
-    
 
     const updateStyleVer = () => {
         if(id === activeBlock){
@@ -57,8 +56,8 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
 }
 
     return (
-        <div className="grid-stack-item" gs-w={gsw} gs-h={gsh} onMouseDown={() => handleClickItem()}>
-            <div className={`${classes.root} ${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
+        <div  className="grid-stack-item" gs-w={gsw} gs-h={gsh} onMouseDown={() => handleClickItem()}>
+            <div data-id={id} className={`${classes.root} ${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
             >{renderContent}</div>
         </div>
     );
@@ -66,4 +65,4 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
 
 
 
-export default DragItem
+export default DragItem;

@@ -25,8 +25,8 @@ const DragHeader = ({styleName, stylePosition}) => {
         backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
 
     return (
-        <div className='grid-stack grid-stack-header' style={backgroundControll}>
-            <DragItem id={1} gsh={48} gsw={4} renderContent={
+        <div  className='grid-stack grid-stack-header' style={backgroundControll}>
+            <DragItem  id={1} gsh={48} gsw={4} renderContent={
                 <div  style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -43,4 +43,4 @@ const DragHeader = ({styleName, stylePosition}) => {
     )
 }
 
-export default DragHeader;
+export default DragHeader   ;

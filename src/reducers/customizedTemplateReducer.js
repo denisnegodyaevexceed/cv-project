@@ -25,6 +25,7 @@ const initialState = {
     subTitleColor: '#aa1060',
     textColor: '#aa1060',
     smallTextColor: '#aa1060',
+    customizedTemplateUid: null,
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
@@ -35,6 +36,36 @@ const customizedTemplateReducer = (state=initialState, actions) => {
                 headerBackground: actions.payload,
                 headerImage: '',
                 headerImageValue: ''
+            }
+
+        case 'SET_ALL':
+            return{
+                ...state,
+                headerBackground: actions.payload.headerBackground,
+                textAlign: actions.payload.textAlign,
+                posVertical: actions.payload.posVertical,
+                activeBlock: actions.payload.activeBlock,
+                avaBorderRadius: actions.payload.avaBorderRadius,
+                headerImage: actions.payload.headerImage,
+                headerImagePosition: actions.payload.headerImagePosition,
+                headerImageValue: actions.payload.headerImageValue,
+                bodyBackground: actions.payload.bodyBackground,
+                bodyImage: actions.payload.bodyImage,
+                bodyImagePosition: actions.payload.bodyImagePosition,
+                bodyImageValue: actions.payload.bodyImageValue,
+                activeTextType:actions.payload.activeTextType,
+                nameSize: actions.payload.nameSize,
+                posSize: actions.payload.posSize,
+                titleSize: actions.payload.titleSize,
+                subTitleSize: actions.payload.subTitleSize,
+                textSize: actions.payload.textSize,
+                smallTextSize: actions.payload.smallTextSize,
+                nameColor: actions.payload.nameColor,
+                posColor: actions.payload.posColor,
+                titleColor: actions.payload.titleColor,
+                subTitleColor: actions.payload.subTitleColor,
+                textColor: actions.payload.textColor,
+                smallTextColor: actions.payload.smallTextColor,
             }
 
         case 'SET_VERTICAL_POS':
@@ -97,6 +128,12 @@ const customizedTemplateReducer = (state=initialState, actions) => {
                 return{
                     ...state,
                     activeTextType: actions.payload
+                }
+
+        case 'SET_CUSTOM_TEMPLATE_UID':
+                return{
+                    ...state,
+                    customizedTemplateUid: actions.payload,
                 }
 
         case 'SET_ACTIVE_TEXT_SIZE':
