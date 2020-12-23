@@ -66,6 +66,7 @@ const Drag = () => {
     headerBackground, 
     bodyBackground, 
     headerImageValue,  
+    headerImage,
     bodyImageValue,
     nameSize,
     posSize,
@@ -147,6 +148,7 @@ const Drag = () => {
           dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
           dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
           setFont(data.font);
+        
           let blocksArr = document.querySelectorAll('.grid-stack-item-content');
           blocksArr.forEach((item, i) => {
             data.stylesBlock.map(itemArr => {
@@ -204,7 +206,10 @@ const Drag = () => {
         y: item.getAttribute('gs-y'),
       })
       
-    })
+    });
+
+ 
+     
 
     if( customizedTemplateUid ){
       let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);

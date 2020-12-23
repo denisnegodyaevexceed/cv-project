@@ -56,19 +56,11 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
             
         }
 
-        let options = { 
-            cellHeight: 5,
-            disableOneColumnMode: true,
-            float: false,
-        };
-
         return() => {
-            console.log(`off${id}`);
             q.removeAll(false);
             document.querySelectorAll('.itemPortfolio').forEach((item, index) => {
                 q.makeWidget(`#${item.getAttribute('id')}`);
             })
-            // q.makeWidget
         }
     }, []);
 
