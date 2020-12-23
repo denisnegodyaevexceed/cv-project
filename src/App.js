@@ -25,7 +25,7 @@ function App() {
   const routes = [
     { path: "/", Component: Test },
     { path: "/templates", Component: templatePage },
-    { path: '/test', Component: Test },
+    // { path: '/test', Component: Test },
   ];
 
   const correctTemplate = (templateNumber) => {
