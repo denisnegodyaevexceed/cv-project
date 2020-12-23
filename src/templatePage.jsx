@@ -8,6 +8,9 @@ import allTemplateActions from "./actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import MuiAlert from '@material-ui/lab/Alert';
+import firebase from 'firebase';
+import { useHistory } from "react-router-dom";
+import allCustomizedTemplateActions from './actions/customizedTemplateActions';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -19,10 +22,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid() {
+  let history = useHistory();
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
   const [open, setOpen] = React.useState(false);
+  const [savedTemplates, setSavedTemplates] = React.useState([]);
 
   const handleClick = () => {
     setOpen(true);
@@ -32,7 +37,6 @@ export default function CenteredGrid() {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
   };
 
@@ -41,6 +45,40 @@ export default function CenteredGrid() {
   const dispatch = useDispatch();
 
   const { templateNumber } = useSelector((state) => state.templateReducer);
+
+  React.useEffect(() => {
+    let cleanupFunction = false;
+    const fetchData = () => {
+      let itemList = [];
+      firebase.database().ref(`templates/`).on('value', (snapshot) => {
+        const data = snapshot.val();
+        let i = 0;
+        const resp = data;
+        for (let key in resp){
+          itemList[i] = {
+              uid: key,
+              name: resp[key].info.firstName,
+          } 
+          i++;
+        }
+        setSavedTemplates(itemList);
+      });
+    }
+
+    if(!cleanupFunction){
+      fetchData();
+    }
+    return () => cleanupFunction = true;
+  }, [])
+
+
+  const loadTemplate = (uid) => {
+    history.push(`/resumeLoad/${uid}`);
+  }
+
+
+
+   
 
   return (
     <div className="page">
@@ -198,13 +236,22 @@ export default function CenteredGrid() {
 
         {templateNumber===""?<h3 className="h3-template">
 please select a template</h3>:<Button
-          to="/resume"
-          component={Link}
+          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
           variant="contained"
           color="secondary"
         >
           Next
         </Button>}
+
+
+        <ul style={{color: 'white'}}>
+          {savedTemplates.map((item, index) => (
+            <li onClick={() => loadTemplate(item.uid)} key={index}>{item.name}</li>
+          ))}
+        </ul>
+
+
+
         
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

@@ -61,11 +61,11 @@ const Portfolio = () => {
   let sixthSummaryCounter = (220 - sixthProject.summary.length) + ' letters left.'
   let sixthWhatYouDoCounter = (180 - sixthProject.whatYouDo.length) + ' letters left.'
 
-  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack.length>0) && !(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject.stack.length>0))
-  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack.length>0) && !(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject.stack.length>0))
-  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack.length>0) && !(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject.stack.length>0))
-  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack.length>0) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack.length>0))
-  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject.stack.length>0) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack.length>0))
+  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject?.stack?.length>0) && !(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject.stack.length>0))
+  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject?.stack?.length>0) && !(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject.stack.length>0))
+  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject?.stack?.length>0) && !(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject.stack.length>0))
+  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject?.stack?.length>0) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack.length>0))
+  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject?.stack?.length>0) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack.length>0))
 
   return (
     <div className='container'>
@@ -84,7 +84,7 @@ const Portfolio = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off">
                 <TextField value={firstProject.name} onChange={e => dispatch(allPortfolioActions.setFirstProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={firstProject.link} onChange={e => dispatch(allPortfolioActions.setFirstProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
@@ -104,9 +104,9 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                 />
-              </form>
+              </div>
               <h3>Stack:</h3>
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
@@ -127,7 +127,7 @@ const Portfolio = () => {
                     )}
                   />
                 </div>
-                </form>
+                </div>
               <h4>
                 All fields are required.</h4>
             </div>
@@ -144,7 +144,7 @@ const Portfolio = () => {
           <AccordionDetails>
             <div>
 
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off">
                 <TextField value={secondProject.name} onChange={e => dispatch(allPortfolioActions.setSecondProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={secondProject.link} onChange={e => dispatch(allPortfolioActions.setSecondProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
@@ -165,8 +165,8 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   />
-              </form>
-              <form className={classes.root} noValidate autoComplete="off">
+              </div>
+              <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
@@ -187,7 +187,7 @@ const Portfolio = () => {
                     )}
                   />
                 </div>
-                </form>
+                </div>
               <p>
                 All fields are required.</p>
             </div>
@@ -203,7 +203,7 @@ const Portfolio = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off" >
                 <TextField value={thirdProject.name} onChange={e => dispatch(allPortfolioActions.setThirdProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={thirdProject.link} onChange={e => dispatch(allPortfolioActions.setThirdProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
@@ -224,15 +224,15 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   />
-              </form>
-              <form className={classes.root} noValidate autoComplete="off">
+              </div>
+              <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setThirdProjectStack(values))}
-                    value={thirdProject.stack}
+                    value={thirdProject?.stack}
 
                     renderInput={params => (
                       <TextField
@@ -245,7 +245,7 @@ const Portfolio = () => {
                     )}
                   />
                 </div>
-                </form>
+                </div>
               <p>
                 All fields are required.</p>
             </div>
@@ -261,7 +261,7 @@ const Portfolio = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off">
                 <TextField value={fourthProject.name} onChange={e => dispatch(allPortfolioActions.setFourthProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={fourthProject.link} onChange={e => dispatch(allPortfolioActions.setFourthProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
@@ -283,8 +283,8 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   />
-              </form>
-              <form className={classes.root} noValidate autoComplete="off">
+              </div>
+              <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
@@ -305,7 +305,7 @@ const Portfolio = () => {
                     )}
                   />
                 </div>
-                </form>
+                </div>
               <p>
                 All fields are required.</p>
             </div>
@@ -321,7 +321,7 @@ const Portfolio = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off">
                 <TextField value={fifthProject.name} onChange={e => dispatch(allPortfolioActions.setFifthProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={fifthProject.link} onChange={e => dispatch(allPortfolioActions.setFifthProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
@@ -343,8 +343,8 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   />
-              </form>
-              <form className={classes.root} noValidate autoComplete="off">
+              </div>
+              <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
@@ -365,7 +365,7 @@ const Portfolio = () => {
                     )}
                   />
                 </div>
-                </form>
+                </div>
               <p>
                 All fields are required.</p>
             </div>
@@ -381,7 +381,7 @@ const Portfolio = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <form className={classes.root} noValidate autoComplete="off">
+              <div className={classes.root} noValidate autoComplete="off">
                 <TextField value={sixthProject.name} onChange={e => dispatch(allPortfolioActions.setSixthProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={sixthProject.link} onChange={e => dispatch(allPortfolioActions.setSixthProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
@@ -403,8 +403,8 @@ const Portfolio = () => {
                   multiline
                   rowsMax={10}
                   />
-              </form>
-              <form className={classes.root} noValidate autoComplete="off">
+              </div>
+              <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
@@ -425,7 +425,7 @@ const Portfolio = () => {
                     )}
                   />
                 </div>
-                </form>
+                </div>
               <p>
                 All fields are required.</p>
             </div>

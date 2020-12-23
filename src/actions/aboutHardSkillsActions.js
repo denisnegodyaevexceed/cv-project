@@ -20,11 +20,27 @@ const setOtherAction = (data) => ({
     payload: data
 })
 
+const setAllSkillsAction = (data) => {
+let newObj = {frontend: [], backend: [], dbs: [], other: []};
+
+    if(typeof data === 'object'){
+        for(let key in data){
+            newObj[key] = data[key]
+        }
+    }
+
+   
+   
+    return { type: actions.SET_ALL_SKILLS,
+    payload: newObj}
+}
+
 const allHardSkillsActions = {
     setFrontendAction,
     setBackendAction,
     setDbsAction,
-    setOtherAction
+    setOtherAction,
+    setAllSkillsAction
 }
 
 export default allHardSkillsActions

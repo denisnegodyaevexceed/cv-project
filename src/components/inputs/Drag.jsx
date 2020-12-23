@@ -26,6 +26,18 @@ import AboutMe from "./aboutMe";
 import Portfolio from "./portfolio";
 import AboutWorkHistory from "./aboutWorkHistory";
 import AboutHardSkills from "./aboutHardSkills";
+import firebase from 'firebase';
+import {
+  useParams,
+} from "react-router-dom";
+import { useHistory } from 'react-router'
+import allAboutMeActions from '../../actions/aboutMeActions';
+import allAboutWorkActions from '../../actions/aboutWorkActions';
+import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
+import allPortfolioActions from "../../actions/portfolioActions";
+
+
+
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -40,6 +52,8 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
+  const history = useHistory()
+  let { uid } = useParams();
   let pdfExportComponent;
   const dispatch = useDispatch();
   const { 
@@ -59,8 +73,13 @@ const Drag = () => {
     subTitleColor,
     textColor,
     smallTextColor,
+    customizedTemplateUid,
   } = useSelector(state => state.customizedTemplateReducer);
+  const usersStyles = useSelector(state => state.customizedTemplateReducer);
   const userInfo = useSelector((state) => state.aboutMeReducer);
+  const userAboutHardSkills = useSelector((state) => state.aboutHardSkillsReducer);
+  const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
+  const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
   const [cls, setCls] = useState(["side1"]);
   const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
@@ -95,6 +114,109 @@ const Drag = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
   const classes3 = useStyles3();
+
+
+
+
+
+
+  //SAVE
+  // useEffect(() => {history.go(0)}, [history,uid])
+
+  useEffect(() => {
+    let cleanupFunction = false;
+    if(uid){
+      dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(uid));
+      const fetchData = () => {
+        firebase.database().ref(`templates/${uid}`).on('value', (snapshot) => {
+          const data = snapshot.val();
+          dispatch(allAboutMeActions.setAllAction(data.info));
+          dispatch(allCustomizedTemplateActions.setAllAction(data.stylesMain));
+          dispatch(allAboutWorkActions.setAllHistoryAction(data.userWorkHistory));
+          dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
+          dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
+          
+          setFont(data.font);
+          let blocksArr = document.querySelectorAll('.grid-stack-item-content');
+          blocksArr.forEach((item, i) => {
+            data.stylesBlock.map(itemArr => {
+              if (itemArr.id === item.getAttribute('data-id')){
+                item.style.alignItems = itemArr.ver; 
+                item.style.textAlign = itemArr.hor; 
+              }
+            })
+          })
+
+        });
+      }
+  
+      // if(!cleanupFunction){
+        fetchData();
+      // }
+
+
+    }
+    return () => cleanupFunction = true;
+  }, [uid]);
+
+
+  const handlerSaveTemplate = () => {
+    let stylesBlock = [];
+    let blocksArr = document.querySelectorAll('.grid-stack-item-content');
+    blocksArr.forEach((item, i) => {
+      stylesBlock.push({
+        id: item.getAttribute('data-id'),
+        ver: getComputedStyle(item).alignItems,
+        hor: getComputedStyle(item).textAlign,
+      })
+    });
+
+
+    let matrixBlock = [];
+    let blocksArrMatrix = document.querySelectorAll('.grid-stack-item');
+    blocksArrMatrix.forEach((item, i) => {
+      matrixBlock.push({
+        h: item.getAttribute('gs-h'),
+        w: item.getAttribute('gs-w'),
+        x: item.getAttribute('gs-x'),
+        y: item.getAttribute('gs-y'),
+      })
+
+      console.log(matrixBlock,11)
+    })
+
+    if( customizedTemplateUid ){
+      let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);
+      newTemplate.update({
+        stylesMain: usersStyles,
+        info: userInfo,
+        portfolio: userInfoPortfolio,
+        stylesBlock: stylesBlock,
+        userWorkHistory,
+        userAboutHardSkills,
+        font: font,
+        matrixBlock: matrixBlock,
+      });
+    } else {
+      let newTemplate = firebase.database().ref('templates/');
+      newTemplate.push({
+        stylesMain: usersStyles,
+        info: userInfo,
+        portfolio: userInfoPortfolio,
+        stylesBlock: stylesBlock,
+        userWorkHistory,
+        userAboutHardSkills,
+        font: font, 
+        matrixBlock: matrixBlock,
+      }).then((snap) => {
+        dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key)) 
+      });
+    }
+  }
+
+//SAVE
+
+
 
   useEffect(() => {
     if (open2) {
@@ -234,6 +356,16 @@ const Drag = () => {
         >
           Change Template
         </Button>
+
+        <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        onClick={()=>{handlerSaveTemplate();}}
+        >
+          save{customizedTemplateUid}
+        </Button>
+
                 </div>
         </Grid>
         <Grid item xs={12}>

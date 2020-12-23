@@ -77,8 +77,18 @@ const setTypeColorAction = data => {
         payload: data
     }
 }
-    
 
+const setCustomTemplateUidAction = data => {
+    return {
+        type: actions.SET_CUSTOM_TEMPLATE_UID,
+        payload: data
+    }
+}
+    
+const setAllAction = data => ({
+    type: actions.SET_MAIN_STYLES,
+    payload: data
+})
 
 
 const allCustomizedTemplateActions = {
@@ -95,6 +105,8 @@ const allCustomizedTemplateActions = {
     setActiveTextTypeAction,
     setTypeSizeAction,
     setTypeColorAction,
+    setCustomTemplateUidAction,
+    setAllAction,
 }
 
 export default allCustomizedTemplateActions

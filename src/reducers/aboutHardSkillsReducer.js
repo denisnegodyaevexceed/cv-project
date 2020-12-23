@@ -7,6 +7,15 @@ const initialState = {
 
 const aboutHardSkillsReducer = (state = initialState, actions) => {
     switch(actions.type){
+        case 'SET_ALL_SKILLS':
+            return{
+                ...state,
+                frontend: actions.payload?.frontend,
+                backend: actions.payload?.backend,
+                dbs: actions.payload?.dbs,
+                other: actions.payload?.other,
+                
+            }
         case 'SET_FRONTEND':
             return {
                 ...state,

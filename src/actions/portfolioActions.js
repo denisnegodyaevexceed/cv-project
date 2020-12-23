@@ -152,6 +152,19 @@ const setSixthProjectStack = (data) =>({
     payload: data
 })
 
+const setAllPortfolioAction =(data)=>{
+    let newObj = data;
+    for(let key in newObj){
+        if(!newObj[key].stack){
+            newObj[key].stack = [];
+        }
+    }
+    return ({
+        type:actions.SET_PORTFOLIO_ALL,
+        payload:newObj,
+    })
+}
+
 const allPortfolioActions = {
     setFirstProjectName,
     setFirstProjectLink,
@@ -188,6 +201,8 @@ const allPortfolioActions = {
     setSixthProjectSummary,
     setSixthProjectWhatYouDo,
     setSixthProjectStack,
+
+    setAllPortfolioAction,
 }
 
 export default allPortfolioActions

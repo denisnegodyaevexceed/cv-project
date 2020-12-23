@@ -31,13 +31,19 @@ const setSecondCompanyDescription = (data) => ({
     payload: data
 })
 
+const setAllHistoryAction = (data) => ({
+    type: actions.SET_ALL_HISTORY,
+    payload: data
+})
+
 const allAboutWorkActions = {
     setFirstCompanyName,
     setFirstCompanyPosition,
     setFirstCompanyDescription,
     setSecondCompanyName,
     setSecondCompanyPosition,
-    setSecondCompanyDescription
+    setSecondCompanyDescription,
+    setAllHistoryAction,
 }
 
 export default allAboutWorkActions

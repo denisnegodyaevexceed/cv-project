@@ -70,6 +70,12 @@ const setAvatarAction = (data) => ({
     payload: data
 })
 
+const setAllAction = (data) => ({
+    type: actions.SET_ALL_USER_INFO,
+    payload: data
+})
+
+
 
 const allAboutMeActions = {
     setFirstNameAction,
@@ -85,7 +91,8 @@ const allAboutMeActions = {
     setFacebookAction,
     setEducationAction,
     setLanguagesAction,
-    setAvatarAction
+    setAvatarAction,
+    setAllAction,
 }
 
 export default allAboutMeActions

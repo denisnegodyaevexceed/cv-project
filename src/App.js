@@ -11,6 +11,10 @@ import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
 import Drag from "./components/inputs/Drag";
+import { 
+  FirebaseDatabaseProvider,
+} from "@react-firebase/database";
+import firebase from 'firebase';
 
 
 
@@ -37,7 +41,7 @@ function App() {
         return Template4;
       case "5":
         return Template5;
-        case "6":
+      case "6":
         return Drag;
 
       default:
@@ -45,10 +49,23 @@ function App() {
     }
   };
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDp6Mq2-Vim1vNU9pX3tcAY61NVE_9yqws",
+    authDomain: "portfolio-f27a6.firebaseapp.com",
+    databaseURL: "https://portfolio-f27a6-default-rtdb.firebaseio.com",
+    projectId: "portfolio-f27a6",
+    storageBucket: "portfolio-f27a6.appspot.com",
+    messagingSenderId: "377003541624",
+    appId: "1:377003541624:web:9b7ac0cb085d26468e998d",
+    measurementId: "G-2L5V383TM9"
+  };
+
   return (
     <BrowserRouter>
+      <FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
       <Switch>
-        <Route path="/resume" component={correctTemplate(templateNumber)} />
+        <Route path="/resume/" component={correctTemplate(templateNumber)} />
+        <Route path="/resumeLoad/:uid" component={Drag} />
       </Switch>
       <div className="App">
         {routes.map(({ path, Component }) => (
@@ -61,11 +78,13 @@ function App() {
                 in={match !== null}
               >
                 <Component />
+
               </CSSTransition>
             )}
           </Route>
         ))}
       </div>
+      </FirebaseDatabaseProvider>
     </BrowserRouter>
   );
 }

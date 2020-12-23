@@ -46,7 +46,7 @@ const DragBody = ({
                     <div className="">
                         <div className="" style={styleTitle}>TECH STACK</div>
                         <div className="">
-                            {frontend.length > 0 && <div  style={styleSubTitle}>Frontend</div>}
+                            {frontend?.length > 0 && <div  style={styleSubTitle}>Frontend</div>}
                             
                             <div className="mar-bot"> 
                                 {frontend.map((item, index) => {
@@ -57,7 +57,7 @@ const DragBody = ({
                                 
                         <div className="mar-bot">
                             <div>
-                            {backend.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
+                            {backend?.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
                             <div>
                                 {backend.map((item, index) => {
                                 return <div style={styleText} key={index}>{item.title}</div>;
@@ -66,7 +66,7 @@ const DragBody = ({
                             </div>
                         </div>
                         <div className="mar-bot">
-                            {dbs.length > 0 && <div className="" style={styleSubTitle}>DBS</div>}
+                            {dbs?.length > 0 && <div className="" style={styleSubTitle}>DBS</div>}
                             <div>
                                 {dbs.map((item, index) => {
                                 return <div style={styleText} key={index}>{item.title}</div>;
@@ -74,7 +74,7 @@ const DragBody = ({
                             </div>
                         </div>
                         <div className="">
-                            {other.length > 0 && <div className="" style={styleSubTitle}>Other</div>}
+                            {other?.length > 0 && <div className="" style={styleSubTitle}>Other</div>}
                             <div>
                                 {other.map((item, index) => {
                                 return <div style={styleText} key={index}>{item.title}</div>;
