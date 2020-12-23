@@ -1466,3 +1466,15 @@ margin: 0 auto;
     width: 100%;
    
 }
+
+
+.loadPage{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    background-color: white;
+    width: 3000px;
+    height: 100vh;
+    overflow: hidden;
+}

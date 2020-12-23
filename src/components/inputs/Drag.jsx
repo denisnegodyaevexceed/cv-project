@@ -38,6 +38,7 @@ import allPortfolioActions from "../../actions/portfolioActions";
 
 // import {gridHeader} from './DragHeader';
 import {GridStack} from 'gridstack';
+import Load from "./Load";
 
 
 
@@ -56,6 +57,7 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
+
   const history = useHistory()
   let { uid } = useParams();
   let pdfExportComponent;
@@ -119,15 +121,15 @@ const Drag = () => {
   const classes2 = useStyles2();
   const classes3 = useStyles3();
 
-  // useEffect(() => {
-  //   if(userInfoPortfolio.firstProject.name && userInfoPortfolio.firstProject.summary && userInfoPortfolio.firstProject.whatYouDo){
-  //     q.makeWidget(`#grid-9`);
-  //   }
-  // }, [userInfoPortfolio.firstProject]);
- 
+
+
+
+  const [load, setLoad] = useState(true);
+
 
   //SAVE
   useEffect(() => {
+    
     let options = { 
       cellHeight: 5,
       disableOneColumnMode: true,
@@ -164,12 +166,15 @@ const Drag = () => {
         GridStack.init(options, '.grid-stack-header');
         GridStack.init(options, ".grid-stack-body");
         q = GridStack.init(options, ".grid-stack-page2");
+        setLoad(false)
       })
 
     } else {
       GridStack.init(options, '.grid-stack-header');
       GridStack.init(options, ".grid-stack-body");
       q = GridStack.init(options, ".grid-stack-page2");
+      setLoad(false)
+  
     }
 
   }, [uid]);
@@ -183,7 +188,9 @@ const Drag = () => {
         id: item.getAttribute('data-id'),
         ver: getComputedStyle(item).alignItems,
         hor: getComputedStyle(item).textAlign,
+
       })
+
     });
 
     let matrixBlock = [];
@@ -195,6 +202,7 @@ const Drag = () => {
         x: item.getAttribute('gs-x'),
         y: item.getAttribute('gs-y'),
       })
+      
     })
 
     if( customizedTemplateUid ){
@@ -346,7 +354,11 @@ const Drag = () => {
 
   
   return (
+    <>
+     
+    {load===true? <Load/>:null}
     <Container>
+      
       <Grid container>
         <Grid item xs={12}>
           <div className="button">
@@ -535,6 +547,7 @@ const Drag = () => {
         )}
       </div>
     </Container>
+    </>
   );
 };
 export default Drag;
