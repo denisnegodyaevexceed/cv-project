@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -9,8 +9,10 @@ import Snackbar from "@material-ui/core/Snackbar";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import MuiAlert from '@material-ui/lab/Alert';
 import firebase from 'firebase';
+
 import { useHistory } from "react-router-dom";
 import allCustomizedTemplateActions from './actions/customizedTemplateActions';
+import Load from "./components/inputs/Load";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,6 +28,7 @@ export default function CenteredGrid() {
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
+  const [isLoad, setIsLoad] = useState(true)
   const [open, setOpen] = React.useState(false);
   const [savedTemplates, setSavedTemplates] = React.useState([]);
 
@@ -62,6 +65,8 @@ export default function CenteredGrid() {
           i++;
         }
         setSavedTemplates(itemList);
+        setIsLoad(false)
+
       });
     }
 
@@ -81,7 +86,10 @@ export default function CenteredGrid() {
    
 
   return (
+    <>
+    
     <div className="page">
+    {isLoad?(<Load/>):null}
       <div className="container-pdf">
         <h2 className="h2-template">Choose a template</h2>
         <div className={classes.root}>
@@ -232,6 +240,25 @@ export default function CenteredGrid() {
             </Grid>
             
           </Grid>
+          <div>
+          <div className="title-block-customs">
+          Loaded templates
+          </div>
+          <div>
+          
+          </div>
+          <div className='cont-custom' style={{color: 'white'}}>
+          {savedTemplates.map((item, index) => (
+            
+            <div className="customs"  onClick={() => loadTemplate(item.uid)} key={index}>
+            <div className='custom-items'>
+              <div className="title-customs">Custom template</div>
+              {item.name}</div>
+            </div>
+          ))}
+        </div>
+        </div>
+
         </div>
 
         {templateNumber===""?<h3 className="h3-template">
@@ -244,12 +271,7 @@ please select a template</h3>:<Button
         </Button>}
 
 
-        <ul style={{color: 'white'}}>
-          {savedTemplates.map((item, index) => (
-            <li onClick={() => loadTemplate(item.uid)} key={index}>{item.name}</li>
-          ))}
-        </ul>
-
+        
 
 
         
@@ -261,5 +283,6 @@ please select a template</h3>:<Button
       </Snackbar>
       
     </div>
+    </>
   );
 }
