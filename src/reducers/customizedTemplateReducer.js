@@ -26,6 +26,93 @@ const initialState = {
     textColor: '#aa1060',
     smallTextColor: '#aa1060',
     customizedTemplateUid: null,
+    matrixBlock: [
+        {
+            h: 48,
+            w: 4,
+            x: 0,
+            y: 0,
+        },
+        {
+            h: 24,
+            w: 8,
+            x: 4,
+            y: 0,
+        },
+        {
+            h: 24,
+            w: 8,
+            x: 4,
+            y: 24,
+        },
+        {
+            h: 48,
+            w: 4,
+            x: 0,
+            y: 0,
+        },
+        {
+            h: 48,
+            w: 4,
+            x: 4,
+            y: 0,
+        },
+        {
+            h: 48,
+            w: 4,
+            x: 8,
+            y: 0,
+        },
+        {
+            h: 48,
+            w: 4,
+            x: 0,
+            y: 48,
+        },
+        {
+            h: 48,
+            w: 4,
+            x: 4,
+            y: 48,
+        },
+
+        {
+            h: 42,
+            w: 12,
+            x: 0,
+            y: 42,
+        },
+        {
+            h: 42,
+            w: 12,
+            x: 42,
+            y: 42,
+        },
+        {
+            h: 42,
+            w: 12,
+            x: 84,
+            y: 42,
+        },
+        {
+            h: 42,
+            w: 12,
+            x: 126,
+            y: 42,
+        },
+        {
+            h: 42,
+            w: 12,
+            x: 168,
+            y: 42,
+        },
+        {
+            h: 42,
+            w: 12,
+            x: 210,
+            y: 42,
+        },
+    ]
 }
 
 const customizedTemplateReducer = (state=initialState, actions) => {
@@ -38,17 +125,24 @@ const customizedTemplateReducer = (state=initialState, actions) => {
                 headerImageValue: ''
             }
 
+            
+        case 'SET_MATRIX':
+            return{
+                ...state,
+                matrixBlock: actions.payload,
+            }
+
         case 'SET_MAIN_STYLES':
             return{
                 ...state,
-                headerBackground: actions.payload.headerBackground,
+                headerBackground: actions.payload?.headerBackground,
                 textAlign: actions.payload?.textAlign,
                 posVertical: actions.payload?.posVertical,
                 avaBorderRadius: actions.payload?.avaBorderRadius,
                 // headerImage: actions.payload?.headerImage,
-                headerImagePosition: actions.payload.headerImagePosition,
-                headerImageValue: actions.payload.headerImageValue,
-                bodyBackground: actions.payload.bodyBackground,
+                headerImagePosition: actions.payload?.headerImagePosition,
+                headerImageValue: actions.payload?.headerImageValue,
+                bodyBackground: actions.payload?.bodyBackground,
                 // bodyImage: actions.payload?.bodyImage,
                 bodyImagePosition: actions.payload?.bodyImagePosition,
                 bodyImageValue: actions.payload?.bodyImageValue,

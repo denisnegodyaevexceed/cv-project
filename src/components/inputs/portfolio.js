@@ -48,24 +48,24 @@ const Portfolio = () => {
   const {techList} = useSelector(state => state.addTechnologyReducer)
   let uniqueArray = top100Films.concat(techList).concat()
 
-  let firstSummaryCounter = (220 - firstProject.summary.length) + ' letters left.'
-  let firstWhatYouDoCounter = (180 - firstProject.whatYouDo.length) + ' letters left.'
-  let secondSummaryCounter = (220 - secondProject.summary.length) + ' letters left.'
-  let secondWhatYouDoCounter = (180 - secondProject.whatYouDo.length) + ' letters left.'
-  let thirdSummaryCounter = (220 - thirdProject.summary.length) + ' letters left.'
-  let thirdWhatYouDoCounter = (180 - thirdProject.whatYouDo.length) + ' letters left.'
-  let fourthSummaryCounter = (220 - fourthProject.summary.length) + ' letters left.'
-  let fourthWhatYouDoCounter = (180 - fourthProject.whatYouDo.length) + ' letters left.'
-  let fifthSummaryCounter = (220 - fifthProject.summary.length) + ' letters left.'
-  let fifthWhatYouDoCounter = (180 - fifthProject.whatYouDo.length) + ' letters left.'
-  let sixthSummaryCounter = (220 - sixthProject.summary.length) + ' letters left.'
-  let sixthWhatYouDoCounter = (180 - sixthProject.whatYouDo.length) + ' letters left.'
+  let firstSummaryCounter = (220 - firstProject?.summary?.length) + ' letters left.'
+  let firstWhatYouDoCounter = (180 - firstProject?.whatYouDo?.length) + ' letters left.'
+  let secondSummaryCounter = (220 - secondProject?.summary?.length) + ' letters left.'
+  let secondWhatYouDoCounter = (180 - secondProject?.whatYouDo?.length) + ' letters left.'
+  let thirdSummaryCounter = (220 - thirdProject?.summary?.length) + ' letters left.'
+  let thirdWhatYouDoCounter = (180 - thirdProject?.whatYouDo?.length) + ' letters left.'
+  let fourthSummaryCounter = (220 - fourthProject?.summary?.length) + ' letters left.'
+  let fourthWhatYouDoCounter = (180 - fourthProject?.whatYouDo?.length) + ' letters left.'
+  let fifthSummaryCounter = (220 - fifthProject?.summary?.length) + ' letters left.'
+  let fifthWhatYouDoCounter = (180 - fifthProject?.whatYouDo?.length) + ' letters left.'
+  let sixthSummaryCounter = (220 - sixthProject?.summary?.length) + ' letters left.'
+  let sixthWhatYouDoCounter = (180 - sixthProject?.whatYouDo?.length) + ' letters left.'
 
-  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject?.stack?.length>0) && !(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject.stack.length>0))
-  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject?.stack?.length>0) && !(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject.stack.length>0))
-  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject?.stack?.length>0) && !(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject.stack.length>0))
-  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject?.stack?.length>0) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject.stack.length>0))
-  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject?.stack?.length>0) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject.stack.length>0))
+  let showSecond = (!(firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject?.stack?.length>0) && !(secondProject.name || secondProject.link || secondProject.summary || secondProject.whatYouDo || secondProject?.stack?.length>0))
+  let showThird = (!(secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject?.stack?.length>0) && !(thirdProject.name || thirdProject.link || thirdProject.summary || thirdProject.whatYouDo || thirdProject?.stack?.length>0))
+  let showFourth = (!(thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject?.stack?.length>0) && !(fourthProject.name || fourthProject.link || fourthProject.summary || fourthProject.whatYouDo || fourthProject?.stack?.length>0))
+  let showFifth = (!(fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject?.stack?.length>0) && !(fifthProject.name || fifthProject.link || fifthProject.summary || fifthProject.whatYouDo || fifthProject?.stack?.length>0))
+  let showSixth = (!(fifthProject.name && fifthProject.link && fifthProject.summary && fifthProject.whatYouDo && fifthProject?.stack?.length>0) && !(sixthProject.name || sixthProject.link || sixthProject.summary || sixthProject.whatYouDo || sixthProject?.stack?.length>0))
 
   return (
     <div className='container'>
@@ -90,7 +90,7 @@ const Portfolio = () => {
                 <TextField
                   value={firstProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setFirstProjectSummary(e.target.value.length <= 220 ? e.target.value : firstProject.summary))}
-                  helperText={firstProject.summary.length > 0 ? firstSummaryCounter : ''}
+                  helperText={firstProject?.summary?.length > 0 ? firstSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
                   multiline
@@ -98,7 +98,7 @@ const Portfolio = () => {
                 />
                 <TextField value={firstProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setFirstProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : firstProject.whatYouDo))}
-                  helperText={firstProject.whatYouDo.length > 0 ? firstWhatYouDoCounter : ''}
+                  helperText={firstProject?.whatYouDo?.length > 0 ? firstWhatYouDoCounter : ''}
                   label='What you did here?'
                   variant='outlined'
                   multiline
@@ -150,7 +150,7 @@ const Portfolio = () => {
                 <TextField
                   value={secondProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setSecondProjectSummary(e.target.value.length <= 220 ? e.target.value : secondProject.summary))}
-                  helperText={secondProject.summary.length > 0 ? secondSummaryCounter : ''}
+                  helperText={secondProject?.summary?.length > 0 ? secondSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
                   multiline
@@ -159,7 +159,7 @@ const Portfolio = () => {
                 <TextField
                   value={secondProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setSecondProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : secondProject.whatYouDo))}
-                  helperText={secondProject.whatYouDo.length > 0 ? secondWhatYouDoCounter : ''}
+                  helperText={secondProject?.whatYouDo?.length > 0 ? secondWhatYouDoCounter : ''}
                   label='What you did here?'
                   variant='outlined'
                   multiline
@@ -209,7 +209,7 @@ const Portfolio = () => {
                 <TextField
                   value={thirdProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setThirdProjectSummary(e.target.value.length <= 220 ? e.target.value : thirdProject.summary))}
-                  helperText={thirdProject.summary.length > 0 ? thirdSummaryCounter : ''}
+                  helperText={thirdProject?.summary?.length > 0 ? thirdSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
                   multiline
@@ -218,7 +218,7 @@ const Portfolio = () => {
                 <TextField
                   value={thirdProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setThirdProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : thirdProject.whatYouDo))}
-                  helperText={thirdProject.whatYouDo.length > 0 ? thirdWhatYouDoCounter : ''}
+                  helperText={thirdProject?.whatYouDo?.length > 0 ? thirdWhatYouDoCounter : ''}
                   label='What you did here?'
                   variant='outlined'
                   multiline
@@ -268,7 +268,7 @@ const Portfolio = () => {
                   value={fourthProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setFourthProjectSummary(e.target.value.length <= 220 ? e.target.value : fourthProject.summary))}
 
-                  helperText={fourthProject.summary.length > 0 ? fourthSummaryCounter : ''}
+                  helperText={fourthProject?.summary?.length > 0 ? fourthSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
                   multiline
@@ -277,7 +277,7 @@ const Portfolio = () => {
                 <TextField
                   value={fourthProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setFourthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : fourthProject.whatYouDo))}
-                  helperText={fourthProject.whatYouDo.length > 0 ? fourthWhatYouDoCounter : ''}
+                  helperText={fourthProject?.whatYouDo?.length > 0 ? fourthWhatYouDoCounter : ''}
                   label='What you did here?'
                   variant='outlined'
                   multiline
@@ -328,7 +328,7 @@ const Portfolio = () => {
                   value={fifthProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setFifthProjectSummary(e.target.value.length <= 220 ? e.target.value : fifthProject.summary))}
 
-                  helperText={fifthProject.summary.length > 0 ? fifthSummaryCounter : ''}
+                  helperText={fifthProject?.summary?.length > 0 ? fifthSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
                   multiline
@@ -337,7 +337,7 @@ const Portfolio = () => {
                 <TextField
                   value={fifthProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setFifthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : fifthProject.whatYouDo))}
-                  helperText={fifthProject.whatYouDo.length > 0 ? fifthWhatYouDoCounter : ''}
+                  helperText={fifthProject?.whatYouDo?.length > 0 ? fifthWhatYouDoCounter : ''}
                   label='What you did here?'
                   variant='outlined'
                   multiline
@@ -388,7 +388,7 @@ const Portfolio = () => {
                   value={sixthProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setSixthProjectSummary(e.target.value.length <= 220 ? e.target.value : sixthProject.summary))}
 
-                  helperText={sixthProject.summary.length > 0 ? sixthSummaryCounter : ''}
+                  helperText={sixthProject?.summary?.length > 0 ? sixthSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
                   multiline
@@ -397,7 +397,7 @@ const Portfolio = () => {
                 <TextField
                   value={sixthProject.whatYouDo}
                   onChange={e => dispatch(allPortfolioActions.setSixthProjectWhatYouDo(e.target.value.length <= 180 ? e.target.value : sixthProject.whatYouDo))}
-                  helperText={sixthProject.whatYouDo.length > 0 ? sixthWhatYouDoCounter : ''}
+                  helperText={sixthProject?.whatYouDo?.length > 0 ? sixthWhatYouDoCounter : ''}
                   label='What you did here?'
                   variant='outlined'
                   multiline

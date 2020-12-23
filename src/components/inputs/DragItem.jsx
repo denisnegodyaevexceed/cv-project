@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
 
 
-const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
+const DragItem = ({id, renderContent, gsw = 1, gsh = 1, gsx = 1, gsy = 1,}) => {
     const {posVertical, textAlign, activeBlock} = useSelector(state=>state.customizedTemplateReducer);
     const [newStyle, setNewStyle] = useState({
         display: "flex",
@@ -16,7 +15,6 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
 
     const updateStyleVer = () => {
         if(id === activeBlock){
-        console.log(200, posVertical, id)
             setNewStyle({
                 ...newStyle,
                 alignItems: posVertical,
@@ -51,7 +49,7 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1}) => {
 }
 
     return (
-        <div  className="grid-stack-item" gs-w={gsw} gs-h={gsh} onMouseDown={() => handleClickItem()}>
+        <div  className="grid-stack-item" gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
             <div data-id={id} style={{
                 display: "flex",
                 textAlign: newStyle.textAlign,

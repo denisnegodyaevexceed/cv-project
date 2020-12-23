@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "gridstack/dist/gridstack.min.css";
-import { GridStack } from "gridstack";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import "../grid.scss"
@@ -24,24 +23,24 @@ const DragBody = ({
     const { frontend, backend, dbs, other } = useSelector((state) => state.aboutHardSkillsReducer);
     
     const userInfo = useSelector((state) => state.aboutMeReducer);
-    const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
+    const {bodyBackground,bodyImage, bodyImagePosition, matrixBlock} = useSelector(state=>state.customizedTemplateReducer)
 
     const backgroundControll = bodyImage? bodyImagePosition === 'cover' ? {backgroundImage: `url(${bodyImage})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
-    React.useEffect(() => {
-        let options = {
-            disableOneColumnMode: true,
-            float: false,
-            cellHeight: 5,
-    };
-    GridStack.init(options, ".grid-stack-body");
-    }, []);
+    // React.useEffect(() => {
+    //     let options = {
+    //         disableOneColumnMode: true,
+    //         float: false,
+    //         cellHeight: 5,
+    // };
+    // GridStack.init(options, ".grid-stack-body");
+    // }, []);
 
     return (
-        <div className="grid-stack grid-stack-body" style={backgroundControll}>
-            <DragItem id={4} gsh={48} gsw={4} renderContent={
+        <div className="grid-stack grid-stack-body" style={backgroundControll} gs-current-row={0} id='gridBody'>
+            <DragItem id={4}  gsh={matrixBlock[3].h} gsw={matrixBlock[3].w} gsx={matrixBlock[3].x} gsy={matrixBlock[3].y} renderContent={
                 <span>
                     <div className="">
                         <div className="" style={styleTitle}>TECH STACK</div>
@@ -85,7 +84,7 @@ const DragBody = ({
                     </div>
                 </span>} 
             />
-            <DragItem id={5} gsh={48} gsw={4} renderContent={
+            <DragItem id={5}  gsh={matrixBlock[4].h} gsw={matrixBlock[4].w} gsx={matrixBlock[4].x} gsy={matrixBlock[4].y} renderContent={
                 <span>
                     {userInfo.education && (
                         <>
@@ -95,7 +94,7 @@ const DragBody = ({
                     )}
                 </span>} 
             />
-            <DragItem id={6} gsh={48} gsw={4} renderContent={
+            <DragItem id={6}  gsh={matrixBlock[5].h} gsw={matrixBlock[5].w} gsx={matrixBlock[5].x} gsy={matrixBlock[5].y} renderContent={
                 <span>
                     {userInfo.aboutMeInfo && (
                         <>
@@ -105,7 +104,7 @@ const DragBody = ({
                     )}
                 </span>} 
             />
-            <DragItem id={7} gsh={48} gsw={4} renderContent={
+            <DragItem id={7}  gsh={matrixBlock[6].h} gsw={matrixBlock[6].w} gsx={matrixBlock[6].x} gsy={matrixBlock[6].y} renderContent={
                 <span>
                     {((firstCompany && firstPosition && firstDescription) ||
                         (secondCompany && secondPosition && secondDescription)) && (
@@ -139,7 +138,7 @@ const DragBody = ({
                     )}
                 </span>} 
             />
-            <DragItem id={8} gsh={48} gsw={4} renderContent={
+            <DragItem id={8}  gsh={matrixBlock[7].h} gsw={matrixBlock[7].w} gsx={matrixBlock[7].x} gsy={matrixBlock[7].y} renderContent={
                 <span style={styleSmallText}>
                     <>
                         <div className='' style={styleTitle}>CONTACTS</div>

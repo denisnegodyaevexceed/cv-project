@@ -90,6 +90,12 @@ const setAllAction = data => ({
     payload: data
 })
 
+const setMatrixAction = data => ({
+    type: actions.SET_MATRIX,
+    payload: data
+})
+
+
 
 const allCustomizedTemplateActions = {
     setHeaderBackgroundAction,
@@ -107,6 +113,7 @@ const allCustomizedTemplateActions = {
     setTypeColorAction,
     setCustomTemplateUidAction,
     setAllAction,
+    setMatrixAction,
 }
 
 export default allCustomizedTemplateActions

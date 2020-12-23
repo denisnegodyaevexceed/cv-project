@@ -49,7 +49,6 @@ const TextDecorateButtons = () => {
         subTitleSize,
         textSize,
         smallTextSize,
-        avaBorderRadius,
         nameColor,
         posColor,
         titleColor,
