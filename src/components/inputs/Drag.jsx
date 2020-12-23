@@ -42,6 +42,7 @@ import {GridStack} from 'gridstack';
 
 
 
+export let q;
 const useStyles3 = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -118,10 +119,12 @@ const Drag = () => {
   const classes2 = useStyles2();
   const classes3 = useStyles3();
 
-
-
-
-
+  // useEffect(() => {
+  //   if(userInfoPortfolio.firstProject.name && userInfoPortfolio.firstProject.summary && userInfoPortfolio.firstProject.whatYouDo){
+  //     q.makeWidget(`#grid-9`);
+  //   }
+  // }, [userInfoPortfolio.firstProject]);
+ 
 
   //SAVE
   useEffect(() => {
@@ -160,19 +163,13 @@ const Drag = () => {
       fetchData.then(_ => {
         GridStack.init(options, '.grid-stack-header');
         GridStack.init(options, ".grid-stack-body");
-        GridStack.init(options, ".grid-stack-page2");
+        q = GridStack.init(options, ".grid-stack-page2");
       })
 
     } else {
       GridStack.init(options, '.grid-stack-header');
       GridStack.init(options, ".grid-stack-body");
-      // let q = GridStack.init(options, ".grid-stack-page2");
-
-
-      // setInterval(() => {
-      //   q.batchUpdate()
-      //   q.commit()
-      // }, 10000);
+      q = GridStack.init(options, ".grid-stack-page2");
     }
 
   }, [uid]);

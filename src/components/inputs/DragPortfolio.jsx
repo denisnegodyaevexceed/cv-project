@@ -40,7 +40,7 @@ const DragPortfolio = ({
             {projects.map((item, index) => {
                 let {name, link, summary, whatYouDo, stack} = item
                 return ( name && summary && whatYouDo && stack && 
-                    <DragItem key={index} id={index + 9} gsh={matrixBlock[index+8].h} gsw={matrixBlock[index+8].w} gsx={matrixBlock[index+8].x} gsy={matrixBlock[index+8].y} renderContent={
+                    <DragItem type='portfolio' key={index} id={index + 9} gsh={matrixBlock[index+8]?.h} gsw={matrixBlock[index+8]?.w} gsx={matrixBlock[index+8]?.x} gsy={matrixBlock[index+8]?.y} renderContent={
                         <span>
                             <div key={index}>
                                 <div className="mar-bot" style={styleTitle} >{name.toUpperCase()+' - '+link}</div>

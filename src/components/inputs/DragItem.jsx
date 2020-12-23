@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
+import {q} from './Drag'
 
 
-const DragItem = ({id, renderContent, gsw = 1, gsh = 1, gsx = 1, gsy = 1,}) => {
+const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, type = null,}) => {
     const {posVertical, textAlign, activeBlock} = useSelector(state=>state.customizedTemplateReducer);
     const [newStyle, setNewStyle] = useState({
         display: "flex",
@@ -46,10 +47,19 @@ const DragItem = ({id, renderContent, gsw = 1, gsh = 1, gsx = 1, gsy = 1,}) => {
         dispatch(setActiveBlockAction(id));
         dispatch(setVerticalPosAction(newStyle.alignItems));
         dispatch(setTextAlignAction(newStyle.textAlign));
-}
+    }
+
+    useEffect(() => { 
+        if (type = 'portfolio'){
+            q?.makeWidget(`#grid-${id}`);
+            
+        }
+
+        return() => {console.log(`off${id}`)}
+    }, []);
 
     return (
-        <div  className="grid-stack-item" gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
+        <div id={`grid-${id}`}  className="grid-stack-item" gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
             <div data-id={id} style={{
                 display: "flex",
                 textAlign: newStyle.textAlign,
