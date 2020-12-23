@@ -1,20 +1,50 @@
 const initialState = {
     firstProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
 
     },
     secondProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
 
     },
     thirdProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
 
     },
     fourthProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
 
     },
     fifthProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
 
     },
     sixthProject: {
+        name: '',
+        link: '',
+        summary: '',
+        whatYouDo: '',
+        stack: [],
     }
 }
 
