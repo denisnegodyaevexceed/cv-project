@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "gridstack/dist/gridstack.min.css";
-import { GridStack } from "gridstack";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragItem from './DragItem';
@@ -28,7 +27,7 @@ const DragPortfolio = ({
     fifthProject,
     sixthProject,
   ];
-  const {bodyBackground,bodyImage, bodyImagePosition} = useSelector(state=>state.customizedTemplateReducer)
+  const {bodyBackground,bodyImage, bodyImagePosition, matrixBlock} = useSelector(state=>state.customizedTemplateReducer)
 
 
   const backgroundControll = bodyImage? bodyImagePosition === 'cover' ? {backgroundImage: `url(${bodyImage})`,
@@ -36,28 +35,12 @@ const DragPortfolio = ({
     backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
 
-    let grid;
-    React.useEffect(() => {
-    let options = {
-        disableOneColumnMode: true,
-        float: false,
-        cellHeight: 5,
-    };
-    grid = GridStack.init(options, ".grid-stack-page2");
-    }, []);
-
-
-    // React.useEffect(() => {
-    //   grid?.update('grid-stack-page2');
-    // }, [projects]);
-  
-
     return (
         <div className="grid-stack grid-stack-page2 page-break grid-stack-portfolio " style={backgroundControll}>
             {projects.map((item, index) => {
                 let {name, link, summary, whatYouDo, stack} = item
                 return ( name && summary && whatYouDo && stack && 
-                    <DragItem key={index} id={index + 9} gsh={42} gsw={12} renderContent={
+                    <DragItem key={index} id={index + 9} gsh={matrixBlock[index+8].h} gsw={matrixBlock[index+8].w} gsx={matrixBlock[index+8].x} gsy={matrixBlock[index+8].y} renderContent={
                         <span>
                             <div key={index}>
                                 <div className="mar-bot" style={styleTitle} >{name.toUpperCase()+' - '+link}</div>

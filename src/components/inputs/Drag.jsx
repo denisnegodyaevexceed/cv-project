@@ -36,6 +36,9 @@ import allAboutWorkActions from '../../actions/aboutWorkActions';
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
 
+// import {gridHeader} from './DragHeader';
+import {GridStack} from 'gridstack';
+
 
 
 
@@ -124,18 +127,22 @@ const Drag = () => {
   // useEffect(() => {history.go(0)}, [history,uid])
 
   useEffect(() => {
-    let cleanupFunction = false;
+    let options = { 
+      cellHeight: 5,
+      disableOneColumnMode: true,
+      float: false,
+  };
     if(uid){
       dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(uid));
-      const fetchData = () => {
+      let fetchData = new Promise((resolve, reject) => {
         firebase.database().ref(`templates/${uid}`).on('value', (snapshot) => {
           const data = snapshot.val();
           dispatch(allAboutMeActions.setAllAction(data.info));
           dispatch(allCustomizedTemplateActions.setAllAction(data.stylesMain));
+          dispatch(allCustomizedTemplateActions.setMatrixAction(data.matrixBlock));
           dispatch(allAboutWorkActions.setAllHistoryAction(data.userWorkHistory));
           dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
           dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
-          
           setFont(data.font);
           let blocksArr = document.querySelectorAll('.grid-stack-item-content');
           blocksArr.forEach((item, i) => {
@@ -146,15 +153,22 @@ const Drag = () => {
               }
             })
           })
-
+          resolve("ok");
         });
-      }
-  
-      // if(!cleanupFunction){
-        fetchData();
-      // }
 
+        
+      });
 
+      fetchData.then(_ => {
+        GridStack.init(options, '.grid-stack-header');
+        GridStack.init(options, ".grid-stack-body");
+        GridStack.init(options, ".grid-stack-page2");
+      })
+
+    } else {
+      GridStack.init(options, '.grid-stack-header');
+      GridStack.init(options, ".grid-stack-body");
+      GridStack.init(options, ".grid-stack-page2");
     }
     return () => cleanupFunction = true;
   }, [uid]);
@@ -171,7 +185,6 @@ const Drag = () => {
       })
     });
 
-
     let matrixBlock = [];
     let blocksArrMatrix = document.querySelectorAll('.grid-stack-item');
     blocksArrMatrix.forEach((item, i) => {
@@ -181,8 +194,6 @@ const Drag = () => {
         x: item.getAttribute('gs-x'),
         y: item.getAttribute('gs-y'),
       })
-
-      console.log(matrixBlock,11)
     })
 
     if( customizedTemplateUid ){
