@@ -197,6 +197,7 @@ const Drag = () => {
     let blocksArrMatrix = document.querySelectorAll('.grid-stack-item');
     blocksArrMatrix.forEach((item, i) => {
       matrixBlock.push({
+        id: item.getAttribute('data-id-matrix'),
         h: item.getAttribute('gs-h'),
         w: item.getAttribute('gs-w'),
         x: item.getAttribute('gs-x'),

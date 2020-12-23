@@ -1,5 +1,6 @@
 const initialState = {
     firstProject: {
+        id: 1,
         name: '',
         link: '',
         summary: '',
@@ -8,6 +9,7 @@ const initialState = {
 
     },
     secondProject: {
+        id: 2,
         name: '',
         link: '',
         summary: '',
@@ -16,6 +18,7 @@ const initialState = {
 
     },
     thirdProject: {
+        id: 3,
         name: '',
         link: '',
         summary: '',
@@ -24,6 +27,7 @@ const initialState = {
 
     },
     fourthProject: {
+        id: 4,
         name: '',
         link: '',
         summary: '',
@@ -32,6 +36,7 @@ const initialState = {
 
     },
     fifthProject: {
+        id: 5,
         name: '',
         link: '',
         summary: '',
@@ -40,6 +45,7 @@ const initialState = {
 
     },
     sixthProject: {
+        id: 6,
         name: '',
         link: '',
         summary: '',

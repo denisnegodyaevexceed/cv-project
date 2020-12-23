@@ -34,15 +34,20 @@ const DragPortfolio = ({
     backgroundPosition: 'center',
     backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
+    // let superCorrectMatrix = [].concat(matrixBlock)
 
     return (
         <div className="grid-stack grid-stack-page2 page-break grid-stack-portfolio " style={backgroundControll}>
-            {projects.map((item, index) => {
-                let {name, link, summary, whatYouDo, stack} = item
+            
+            {
+            projects.map((item, index) => {
+                let {name, link, summary, whatYouDo, stack, id} = item
+                let newMatrix = [...matrixBlock];
+                let f = newMatrix.find(itemq => +itemq.id == +id+8)
                 return ( name && summary && whatYouDo && stack && 
-                    <DragItem type='portfolio' key={index} id={index + 9} gsh={matrixBlock[index+8]?.h} gsw={matrixBlock[index+8]?.w} gsx={matrixBlock[index+8]?.x} gsy={matrixBlock[index+8]?.y} renderContent={
+                    <DragItem type='portfolio' key={index} id={id + 8} gsh={f?.h} gsw={f?.w} gsx={f?.x} gsy={f?.y} renderContent={
                         <span>
-                            <div key={index}>
+                            <div>
                                 <div className="mar-bot" style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
                                 <div className="mar-bot">
                                     <div style={styleSubTitle}>Summary:</div> 

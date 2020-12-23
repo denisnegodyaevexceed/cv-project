@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
-import {q} from './Drag'
+import {q} from './Drag';
+import {GridStack} from 'gridstack';
 
 
 const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, type = null,}) => {
@@ -50,16 +51,29 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
     }
 
     useEffect(() => { 
-        if (type = 'portfolio'){
+        if (type === 'portfolio'){
             q?.makeWidget(`#grid-${id}`);
             
         }
 
-        return() => {console.log(`off${id}`)}
+        let options = { 
+            cellHeight: 5,
+            disableOneColumnMode: true,
+            float: false,
+        };
+
+        return() => {
+            console.log(`off${id}`);
+            q.removeAll(false);
+            document.querySelectorAll('.itemPortfolio').forEach((item, index) => {
+                q.makeWidget(`#${item.getAttribute('id')}`);
+            })
+            // q.makeWidget
+        }
     }, []);
 
     return (
-        <div id={`grid-${id}`}  className="grid-stack-item" gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
+        <div data-id-matrix={id} id={`grid-${id}`}  className={`grid-stack-item ${type === 'portfolio' && 'itemPortfolio'}`} gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
             <div data-id={id} style={{
                 display: "flex",
                 textAlign: newStyle.textAlign,
