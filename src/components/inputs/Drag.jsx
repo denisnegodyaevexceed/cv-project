@@ -124,8 +124,6 @@ const Drag = () => {
 
 
   //SAVE
-  // useEffect(() => {history.go(0)}, [history,uid])
-
   useEffect(() => {
     let options = { 
       cellHeight: 5,
@@ -168,9 +166,15 @@ const Drag = () => {
     } else {
       GridStack.init(options, '.grid-stack-header');
       GridStack.init(options, ".grid-stack-body");
-      GridStack.init(options, ".grid-stack-page2");
+      // let q = GridStack.init(options, ".grid-stack-page2");
+
+
+      // setInterval(() => {
+      //   q.batchUpdate()
+      //   q.commit()
+      // }, 10000);
     }
-    return () => cleanupFunction = true;
+
   }, [uid]);
 
 
