@@ -4,6 +4,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import templatePage from "./templatePage";
 import Test from "./1";
+import './components/grid.scss'
 import { CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
 import Template3 from "./components/Template3";

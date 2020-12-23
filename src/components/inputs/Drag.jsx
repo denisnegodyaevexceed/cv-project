@@ -38,6 +38,7 @@ import allPortfolioActions from "../../actions/portfolioActions";
 
 // import {gridHeader} from './DragHeader';
 import {GridStack} from 'gridstack';
+import Load from "./Load";
 
 
 
@@ -55,7 +56,7 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
-  
+
   const history = useHistory()
   let { uid } = useParams();
   let pdfExportComponent;
@@ -122,10 +123,13 @@ const Drag = () => {
 
 
 
+  const [load, setLoad] = useState(true);
 
+  console.log(12,load)
 
   //SAVE
   useEffect(() => {
+    
     let options = { 
       cellHeight: 5,
       disableOneColumnMode: true,
@@ -162,11 +166,13 @@ const Drag = () => {
         GridStack.init(options, '.grid-stack-header');
         GridStack.init(options, ".grid-stack-body");
         GridStack.init(options, ".grid-stack-page2");
+        setLoad(false)
       })
 
     } else {
       GridStack.init(options, '.grid-stack-header');
       GridStack.init(options, ".grid-stack-body");
+      setLoad(false)
       // let q = GridStack.init(options, ".grid-stack-page2");
 
 
@@ -187,7 +193,9 @@ const Drag = () => {
         id: item.getAttribute('data-id'),
         ver: getComputedStyle(item).alignItems,
         hor: getComputedStyle(item).textAlign,
+
       })
+
     });
 
     let matrixBlock = [];
@@ -199,6 +207,7 @@ const Drag = () => {
         x: item.getAttribute('gs-x'),
         y: item.getAttribute('gs-y'),
       })
+      
     })
 
     if( customizedTemplateUid ){
@@ -350,7 +359,11 @@ const Drag = () => {
 
   
   return (
+    <>
+     
+    {load===true? <Load/>:null}
     <Container>
+      
       <Grid container>
         <Grid item xs={12}>
           <div className="button">
@@ -539,6 +552,7 @@ const Drag = () => {
         )}
       </div>
     </Container>
+    </>
   );
 };
 export default Drag;
