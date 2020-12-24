@@ -16,6 +16,7 @@ import {
   FirebaseDatabaseProvider,
 } from "@react-firebase/database";
 import firebase from 'firebase';
+import '@firebase/storage';
 
 
 
@@ -60,6 +61,7 @@ function App() {
     appId: "1:377003541624:web:9b7ac0cb085d26468e998d",
     measurementId: "G-2L5V383TM9"
   };
+
 
   return (
     <BrowserRouter>

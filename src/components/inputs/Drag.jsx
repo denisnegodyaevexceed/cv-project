@@ -35,13 +35,8 @@ import allAboutMeActions from '../../actions/aboutMeActions';
 import allAboutWorkActions from '../../actions/aboutWorkActions';
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
-
-// import {gridHeader} from './DragHeader';
 import {GridStack} from 'gridstack';
 import Load from "./Load";
-
-
-
 
 export let q;
 const useStyles3 = makeStyles((theme) => ({
@@ -57,7 +52,7 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
-
+  const storage = firebase.storage();
   const history = useHistory()
   let { uid } = useParams();
   let pdfExportComponent;
@@ -240,6 +235,39 @@ const Drag = () => {
     }
   }
 
+
+
+
+
+
+  const [fileHeader, setFileHeader] = useState(null);
+  const [urlHeader, setURLHeader] = useState("");
+
+  const [fileBody, setFileBody] = useState(null);
+  const [urlBody, setURLBody] = useState("");
+
+  const [fileAvatar, setFileAvatar] = useState(null);
+  const [urlAvatar, setURLAvatar] = useState("");
+
+  function handleChange(e) {
+    setFileHeader(e.target.files[0]);
+  }
+
+  const handleUpload = (e) => {
+    e.preventDefault();
+    const uploadTask = storage.ref(`/images/${fileHeader.name}`).put(fileHeader);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(fileHeader.name)
+        .getDownloadURL()
+        .then((url) => {
+          setFileHeader(null);
+          setURLHeader(url);
+        });
+    });
+  }
+
 //SAVE
 
 
@@ -282,12 +310,13 @@ const Drag = () => {
   };
   
   const addHeaderBackground = (e) => {
-  
+    setFileHeader(e.target.files[0]);
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
 
+
   const addBodyBackground = (e) => {
-   
+    setFileBody(e.target.files[0]);
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }  
 
@@ -399,6 +428,12 @@ const Drag = () => {
                 </div>
         </Grid>
         <Grid item xs={12}>
+        {/* <div>
+      <form onSubmit={handleUpload}>
+        <button type='submit'>upload to firebase</button>
+      </form>
+      <img src={urlHeader} alt="" />
+    </div> */}
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
