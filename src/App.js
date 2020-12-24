@@ -21,13 +21,6 @@ import firebase from 'firebase';
 
 function App() {
   const { templateNumber } = useSelector((state) => state.templateReducer);
-
-  const routes = [
-    { path: "/", Component: Test },
-    { path: "/templates", Component: templatePage },
-    // { path: '/test', Component: Test },
-  ];
-
   const correctTemplate = (templateNumber) => {
     
 
@@ -46,9 +39,18 @@ function App() {
         return Drag;
 
       default:
-        return templatePage;
+        return '';
     }
   };
+  const routes = [
+    { path: "/", Component: Test },
+    { path: "/templates", Component: templatePage },
+    {path:"/resumeLoad/:uid", Component:Drag},
+    {path:'/resume', Component:correctTemplate(templateNumber)}
+    // { path: '/test', Component: Test },
+  ];
+
+  
 
   const firebaseConfig = {
     apiKey: "AIzaSyDp6Mq2-Vim1vNU9pX3tcAY61NVE_9yqws",
@@ -64,10 +66,6 @@ function App() {
   return (
     <BrowserRouter>
       <FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
-      <Switch>
-        <Route path="/resume/" component={correctTemplate(templateNumber)} />
-        <Route path="/resumeLoad/:uid" component={Drag} />
-      </Switch>
       <div className="App">
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
