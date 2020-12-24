@@ -65,9 +65,12 @@ const setLanguagesAction = (data) => ({
     payload: data
 })
 
-const setAvatarAction = (data) => ({
+const setAvatarAction = (url, value) => ({
     type: actions.SET_AVATAR,
-    payload: data
+    payload: {
+        url: url,
+        value: value
+    }
 })
 
 const setAllAction = (data) => ({

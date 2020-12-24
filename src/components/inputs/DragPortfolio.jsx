@@ -43,7 +43,7 @@ const DragPortfolio = ({
             projects.map((item, index) => {
                 let {name, link, summary, whatYouDo, stack, id} = item
                 let newMatrix = [...matrixBlock];
-                let f = newMatrix.find(itemq => +itemq.id == +id+8)
+                let f = newMatrix.find(itemq => +itemq.id === +id+8)
                 return ( name && summary && whatYouDo && stack && 
                     <DragItem type='portfolio' key={index} id={id + 8} gsh={f?.h} gsw={f?.w} gsx={f?.x} gsy={f?.y} renderContent={
                         <span>

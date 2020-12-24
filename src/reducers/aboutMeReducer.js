@@ -1,4 +1,5 @@
 const initialState = {
+    fileAvatar: null,
     firstName: 'Ivan',
     secondName: 'Ivanov',
     careerObjective: 'Full-Stack Web Developer',
@@ -97,8 +98,10 @@ const aboutMeReducer = (state=initialState, actions) => {
         case 'SET_AVATAR':
             return{
                 ...state,
-                avatar: actions.payload
+                avatar: actions.payload.url,
+                fileAvatar: actions.payload.value
             }
+        
         default:
             return state
     }

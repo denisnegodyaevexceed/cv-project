@@ -1,7 +1,7 @@
 import "./App.css";
 import Template1 from "./components/Template1.jsx";
 import React from 'react'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import templatePage from "./templatePage";
 import Test from "./1";
 import './components/grid.scss'
@@ -40,18 +40,18 @@ function App() {
         return Drag;
 
       default:
-        return '';
+        return templatePage;
     }
   };
+  
   const routes = [
     { path: "/", Component: Test },
     { path: "/templates", Component: templatePage },
+   
+    {path:'/resume', Component:correctTemplate(templateNumber)},
     {path:"/resumeLoad/:uid", Component:Drag},
-    {path:'/resume', Component:correctTemplate(templateNumber)}
     // { path: '/test', Component: Test },
   ];
-
-  
 
   const firebaseConfig = {
     apiKey: "AIzaSyDp6Mq2-Vim1vNU9pX3tcAY61NVE_9yqws",
@@ -63,6 +63,8 @@ function App() {
     appId: "1:377003541624:web:9b7ac0cb085d26468e998d",
     measurementId: "G-2L5V383TM9"
   };
+
+ 
 
 
   return (
