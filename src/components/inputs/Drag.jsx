@@ -27,6 +27,9 @@ import Portfolio from "./portfolio";
 import AboutWorkHistory from "./aboutWorkHistory";
 import AboutHardSkills from "./aboutHardSkills";
 import firebase from 'firebase';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
+import SaveIcon from '@material-ui/icons/Save';
 import {
   useParams,
 } from "react-router-dom";
@@ -367,36 +370,7 @@ const Drag = () => {
       
       <Grid container>
         <Grid item xs={12}>
-          <div className="button">
-          <Button
-            variant="contained"
-            color="secondary"
-            className="k-button"
-            onClick={() => {
-              pdfExport();
-            }}
-          >
-            to PDF
-          </Button>
-          <Button
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        to="/templates" component={Link}
-        >
-          Change Template
-        </Button>
-
-        <Button
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        onClick={()=>{handlerSaveTemplate();}}
-        >
-          save{customizedTemplateUid}
-        </Button>
-
-                </div>
+          
         </Grid>
         <Grid item xs={12}>
           <PDFExport
@@ -536,7 +510,35 @@ const Drag = () => {
 
       </AccordionDetails>
       </Accordion>
-      
+      <div className="button">
+      <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
+          <GetAppIcon
+            color='inherit'
+            className="k-button"
+            onClick={() => {
+              pdfExport();
+            }}
+          >
+            
+          </GetAppIcon>
+          
+
+        <SaveIcon
+        color='inherit'
+        className="k-button"
+        onClick={()=>{handlerSaveTemplate();}}
+        >
+          save{customizedTemplateUid}
+        </SaveIcon>
+
+                </div>
      
       
       </div>
