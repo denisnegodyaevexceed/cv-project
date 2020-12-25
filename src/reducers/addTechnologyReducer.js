@@ -3,10 +3,7 @@ const initialState = {
     backendTech: '',
     dbsTech: '',
     otherTech: '',
-    techList: [{ title: 'Cassandra' },
-    { title: 'Microsoft SQL' },
-    { title: 'CouchDB' },
-    { title: 'Oracle' },],
+    techList: [],
 }
 
 
@@ -37,6 +34,11 @@ const addTechnologyReducer = (state = initialState, actions) => {
                 ...state,
                 techList: actions.payload
             }
+        case 'SET_SAVED_TECH':
+            return {
+                ...state,
+                techList: actions.payload
+            }
         case 'SET_CLEAR_TECHNOLOGIES':
             return {
                 ...state,
@@ -44,7 +46,7 @@ const addTechnologyReducer = (state = initialState, actions) => {
                 backendTech: '',
                 dbsTech: '',
                 otherTech: '',
-                 }
+            }
         default:
             return state
     }

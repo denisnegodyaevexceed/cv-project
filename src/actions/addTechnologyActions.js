@@ -28,21 +28,19 @@ const setClearTechnologiesAction = () => ({
 
 
 const addTechnologyAction = (frontendTech, techList, alltech) =>{
-   
     let arr = [...techList]
-
-  
-    
-    
     arr.push({title: frontendTech})
-    
-    
     return({
         type: actions.ADD_YOUR_TECHNOLOGY,
         payload: arr
     })
 }
 
+
+const setSavedTech = (data) => ({
+    type: actions.SET_SAVED_TECH,
+    payload: data
+})
 
 const allTechnologyActions = {
     setFrontendTechnologyAction,
@@ -51,6 +49,7 @@ const allTechnologyActions = {
     setOtherTechnologyAction,
     addTechnologyAction,
     setClearTechnologiesAction,
+    setSavedTech
 }
 
 export default allTechnologyActions

@@ -38,6 +38,8 @@ import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
 import {GridStack} from 'gridstack';
 import Load from "./Load";
+import allTechnologyActions from "../../actions/addTechnologyActions";
+
 
 export let GridPortfolio;
 const useStyles3 = makeStyles((theme) => ({
@@ -81,6 +83,7 @@ const Drag = () => {
   const usersStyles = useSelector(state => state.customizedTemplateReducer);
   const userInfo = useSelector((state) => state.aboutMeReducer);
   const userAboutHardSkills = useSelector((state) => state.aboutHardSkillsReducer);
+  const addTechArr = useSelector((state) => state.addTechnologyReducer);
   const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
   const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
   const {firstProject, secondProject, thirdProject, fourthProject,} = useSelector(state => state.portfolioReducer)
@@ -150,6 +153,7 @@ const Drag = () => {
           dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
           dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
           setFont(data.font);
+          data.newTech && dispatch(allTechnologyActions.setSavedTech(data.newTech));
           data.headerBG && dispatch(allCustomizedTemplateActions.setHeaderImageAction(data.headerBG, ''))
           data.bodyBG && dispatch(allCustomizedTemplateActions.setBodyImageAction(data.bodyBG, ''))
           data.fileAvatar && dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, ''))
@@ -160,7 +164,7 @@ const Drag = () => {
                 item.style.alignItems = itemArr.ver; 
                 item.style.textAlign = itemArr.hor; 
               }
-              // may be bug!!!!
+              // maybe bug!!!!
               return null;
             })
           })
@@ -244,11 +248,14 @@ const Drag = () => {
           userWorkHistory,
           userAboutHardSkills,
           font: font,
+          newTech: addTechArr.techList,
           matrixBlock: matrixBlock,
           headerBG: (headerImage === '') ? null :  headerImage,
           bodyBG: (bodyImage === '') ? null :  bodyImage,
           fileAvatar: userInfo?.fileAvatar || null,
           stylesMain: {
+            textAlign: usersStyles?.textAlign || null,
+            posVertical: usersStyles?.posVertical || null,
             bodyImagePosition: usersStyles.bodyImagePosition,
             activeBlock: usersStyles.activeBlock,
             headerBackground: usersStyles.headerBackground,
@@ -295,7 +302,9 @@ const Drag = () => {
             subTitleColor: usersStyles.subTitleColor,
             textColor: usersStyles.textColor,
             smallTextColor: usersStyles.smallTextColor,
-            customizedTemplateUid: usersStyles.customizedTemplateUid
+            customizedTemplateUid: usersStyles.customizedTemplateUid,
+            textAlign: usersStyles?.textAlign || null,
+            posVertical: usersStyles?.posVertical || null,
           },
           fileAvatar: userInfo?.fileAvatar || null,
           info: {
@@ -313,6 +322,7 @@ const Drag = () => {
             avatar: userInfo.avatar,
             languages: userInfo.languages,
           },
+          newTech: addTechArr.techList,
           portfolio: userInfoPortfolio,
           stylesBlock: stylesBlock,
           userWorkHistory,
