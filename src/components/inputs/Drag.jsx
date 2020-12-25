@@ -282,6 +282,8 @@ const Drag = () => {
   };
   
   const addHeaderBackground = (e) => {
+ 
+    console.log(e.target.files[0], 'filefile')
   
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
