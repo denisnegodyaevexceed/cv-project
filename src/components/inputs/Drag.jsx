@@ -546,7 +546,7 @@ const Drag = () => {
             <DragHeader styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
             <br />
-            { isHavePortfolio && <DragPortfolio styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />}
+            <DragPortfolio isHavePortfolio={isHavePortfolio} styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
           </PDFExport>
         </Grid>
       </Grid>

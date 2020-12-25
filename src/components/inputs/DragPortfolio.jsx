@@ -9,7 +9,8 @@ const DragPortfolio = ({
   styleTitle,
   styleSubTitle,
   styleText,
-  styleSmallText
+  styleSmallText,
+  isHavePortfolio,
 }) => {
   const {
     firstProject,
@@ -37,7 +38,7 @@ const DragPortfolio = ({
     // let superCorrectMatrix = [].concat(matrixBlock)
 
     return (
-        <div className="grid-stack grid-stack-page2 page-break grid-stack-portfolio " style={backgroundControll}>
+        <div className={`grid-stack grid-stack-page2 page-break grid-stack-portfolio`} style={backgroundControll}>
             
             {
             projects.map((item, index) => {
