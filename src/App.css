@@ -531,7 +531,7 @@ h4{
 }
 .MuiButton-containedSecondary {
     color: black !important;
-    background-color: white !important; 
+    background-color:  rgb(247, 77, 51)  !important; 
 }
 .icon{
    position: absolute;
@@ -1120,12 +1120,21 @@ z-index: 3;
       margin-right: 60px;
       transform: rotate(-135deg);
 
-  position: absolute;
+  position: fixed;
   right: -15px;
   z-index: 4;
   top: 43%;
   cursor: pointer;
 
+}
+.delte-container{
+    cursor: pointer;
+    display: flex;
+}
+.delete{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
 .arrow{
      width: 20px;
@@ -1135,7 +1144,7 @@ z-index: 3;
       margin-right: 60px;
       transform: rotate(45deg);
 
-  position: absolute;
+  position: fixed;
   left: 50px;
   z-index: 4;
   top: 43%;
