@@ -1523,3 +1523,14 @@ margin: 0 auto;
     align-self: center;
 }
 
+.contentOpen1{
+    margin-left: 320px !important;
+}
+
+.contentOpen2{
+    margin-right: 320px !important;
+}
+.transitionBlock{
+    transition: 1s;
+    margin-top: 31px !important;
+}

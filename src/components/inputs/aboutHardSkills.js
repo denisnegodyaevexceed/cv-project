@@ -125,6 +125,7 @@ const AboutHardSkills = () => {
                   <Autocomplete
                     multiple
                     options={uniqueFrontendStack}
+                    getOptionSelected={(option, value) => option.title === value.title}
                     getOptionLabel={(option) => option.title}
                     onChange={(_, values) =>
                       {dispatch(allHardSkillsActions.setFrontendAction(values))
@@ -157,6 +158,7 @@ const AboutHardSkills = () => {
                   <Autocomplete
                     multiple
                     options={uniqueBackendStack}
+                    getOptionSelected={(option, value) => option.title === value.title}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => {dispatch(allHardSkillsActions.setBackendAction(values))
                       dispatch(allTechnologyActions.setClearTechnologiesAction())}}
@@ -187,6 +189,7 @@ const AboutHardSkills = () => {
                   <Autocomplete
                     multiple
                     options={uniqueDbsStack}
+                    getOptionSelected={(option, value) => option.title === value.title}
                     getOptionLabel={option => option.title}
                     inputValue={dbsTech}
                     onChange={(_, values) => {dispatch(allHardSkillsActions.setDbsAction(values))
@@ -218,6 +221,7 @@ const AboutHardSkills = () => {
                 <div style={{ width: '100%' }}>
                   <Autocomplete
                     multiple
+                    getOptionSelected={(option, value) => option.title === value.title}
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => {dispatch(allHardSkillsActions.setOtherAction(values))

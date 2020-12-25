@@ -109,6 +109,7 @@ const Portfolio = () => {
               <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
+                    getOptionSelected={(option, value) => option.title === value.title}
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
@@ -169,6 +170,7 @@ const Portfolio = () => {
               <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
+                    getOptionSelected={(option, value) => option.title === value.title}
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
@@ -228,6 +230,7 @@ const Portfolio = () => {
               <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
+                    getOptionSelected={(option, value) => option.title === value.title}
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
@@ -287,6 +290,7 @@ const Portfolio = () => {
               <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
+                    getOptionSelected={(option, value) => option.title === value.title}
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
@@ -347,6 +351,7 @@ const Portfolio = () => {
               <div className={classes.root} noValidate autoComplete="off">
                 <div style={{ width: '100%' }}>
                   <Autocomplete
+                  getOptionSelected={(option, value) => option.title === value.title}
                     multiple
                     options={uniqueArray}
                     getOptionLabel={option => option.title}
@@ -409,6 +414,7 @@ const Portfolio = () => {
                   <Autocomplete
                     multiple
                     options={uniqueArray}
+                    getOptionSelected={(option, value) => option.title === value.title}
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setSixthProjectStack(values))}
                     value={sixthProject.stack}

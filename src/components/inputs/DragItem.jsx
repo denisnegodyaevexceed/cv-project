@@ -61,6 +61,7 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
                 GridPortfolio?.makeWidget(`#${item.getAttribute('id')}`);
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

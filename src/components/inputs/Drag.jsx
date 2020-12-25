@@ -83,7 +83,7 @@ const Drag = () => {
   const userAboutHardSkills = useSelector((state) => state.aboutHardSkillsReducer);
   const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
   const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
-  const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
+  const {firstProject, secondProject, thirdProject, fourthProject,} = useSelector(state => state.portfolioReducer)
   const [cls, setCls] = useState(["side1"]);
   const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
@@ -160,6 +160,8 @@ const Drag = () => {
                 item.style.alignItems = itemArr.ver; 
                 item.style.textAlign = itemArr.hor; 
               }
+              // may be bug!!!!
+              return null;
             })
           })
           resolve("ok");
@@ -182,7 +184,7 @@ const Drag = () => {
       setLoad(false);
   
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uid]);
 
 
@@ -243,8 +245,8 @@ const Drag = () => {
           userAboutHardSkills,
           font: font,
           matrixBlock: matrixBlock,
-          headerBG: (headerImage == '') ? null :  headerImage,
-          bodyBG: (bodyImage == '') ? null :  bodyImage,
+          headerBG: (headerImage === '') ? null :  headerImage,
+          bodyBG: (bodyImage === '') ? null :  bodyImage,
           fileAvatar: userInfo?.fileAvatar || null,
           stylesMain: {
             bodyImagePosition: usersStyles.bodyImagePosition,
@@ -317,8 +319,8 @@ const Drag = () => {
           userAboutHardSkills,
           font: font, 
           matrixBlock: matrixBlock,
-          headerBG: (headerImage == '') ? null :  headerImage,
-          bodyBG: (bodyImage == '') ? null :  bodyImage,
+          headerBG: (headerImage === '') ? null :  headerImage,
+          bodyBG: (bodyImage === '') ? null :  bodyImage,
 
         }).then((snap) => {
           dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key));
@@ -554,7 +556,7 @@ const Drag = () => {
         <Grid item xs={12}>
           
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={`${open ? 'contentOpen2' : ''} ${open2 ? 'contentOpen1' : ''} transitionBlock`}>
         {/* <div>
       <form onSubmit={handleUpload}>
         <button type='submit'>upload to firebase</button>
