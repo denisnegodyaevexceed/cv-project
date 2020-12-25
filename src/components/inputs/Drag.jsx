@@ -152,8 +152,7 @@ const Drag = () => {
           setFont(data.font);
           data.headerBG && dispatch(allCustomizedTemplateActions.setHeaderImageAction(data.headerBG, ''))
           data.bodyBG && dispatch(allCustomizedTemplateActions.setBodyImageAction(data.bodyBG, ''))
-          dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, data.fileAvatar))
-
+          data.fileAvatar && dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, ''))
           let blocksArr = document.querySelectorAll('.grid-stack-item-content');
           blocksArr.forEach((item, i) => {
             data.stylesBlock.map(itemArr => {
@@ -223,7 +222,21 @@ const Drag = () => {
       if( customizedTemplateUid ){
         let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);
         newTemplate.update({
-          info: userInfo,
+          info: {
+            firstName: userInfo.firstName,
+            secondName: userInfo.secondName,
+            careerObjective: userInfo.careerObjective,
+            aboutMeInfo: userInfo.aboutMeInfo,
+            email: userInfo.email,
+            vkontakte: userInfo.vkontakte,
+            skype: userInfo.skype,
+            phoneNumber: userInfo.phoneNumber,
+            github: userInfo.github,
+            facebook: userInfo.facebook,
+            education: userInfo.education,
+            avatar: userInfo.avatar,
+            languages: userInfo.languages,
+          },
           portfolio: userInfoPortfolio,
           stylesBlock: stylesBlock,
           userWorkHistory,
@@ -232,7 +245,7 @@ const Drag = () => {
           matrixBlock: matrixBlock,
           headerBG: (headerImage == '') ? null :  headerImage,
           bodyBG: (bodyImage == '') ? null :  bodyImage,
-          fileAvatar: userInfo?.fileAvatar,
+          fileAvatar: userInfo?.fileAvatar || null,
           stylesMain: {
             bodyImagePosition: usersStyles.bodyImagePosition,
             activeBlock: usersStyles.activeBlock,
@@ -262,7 +275,6 @@ const Drag = () => {
         let newTemplate = firebase.database().ref('templates/');
         newTemplate.push({
           stylesMain: {
-            fileAvatar: userInfo?.fileAvatar,
             bodyImagePosition: usersStyles.bodyImagePosition,
             activeBlock: usersStyles.activeBlock,
             headerBackground: usersStyles.headerBackground,
@@ -283,7 +295,22 @@ const Drag = () => {
             smallTextColor: usersStyles.smallTextColor,
             customizedTemplateUid: usersStyles.customizedTemplateUid
           },
-          info: userInfo,
+          fileAvatar: userInfo?.fileAvatar || null,
+          info: {
+            firstName: userInfo.firstName,
+            secondName: userInfo.secondName,
+            careerObjective: userInfo.careerObjective,
+            aboutMeInfo: userInfo.aboutMeInfo,
+            email: userInfo.email,
+            vkontakte: userInfo.vkontakte,
+            skype: userInfo.skype,
+            phoneNumber: userInfo.phoneNumber,
+            github: userInfo.github,
+            facebook: userInfo.facebook,
+            education: userInfo.education,
+            avatar: userInfo.avatar,
+            languages: userInfo.languages,
+          },
           portfolio: userInfoPortfolio,
           stylesBlock: stylesBlock,
           userWorkHistory,
@@ -381,14 +408,14 @@ const Drag = () => {
   }
 
   const handleUploadAvatar = (callback = console.log) => {
-    const uploadTask = storage.ref(`/images/${userInfo.fileAvatar.name}`).put(userInfo.fileAvatar);
+    const uploadTask = storage.ref(`/images/${userInfo?.fileAvatar?.name}`).put(userInfo?.fileAvatar);
     uploadTask.on("state_changed", console.log, console.error, () => {
       storage
         .ref("images")
-        .child(userInfo.fileAvatar.name)
+        .child(userInfo?.fileAvatar?.name)
         .getDownloadURL()
         .then((urlAvatar) => {
-          dispatch(allAboutMeActions.setAvatarAction('', null))
+          dispatch(allAboutMeActions.setAvatarAction(urlAvatar, null))
           callback(urlAvatar);
         });
     });

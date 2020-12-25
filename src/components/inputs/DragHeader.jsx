@@ -18,7 +18,7 @@ const DragHeader = ({styleName, stylePosition}) => {
     return (
         <div  className='grid-stack grid-stack-header' style={backgroundControll}>
             <DragItem  id={1} gsh={matrixBlock[0].h} gsw={matrixBlock[0].w} gsx={matrixBlock[0].x} gsy={matrixBlock[0].y} renderContent={
-                <div  style={{backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : './user.png'})`,backgroundRepeat: "no-repeat",
+                <div  style={{backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : '/user.png'})`,backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     width: '100%',
