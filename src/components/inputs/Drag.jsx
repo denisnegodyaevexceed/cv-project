@@ -550,6 +550,13 @@ const Drag = () => {
           </PDFExport>
         </Grid>
       </Grid>
+      {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="arrow">
+            
+          </div>
+        ) : (
+          null
+        )}
       <div className={cls2.join(" ")}>
        <AboutMe/>
        <br/>
@@ -559,15 +566,20 @@ const Drag = () => {
        <br/>
        <Portfolio/>
          {!open2 ? (
-          <div onClick={() => setOpen2(!open2)} className="side-open2">
-            Edit
-          </div>
+          null
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
             
           </div>
         )}
       </div>
+      {!open ? (
+          <div onClick={() => setOpen(!open)} className="arrow2">
+            
+          </div>
+        ) : (
+          null
+        )}
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
@@ -706,9 +718,7 @@ const Drag = () => {
             </div> 
         
         {!open ? (
-          <div onClick={() => setOpen(!open)} className="side-open1">
-            Edit
-          </div>
+          null
         ) : (
           <div className="side-close1" onClick={() => setOpen(!open)}>
             

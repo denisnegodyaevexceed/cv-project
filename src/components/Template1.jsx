@@ -210,6 +210,13 @@ useEffect(() => {
         </div>
       </PDFExport>
     </div>
+    {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="arrow">
+            
+          </div>
+        ) : (
+          null
+        )}
     <div className={cls2.join(" ")}>
        <AboutMe/>
        <br/>
@@ -219,9 +226,7 @@ useEffect(() => {
        <br/>
        <Portfolio/>
         {!open2 ? (
-          <div onClick={() => setOpen2(!open2)} className="side-open2">
-            Edit
-          </div>
+          null
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
           </div>
