@@ -107,7 +107,7 @@ export default function AboutMe() {
                     onChange={(e) => {dispatch(allAboutMeActions.setAboutMeInfoAction(e.target.value.length <= 180 ? e.target.value : aboutMeInfo))}}
                     variant="outlined"
                 />
-              <input accept="image/*" onChange={(e) => dispatch(allAboutMeActions.setAvatarAction(URL.createObjectURL(e.target.files[0])))} className={classes3.input} id="icon-button-file3" type="file" />
+              <input accept="image/*" onChange={(e) => dispatch(allAboutMeActions.setAvatarAction(URL.createObjectURL(e.target.files[0]), e.target.files[0]))} className={classes3.input} id="icon-button-file3" type="file" />
       <label htmlFor="icon-button-file3">
         <IconButton  aria-label="upload picture" component="span">
           

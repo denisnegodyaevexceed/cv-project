@@ -2,7 +2,6 @@ import React, {useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import allTemplateActions from "./actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -82,14 +81,35 @@ export default function CenteredGrid() {
   }
 
 
-
+const handlerDeleteSavedTemplate = (uid) => {
+  firebase.database().ref(`templates/${uid}/`).remove().then((e) => {
+      const fetchData = () => {
+      let itemList = [];
+      firebase.database().ref(`templates/`).on('value', (snapshot) => {
+        const data = snapshot.val();
+        let i = 0;
+        const resp = data;
+        for (let key in resp){
+          itemList[i] = {
+              uid: key,
+              name: resp[key].info.firstName,
+          } 
+          i++;
+        }
+        setSavedTemplates(itemList);
+        setIsLoad(false)
+      });
+    }
+    fetchData();
+  });
+}
    
 
   return (
     <>
     
     <div className="page">
-    {isLoad?(<Load/>):null}
+    {isLoad?(<Load  text={'Loading...'}/>):null}
       <div className="container-pdf">
         <h2 className="h2-template">Choose a template</h2>
         <div className={classes.root}>
@@ -249,11 +269,13 @@ export default function CenteredGrid() {
           </div>
           <div className='cont-custom' style={{color: 'white'}}>
           {savedTemplates.map((item, index) => (
-            
-            <div className="customs"  onClick={() => loadTemplate(item.uid)} key={index}>
+            <div key={index}>
+            <div className="customs"  onClick={() => loadTemplate(item.uid)} >
             <div className='custom-items'>
               <div className="title-customs">Custom template</div>
               {item.name}</div>
+            </div>
+            <div onClick={()=>{handlerDeleteSavedTemplate(item.uid)}}>DELETE</div>
             </div>
           ))}
         </div>

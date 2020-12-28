@@ -588,13 +588,20 @@ ainer{
     z-index: 30;  
 }
 .button{
-    top: 40px;
-    right: 70px;
-    position: fixed;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.button>:first-child{
+    margin-right: 10px;
+    
 }
 .button>:last-child{
     margin-left: 10px;
     
+}
+.k-button{
+    cursor: pointer;
 }
 .template-1{
     
@@ -1499,3 +1506,5 @@ margin: 0 auto;
     margin: 0 auto;
     align-self: center;
 }
+
+

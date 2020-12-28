@@ -27,23 +27,19 @@ import Portfolio from "./portfolio";
 import AboutWorkHistory from "./aboutWorkHistory";
 import AboutHardSkills from "./aboutHardSkills";
 import firebase from 'firebase';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import SaveIcon from '@material-ui/icons/Save';
 import {
   useParams,
 } from "react-router-dom";
-import { useHistory } from 'react-router'
 import allAboutMeActions from '../../actions/aboutMeActions';
 import allAboutWorkActions from '../../actions/aboutWorkActions';
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
-
-// import {gridHeader} from './DragHeader';
 import {GridStack} from 'gridstack';
 import Load from "./Load";
 
-
-
-
-export let q;
+export let GridPortfolio;
 const useStyles3 = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -57,8 +53,7 @@ const useStyles3 = makeStyles((theme) => ({
 
 
 const Drag = () => {
-
-  const history = useHistory()
+  const storage = firebase.storage();
   let { uid } = useParams();
   let pdfExportComponent;
   const dispatch = useDispatch();
@@ -68,6 +63,7 @@ const Drag = () => {
     headerImageValue,  
     headerImage,
     bodyImageValue,
+    bodyImage,
     nameSize,
     posSize,
     titleSize,
@@ -87,6 +83,7 @@ const Drag = () => {
   const userAboutHardSkills = useSelector((state) => state.aboutHardSkillsReducer);
   const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
   const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
+  const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
   const [cls, setCls] = useState(["side1"]);
   const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
@@ -122,13 +119,18 @@ const Drag = () => {
   const classes2 = useStyles2();
   const classes3 = useStyles3();
 
-
-
-
   const [load, setLoad] = useState(true);
+  const [loadSave, setLoadSave] = useState(false);
+  const [loadHeader, setLoadHeader] = useState(false);
+  const [loadBody, setLoadBody] = useState(false);
+  const [loadAvatar, setLoadAvatar] = useState(false);
 
+  const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
+  (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
+  (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
+  (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
+  
 
-  //SAVE
   useEffect(() => {
     
     let options = { 
@@ -148,7 +150,10 @@ const Drag = () => {
           dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
           dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
           setFont(data.font);
-        
+          data.headerBG && dispatch(allCustomizedTemplateActions.setHeaderImageAction(data.headerBG, ''))
+          data.bodyBG && dispatch(allCustomizedTemplateActions.setBodyImageAction(data.bodyBG, ''))
+          dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, data.fileAvatar))
+
           let blocksArr = document.querySelectorAll('.grid-stack-item-content');
           blocksArr.forEach((item, i) => {
             data.stylesBlock.map(itemArr => {
@@ -167,24 +172,31 @@ const Drag = () => {
       fetchData.then(_ => {
         GridStack.init(options, '.grid-stack-header');
         GridStack.init(options, ".grid-stack-body");
-        q = GridStack.init(options, ".grid-stack-page2");
-        setLoad(false)
+        GridPortfolio = GridStack.init(options, ".grid-stack-page2");
+        setLoad(false);
       })
 
     } else {
       GridStack.init(options, '.grid-stack-header');
       GridStack.init(options, ".grid-stack-body");
-      q = GridStack.init(options, ".grid-stack-page2");
-      setLoad(false)
+      GridPortfolio = GridStack.init(options, ".grid-stack-page2");
+      setLoad(false);
   
     }
 
   }, [uid]);
 
 
+
+
+
+
+
+// SAVE
   const handlerSaveTemplate = () => {
     let stylesBlock = [];
     let blocksArr = document.querySelectorAll('.grid-stack-item-content');
+    setLoadSave(true);
     blocksArr.forEach((item, i) => {
       stylesBlock.push({
         id: item.getAttribute('data-id'),
@@ -207,37 +219,179 @@ const Drag = () => {
       })
       
     });
+    const save = (callback = console.log) => {
+      if( customizedTemplateUid ){
+        let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);
+        newTemplate.update({
+          info: userInfo,
+          portfolio: userInfoPortfolio,
+          stylesBlock: stylesBlock,
+          userWorkHistory,
+          userAboutHardSkills,
+          font: font,
+          matrixBlock: matrixBlock,
+          headerBG: (headerImage == '') ? null :  headerImage,
+          bodyBG: (bodyImage == '') ? null :  bodyImage,
+          fileAvatar: userInfo?.fileAvatar,
+          stylesMain: {
+            bodyImagePosition: usersStyles.bodyImagePosition,
+            activeBlock: usersStyles.activeBlock,
+            headerBackground: usersStyles.headerBackground,
+            avaBorderRadius: usersStyles.avaBorderRadius,
+            headerImagePosition: usersStyles.headerImagePosition,
+            bodyBackground: usersStyles.bodyBackground,
+            nameSize: usersStyles.nameSize,
+            posSize: usersStyles.posSize,
+            titleSize: usersStyles.titleSize,
+            subTitleSize: usersStyles.subTitleSize,
+            textSize: usersStyles.textSize,
+            smallTextSize: usersStyles.smallTextSize,
+            nameColor: usersStyles.nameColor,
+            posColor: usersStyles.posColor,
+            titleColor: usersStyles.titleColor,
+            subTitleColor: usersStyles.subTitleColor,
+            textColor: usersStyles.textColor,
+            smallTextColor: usersStyles.smallTextColor,
+            customizedTemplateUid: usersStyles.customizedTemplateUid
+          },
 
- 
-     
 
-    if( customizedTemplateUid ){
-      let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);
-      newTemplate.update({
-        stylesMain: usersStyles,
-        info: userInfo,
-        portfolio: userInfoPortfolio,
-        stylesBlock: stylesBlock,
-        userWorkHistory,
-        userAboutHardSkills,
-        font: font,
-        matrixBlock: matrixBlock,
-      });
-    } else {
-      let newTemplate = firebase.database().ref('templates/');
-      newTemplate.push({
-        stylesMain: usersStyles,
-        info: userInfo,
-        portfolio: userInfoPortfolio,
-        stylesBlock: stylesBlock,
-        userWorkHistory,
-        userAboutHardSkills,
-        font: font, 
-        matrixBlock: matrixBlock,
-      }).then((snap) => {
-        dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key)) 
-      });
+        });
+        callback();
+      } else {
+        let newTemplate = firebase.database().ref('templates/');
+        newTemplate.push({
+          stylesMain: {
+            fileAvatar: userInfo?.fileAvatar,
+            bodyImagePosition: usersStyles.bodyImagePosition,
+            activeBlock: usersStyles.activeBlock,
+            headerBackground: usersStyles.headerBackground,
+            avaBorderRadius: usersStyles.avaBorderRadius,
+            headerImagePosition: usersStyles.headerImagePosition,
+            bodyBackground: usersStyles.bodyBackground,
+            nameSize: usersStyles.nameSize,
+            posSize: usersStyles.posSize,
+            titleSize: usersStyles.titleSize,
+            subTitleSize: usersStyles.subTitleSize,
+            textSize: usersStyles.textSize,
+            smallTextSize: usersStyles.smallTextSize,
+            nameColor: usersStyles.nameColor,
+            posColor: usersStyles.posColor,
+            titleColor: usersStyles.titleColor,
+            subTitleColor: usersStyles.subTitleColor,
+            textColor: usersStyles.textColor,
+            smallTextColor: usersStyles.smallTextColor,
+            customizedTemplateUid: usersStyles.customizedTemplateUid
+          },
+          info: userInfo,
+          portfolio: userInfoPortfolio,
+          stylesBlock: stylesBlock,
+          userWorkHistory,
+          userAboutHardSkills,
+          font: font, 
+          matrixBlock: matrixBlock,
+          headerBG: (headerImage == '') ? null :  headerImage,
+          bodyBG: (bodyImage == '') ? null :  bodyImage,
+
+        }).then((snap) => {
+          dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key));
+          callback(snap.key);
+        });
+      }
     }
+    save((uid) => {
+      if(fileHeader?.name){
+        setLoadHeader(true);
+        handleUploadHeader((urlHeader) => {
+          let newTemplate = firebase.database().ref(`templates/${uid || customizedTemplateUid}/`);
+          newTemplate.update({
+              headerBG: urlHeader
+          }).then(setLoadHeader(false))
+        })
+      }
+
+      if(fileBody?.name){
+        setLoadBody(true)
+        handleUploadBody((urlBody) => {
+          let newTemplate = firebase.database().ref(`templates/${uid || customizedTemplateUid}/`);
+          newTemplate.update({
+              bodyBG: urlBody
+          }).then(setLoadBody(false))
+        })
+      }  
+
+      if(userInfo?.fileAvatar?.name){
+        setLoadAvatar(true);
+        handleUploadAvatar((urlAvatar) => {
+          let newTemplate = firebase.database().ref(`templates/${uid || customizedTemplateUid}/`);
+          newTemplate.update({
+            fileAvatar: urlAvatar
+          }).then(setLoadAvatar(false))
+        })
+      } 
+
+      if(!loadHeader && !loadBody && !loadAvatar){
+        setTimeout(() => {
+          setLoadSave(false);
+        }, 1000);
+      }
+
+    });
+  }
+
+  useEffect(() => {
+    if(!loadHeader && !loadBody && !loadAvatar){
+
+      setTimeout(() => {
+        setLoadSave(false);
+      }, 200);
+    }
+  }, [loadAvatar,loadBody,loadHeader ]);
+  
+
+
+  const [fileHeader, setFileHeader] = useState(null);
+  const [fileBody, setFileBody] = useState(null);
+  const handleUploadHeader =  (callback = console.log) => {
+    const uploadTask = storage.ref(`/images/${fileHeader.name}`).put(fileHeader);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(fileHeader.name)
+        .getDownloadURL()
+        .then((urlHeader) => {
+          setFileHeader(null);
+          callback(urlHeader);
+        });
+    });
+  }
+
+  const handleUploadBody = (callback = console.log) => {
+    const uploadTask = storage.ref(`/images/${fileBody.name}`).put(fileBody);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(fileBody.name)
+        .getDownloadURL()
+        .then((urlBody) => {
+          setFileBody(null);
+          callback(urlBody);
+        });
+    });
+  }
+
+  const handleUploadAvatar = (callback = console.log) => {
+    const uploadTask = storage.ref(`/images/${userInfo.fileAvatar.name}`).put(userInfo.fileAvatar);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(userInfo.fileAvatar.name)
+        .getDownloadURL()
+        .then((urlAvatar) => {
+          dispatch(allAboutMeActions.setAvatarAction('', null))
+          callback(urlAvatar);
+        });
+    });
   }
 
 //SAVE
@@ -275,21 +429,22 @@ const Drag = () => {
 
   const handleChangeHeaderBackgroungComplete = (color) => {
     dispatch(allCustomizedTemplateActions.setHeaderBackgroundAction(color.hex));
+    setFileHeader(null);
   };
 
   const handleChangeBodyBackgroungComplete = (color) => {
     dispatch(allCustomizedTemplateActions.setBodyBackgroundAction(color.hex));
+    setFileBody(null);
   };
   
   const addHeaderBackground = (e) => {
- 
-    console.log(e.target.files[0], 'filefile')
-  
+    setFileHeader(e.target.files[0]);
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
 
+
   const addBodyBackground = (e) => {
-   
+    setFileBody(e.target.files[0]);
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setBodyImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }  
 
@@ -364,43 +519,21 @@ const Drag = () => {
   return (
     <>
      
-    {load===true? <Load/>:null}
+    {load===true? <Load text={'Loading...'}/>:null}
+    {loadSave===true? <Load  text={'Saving...'}/>:null}
     <Container>
       
       <Grid container>
         <Grid item xs={12}>
-          <div className="button">
-          <Button
-            variant="contained"
-            color="secondary"
-            className="k-button"
-            onClick={() => {
-              pdfExport();
-            }}
-          >
-            to PDF
-          </Button>
-          <Button
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        to="/templates" component={Link}
-        >
-          Change Template
-        </Button>
-
-        <Button
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        onClick={()=>{handlerSaveTemplate();}}
-        >
-          save{customizedTemplateUid}
-        </Button>
-
-                </div>
+          
         </Grid>
         <Grid item xs={12}>
+        {/* <div>
+      <form onSubmit={handleUpload}>
+        <button type='submit'>upload to firebase</button>
+      </form>
+      <img src={urlHeader} alt="" />
+    </div> */}
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
@@ -413,7 +546,7 @@ const Drag = () => {
             <DragHeader styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
             <br />
-            <DragPortfolio styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
+            { isHavePortfolio && <DragPortfolio styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />}
           </PDFExport>
         </Grid>
       </Grid>
@@ -538,7 +671,35 @@ const Drag = () => {
 
       </AccordionDetails>
       </Accordion>
-      
+      <div className="button">
+      <Button
+        variant="contained"
+        color="secondary"
+        className="k-button"
+        to="/templates" component={Link}
+        >
+          Change Template
+        </Button>
+          <GetAppIcon
+            color='inherit'
+            className="k-button"
+            onClick={() => {
+              pdfExport();
+            }}
+          >
+            
+          </GetAppIcon>
+          
+
+        <SaveIcon
+        color='inherit'
+        className="k-button"
+        onClick={()=>{handlerSaveTemplate();}}
+        >
+          save{customizedTemplateUid}
+        </SaveIcon>
+
+                </div>
      
       
       </div>

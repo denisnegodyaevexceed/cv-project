@@ -1,7 +1,7 @@
 import "./App.css";
 import Template1 from "./components/Template1.jsx";
 import React from 'react'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import templatePage from "./templatePage";
 import Test from "./1";
 import './components/grid.scss'
@@ -16,18 +16,12 @@ import {
   FirebaseDatabaseProvider,
 } from "@react-firebase/database";
 import firebase from 'firebase';
+import '@firebase/storage';
 
 
 
 function App() {
   const { templateNumber } = useSelector((state) => state.templateReducer);
-
-  const routes = [
-    { path: "/", Component: Test },
-    { path: "/templates", Component: templatePage },
-    // { path: '/test', Component: Test },
-  ];
-
   const correctTemplate = (templateNumber) => {
     
 
@@ -49,6 +43,15 @@ function App() {
         return templatePage;
     }
   };
+  
+  const routes = [
+    { path: "/", Component: Test },
+    { path: "/templates", Component: templatePage },
+   
+    {path:'/resume', Component:correctTemplate(templateNumber)},
+    {path:"/resumeLoad/:uid", Component:Drag},
+    // { path: '/test', Component: Test },
+  ];
 
   const firebaseConfig = {
     apiKey: "AIzaSyDp6Mq2-Vim1vNU9pX3tcAY61NVE_9yqws",
@@ -61,13 +64,12 @@ function App() {
     measurementId: "G-2L5V383TM9"
   };
 
+ 
+
+
   return (
     <BrowserRouter>
       <FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
-      <Switch>
-        <Route path="/resume/" component={correctTemplate(templateNumber)} />
-        <Route path="/resumeLoad/:uid" component={Drag} />
-      </Switch>
       <div className="App">
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>

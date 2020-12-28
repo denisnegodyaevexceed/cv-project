@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
-import {q} from './Drag';
-import {GridStack} from 'gridstack';
+import {GridPortfolio} from './Drag';
 
 
 const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, type = null,}) => {
@@ -52,14 +51,14 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
 
     useEffect(() => { 
         if (type === 'portfolio'){
-            q?.makeWidget(`#grid-${id}`);
+            GridPortfolio?.makeWidget(`#grid-${id}`);
             
         }
 
         return() => {
-            q.removeAll(false);
+            GridPortfolio?.removeAll(false);
             document.querySelectorAll('.itemPortfolio').forEach((item, index) => {
-                q.makeWidget(`#${item.getAttribute('id')}`);
+                GridPortfolio?.makeWidget(`#${item.getAttribute('id')}`);
             })
         }
     }, []);
@@ -79,3 +78,6 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
 
 
 export default DragItem;
+
+
+
