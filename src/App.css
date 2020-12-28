@@ -531,7 +531,7 @@ h4{
 }
 .MuiButton-containedSecondary {
     color: black !important;
-    background-color:  rgb(247, 77, 51)  !important; 
+    /* background-color:  rgb(247, 77, 51)  !important;  */
 }
 .icon{
    position: absolute;
@@ -940,15 +940,70 @@ z-index: 3;
   .btn2:hover {background: rgba(255,255,255,0);
     color: black;
 }
-.MuiSnackbarContent-root{
-    background-color: #4caf50 !important;
-}
+
   .btn2:hover:before {
     bottom: 0%;
     top: auto;
     height: 100%;
   }
 
+
+  .btn3 {
+    width: 300px;
+    text-align: center;
+  text-decoration: none;
+  top: 450px;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  padding: 15px 30px;
+  border: 1px solid;
+  border-image: black;
+  border-image-slice: 1;
+  margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: 2px;
+  transition: .8s cubic-bezier(.165,.84,.44,1);
+  z-index: 2;
+}
+.btn3:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: -1;
+  color: black;
+  background: linear-gradient(45deg, rgb(0, 188, 255), rgb(136, 41, 172));
+  transition: .8s cubic-bezier(.165,.84,.44,1);
+}
+.btn3:hover {
+    background: rgba(255,255,255,0);
+  color: black;
+}
+
+.btn3:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.theme1{
+    font-size: 20px;
+    color:rgb(247, 77, 51);
+    font-weight: bold;
+}
+.theme2{
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+  .MuiSnackbarContent-root{
+    background-color: #4caf50 !important;
+}
   @keyframes fade-in{
       0%{
     
