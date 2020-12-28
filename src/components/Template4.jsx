@@ -184,6 +184,13 @@ const Template4 = () => {
         <img className="footer-4" src="./template4.2.png" alt="" />
       </div>}
       </PDFExport>
+      {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="arrow">
+            
+          </div>
+        ) : (
+          null
+        )}
       <div className={cls2.join(" ")}>
        <AboutMe/>
        <br/>
@@ -194,9 +201,7 @@ const Template4 = () => {
        <Portfolio/>
         
         {!open2 ? (
-          <div onClick={() => setOpen2(!open2)} className="side-open2">
-            Edit
-          </div>
+          null
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
             

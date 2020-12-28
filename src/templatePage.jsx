@@ -8,7 +8,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import MuiAlert from '@material-ui/lab/Alert';
 import firebase from 'firebase';
-
+import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from "react-router-dom";
 import allCustomizedTemplateActions from './actions/customizedTemplateActions';
 import Load from "./components/inputs/Load";
@@ -275,7 +275,13 @@ const handlerDeleteSavedTemplate = (uid) => {
               <div className="title-customs">Custom template</div>
               {item.name}</div>
             </div>
-            <div onClick={()=>{handlerDeleteSavedTemplate(item.uid)}}>DELETE</div>
+            <div className="delte-container" onClick={()=>{handlerDeleteSavedTemplate(item.uid)}}>
+            <DeleteIcon  variant="contained"
+          color="secondary"  >
+            
+          </DeleteIcon>
+          <div className='delete'>Delete</div>
+          </div>
             </div>
           ))}
         </div>

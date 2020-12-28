@@ -38,6 +38,8 @@ import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
 import {GridStack} from 'gridstack';
 import Load from "./Load";
+import allTechnologyActions from "../../actions/addTechnologyActions";
+
 
 export let GridPortfolio;
 const useStyles3 = makeStyles((theme) => ({
@@ -81,9 +83,10 @@ const Drag = () => {
   const usersStyles = useSelector(state => state.customizedTemplateReducer);
   const userInfo = useSelector((state) => state.aboutMeReducer);
   const userAboutHardSkills = useSelector((state) => state.aboutHardSkillsReducer);
+  const addTechArr = useSelector((state) => state.addTechnologyReducer);
   const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
   const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
-  const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
+  const {firstProject, secondProject, thirdProject, fourthProject,} = useSelector(state => state.portfolioReducer)
   const [cls, setCls] = useState(["side1"]);
   const [cls2, setCls2] = useState(["side2"]);
   const [open, setOpen] = useState(false);
@@ -150,10 +153,10 @@ const Drag = () => {
           dispatch(allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills));
           dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
           setFont(data.font);
+          data.newTech && dispatch(allTechnologyActions.setSavedTech(data.newTech));
           data.headerBG && dispatch(allCustomizedTemplateActions.setHeaderImageAction(data.headerBG, ''))
           data.bodyBG && dispatch(allCustomizedTemplateActions.setBodyImageAction(data.bodyBG, ''))
-          dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, data.fileAvatar))
-
+          data.fileAvatar && dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, ''))
           let blocksArr = document.querySelectorAll('.grid-stack-item-content');
           blocksArr.forEach((item, i) => {
             data.stylesBlock.map(itemArr => {
@@ -161,6 +164,8 @@ const Drag = () => {
                 item.style.alignItems = itemArr.ver; 
                 item.style.textAlign = itemArr.hor; 
               }
+              // maybe bug!!!!
+              return null;
             })
           })
           resolve("ok");
@@ -183,7 +188,7 @@ const Drag = () => {
       setLoad(false);
   
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uid]);
 
 
@@ -223,17 +228,34 @@ const Drag = () => {
       if( customizedTemplateUid ){
         let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);
         newTemplate.update({
-          info: userInfo,
+          info: {
+            firstName: userInfo.firstName,
+            secondName: userInfo.secondName,
+            careerObjective: userInfo.careerObjective,
+            aboutMeInfo: userInfo.aboutMeInfo,
+            email: userInfo.email,
+            vkontakte: userInfo.vkontakte,
+            skype: userInfo.skype,
+            phoneNumber: userInfo.phoneNumber,
+            github: userInfo.github,
+            facebook: userInfo.facebook,
+            education: userInfo.education,
+            avatar: userInfo.avatar,
+            languages: userInfo.languages,
+          },
           portfolio: userInfoPortfolio,
           stylesBlock: stylesBlock,
           userWorkHistory,
           userAboutHardSkills,
           font: font,
+          newTech: addTechArr.techList,
           matrixBlock: matrixBlock,
-          headerBG: (headerImage == '') ? null :  headerImage,
-          bodyBG: (bodyImage == '') ? null :  bodyImage,
-          fileAvatar: userInfo?.fileAvatar,
+          headerBG: (headerImage === '') ? null :  headerImage,
+          bodyBG: (bodyImage === '') ? null :  bodyImage,
+          fileAvatar: userInfo?.fileAvatar || null,
           stylesMain: {
+            textAlign: usersStyles?.textAlign || null,
+            posVertical: usersStyles?.posVertical || null,
             bodyImagePosition: usersStyles.bodyImagePosition,
             activeBlock: usersStyles.activeBlock,
             headerBackground: usersStyles.headerBackground,
@@ -262,7 +284,6 @@ const Drag = () => {
         let newTemplate = firebase.database().ref('templates/');
         newTemplate.push({
           stylesMain: {
-            fileAvatar: userInfo?.fileAvatar,
             bodyImagePosition: usersStyles.bodyImagePosition,
             activeBlock: usersStyles.activeBlock,
             headerBackground: usersStyles.headerBackground,
@@ -281,17 +302,35 @@ const Drag = () => {
             subTitleColor: usersStyles.subTitleColor,
             textColor: usersStyles.textColor,
             smallTextColor: usersStyles.smallTextColor,
-            customizedTemplateUid: usersStyles.customizedTemplateUid
+            customizedTemplateUid: usersStyles.customizedTemplateUid,
+            textAlign: usersStyles?.textAlign || null,
+            posVertical: usersStyles?.posVertical || null,
           },
-          info: userInfo,
+          fileAvatar: userInfo?.fileAvatar || null,
+          info: {
+            firstName: userInfo.firstName,
+            secondName: userInfo.secondName,
+            careerObjective: userInfo.careerObjective,
+            aboutMeInfo: userInfo.aboutMeInfo,
+            email: userInfo.email,
+            vkontakte: userInfo.vkontakte,
+            skype: userInfo.skype,
+            phoneNumber: userInfo.phoneNumber,
+            github: userInfo.github,
+            facebook: userInfo.facebook,
+            education: userInfo.education,
+            avatar: userInfo.avatar,
+            languages: userInfo.languages,
+          },
+          newTech: addTechArr.techList,
           portfolio: userInfoPortfolio,
           stylesBlock: stylesBlock,
           userWorkHistory,
           userAboutHardSkills,
           font: font, 
           matrixBlock: matrixBlock,
-          headerBG: (headerImage == '') ? null :  headerImage,
-          bodyBG: (bodyImage == '') ? null :  bodyImage,
+          headerBG: (headerImage === '') ? null :  headerImage,
+          bodyBG: (bodyImage === '') ? null :  bodyImage,
 
         }).then((snap) => {
           dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key));
@@ -381,14 +420,14 @@ const Drag = () => {
   }
 
   const handleUploadAvatar = (callback = console.log) => {
-    const uploadTask = storage.ref(`/images/${userInfo.fileAvatar.name}`).put(userInfo.fileAvatar);
+    const uploadTask = storage.ref(`/images/${userInfo?.fileAvatar?.name}`).put(userInfo?.fileAvatar);
     uploadTask.on("state_changed", console.log, console.error, () => {
       storage
         .ref("images")
-        .child(userInfo.fileAvatar.name)
+        .child(userInfo?.fileAvatar?.name)
         .getDownloadURL()
         .then((urlAvatar) => {
-          dispatch(allAboutMeActions.setAvatarAction('', null))
+          dispatch(allAboutMeActions.setAvatarAction(urlAvatar, null))
           callback(urlAvatar);
         });
     });
@@ -527,7 +566,7 @@ const Drag = () => {
         <Grid item xs={12}>
           
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={`${open ? 'contentOpen2' : ''} ${open2 ? 'contentOpen1' : ''} transitionBlock`}>
         {/* <div>
       <form onSubmit={handleUpload}>
         <button type='submit'>upload to firebase</button>
@@ -546,10 +585,17 @@ const Drag = () => {
             <DragHeader styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
             <br />
-            { isHavePortfolio && <DragPortfolio styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />}
+            <DragPortfolio isHavePortfolio={isHavePortfolio} styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
           </PDFExport>
         </Grid>
       </Grid>
+      {!open2 ? (
+          <div onClick={() => setOpen2(!open2)} className="arrow">
+            
+          </div>
+        ) : (
+          null
+        )}
       <div className={cls2.join(" ")}>
        <AboutMe/>
        <br/>
@@ -559,15 +605,20 @@ const Drag = () => {
        <br/>
        <Portfolio/>
          {!open2 ? (
-          <div onClick={() => setOpen2(!open2)} className="side-open2">
-            Edit
-          </div>
+          null
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
             
           </div>
         )}
       </div>
+      {!open ? (
+          <div onClick={() => setOpen(!open)} className="arrow2">
+            
+          </div>
+        ) : (
+          null
+        )}
       <div className={cls.join(" ")}>
        <h2>Editing</h2>
        <div className="edit-cont">
@@ -706,9 +757,7 @@ const Drag = () => {
             </div> 
         
         {!open ? (
-          <div onClick={() => setOpen(!open)} className="side-open1">
-            Edit
-          </div>
+          null
         ) : (
           <div className="side-close1" onClick={() => setOpen(!open)}>
             

@@ -531,7 +531,7 @@ h4{
 }
 .MuiButton-containedSecondary {
     color: black !important;
-    background-color: white !important; 
+    background-color:  rgb(247, 77, 51)  !important; 
 }
 .icon{
    position: absolute;
@@ -595,6 +595,9 @@ ainer{
 .button>:first-child{
     margin-right: 10px;
     
+}
+.fix-edit{
+    position: relative;
 }
 .button>:last-child{
     margin-left: 10px;
@@ -1109,29 +1112,42 @@ z-index: 3;
     flex-direction: column;
     margin: 0 auto;
 }
-.side-open1{
-    color: rgb(247, 77, 51) ;
+.arrow2{
+    width: 20px;
+      height: 20px;
+      border-top: 10px solid  black;
+      border-right: 10px solid black;
+      margin-right: 60px;
+      transform: rotate(-135deg);
 
-    position: absolute;
-    left: -30px;
-    top: 43%;
-    transform: rotate(-90deg);
-    font-size: 30px;
-    font-weight: bold;
-    margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
+  position: fixed;
+  right: -15px;
+  z-index: 4;
+  top: 43%;
+  cursor: pointer;
 
 }
-.side-open2{
-  color: rgb(247, 77, 51) ;
+.delte-container{
+    cursor: pointer;
+    display: flex;
+}
+.delete{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.arrow{
+     width: 20px;
+      height: 20px;
+      border-top: 10px solid  rgb(247, 77, 51);
+      border-right: 10px solid rgb(247, 77, 51);
+      margin-right: 60px;
+      transform: rotate(45deg);
 
-  position: absolute;
-  right: -30px;
+  position: fixed;
+  left: 50px;
+  z-index: 4;
   top: 43%;
-  transform: rotate(-90deg);
-  font-size: 30px;
-  font-weight: bold;
-  margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
 }
 .side-img{
@@ -1507,4 +1523,14 @@ margin: 0 auto;
     align-self: center;
 }
 
+.contentOpen1{
+    margin-left: 320px !important;
+}
 
+.contentOpen2{
+    margin-right: 320px !important;
+}
+.transitionBlock{
+    transition: 1s;
+    margin-top: 31px !important;
+}
