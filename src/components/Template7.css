@@ -1,0 +1,101 @@
+.template7{
+    
+    font-family: 'ChampagneLimousines-Light';
+    width: 700px;
+    font-size: 18px;
+}
+
+.template7__firstPage{
+    display:flex;
+    background-color: white;
+}
+
+.template7__leftColumn{
+    color: white;
+    background-color: #262729;
+    width: 40%;
+    padding: 15px
+}
+
+.template7__avatar{
+    margin: 40px 80px 40px 80px;
+    
+}
+
+
+.template7__rightColumn{
+    width: 55%;
+    color: #262729;
+    padding: 15px
+}
+
+.template7__title{
+    font-size: 25px;
+    margin-bottom: 25px;
+    margin-top: 25px
+}
+
+.template7__fullName{
+    font-size: 45px;
+    margin-top: 61px;
+    font-family: 'ChampagneLimousines-Bold'
+}
+
+.template7__posistion{
+    margin-bottom: 61px;
+    font-size: 23px;
+}
+
+.template7__workplace_company{
+    font-size: 20px;
+    font-family: 'ChampagneLimousines-Bold';
+    margin: 15px 0;
+}
+
+.template7__workplace_position{
+    margin-bottom: 10px;
+}
+
+.template7__skills_subtitle{
+    font-size: 20px;
+    font-family: 'ChampagneLimousines-Bold';
+    margin: 10px 0;
+}
+
+.template7__secondPage{
+    margin-top: 35px;
+    background-color: white;
+    
+    padding: 15px;
+}
+
+
+.template7__projects{
+    display: flex;
+    flex-wrap: wrap;
+}
+.template7__project{
+    width: 47%;
+    margin: 10px
+}
+
+.template7__secondPage_title{
+    font-size: 25px;
+    font-family: 'ChampagneLimousines-Bold';
+}
+
+.template7__project_summary{
+    margin-bottom: 15px;
+}
+
+.template7__project_whatYouDo{
+    margin-bottom: 15px;
+}
+
+.template7__cotacts_header{
+    margin-bottom: 10px;
+}
+
+.template7__conctacts{
+    font-size: 13px;
+}

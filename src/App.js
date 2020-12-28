@@ -16,6 +16,8 @@ import Drag from "./components/inputs/Drag";
 import { FirebaseDatabaseProvider } from "@react-firebase/database";
 import firebase from 'firebase';
 import '@firebase/storage';
+import Template6 from "./components/Template6";
+import Template7 from "./components/Template7";
 
 function App() {
   const { templateNumber } = useSelector((state) => state.templateReducer);
@@ -33,6 +35,10 @@ function App() {
         return Template5;
       case "6":
         return Drag;
+        case "7":
+        return Template7;
+        case "8":
+        return Template6;
 
       default:
         return templatePage;
@@ -44,7 +50,7 @@ function App() {
     { path: "/templates", Component: templatePage },
     {path:'/resume', Component:correctTemplate(templateNumber)},
     {path:"/resumeLoad/:uid", Component:Drag},
-    // { path: '/test', Component: Test },
+    
   ];
 
   const firebaseConfig = {
@@ -61,6 +67,7 @@ function App() {
   return (
     <BrowserRouter>
       <FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
+        
       <div className="App">
       <Route exact path='/123'><Template8/></Route>
         {routes.map(({ path, Component }) => (
