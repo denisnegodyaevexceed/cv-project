@@ -11,6 +11,7 @@ import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
+
 import Drag from "./components/inputs/Drag";
 import { 
   FirebaseDatabaseProvider,
@@ -18,6 +19,7 @@ import {
 import firebase from 'firebase';
 import '@firebase/storage';
 import Template6 from "./components/Template6";
+import Template7 from "./components/Template7";
 
 
 
@@ -39,6 +41,10 @@ function App() {
         return Template5;
       case "6":
         return Drag;
+        case "7":
+        return Template7;
+        case "8":
+        return Template6;
 
       default:
         return templatePage;
@@ -51,7 +57,7 @@ function App() {
    
     {path:'/resume', Component:correctTemplate(templateNumber)},
     {path:"/resumeLoad/:uid", Component:Drag},
-    { path: '/test', Component: Template6 },
+    
   ];
 
   const firebaseConfig = {

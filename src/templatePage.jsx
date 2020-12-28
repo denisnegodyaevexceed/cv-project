@@ -236,6 +236,54 @@ const handlerDeleteSavedTemplate = (uid) => {
             </Grid>
             <Grid item xs={3} className="template-1">
               <div className="cont-temp">
+              <img className="img-1-1" src="./template-7-1.png" alt="" />
+              <img
+                id="7"
+                onClick={(e) => {
+                  
+                  handleClick(Alert)
+                  dispatch(allTemplateActions.setTemplateAction(e.target.id));
+                }}
+                className="img-1-2"
+                src="./template-7-2.png"
+                alt=""
+              />
+             
+
+              
+             <div className="cont-item">
+              
+              <h3 className="h3-template">Template 6</h3>
+              {templateNumber==='7'?<CheckCircleOutlineIcon className="icon"/>:null}
+              </div>
+              </div>
+            </Grid>
+            <Grid item xs={3} className="template-1">
+              <div className="cont-temp">
+              <img className="img-1-1" src="./template-8-1.png" alt="" />
+              <img
+                id="8"
+                onClick={(e) => {
+                  
+                  handleClick(Alert)
+                  dispatch(allTemplateActions.setTemplateAction(e.target.id));
+                }}
+                className="img-1-2"
+                src="./template-8-2.png"
+                alt=""
+              />
+             
+
+              
+             <div className="cont-item">
+              
+              <h3 className="h3-template">Template 7</h3>
+              {templateNumber==='8'?<CheckCircleOutlineIcon className="icon"/>:null}
+              </div>
+              </div>
+            </Grid>
+            <Grid item xs={3} className="template-1">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-6-1.png" alt="" />
               <img
                 id="6"
