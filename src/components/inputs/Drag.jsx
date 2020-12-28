@@ -17,7 +17,6 @@ import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import {Link} from 'react-router-dom';
 import DragPortfolio from './DragPortfolio'
-import "../grid.scss";
 import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import MenuItem from '@material-ui/core/MenuItem';
@@ -29,9 +28,7 @@ import AboutHardSkills from "./aboutHardSkills";
 import firebase from 'firebase';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import SaveIcon from '@material-ui/icons/Save';
-import {
-  useParams,
-} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import allAboutMeActions from '../../actions/aboutMeActions';
 import allAboutWorkActions from '../../actions/aboutWorkActions';
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
@@ -39,9 +36,10 @@ import allPortfolioActions from "../../actions/portfolioActions";
 import {GridStack} from 'gridstack';
 import Load from "./Load";
 import allTechnologyActions from "../../actions/addTechnologyActions";
-
+import "../grid.scss";
 
 export let GridPortfolio;
+
 const useStyles3 = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -52,7 +50,6 @@ const useStyles3 = makeStyles((theme) => ({
     display: "none",
   },
 }));
-
 
 const Drag = () => {
   const storage = firebase.storage();
@@ -133,7 +130,6 @@ const Drag = () => {
   (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
   
-
   useEffect(() => {
     
     let options = { 
@@ -170,32 +166,21 @@ const Drag = () => {
           })
           resolve("ok");
         });
-
-        
       });
-
       fetchData.then(_ => {
         GridStack.init(options, '.grid-stack-header');
         GridStack.init(options, ".grid-stack-body");
         GridPortfolio = GridStack.init(options, ".grid-stack-page2");
         setLoad(false);
       })
-
     } else {
       GridStack.init(options, '.grid-stack-header');
       GridStack.init(options, ".grid-stack-body");
       GridPortfolio = GridStack.init(options, ".grid-stack-page2");
       setLoad(false);
-  
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uid]);
-
-
-
-
-
-
 
 // SAVE
   const handlerSaveTemplate = () => {
@@ -207,9 +192,7 @@ const Drag = () => {
         id: item.getAttribute('data-id'),
         ver: getComputedStyle(item).alignItems,
         hor: getComputedStyle(item).textAlign,
-
       })
-
     });
 
     let matrixBlock = [];
@@ -276,8 +259,6 @@ const Drag = () => {
             smallTextColor: usersStyles.smallTextColor,
             customizedTemplateUid: usersStyles.customizedTemplateUid
           },
-
-
         });
         callback();
       } else {
@@ -331,7 +312,6 @@ const Drag = () => {
           matrixBlock: matrixBlock,
           headerBG: (headerImage === '') ? null :  headerImage,
           bodyBG: (bodyImage === '') ? null :  bodyImage,
-
         }).then((snap) => {
           dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key));
           callback(snap.key);
@@ -374,20 +354,16 @@ const Drag = () => {
           setLoadSave(false);
         }, 1000);
       }
-
     });
   }
 
   useEffect(() => {
     if(!loadHeader && !loadBody && !loadAvatar){
-
       setTimeout(() => {
         setLoadSave(false);
       }, 200);
     }
   }, [loadAvatar,loadBody,loadHeader ]);
-  
-
 
   const [fileHeader, setFileHeader] = useState(null);
   const [fileBody, setFileBody] = useState(null);
@@ -434,13 +410,9 @@ const Drag = () => {
   }
 
 //SAVE
-
-
-
   useEffect(() => {
     if (open2) {
       setCls2((oldArr) => [...oldArr, "open2"]);
-      
     } else {
       setCls2(['side2']);
 
@@ -450,10 +422,8 @@ const Drag = () => {
   useEffect(() => {
     if (open) {
       setCls((oldArr) => [...oldArr, "open1"]);
-      
     } else {
       setCls(['side1']);
-
     }
   }, [open]);
 
@@ -464,7 +434,6 @@ const Drag = () => {
   useEffect(() => {
     open2&&setOpen(false);
   },[open2])
-
 
   const handleChangeHeaderBackgroungComplete = (color) => {
     dispatch(allCustomizedTemplateActions.setHeaderBackgroundAction(color.hex));
@@ -480,7 +449,6 @@ const Drag = () => {
     setFileHeader(e.target.files[0]);
     return (e.target.files[0]&& dispatch(allCustomizedTemplateActions.setHeaderImageAction(URL.createObjectURL(e.target.files[0]), e.target.value)))
   }
-
 
   const addBodyBackground = (e) => {
     setFileBody(e.target.files[0]);
@@ -552,27 +520,15 @@ const Drag = () => {
     'Karla','Sharpe','ForgottenFuturist','UbicadaPro',
     'Aniron','Playfair','Alexandria','Rufina','Lusitana',
     'AlegreyaSC','Delia','Domine','Vollkorn']
-
-
   
   return (
     <>
-     
-    {load===true? <Load text={'Loading...'}/>:null}
-    {loadSave===true? <Load  text={'Saving...'}/>:null}
+      {load===true? <Load text={'Loading...'}/>:null}
+      {loadSave===true? <Load  text={'Saving...'}/>:null}
     <Container>
-      
       <Grid container>
-        <Grid item xs={12}>
-          
-        </Grid>
+        <Grid item xs={12}></Grid>
         <Grid item xs={12} className={`${open ? 'contentOpen2' : ''} ${open2 ? 'contentOpen1' : ''} transitionBlock`}>
-        {/* <div>
-      <form onSubmit={handleUpload}>
-        <button type='submit'>upload to firebase</button>
-      </form>
-      <img src={urlHeader} alt="" />
-    </div> */}
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
@@ -580,7 +536,6 @@ const Drag = () => {
               `${userInfo.firstName + userInfo.secondName}` +
               `${userInfo.careerObjective}`
             }
-          
           >
             <DragHeader styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
@@ -589,183 +544,145 @@ const Drag = () => {
           </PDFExport>
         </Grid>
       </Grid>
-      {!open2 ? (
-          <div onClick={() => setOpen2(!open2)} className="arrow">
-            
-          </div>
-        ) : (
-          null
-        )}
+      {!open2 ? (<div onClick={() => setOpen2(!open2)} className="arrow"></div>) : (null)}
       <div className={cls2.join(" ")}>
-       <AboutMe/>
-       <br/>
-      <AboutWorkHistory/>
-       <br/>
-       <AboutHardSkills/>
-       <br/>
-       <Portfolio/>
-         {!open2 ? (
-          null
-        ) : (
-          <div className="side-close2" onClick={() => setOpen2(!open2)}>
-            
-          </div>
-        )}
-      </div>
-      {!open ? (
-          <div onClick={() => setOpen(!open)} className="arrow2">
-            
-          </div>
-        ) : (
-          null
-        )}
-      <div className={cls.join(" ")}>
-       <h2>Editing</h2>
-       <div className="edit-cont">
-      <div>
-      <br/>
-      <br/>
-      <Grid container alignItems="center" className={classes.root}>
-      <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
-      <Select
-      className='select-font'
-          value={font}
-          onChange={(e) => handleChangeFont(e)}
-          id="filled-select-currency"
-          variant="outlined"
-          MenuProps={MenuProps}
-        > 
-        {fontList.map((item, index)=> {
-          return (
-            <MenuItem key={index} value={item}>
-              {item}
-            </MenuItem>
-          )
-        })}
-        </Select>
-        </Grid>
+        <AboutMe/>
         <br/>
-      <TextDecorateButtons/>
-      <br/>
-<Accordion>
-<AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background</h3>
-</div>
-          </AccordionSummary>
-          <AccordionDetails>
-            <div className="flex-cont-edit">
-            <div className="cont-edit">
-      <Accordion>
-      <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background header</h3></div>
-        </AccordionSummary>
-        <AccordionDetails>
-        <div>
-          <form>
-            <input accept="image/*" value={headerImageValue}  className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
-            <label htmlFor="icon-button-file">
-        <IconButton  aria-label="upload picture" component="span">
-          
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('cover'))}>Cover</Button>
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('repeat'))}>Repeat</Button>
-                        </ButtonGroup>
-      </form>
-      <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />      
-
+        <AboutWorkHistory/>
+        <br/>
+        <AboutHardSkills/>
+        <br/>
+        <Portfolio/>
+        {!open2 ? (null) : (<div className="side-close2" onClick={() => setOpen2(!open2)}></div>)}
       </div>
-      </AccordionDetails>
-      </Accordion>
-      </div>
-      <div className="cont-edit">
-
-      <Accordion>
-      <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background main</h3></div>
-        </AccordionSummary>
-        <AccordionDetails>
-        <div><form>
-            <input accept="image/*" value={bodyImageValue}  className={classes3.input} id="icon-button-file2" type="file" onChange={(e)=>addBodyBackground(e)}/>
-            <label htmlFor="icon-button-file2">
-        <IconButton  aria-label="upload picture" component="span">
-          
-          <PhotoCamera className='photoInput'/>
-        </IconButton>
-      </label>
-      <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('cover'))}>Cover</Button>
-                        <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('repeat'))}>Repeat</Button>
-                        </ButtonGroup>
-      </form>
-      <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
-
-      </div>
-      </AccordionDetails>
-      </Accordion>
-      </div>
-      </div>
-
-      </AccordionDetails>
-      </Accordion>
-      <div className="button">
-      <Button
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        to="/templates" component={Link}
-        >
-          Change Template
-        </Button>
-          <GetAppIcon
-            color='inherit'
-            className="k-button"
-            onClick={() => {
-              pdfExport();
-            }}
-          >
-            
-          </GetAppIcon>
-          
-
-        <SaveIcon
-        color='inherit'
-        className="k-button"
-        onClick={()=>{handlerSaveTemplate();}}
-        >
-          save{customizedTemplateUid}
-        </SaveIcon>
-
+      {!open ? (<div onClick={() => setOpen(!open)} className="arrow2"></div>) : (null)}
+      <div className={cls.join(" ")}>
+        <h2>Editing</h2>
+        <div className="edit-cont">
+          <div>
+          <br/>
+          <br/>
+          <Grid container alignItems="center" className={classes.root}>
+            <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Select font</h3>
+            <Select
+              className='select-font'
+              value={font}
+              onChange={(e) => handleChangeFont(e)}
+              id="filled-select-currency"
+              variant="outlined"
+              MenuProps={MenuProps}
+            > 
+              {fontList.map((item, index)=> {
+                return (
+                  <MenuItem key={index} value={item}>
+                    {item}
+                  </MenuItem>
+                )
+              })}
+            </Select>
+          </Grid>
+          <br/>
+          <TextDecorateButtons/>
+          <br/>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <div className={classes2.heading} >
+                <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background</h3>
+              </div>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className="flex-cont-edit">
+                <div className="cont-edit">
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <div className={classes2.heading} ><h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background header</h3></div>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <div>
+                        <form>
+                          <input accept="image/*" value={headerImageValue} className={classes3.input} id="icon-button-file" type="file" onChange={(e)=>addHeaderBackground(e)}/>
+                          <label htmlFor="icon-button-file">
+                            <IconButton  aria-label="upload picture" component="span">
+                              <PhotoCamera className='photoInput'/>
+                            </IconButton>
+                          </label>
+                          <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                            <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('cover'))}>Cover</Button>
+                            <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setHeaderImagePositionAction('repeat'))}>Repeat</Button>
+                          </ButtonGroup>
+                        </form>
+                        <SketchPicker color={headerBackground} onChangeComplete={handleChangeHeaderBackgroungComplete} />      
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
                 </div>
-     
-      
-      </div>
-            </div> 
-        
-        {!open ? (
-          null
-        ) : (
-          <div className="side-close1" onClick={() => setOpen(!open)}>
-            
+                <div className="cont-edit">
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <div className={classes2.heading} >
+                        <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Background main</h3>
+                      </div>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <div>
+                        <form>
+                          <input accept="image/*" value={bodyImageValue}  className={classes3.input} id="icon-button-file2" type="file" onChange={(e)=>addBodyBackground(e)}/>
+                          <label htmlFor="icon-button-file2">
+                            <IconButton  aria-label="upload picture" component="span">
+                            <PhotoCamera className='photoInput'/>
+                            </IconButton>
+                          </label>
+                          <ButtonGroup size='small' color="primary" aria-label="outlined primary button group">
+                            <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('cover'))}>Cover</Button>
+                            <Button onClick={(e) => dispatch(allCustomizedTemplateActions.setBodyImagePositionAction('repeat'))}>Repeat</Button>
+                          </ButtonGroup>
+                        </form>
+                        <SketchPicker color={bodyBackground} onChangeComplete={handleChangeBodyBackgroungComplete} />
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
+              </div>
+            </AccordionDetails>
+          </Accordion>
+          <div className="button">
+            <Button
+              variant="contained"
+              color="secondary"
+              className="k-button"
+              to="/templates" component={Link}
+            >Change Template</Button>
+            <GetAppIcon
+              color='inherit'
+              className="k-button"
+              onClick={() => pdfExport()} 
+            />
+            <SaveIcon
+              color='inherit'
+              className="k-button"
+              onClick={()=>{handlerSaveTemplate();}}
+            >
+                save{customizedTemplateUid}
+            </SaveIcon>
           </div>
-        )}
-      </div>
-    </Container>
-    </>
+        </div>
+      </div> 
+      {!open ? (null) : (<div className="side-close1" onClick={() => setOpen(!open)}></div>)}
+    </div>
+  </Container>
+  </>
   );
 };
 export default Drag;

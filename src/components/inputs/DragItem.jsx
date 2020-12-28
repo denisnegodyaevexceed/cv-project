@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
 import {GridPortfolio} from './Drag';
 
-
 const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, type = null,}) => {
     const {posVertical, textAlign, activeBlock} = useSelector(state=>state.customizedTemplateReducer);
     const [newStyle, setNewStyle] = useState({
@@ -43,7 +42,6 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
     }, [textAlign]);    
 
     const handleClickItem = () => {
-        
         dispatch(setActiveBlockAction(id));
         dispatch(setVerticalPosAction(newStyle.alignItems));
         dispatch(setTextAlignAction(newStyle.textAlign));
@@ -52,7 +50,6 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
     useEffect(() => { 
         if (type === 'portfolio'){
             GridPortfolio?.makeWidget(`#grid-${id}`);
-            
         }
 
         return() => {
@@ -65,18 +62,19 @@ const DragItem = ({id, renderContent, gsw = 12, gsh = 42, gsx = 0, gsy = 750, ty
     }, []);
 
     return (
-        <div data-id-matrix={id} id={`grid-${id}`}  className={`grid-stack-item ${type === 'portfolio' && 'itemPortfolio'}`} gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
-            <div data-id={id} style={{
-                display: "flex",
-                textAlign: newStyle.textAlign,
-                alignItems: newStyle.alignItems,
-            }} className={`${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
+        <div data-id-matrix={id} id={`grid-${id}`} className={`grid-stack-item ${type === 'portfolio' && 'itemPortfolio'}`} gs-w={gsw} gs-h={gsh} gs-x={gsx} gs-y={gsy} onMouseDown={() => handleClickItem()}>
+            <div 
+                data-id={id} 
+                style={{
+                    display: "flex",
+                    textAlign: newStyle.textAlign,
+                    alignItems: newStyle.alignItems,
+                }} 
+                className={`${activeBlock === id ? 'active-block' : '' } grid-stack-item-content`}
             >{renderContent}</div>
         </div>
     );
 };
-
-
 
 export default DragItem;
 

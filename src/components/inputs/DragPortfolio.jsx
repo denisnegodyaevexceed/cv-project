@@ -35,49 +35,46 @@ const DragPortfolio = ({
     backgroundPosition: 'center',
     backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
-    // let superCorrectMatrix = [].concat(matrixBlock)
+  React.useEffect(() => {
+    let id = document.getElementById('pageBreaker')
+    if(isHavePortfolio){
+      id.classList.add('page-break')
+    } else {
+      id.classList.remove('page-break')
+    }
+  }, [isHavePortfolio]);
 
-    React.useEffect(() => {
-      let id = document.getElementById('pageBreaker')
-      if(isHavePortfolio){
-        id.classList.add('page-break')
-      } else {
-        id.classList.remove('page-break')
-      }
-    }, [isHavePortfolio]);
-
-    return (
-        <div id='pageBreaker' className={`grid-stack grid-stack-page2 grid-stack-portfolio`} style={backgroundControll}>
-            {
-            projects.map((item, index) => {
-                let {name, link, summary, whatYouDo, stack, id} = item
-                let newMatrix = [...matrixBlock];
-                let f = newMatrix.find(itemq => +itemq.id === +id+8)
-                return ( name && summary && whatYouDo && stack && 
-                    <DragItem type='portfolio' key={index} id={id + 8} gsh={f?.h} gsw={f?.w} gsx={f?.x} gsy={f?.y} renderContent={
-                        <span>
-                            <div>
-                                <div className="mar-bot" style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
-                                <div className="mar-bot">
-                                    <div style={styleSubTitle}>Summary:</div> 
-                                    <span style={styleText}>{summary}</span>
-                                </div>
-                                <div className="mar-bot">
-                                <div style={styleSubTitle}>What i did here: </div>
-                                  <span style={styleText}>{whatYouDo}</span>
-                                </div>
-                                <div >
-                                    <div style={styleSubTitle}>Stack:</div> 
-                                    {stack.map((item, index)=>{
-                                      return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
-                                    })}
-                                </div>
+  return (
+    <div id='pageBreaker' className={`grid-stack grid-stack-page2 grid-stack-portfolio`} style={backgroundControll}>
+        {projects.map((item, index) => {
+            let {name, link, summary, whatYouDo, stack, id} = item
+            let newMatrix = [...matrixBlock];
+            let f = newMatrix.find(itemq => +itemq.id === +id+8)
+            return ( name && summary && whatYouDo && stack && 
+                <DragItem type='portfolio' key={index} id={id + 8} gsh={f?.h} gsw={f?.w} gsx={f?.x} gsy={f?.y} renderContent={
+                    <span>
+                        <div>
+                            <div className="mar-bot" style={styleTitle} >{name.toUpperCase()+' - '+link}</div>
+                            <div className="mar-bot">
+                                <div style={styleSubTitle}>Summary:</div> 
+                                <span style={styleText}>{summary}</span>
                             </div>
-                        </span>
-                    }/>
-            )})}
-        </div>
-    );
+                            <div className="mar-bot">
+                            <div style={styleSubTitle}>What i did here: </div>
+                              <span style={styleText}>{whatYouDo}</span>
+                            </div>
+                            <div >
+                                <div style={styleSubTitle}>Stack:</div> 
+                                {stack.map((item, index)=>{
+                                  return <span style={styleSmallText} key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
+                                })}
+                            </div>
+                        </div>
+                    </span>
+                }/>
+        )})}
+    </div>
+  );
 };
 
 export default DragPortfolio;

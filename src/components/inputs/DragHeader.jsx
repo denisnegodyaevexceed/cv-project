@@ -18,7 +18,9 @@ const DragHeader = ({styleName, stylePosition}) => {
     return (
         <div  className='grid-stack grid-stack-header' style={backgroundControll}>
             <DragItem  id={1} gsh={matrixBlock[0].h} gsw={matrixBlock[0].w} gsx={matrixBlock[0].x} gsy={matrixBlock[0].y} renderContent={
-                <div  style={{backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : '/user.png'})`,backgroundRepeat: "no-repeat",
+                <div style={{
+                    backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : '/user.png'})`,
+                    backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     width: '100%',
@@ -26,12 +28,12 @@ const DragHeader = ({styleName, stylePosition}) => {
                     boxSizing: 'border-box',
                     borderRadius: avaBorderRadius,
                     margin: "auto"}} 
-                />} 
-            />
+                />
+            }/>
             <DragItem id={2} gsh={matrixBlock[1].h} gsw={matrixBlock[1].w} gsx={matrixBlock[1].x} gsy={matrixBlock[1].y}  renderContent={<span style={styleName}>{userInfo.firstName} {userInfo.secondName}</span>}/>
             <DragItem id={3} gsh={matrixBlock[2].h} gsw={matrixBlock[2].w} gsx={matrixBlock[2].x} gsy={matrixBlock[2].y}  renderContent={<span style={stylePosition}>{userInfo.careerObjective}</span>} />
         </div> 
     )
 }
 
-export default DragHeader   ;
+export default DragHeader;
