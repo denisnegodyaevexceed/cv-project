@@ -10,11 +10,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import top100Films from '../../constants/stack';
 
-
-
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -28,8 +23,6 @@ const useStyles2 = makeStyles((theme) => ({
     width: '100%',
   },
   heading: {
-
-
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
@@ -38,16 +31,11 @@ const useStyles2 = makeStyles((theme) => ({
 
 const Portfolio = () => {
   const dispatch = useDispatch()
-
   const { firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject } = useSelector(state => state.portfolioReducer)
-
   const classes = useStyles();
   const classes2 = useStyles2();
-
-
   const {techList} = useSelector(state => state.addTechnologyReducer)
   let uniqueArray = top100Films.concat(techList).concat()
-
   let firstSummaryCounter = (220 - firstProject?.summary?.length) + ' letters left.'
   let firstWhatYouDoCounter = (180 - firstProject?.whatYouDo?.length) + ' letters left.'
   let secondSummaryCounter = (220 - secondProject?.summary?.length) + ' letters left.'
@@ -115,10 +103,8 @@ const Portfolio = () => {
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setFirstProjectStack(values))}
                     value={firstProject.stack}
-
                     renderInput={params => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
@@ -144,7 +130,6 @@ const Portfolio = () => {
           </AccordionSummary>
           <AccordionDetails>
             <div>
-
               <div className={classes.root} noValidate autoComplete="off">
                 <TextField value={secondProject.name} onChange={e => dispatch(allPortfolioActions.setSecondProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={secondProject.link} onChange={e => dispatch(allPortfolioActions.setSecondProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
@@ -176,10 +161,8 @@ const Portfolio = () => {
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setSecondProjectStack(values))}
                     value={secondProject.stack}
-
                     renderInput={params => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
@@ -236,10 +219,8 @@ const Portfolio = () => {
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setThirdProjectStack(values))}
                     value={thirdProject?.stack}
-
                     renderInput={params => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
@@ -270,7 +251,6 @@ const Portfolio = () => {
                 <TextField
                   value={fourthProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setFourthProjectSummary(e.target.value.length <= 220 ? e.target.value : fourthProject.summary))}
-
                   helperText={fourthProject?.summary?.length > 0 ? fourthSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
@@ -296,15 +276,12 @@ const Portfolio = () => {
                     getOptionLabel={option => option.title}
                     onChange={(_, values) => dispatch(allPortfolioActions.setFourthProjectStack(values))}
                     value={fourthProject.stack}
-
                     renderInput={params => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                       
                       />
                     )}
                   />
@@ -329,14 +306,13 @@ const Portfolio = () => {
                 <TextField value={fifthProject.name} onChange={e => dispatch(allPortfolioActions.setFifthProjectName(e.target.value))} label="Project name" variant="outlined" />
                 <TextField value={fifthProject.link} onChange={e => dispatch(allPortfolioActions.setFifthProjectLink(e.target.value))} label='Link to this project' variant='outlined' />
                 <TextField
-                  value={fifthProject.summary}
-                  onChange={e => dispatch(allPortfolioActions.setFifthProjectSummary(e.target.value.length <= 220 ? e.target.value : fifthProject.summary))}
-
-                  helperText={fifthProject?.summary?.length > 0 ? fifthSummaryCounter : ''}
-                  label='Summary'
-                  variant='outlined'
-                  multiline
-                  rowsMax={10}
+                    value={fifthProject.summary}
+                    onChange={e => dispatch(allPortfolioActions.setFifthProjectSummary(e.target.value.length <= 220 ? e.target.value : fifthProject.summary))}
+                    helperText={fifthProject?.summary?.length > 0 ? fifthSummaryCounter : ''}
+                    label='Summary'
+                    variant='outlined'
+                    multiline
+                    rowsMax={10}
                   />
                 <TextField
                   value={fifthProject.whatYouDo}
@@ -360,12 +336,10 @@ const Portfolio = () => {
 
                     renderInput={params => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                       
                       />
                     )}
                   />
@@ -392,7 +366,6 @@ const Portfolio = () => {
                 <TextField
                   value={sixthProject.summary}
                   onChange={e => dispatch(allPortfolioActions.setSixthProjectSummary(e.target.value.length <= 220 ? e.target.value : sixthProject.summary))}
-
                   helperText={sixthProject?.summary?.length > 0 ? sixthSummaryCounter : ''}
                   label='Summary'
                   variant='outlined'
@@ -421,12 +394,10 @@ const Portfolio = () => {
 
                     renderInput={params => (
                       <TextField
-
                         {...params}
                         variant="standard"
                         placeholder="Search"
                         margin="normal"
-                       
                       />
                     )}
                   />
@@ -438,14 +409,8 @@ const Portfolio = () => {
           </AccordionDetails>
         </Accordion>
       </div>
-
-
-
-
     </div>
   )
 }
 
 export default Portfolio
-
-

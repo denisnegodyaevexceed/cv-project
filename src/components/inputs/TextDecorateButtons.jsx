@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch} from "react-redux";
 import FormatAlignLeftIcon from '@material-ui/icons/FormatAlignLeft';
@@ -21,24 +21,22 @@ import {
 } from '@material-ui/core';
 import allCustomizedTemplateActions from '../../actions/customizedTemplateActions'
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
-      width: '100%',
-      border: `1px solid ${theme.palette.divider}`,
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.background.paper,
-      color: theme.palette.text.secondary,
-      '& svg': {
+        width: '100%',
+        border: `1px solid ${theme.palette.divider}`,
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.secondary,
+        '& svg': {
         margin: theme.spacing(1),
         padding:4,
-      },
-      '& hr': {
+        },
+        '& hr': {
         margin: theme.spacing(0, 0.5),
-      },
+        },
     },
-  }));
-  
+}));
 
 const TextDecorateButtons = () => {
     const {
@@ -74,12 +72,11 @@ const TextDecorateButtons = () => {
         dispatch(setAvaBorderRadiusAction(value));
     }
 
-    React.useEffect(() => { 
+    useEffect(() => { 
         setValueSize(nameSize);
     }, [nameSize]);
 
-
-    React.useEffect(() => { 
+    useEffect(() => { 
         setValueColor(nameColor);
     }, [nameColor]);
 
@@ -154,8 +151,8 @@ const TextDecorateButtons = () => {
                 <Button onClick={() => {setVertical('flex-end')}}>
                     <VerticalAlignBottomIcon />
                 </Button>
-                </Grid>
-                <br/>
+            </Grid>
+            <br/>
             <Grid container alignItems="center" className={classes.root}>
                 <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>General style</h3>
                 <div>
@@ -163,7 +160,6 @@ const TextDecorateButtons = () => {
                         <RadioGroup row aria-label="position" name="position" defaultValue="nameActive" onChange={(e) => handlerChangeTypeText(e)}>
                             <FormControlLabel
                                 value="nameActive"
-                            
                                 className='radio-small'
                                 control={<Radio size='small' color="primary" />}
                                 label="Name"
@@ -210,11 +206,7 @@ const TextDecorateButtons = () => {
                         </div>
                         <h4 style={{width: '100%',textAlign:"left",margin:'10px'}}>Font color</h4>
                         <div className="color-picker">
-                            <CompactPicker 
-                            className='picker'
-                                color={valueColor} 
-                                onChangeComplete={handleChangeColor}
-                            />
+                            <CompactPicker className='picker' color={valueColor} onChangeComplete={handleChangeColor} />
                         </div>
                     </FormControl>
                 </div>

@@ -29,57 +29,51 @@ const DragBody = ({
         backgroundPosition: 'center',
         backgroundSize: 'cover'}:{backgroundImage: `url(${bodyImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${bodyBackground}`}
 
-    // React.useEffect(() => {
-    //     let options = {
-    //         disableOneColumnMode: true,
-    //         float: false,
-    //         cellHeight: 5,
-    // };
-    // GridStack.init(options, ".grid-stack-body");
-    // }, []);
-
     return (
         <div className="grid-stack grid-stack-body" style={backgroundControll} gs-current-row={0} id='gridBody'>
-            <DragItem id={4}  gsh={matrixBlock[3].h} gsw={matrixBlock[3].w} gsx={matrixBlock[3].x} gsy={matrixBlock[3].y} renderContent={
-                <span>
+            <DragItem 
+                id={4}  
+                gsh={matrixBlock[3].h} 
+                gsw={matrixBlock[3].w} 
+                gsx={matrixBlock[3].x} 
+                gsy={matrixBlock[3].y} 
+                renderContent=
+                {<span>
                     <div className="">
                         <div className="" style={styleTitle}>TECH STACK</div>
                         <div className="">
                             {frontend?.length > 0 && <div  style={styleSubTitle}>Frontend</div>}
-                            
                             <div className="mar-bot"> 
                                 {frontend.map((item, index) => {
-                                return<div  style={styleText} key={index}>{item.title}</div>;
-
+                                    return <div style={styleText} key={index}>{item.title}</div>;
                                 })}
+                            </div>
+                            <div className="mar-bot">
+                                <div>
+                                    {backend?.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
+                                    <div>
+                                        {backend.map((item, index) => {
+                                            return <div style={styleText} key={index}>{item.title}</div>;
+                                        })}
+                                    </div>
                                 </div>
-                                
-                        <div className="mar-bot">
-                            <div>
-                            {backend?.length > 0 && <div className="" style={styleSubTitle}>Backend</div>}
-                            <div>
-                                {backend.map((item, index) => {
-                                return <div style={styleText} key={index}>{item.title}</div>;
-                                })}
                             </div>
+                            <div className="mar-bot">
+                                {dbs?.length > 0 && <div className="" style={styleSubTitle}>DBS</div>}
+                                <div>
+                                    {dbs.map((item, index) => {
+                                        return <div style={styleText} key={index}>{item.title}</div>;
+                                    })}
+                                </div>
                             </div>
-                        </div>
-                        <div className="mar-bot">
-                            {dbs?.length > 0 && <div className="" style={styleSubTitle}>DBS</div>}
-                            <div>
-                                {dbs.map((item, index) => {
-                                return <div style={styleText} key={index}>{item.title}</div>;
-                                })}
+                            <div className="">
+                                {other?.length > 0 && <div className="" style={styleSubTitle}>Other</div>}
+                                <div>
+                                    {other.map((item, index) => {
+                                        return <div style={styleText} key={index}>{item.title}</div>
+                                    })}
+                                </div>
                             </div>
-                        </div>
-                        <div className="">
-                            {other?.length > 0 && <div className="" style={styleSubTitle}>Other</div>}
-                            <div>
-                                {other.map((item, index) => {
-                                return <div style={styleText} key={index}>{item.title}</div>;
-                                })}
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </span>} 
@@ -155,4 +149,4 @@ const DragBody = ({
     );
 };
 
-export default DragBody;
+export default DragBody

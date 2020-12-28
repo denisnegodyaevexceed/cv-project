@@ -11,20 +11,15 @@ import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
+import Template8 from "./components/Template8";
 import Drag from "./components/inputs/Drag";
-import { 
-  FirebaseDatabaseProvider,
-} from "@react-firebase/database";
+import { FirebaseDatabaseProvider } from "@react-firebase/database";
 import firebase from 'firebase';
 import '@firebase/storage';
-
-
 
 function App() {
   const { templateNumber } = useSelector((state) => state.templateReducer);
   const correctTemplate = (templateNumber) => {
-    
-
     switch (templateNumber) {
       case "1":
         return Template1;
@@ -47,7 +42,6 @@ function App() {
   const routes = [
     { path: "/", Component: Test },
     { path: "/templates", Component: templatePage },
-   
     {path:'/resume', Component:correctTemplate(templateNumber)},
     {path:"/resumeLoad/:uid", Component:Drag},
     // { path: '/test', Component: Test },
@@ -64,13 +58,11 @@ function App() {
     measurementId: "G-2L5V383TM9"
   };
 
- 
-
-
   return (
     <BrowserRouter>
       <FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
+      <Route exact path='/123'><Template8/></Route>
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
             {({ match }) => (
@@ -81,7 +73,6 @@ function App() {
                 in={match !== null}
               >
                 <Component />
-
               </CSSTransition>
             )}
           </Route>
