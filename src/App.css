@@ -903,17 +903,23 @@ z-index: 3;
       opacity: 0;
     }
   }
-
+.switch{
+    margin: 0 auto;
+    position: fixed;
+    text-align: center;
+    top: 57%;
+    left: 47.35%;
+}
   .btn2 {
       width: 300px;
       text-align: center;
     text-decoration: none;
-    top: 450px;
+    top: 50%;
     outline: none;
     color: white;
     font-weight: bold;
     display: inline-block;
-    position: relative;
+    position: fixed;
     padding: 15px 30px;
     border: 1px solid;
     border-image: black;
@@ -952,12 +958,12 @@ z-index: 3;
     width: 300px;
     text-align: center;
   text-decoration: none;
-  top: 450px;
+  top: 50%;
   outline: none;
   color: white;
   font-weight: bold;
   display: inline-block;
-  position: relative;
+  position: fixed;
   padding: 15px 30px;
   border: 1px solid;
   border-image: black;
@@ -1129,7 +1135,7 @@ z-index: 3;
     background-color: white;
 }
 .open2{
-   
+   z-index:100;
   overflow-x: hidden;
   left: 20px;
 
@@ -1548,7 +1554,6 @@ margin: 0 auto;
     top: 0;
     left: 0;
     z-index: 500;
-    background-color: black;
     width: 3000px;
     height: 100vh;
     overflow: hidden;
@@ -1563,7 +1568,11 @@ margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
+.center{
+    text-align: center;
+}
 .customs{
+    background:url('../src/exceed.png') no-repeat;
     display: flex;
     position: relative;
     cursor: pointer;
@@ -1573,6 +1582,7 @@ margin: 0 auto;
     background-color: white;
 }
 .custom-items{
+    color: white;
     font-weight: bold;
     margin: 0 auto;
     align-self: center;

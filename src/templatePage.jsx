@@ -318,10 +318,11 @@ const handlerDeleteSavedTemplate = (uid) => {
           <div className='cont-custom' style={{color: 'white'}}>
           {savedTemplates.map((item, index) => (
             <div key={index}>
-            <div className="customs"  onClick={() => loadTemplate(item.uid)} >
+            <div className="customs"   onClick={() => loadTemplate(item.uid)} >
             <div className='custom-items'>
               <div className="title-customs">Custom template</div>
-              {item.name}</div>
+
+              <div className='center'>{item.name}</div></div>
             </div>
             <div className="delte-container" onClick={()=>{handlerDeleteSavedTemplate(item.uid)}}>
             <DeleteIcon  variant="contained"

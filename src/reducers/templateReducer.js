@@ -1,5 +1,6 @@
 const initialState = {
-    templateNumber: ''
+    templateNumber: '',
+    theme:'black',
 }
 
 const templateReducer = (state=initialState, actions) => {
@@ -8,6 +9,16 @@ const templateReducer = (state=initialState, actions) => {
             return {
                 ...state,
                 templateNumber: actions.payload
+            }
+            case 'SET_THEME_LIGHT':
+            return {
+                ...state,
+                theme:'white'
+            }
+            case 'SET_THEME_DARK':
+            return {
+                ...state,
+                theme:'black'
             }
         default:
             return state    
