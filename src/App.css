@@ -1566,7 +1566,8 @@ margin: 0 auto;
 }
 .cont-custom{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .center{
     text-align: center;
