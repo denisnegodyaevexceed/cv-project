@@ -13,11 +13,16 @@ const setThemeLight = () =>({
     
 })
 
+const setCheckedA = (data) => ({
+    type: actions.SET_CHECKED_A,
+    payload: data
+})
+
 const allTemplateActions = {
     setTemplateAction,
     setThemeDark,
-    setThemeLight
-    
+    setThemeLight,
+    setCheckedA
 }
 
 

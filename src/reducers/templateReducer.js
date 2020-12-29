@@ -1,6 +1,7 @@
 const initialState = {
     templateNumber: '',
     theme:'black',
+    checkedA: true
 }
 
 const templateReducer = (state=initialState, actions) => {
@@ -20,6 +21,11 @@ const templateReducer = (state=initialState, actions) => {
                 ...state,
                 theme:'black'
             }
+            case 'SET_CHECKED_A':
+                return {
+                    ...state,
+                    checkedA: actions.payload
+                }
         default:
             return state    
     }
