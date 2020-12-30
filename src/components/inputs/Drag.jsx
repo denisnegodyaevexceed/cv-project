@@ -527,7 +527,7 @@ const Drag = () => {
       {load===true? <Load text={'Loading...'}/>:null}
       {loadSave===true? <Load  text={'Saving...'}/>:null}
     <Container>
-    <div className="button">
+    {/* <div className="button">
             <Button
               variant="contained"
               color="secondary"
@@ -551,10 +551,38 @@ const Drag = () => {
                 save{customizedTemplateUid}
             </SaveIcon>
             </Tooltip>
-          </div>
+          </div> */}
       <Grid container>
+      
         <Grid item xs={12}></Grid>
         <Grid item xs={12} className={`${open ? 'contentOpen2' : ''} ${open2 ? 'contentOpen1' : ''} transitionBlock`}>
+        <div className="button">
+          <div className="cont-btn">
+            <Button
+              variant="contained"
+              color="secondary"
+              className="k-button"
+              to="/templates" component={Link}
+            >Change Template</Button>
+            <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
+            <GetAppIcon
+              color='inherit'
+              className="k-button"
+              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExport()}
+             
+            />
+            </Tooltip>
+            <Tooltip title='Save template'><SaveIcon
+              color='inherit'
+              className="k-button"
+              
+              onClick={()=>{handlerSaveTemplate();}}
+            >
+                save{customizedTemplateUid}
+            </SaveIcon>
+            </Tooltip>
+            </div>
+          </div>
           <PDFExport
             forcePageBreak=".page-break"
             ref={(component) => (pdfExportComponent = component)}
