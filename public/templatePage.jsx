@@ -1,9 +1,11 @@
 import React, {useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 import { useSelector, useDispatch } from "react-redux";
 import allTemplateActions from "./actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import MuiAlert from '@material-ui/lab/Alert';
 import firebase from 'firebase';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -21,9 +23,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid() {
-  const exc1 = `('./exceed.png')`
-  const exc2 = `('./exceed2.png')`
-  const {checkedA } = useSelector((state) => state.templateReducer);
+  const exc1 = `url('../src/exceed.png') no-repeat;`
+  const exc2 = `url('../src/exceed2.png') no-repeat;`
   let history = useHistory();
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -32,7 +33,9 @@ export default function CenteredGrid() {
   const [open, setOpen] = React.useState(false);
   const [savedTemplates, setSavedTemplates] = React.useState([]);
 
-  
+  const handleClick = () => {
+    setOpen(true);
+  };
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -114,16 +117,13 @@ const handlerDeleteSavedTemplate = (uid) => {
         <div className={classes.root}>
           <Grid container spacing={1}>
             <Grid item xs={3} className="template-1">
-              <div 
-              
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-          className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-1-1.png" alt="" />
               <img
                 id="1"
                 onClick={(e) => {
                   
-                  
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -135,29 +135,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="1"
-              onClick={(e) => {
-                
-                
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 1</h3>
-              
+              <h3 className="h3-template">Template 1</h3>
+              {templateNumber==='1'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div 
-              
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-          className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-2-1.png" alt="" />
               <img
                 id="2"
                 onClick={(e) => {
                   
-                  
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -169,29 +159,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="2"
-              onClick={(e) => {
-                
-                
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 2</h3>
-           
+              <h3 className="h3-template">Template 2</h3>
+              {templateNumber==='2'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div 
-              
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-          className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-3-1.png" alt="" />
               <img
                 id="3"
                 onClick={(e) => {
                   
-                  
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -203,29 +183,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="3"
-              onClick={(e) => {
-                
-                
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 3</h3>
-             
+              <h3 className="h3-template">Template 3</h3>
+              {templateNumber==='3'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div 
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-              
-              className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-4-1.png" alt="" />
               <img
                 id="4"
                 onClick={(e) => {
                   
-                  
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -237,30 +207,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              
-              id="4"
-              onClick={(e) => {
-                
-                
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 4</h3>
-              
+              <h3 className="h3-template">Template 4</h3>
+              {templateNumber==='4'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-              
-              className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-5-1.png" alt="" />
               <img
                 id="5"
                 onClick={(e) => {
                   
-          
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -272,29 +231,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="5"
-              onClick={(e) => {
-                
-        
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 5</h3>
-          
+              <h3 className="h3-template">Template 5</h3>
+              {templateNumber==='5'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div 
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-              
-              className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-7-1.png" alt="" />
               <img
                 id="7"
                 onClick={(e) => {
                   
-                
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -306,29 +255,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="7"
-              onClick={(e) => {
-                
-              
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 6</h3>
-              
+              <h3 className="h3-template">Template 6</h3>
+              {templateNumber==='7'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-
-              className="cont-temp">
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-8-1.png" alt="" />
               <img
                 id="8"
                 onClick={(e) => {
                   
-                  
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -340,31 +279,19 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="8"
-              onClick={(e) => {
-                
-                
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Template 7</h3>
-             
+              <h3 className="h3-template">Template 7</h3>
+              {templateNumber==='8'?<CheckCircleOutlineIcon className="icon"/>:null}
               </div>
               </div>
             </Grid>
             <Grid item xs={3} className="template-1">
-              <div 
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-
-              className="cont-temp"
-              
-              >
+              <div className="cont-temp">
               <img className="img-1-1" src="./template-6-1.png" alt="" />
               <img
                 id="6"
                 onClick={(e) => {
                   
-          
+                  handleClick(Alert)
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
@@ -376,22 +303,13 @@ const handlerDeleteSavedTemplate = (uid) => {
               
              <div className="cont-item">
               
-              <h3 
-              id="6"
-              onClick={(e) => {
-                
-        
-                dispatch(allTemplateActions.setTemplateAction(e.target.id));
-              }}
-              className="h3-template">Create template</h3>
-             
+              <h3 className="h3-template">Create template</h3>
+              {templateNumber==='6'?<CheckCircleOutlineIcon className="icon-2"/>:null}
               </div>
               </div>
             </Grid>
             
           </Grid>
-          {templateNumber===""?<h3 className="h3-template">
-please select a template</h3>:null}
           <div>
           <div className="title-block-customs">
           Loaded templates
@@ -402,7 +320,7 @@ please select a template</h3>:null}
           <div className='cont-custom' style={{color: 'white'}}>
           {savedTemplates.map((item, index) => (
             <div key={index}>
-            <div className="customs" style={{background:`url${checkedA?exc1:exc2}no-repeat`}}  onClick={() => loadTemplate(item.uid)} >
+            <div className="customs" style={{background:exc1}}  onClick={() => loadTemplate(item.uid)} >
             <div className='custom-items'>
               <div className="title-customs">Custom template</div>
 
@@ -422,7 +340,14 @@ please select a template</h3>:null}
 
         </div>
 
-        
+        {templateNumber===""?<h3 className="h3-template">
+please select a template</h3>:<Button
+          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
+          variant="contained"
+          color="secondary"
+        >
+          Next
+        </Button>}
 
 
         

@@ -34,7 +34,7 @@
 }
 .template-4{
     font-family: 'RobotoSlab-Light';
-
+    min-height: 700px;
     width: 700px;
     height: auto;
     position: relative;

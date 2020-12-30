@@ -47,6 +47,7 @@ const Template2 = () => {
     (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
   return (
       <div className="page">
+        <div className="container-pdf">
           <div className="button">
         <Button
          variant="contained"
@@ -226,7 +227,9 @@ const Template2 = () => {
        <br/>
        <Portfolio/>
         
-        {!open2 ? (
+        
+      </div>
+      {!open2 ? (
           null
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
