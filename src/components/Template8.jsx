@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
-import {Link} from 'react-router-dom';
-import { useSelector} from "react-redux";
+import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
@@ -18,9 +18,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 const Template8 = () => {
     let pdfExportComponent;
     const userInfo = useSelector((state) => state.aboutMeReducer);
-    const {firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription} = useSelector( state => state.aboutWorkHistoryReducer)
-    const {frontend, backend, dbs, other} = useSelector(state => state.aboutHardSkillsReducer)
-    const {firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject} = useSelector(state => state.portfolioReducer)
+    const { firstCompany, firstPosition, firstDescription, secondCompany, secondPosition, secondDescription } = useSelector(state => state.aboutWorkHistoryReducer)
+    const { frontend, backend, dbs, other } = useSelector(state => state.aboutHardSkillsReducer)
+    const { firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject } = useSelector(state => state.portfolioReducer)
     const projects = [firstProject, secondProject, thirdProject, fourthProject, fifthProject, sixthProject]
 
     const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
@@ -30,31 +30,43 @@ const Template8 = () => {
 
     const [cls2, setCls2] = useState(["side2"]);
     const [open2, setOpen2] = useState(true);
-    
+
     useEffect(() => {
         if (open2) {
-        setCls2((oldArr) => [...oldArr, "open2"]);
+            setCls2((oldArr) => [...oldArr, "open2"]);
         } else {
             setCls2(['side2']);
         }
     }, [open2]);
 
+
+    const [left, setLeft] = useState(50);
+    const [top, setTop] = useState(50)
+
+    const moveHorizontal = (num) => {
+        setLeft(left + +(num))
+    }
+
+    const moveVertical = (num) => {
+        setTop(top + +(num))
+    }
+
     return (
         <div className="page">
             <div className="container-pdf">
                 <div className="button5">
-                <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
-        <Button
-          variant="contained"
-          color="secondary"
-          className="k-button"
-          onClick={() => {
-            (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExportComponent.save();
-          }}
-        >
-          to PDF
+                    <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition are required.'}>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            className="k-button"
+                            onClick={() => {
+                                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective) && pdfExportComponent.save();
+                            }}
+                        >
+                            to PDF
         </Button>
-        </Tooltip>
+                    </Tooltip>
                     <Button
                         variant="contained"
                         color="secondary"
@@ -63,6 +75,19 @@ const Template8 = () => {
                     >
                         Change Template
                     </Button>
+                    {userInfo.avatar && <div><Button variant="contained"
+                        color="secondary"
+                        size='small'
+                        className="k-button" onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
+                        <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
+                        <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
+                    </div>}
                 </div>
                 <PDFExport
                     forcePageBreak=".page-break"
@@ -80,14 +105,14 @@ const Template8 = () => {
             </div>
             {!open2 ? (<div onClick={() => setOpen2(!open2)} className="arrow"></div>) : (null)}
             <div className={cls2.join(" ")}>
-                <AboutMe/>  
-                <br/>
-                <AboutWorkHistory/>
-                <br/>
-                <AboutHardSkills/>
-                <br/>
-                <Portfolio/>
-                
+                <AboutMe />
+                <br />
+                <AboutWorkHistory />
+                <br />
+                <AboutHardSkills />
+                <br />
+                <Portfolio />
+
             </div>
             {!open2 ? (null) : (<div className="side-close2" onClick={() => setOpen2(!open2)}></div>)}
         </div>

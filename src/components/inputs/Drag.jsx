@@ -508,6 +508,18 @@ const Drag = () => {
       },
     },
   };
+
+  const [left, setLeft] = useState(50);
+  const [top, setTop] = useState(50)
+
+  const moveHorizontal = (num) => {
+      setLeft(left + +(num))
+  }
+
+  const moveVertical = (num) => {
+    setTop(top + +(num))
+}   
+
  
 
   const fontList = ['Raleway','Caviar','Walkway',
@@ -551,6 +563,19 @@ const Drag = () => {
                 save{customizedTemplateUid}
             </SaveIcon>
             </Tooltip>
+            {userInfo.avatar && <div><Button variant="contained"
+        color="secondary"
+        size='small'
+        className="k-button"onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
+        color="secondary"
+        className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
+         <Button size='small' variant="contained"
+        color="secondary"
+        className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
+         <Button size='small' variant="contained"
+        color="secondary"
+        className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
+        </div>}
           </div>
       <Grid container>
         <Grid item xs={12}></Grid>
@@ -563,7 +588,7 @@ const Drag = () => {
               `${userInfo.careerObjective}`
             }
           >
-            <DragHeader styleName={styleName} stylePosition={stylePosition} />
+            <DragHeader top={top} left={left} styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
             <br />
             <DragPortfolio isHavePortfolio={isHavePortfolio} styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />

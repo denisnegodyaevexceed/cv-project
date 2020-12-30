@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
 import { useSelector } from "react-redux";
 import './Template3Styles.css'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
@@ -30,23 +30,32 @@ const Template3 = () => {
         (thirdProject.name && thirdProject.link && thirdProject.summary && thirdProject.whatYouDo && thirdProject.stack) ||
         (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
 
-        
-        const [cls2, setCls2] = useState(["side2"]);
-      
-      
-      const [open2, setOpen2] = useState(true);
-      
-      useEffect(() => {
+
+    const [cls2, setCls2] = useState(["side2"]);
+
+
+    const [open2, setOpen2] = useState(true);
+
+    useEffect(() => {
         if (open2) {
-          setCls2((oldArr) => [...oldArr, "open2"]);
-          
+            setCls2((oldArr) => [...oldArr, "open2"]);
+
         } else {
-          setCls2(['side2']);
-      
+            setCls2(['side2']);
+
         }
-      }, [open2]);
-      
-      
+    }, [open2]);
+
+    const [left, setLeft] = useState(50);
+    const [top, setTop] = useState(50)
+
+    const moveHorizontal = (num) => {
+        setLeft(left + +(num))
+    }
+
+    const moveVertical = (num) => {
+        setTop(top + +(num))
+    }
 
 
 
@@ -54,42 +63,57 @@ const Template3 = () => {
         <div className='page'>
             <div className='container-pdf'>
                 <div className="button5">
-                <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
-        <Button
-          variant="contained"
-          color="secondary"
-          className="k-button"
-          onClick={() => {
-            (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExportComponent.save();
-          }}
-        >
-          to PDF
+                    <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition are required.'}>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            className="k-button"
+                            onClick={() => {
+                                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective) && pdfExportComponent.save();
+                            }}
+                        >
+                            to PDF
         </Button>
-        </Tooltip>
+                    </Tooltip>
                     <Button
-        variant="contained"
-        color="secondary"
-        className="k-button"
-        to="/templates" component={Link}
-        >
-          Change Template
+                        variant="contained"
+                        color="secondary"
+                        className="k-button"
+                        to="/templates" component={Link}
+                    >
+                        Change Template
         </Button>
+                    {userInfo.avatar && <div><Button variant="contained"
+                        color="secondary"
+                        size='small'
+                        className="k-button" onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
+                        <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
+                        <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
+                    </div>}
                 </div>
                 <PDFExport
                     forcePageBreak=".page-break"
                     ref={(component) => (pdfExportComponent = component)}
-        fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
+                    fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective}`}
 
                 >
                     <div className='template3'>
                         <div className='template3__firstPage' style={{ backgroundColor: '#E7E5DA' }}>
                             <div className='template3__leftColumn' >
-                                <div className='template3__avatar' style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        width: 190,
-                        height: 250,
-                        margin: "auto"}}></div>
+                                <div className='template3__avatar' style={{
+                                    backgroundImage: `url(${userInfo.avatar ? userInfo.avatar : './user.png'})`, backgroundRepeat: "no-repeat",
+                                    backgroundSize: "cover",
+                                    backgroundPosition:`${left}% ${top}%`,
+                                    width: 190,
+                                    height: 250,
+                                    margin: "auto"
+                                }}></div>
                                 <div className='template3__technicalSkills'>
                                     <div className='title'>TECHNICAL SKILLS</div>
                                     <div className='template3__frontend template3__skills'>
@@ -137,8 +161,8 @@ const Template3 = () => {
                                     {userInfo.phoneNumber && <div className='template3__contacts'>Phone number: {userInfo.phoneNumber}</div>}
                                     {userInfo.github && <div className='template3__contacts'>Github: {userInfo.github}</div>}
                                     {userInfo.facebook && <div className='template3__contacts'>Facebook: {userInfo.facebook}</div>}
-                                    
-                                    
+
+
                                 </div>
                             </div>
                             <div className='template3__rightColumn'>
@@ -153,7 +177,7 @@ const Template3 = () => {
                                             {userInfo.aboutMeInfo}
                                         </div>
                                     </div>
-                                    {((firstCompany&&firstPosition&&firstDescription) || (secondCompany&&secondPosition&&secondDescription))&&<div className='template3__workHistory'>
+                                    {((firstCompany && firstPosition && firstDescription) || (secondCompany && secondPosition && secondDescription)) && <div className='template3__workHistory'>
                                         <div className='template3__workHistory_header title'>WORK HISTORY</div>
                                         <div className='template3__workHistory_item'>
                                             <div className='template3__workHistory_title'>
@@ -161,7 +185,7 @@ const Template3 = () => {
                                             </div>
                                             <div className='template3_workHistory_position'>{firstPosition}</div>
                                             <div className='template3__workHistory_description'>
-                                               {firstDescription}
+                                                {firstDescription}
                                             </div>
                                         </div>
                                         <div className='template3__workHistory_item'>
@@ -183,64 +207,64 @@ const Template3 = () => {
                                 </div>
                             </div>
                         </div>
-                        {isHavePortfolio &&<div className='template3__secondPage page-break'>
+                        {isHavePortfolio && <div className='template3__secondPage page-break'>
                             <div className='template3__secondPage_header title'>PORTFOLIO</div>
                             <div className='template3__projects'>
-                                {projects.map((item, index)=>{
-                                    let {name, link, summary, whatYouDo, stack} = item
-                                    return(name && summary && whatYouDo && stack && <div key={index}className='template3__project'>
+                                {projects.map((item, index) => {
+                                    let { name, link, summary, whatYouDo, stack } = item
+                                    return (name && summary && whatYouDo && stack && <div key={index} className='template3__project'>
                                         <div className='template3__project_title title'>{name.toUpperCase()}</div>
                                         {link && <div className='template3__project_link '>{link}</div>}
                                         <div className='template3__project_summary'>
-                                        <div>Summary:</div>
-                                        {summary}
+                                            <div>Summary:</div>
+                                            {summary}
                                         </div>
                                         <div className='template3__project_whatYouDo'>
-                                        <div>What i did here</div>
-                                        {whatYouDo}
+                                            <div>What i did here</div>
+                                            {whatYouDo}
 
-                                    </div>
+                                        </div>
                                         <div className='template3__project_stack'>
-                                        {stack.map((item, index)=>{
-                              return <span key={index}>{item.title}{stack.length-1===index? '.': ', '}</span>
-                            })}
+                                            {stack.map((item, index) => {
+                                                return <span key={index}>{item.title}{stack.length - 1 === index ? '.' : ', '}</span>
+                                            })}
                                         </div>
                                     </div>
 
                                     )
                                 })}
-                                
+
                             </div>
 
                         </div>}
                     </div>
                 </PDFExport>
                 {!open2 ? (
-          <div onClick={() => setOpen2(!open2)} className="arrow">
-            
-          </div>
-        ) : (
-         null
-        )}
+                    <div onClick={() => setOpen2(!open2)} className="arrow">
+
+                    </div>
+                ) : (
+                        null
+                    )}
                 <div className={cls2.join(" ")}>
-       <AboutMe/>
-       <br/>
-      <AboutWorkHistory/>
-       <br/>
-       <AboutHardSkills/>
-       <br/>
-       <Portfolio/>
-        
-        
-      </div>
+                    <AboutMe />
+                    <br />
+                    <AboutWorkHistory />
+                    <br />
+                    <AboutHardSkills />
+                    <br />
+                    <Portfolio />
+
+
+                </div>
             </div>
             {!open2 ? (
-          null
-        ) : (
-          <div className="side-close2" onClick={() => setOpen2(!open2)}>
-            
-          </div>
-        )}
+                null
+            ) : (
+                    <div className="side-close2" onClick={() => setOpen2(!open2)}>
+
+                    </div>
+                )}
         </div>
     )
 }
