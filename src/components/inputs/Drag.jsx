@@ -38,7 +38,10 @@ import Load from "./Load";
 import allTechnologyActions from "../../actions/addTechnologyActions";
 import "../grid.scss";
 import Tooltip from '@material-ui/core/Tooltip';
-
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 export let GridPortfolio;
 
 const useStyles3 = makeStyles((theme) => ({
@@ -508,6 +511,18 @@ const Drag = () => {
       },
     },
   };
+
+  const [left, setLeft] = useState(50);
+  const [top, setTop] = useState(50)
+
+  const moveHorizontal = (num) => {
+      setLeft(left + +(num))
+  }
+
+  const moveVertical = (num) => {
+    setTop(top + +(num))
+}   
+
  
 
   const fontList = ['Raleway','Caviar','Walkway',
@@ -527,31 +542,8 @@ const Drag = () => {
       {load===true? <Load text={'Loading...'}/>:null}
       {loadSave===true? <Load  text={'Saving...'}/>:null}
     <Container>
-    {/* <div className="button">
-            <Button
-              variant="contained"
-              color="secondary"
-              className="k-button"
-              to="/templates" component={Link}
-            >Change Template</Button>
-            <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
-            <GetAppIcon
-              color='inherit'
-              className="k-button"
-              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExport()}
-             
-            />
-            </Tooltip>
-            <Tooltip title='Save template'><SaveIcon
-              color='inherit'
-              className="k-button"
-              
-              onClick={()=>{handlerSaveTemplate();}}
-            >
-                save{customizedTemplateUid}
-            </SaveIcon>
-            </Tooltip>
-          </div> */}
+  
+          
       <Grid container>
       
         <Grid item xs={12}></Grid>
@@ -591,7 +583,7 @@ const Drag = () => {
               `${userInfo.careerObjective}`
             }
           >
-            <DragHeader styleName={styleName} stylePosition={stylePosition} />
+            <DragHeader top={top} left={left} styleName={styleName} stylePosition={stylePosition} />
             <DragBody styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
             <br />
             <DragPortfolio isHavePortfolio={isHavePortfolio} styleSmallText={styleSmallText} styleText={styleText} styleTitle={styleTitle} styleSubTitle={styleSubTitle} />
@@ -636,6 +628,30 @@ const Drag = () => {
             </Select>
           </Grid>
           <br/>
+          {userInfo.avatar &&<Grid container alignItems="center" className={classes.root}>
+            <h3 style={{width: '100%',textAlign:"center",margin:'10px'}}>Avatar position</h3>
+            
+           <div className='ava-pos'>
+           
+        <KeyboardArrowLeftIcon variant="contained"
+        color="secondary"
+        size='large'
+        className="pos-ava-1"onClick={(e) => moveHorizontal(5)}>Left</KeyboardArrowLeftIcon> 
+        <KeyboardArrowRightIcon size='large' variant="contained"
+        color="secondary"
+        className="pos-ava-2" onClick={(e) => moveHorizontal(-5)}>Right</KeyboardArrowRightIcon>
+         <KeyboardArrowUpIcon size='large' variant="contained"
+        color="secondary"
+        className="pos-ava-3" onClick={(e) => moveVertical(-5)}>Top</KeyboardArrowUpIcon>
+         <KeyboardArrowDownIcon size='large' variant="contained"
+        color="secondary"
+        className="pos-ava-4" onClick={(e) => moveVertical(5)}>Down</KeyboardArrowDownIcon>
+        </div>
+        
+          </Grid>}
+          <br/>
+          
+        <br/>
           <TextDecorateButtons/>
           <br/>
           <Accordion>

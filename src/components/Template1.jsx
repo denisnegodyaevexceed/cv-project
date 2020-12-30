@@ -24,7 +24,19 @@ const Template1 = () => {
   (fourthProject.name && fourthProject.link && fourthProject.summary && fourthProject.whatYouDo && fourthProject.stack))
   
   const [cls2, setCls2] = useState(["side2"]);
-const [open2, setOpen2] = useState(true);
+  const [open2, setOpen2] = useState(true);
+
+  const [left, setLeft] = useState(50);
+  const [top, setTop] = useState(50)
+
+  const moveHorizontal = (num) => {
+      setLeft(left + +(num))
+  }
+
+  const moveVertical = (num) => {
+    setTop(top + +(num))
+}
+
 useEffect(() => {
   if (open2) {
     setCls2((oldArr) => [...oldArr, "open2"]);
@@ -56,6 +68,19 @@ useEffect(() => {
         >
           Change Template
         </Button>
+        {userInfo.avatar && <div><Button variant="contained"
+        color="secondary"
+        size='small'
+        className="k-button"onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
+        color="secondary"
+        className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
+         <Button size='small' variant="contained"
+        color="secondary"
+        className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
+         <Button size='small' variant="contained"
+        color="secondary"
+        className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
+        </div>}
       </div>
       <PDFExport
         forcePageBreak=".page-break"
@@ -74,7 +99,7 @@ useEffect(() => {
               </div>
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        backgroundPosition:`${left}% ${top}%`,
                         width: 190,
                         height: 190,
                         margin: "auto"}}></div>

@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import "./Template6.css";
 import Button from "@material-ui/core/Button";
@@ -63,36 +63,50 @@ const Template6 = () => {
       fourthProject.summary &&
       fourthProject.whatYouDo &&
       fourthProject.stack);
-      const [cls2, setCls2] = useState(["side2"]);
-  
+  const [cls2, setCls2] = useState(["side2"]);
 
-      const [open2, setOpen2] = useState(true);
-      
-      useEffect(() => {
-        if (open2) {
-          setCls2((oldArr) => [...oldArr, "open2"]);
-          
-        } else {
-          setCls2(['side2']);
-      
-        }
-      }, [open2]);
+
+  const [open2, setOpen2] = useState(true);
+
+  useEffect(() => {
+    if (open2) {
+      setCls2((oldArr) => [...oldArr, "open2"]);
+
+    } else {
+      setCls2(['side2']);
+
+    }
+  }, [open2]);
+
+
+  const [left, setLeft] = useState(50);
+  const [top, setTop] = useState(50)
+
+  const moveHorizontal = (num) => {
+    setLeft(left + +(num))
+  }
+
+  const moveVertical = (num) => {
+    setTop(top + +(num))
+  }
+
+
   return (
     <div className="page">
       <div className="container-pdf">
         <div className="button5">
-        <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
-        <Button
-          variant="contained"
-          color="secondary"
-          className="k-button"
-          onClick={() => {
-            (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExportComponent.save();
-          }}
-        >
-          to PDF
+          <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition are required.'}>
+            <Button
+              variant="contained"
+              color="secondary"
+              className="k-button"
+              onClick={() => {
+                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective) && pdfExportComponent.save();
+              }}
+            >
+              to PDF
         </Button>
-        </Tooltip>
+          </Tooltip>
           <Button
             variant="contained"
             color="secondary"
@@ -102,45 +116,56 @@ const Template6 = () => {
           >
             Change Template
           </Button>
+          {userInfo.avatar && <div><Button variant="contained"
+                        color="secondary"
+                        size='small'
+                        className="k-button" onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
+                        <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
+                        <Button size='small' variant="contained"
+                            color="secondary"
+                            className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
+                    </div>}
         </div>
         <PDFExport
           forcePageBreak=".page-break"
           ref={(component) => (pdfExportComponent = component)}
-          fileName={`${
-            userInfo.firstName + userInfo.secondName + userInfo.careerObjective
-          }`}
+          fileName={`${userInfo.firstName + userInfo.secondName + userInfo.careerObjective
+            }`}
         >
           <div className="template-6">
             <div className="content-info-6">
               <div className="left-info-6">
-                
+
 
                 <div
                   className="ava-4 rel"
                   style={{
-                    backgroundImage: `url(${
-                      userInfo.avatar ? userInfo.avatar : "./user.png"
-                    })`,
+                    backgroundImage: `url(${userInfo.avatar ? userInfo.avatar : "./user.png"
+                      })`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition:`${left}% ${top}%`,
                     width: "100%",
                     height: 280,
                     margin: "auto",
                   }}
                 >
                   <div className="info-6">
-                  <div className="container-info-6">
-                    <div className="name-6 bold-6">
-                      {userInfo.firstName.toUpperCase() +
-                        " " +
-                        userInfo.secondName.toUpperCase()}
-                    </div>
-                    <div className="post-6 bold-6">
-                      {userInfo.careerObjective.toUpperCase()}
+                    <div className="container-info-6">
+                      <div className="name-6 bold-6">
+                        {userInfo.firstName.toUpperCase() +
+                          " " +
+                          userInfo.secondName.toUpperCase()}
+                      </div>
+                      <div className="post-6 bold-6">
+                        {userInfo.careerObjective.toUpperCase()}
+                      </div>
                     </div>
                   </div>
-                </div>
                 </div>
                 <div className="main-info-left-6">
                   <div className="contact-6">
@@ -174,7 +199,7 @@ const Template6 = () => {
                         {userInfo.github}
                       </div>
                     )}
-                    
+
                     {userInfo.facebook && (
                       <div>
                         <strong className="bold-6">Facebook:</strong>{" "}
@@ -248,38 +273,38 @@ const Template6 = () => {
                       (secondCompany &&
                         secondPosition &&
                         secondDescription)) && (
-                      <div className="">
                         <div className="">
-                          <div className="bold-6">{firstCompany}</div>
-                          <div className="bold-6">{firstPosition}</div>
-                          <div className="">{firstDescription}</div>
+                          <div className="">
+                            <div className="bold-6">{firstCompany}</div>
+                            <div className="bold-6">{firstPosition}</div>
+                            <div className="">{firstDescription}</div>
+                          </div>
+                          <div className="">
+                            <div className="bold-6">{secondCompany}</div>
+                            <div className="bold-6">{secondPosition}</div>
+                            <div className="">{secondDescription}</div>
+                          </div>
                         </div>
-                        <div className="">
-                          <div className="bold-6">{secondCompany}</div>
-                          <div className="bold-6">{secondPosition}</div>
-                          <div className="">{secondDescription}</div>
-                        </div>
-                      </div>
-                    )}
+                      )}
                   </div>
                 </div>
               </div>
             </div>
             <br />
             {isHavePortfolio && (
-         <div className='second-6 page-break'>
-        <div className="title-portfolio-6">PORTFOLIO</div>
-                
+              <div className='second-6 page-break'>
+                <div className="title-portfolio-6">PORTFOLIO</div>
+
                 <div className="flex-6 ">
                   {projects.map((item, index) => {
                     let { name, link, summary, whatYouDo, stack } = item;
                     return (
-                      
+
                       name &&
                       summary &&
                       whatYouDo &&
                       stack && (
-                        
+
                         <div key={index} className="items-p-6">
                           <div className="pt-6">
                             {name.toUpperCase()}
@@ -289,7 +314,7 @@ const Template6 = () => {
                               </div>
                             )}
                           </div>
-                    <div className="line-6"></div>
+                          <div className="line-6"></div>
 
 
                           <div className="">
@@ -314,38 +339,38 @@ const Template6 = () => {
                       )
                     );
                   })}
-               
-              </div>
+
+                </div>
               </div>
             )}
-            
+
           </div>
-          
+
         </PDFExport>
         {!open2 ? (
           <div onClick={() => setOpen2(!open2)} className="arrow">
-            
+
           </div>
         ) : (
-          null
-        )}
-      <div className={cls2.join(" ")}>
-       <AboutMe/>
-       <br/>
-      <AboutWorkHistory/>
-       <br/>
-       <AboutHardSkills/>
-       <br/>
-       <Portfolio/>
-        
-        
-      </div>
+            null
+          )}
+        <div className={cls2.join(" ")}>
+          <AboutMe />
+          <br />
+          <AboutWorkHistory />
+          <br />
+          <AboutHardSkills />
+          <br />
+          <Portfolio />
+
+
+        </div>
       </div>
       {!open2 ? (
-          null
-        ) : (
+        null
+      ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
-            
+
           </div>
         )}
     </div>
