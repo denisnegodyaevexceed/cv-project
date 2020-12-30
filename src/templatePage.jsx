@@ -392,8 +392,7 @@ const handlerDeleteSavedTemplate = (uid) => {
             </Grid>
             
           </Grid>
-          {templateNumber===""?<h3 className="h3-template">
-please select a template</h3>:null}
+         
           <div>
           <div className="title-block-customs">
           Loaded templates

@@ -1564,6 +1564,7 @@ margin: 0 auto;
     overflow: hidden;
 }
 .title-block-customs{
+    text-align: center;
     color: white;
     font-size: 30px;
     font-weight: bold;
