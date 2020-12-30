@@ -23,9 +23,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid() {
-  const exc1 = `('./exceed.png')`
-  const exc2 = `('./exceed2.png')`
-  const {checkedA } = useSelector((state) => state.templateReducer);
+  const exc1 = `url('../src/exceed.png') no-repeat;`
+  const exc2 = `url('../src/exceed2.png') no-repeat;`
   let history = useHistory();
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -311,14 +310,6 @@ const handlerDeleteSavedTemplate = (uid) => {
             </Grid>
             
           </Grid>
-          {templateNumber===""?<h3 className="h3-template">
-please select a template</h3>:<Button
-          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
-          variant="contained"
-          color="secondary"
-        >
-          Next
-        </Button>}
           <div>
           <div className="title-block-customs">
           Loaded templates
@@ -329,7 +320,7 @@ please select a template</h3>:<Button
           <div className='cont-custom' style={{color: 'white'}}>
           {savedTemplates.map((item, index) => (
             <div key={index}>
-            <div className="customs" style={{background:`url${checkedA?exc1:exc2}no-repeat`}}  onClick={() => loadTemplate(item.uid)} >
+            <div className="customs" style={{background:exc1}}  onClick={() => loadTemplate(item.uid)} >
             <div className='custom-items'>
               <div className="title-customs">Custom template</div>
 
@@ -349,7 +340,14 @@ please select a template</h3>:<Button
 
         </div>
 
-        
+        {templateNumber===""?<h3 className="h3-template">
+please select a template</h3>:<Button
+          onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
+          variant="contained"
+          color="secondary"
+        >
+          Next
+        </Button>}
 
 
         

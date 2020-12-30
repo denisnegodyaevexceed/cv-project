@@ -748,7 +748,10 @@ ainer{
     font-size: 12px;
 }
 .h2-template{
+    color: white;
+    font-weight: bold;
     padding: 20px;
+    font-size: 30px;
     text-align: center;
     margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
 }
@@ -1129,7 +1132,8 @@ z-index: 3;
 .open1{
    
     overflow-x: hidden;
-    right: 20px;
+    /* right: 20px; */
+    transform: translateX(-480px);
 
 
     background-color: white;
@@ -1137,7 +1141,8 @@ z-index: 3;
 .open2{
    z-index:100;
   overflow-x: hidden;
-  left: 20px;
+  /* left: 20px; */
+  transform: translateX(480px);
 
 
   background-color: white;
@@ -1149,7 +1154,9 @@ z-index: 3;
     margin: 10px 20px;   font-family: 'Montserrat', sans-serif;
 }
 .open{
-    right: 20px;
+    /* right: 20px; */
+
+    transform: translateX(-480px);
 
 
     background-color: white;
@@ -1573,7 +1580,7 @@ margin: 0 auto;
     text-align: center;
 }
 .customs{
-    background:url('../src/exceed.png') no-repeat;
+    /* background:url('../src/exceed.png') no-repeat; */
     display: flex;
     position: relative;
     cursor: pointer;
@@ -1590,11 +1597,14 @@ margin: 0 auto;
 }
 
 .contentOpen1{
-    margin-left: 320px !important;
+    transform: translateX(320px);
+    /* margin-left: 320px !important; */
 }
 
 .contentOpen2{
-    margin-right: 320px !important;
+    transform: translateX(-320px);
+
+    /* margin-right: 320px !important; */
 }
 .transitionBlock{
     transition: 1s;
