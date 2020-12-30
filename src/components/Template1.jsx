@@ -7,6 +7,9 @@ import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
 import AboutHardSkills from "./inputs/aboutHardSkills";
+import Tooltip from '@material-ui/core/Tooltip';
+
+
 const Template1 = () => {
   let pdfExportComponent;
   const userInfo = useSelector((state) => state.aboutMeReducer);
@@ -38,7 +41,7 @@ useEffect(() => {
           color="secondary"
           className="k-button"
           onClick={() => {
-            pdfExportComponent.save();
+            (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExportComponent.save();
           }}
         >
           to PDF

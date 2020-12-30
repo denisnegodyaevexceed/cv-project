@@ -56,6 +56,7 @@ export default function AboutMe() {
 
     let educationCounter = (180 - education.length) + ' letters left.'
     let aboutMeInfoCounter = (180 - aboutMeInfo.length) + ' letters left.'
+    let languagesCounter = (180 - languages.length) + ' letters left.'
     
     return (
         <div className="container-pdf">
@@ -72,8 +73,8 @@ export default function AboutMe() {
           <div>
           <form className={classes.root} noValidate autoComplete="off">
             
-            <TextField required value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setFirstNameAction(e.target.value)) }}id="firstName" label="First name" variant="outlined" />
-            <TextField required value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setSecondNameAction(e.target.value))}} id="secondName" label="Second name" variant="outlined" />
+            <TextField required value={firstName}  onChange={(e) => {dispatch(allAboutMeActions.setFirstNameAction(e.target.value.length <= 12 ? e.target.value : firstName)) }}id="firstName" label="First name" variant="outlined" />
+            <TextField required value={secondName} onChange={(e) => {dispatch(allAboutMeActions.setSecondNameAction(e.target.value.length <= 12 ? e.target.value : secondName))}} id="secondName" label="Second name" variant="outlined" />
             <TextField required value={careerObjective} onChange={(e) => {dispatch(allAboutMeActions.setCareerObjectiveAction(e.target.value))}} id="position" label="Your position" variant="outlined" />
 
             <TextField
@@ -90,10 +91,10 @@ export default function AboutMe() {
                     label="Languages"
                     multiline
                     type='text'
-                    helperText={languages.length>0? educationCounter: ''}
+                    helperText={languages.length>0? languagesCounter: ''}
                     rowsMax={10}
                     value={languages}
-                    onChange={(e) => {dispatch(allAboutMeActions.setLanguagesAction(e.target.value.length <= 180 ? e.target.value : education))}}
+                    onChange={(e) => {dispatch(allAboutMeActions.setLanguagesAction(e.target.value.length <= 180 ? e.target.value : languages))}}
                     variant="outlined"
                 />
                
@@ -128,7 +129,7 @@ export default function AboutMe() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <div className={classes2.heading}><h2>Please, add your contacts.</h2></div>
+          <div className={classes2.heading}><h2>Please add your contacts.</h2></div>
         </AccordionSummary>
         <AccordionDetails>
           <div>

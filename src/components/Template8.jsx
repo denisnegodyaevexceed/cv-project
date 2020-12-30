@@ -44,7 +44,7 @@ const Template8 = () => {
                         color="secondary"
                         className="k-button"
                         onClick={() => {
-                            pdfExportComponent.save();
+                            (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExportComponent.save();
                         }}
                     >
                         to PDF

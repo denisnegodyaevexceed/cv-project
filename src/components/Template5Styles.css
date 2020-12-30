@@ -43,7 +43,7 @@
 
     margin-right: 65px;
 
-    width: 150px;
+    min-width: 150px;
     height: 150px;
 }
 

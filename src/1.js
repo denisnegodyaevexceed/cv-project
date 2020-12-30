@@ -24,15 +24,7 @@ const Test = ()=> {
              const load = document.querySelector('.loadPage')
              console.log(12,body)
              
-        //      const setLightTheme = () => {
-        //         dispatch(allTemplateActions.setThemeLight());
-        //      }
 
-        //      const setDarkTheme = () => {
-        //         dispatch(allTemplateActions.setThemeDark());
-        //      }
-
-             
         useEffect(()=>{
                 if (checkedA){
                         dispatch(allTemplateActions.setThemeDark());
