@@ -48,7 +48,7 @@ const Template5 = () => {
     return(
         <div className='page'>
         <div className='container-pdf'>
-            <div className="button">
+            <div className="button5">
             <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
           variant="contained"
@@ -170,11 +170,15 @@ const Template5 = () => {
                                 <div className='template5__conctacts'>
                                     <div className='template5__cotacts_header template5__title'>CONTACTS</div>
                                         <div>Email: {userInfo.email}</div>
-                                        {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
-                                        {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
-                                        {userInfo.github && <div>Github: {userInfo.github}</div>}
                                         {userInfo.vkontakte && <div>Vkontakte: {userInfo.vkontakte}</div>}
+                                        {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
                                         {userInfo.phoneNumber && <div>Phone number: {userInfo.phoneNumber}</div>}
+                                        {userInfo.github && <div>Github: {userInfo.github}</div>}
+                                        {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
+                                        
+                                       
+                                        
+                                        
                                 </div>
                             </div>
                         </div>

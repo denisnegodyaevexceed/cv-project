@@ -49,7 +49,7 @@ const Template7 = () => {
     return (
         <div className='page'>
         <div className='container-pdf'>
-        <div className="button">
+        <div className="button5">
         <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
           variant="contained"
@@ -143,11 +143,15 @@ const Template7 = () => {
                                     <div className='template7__conctacts'>
                                     <div className='template7__cotacts_header template7__title'>Contacts</div>
                                         <div>Email: {userInfo.email}</div>
-                                        {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
-                                        {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
-                                        {userInfo.github && <div>Github: {userInfo.github}</div>}
                                         {userInfo.vkontakte && <div>Vkontakte: {userInfo.vkontakte}</div>}
+                                        {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
                                         {userInfo.phoneNumber && <div>Phone number: {userInfo.phoneNumber}</div>}
+                                        {userInfo.github && <div>Github: {userInfo.github}</div>}
+                                        {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
+                                        
+                                        
+                                        
+                                        
                                 </div>
                         </div>
                         <div className="template7__rightColumn">

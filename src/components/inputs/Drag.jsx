@@ -683,15 +683,7 @@ const Drag = () => {
               </div>
             </AccordionDetails>
           </Accordion>
-          <div className="button">
-            <Button
-              variant="contained"
-              color="secondary"
-              className="k-button"
-              to="/templates" component={Link}
-            >Change Template</Button>
-           
-          </div>
+         
         </div>
       </div> 
     </div>

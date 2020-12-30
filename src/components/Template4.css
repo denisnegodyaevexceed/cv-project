@@ -32,6 +32,11 @@
     color: #b66e21;
 
 }
+.h-4-a{
+    font-family: 'RobotoSlab-Bold';
+    font-size: 25px;
+    color: black;
+}
 .template-4{
     font-family: 'RobotoSlab-Light';
     min-height: 700px;

@@ -137,11 +137,15 @@ const DragBody = ({
                     <>
                         <div className='' style={styleTitle}>CONTACTS</div>
                         <div>Email: {userInfo.email}</div>
-                        {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
-                        {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
-                        {userInfo.github && <div>Github: {userInfo.github}</div>}
                         {userInfo.vkontakte && <div>Vkontakte: {userInfo.vkontakte}</div>}
+                        {userInfo.skype && <div>Skype: {userInfo.skype}</div>}
                         {userInfo.phoneNumber && <div>Phone number: {userInfo.phoneNumber}</div>}
+                        {userInfo.github && <div>Github: {userInfo.github}</div>}
+                        {userInfo.facebook && <div>Facebook: {userInfo.facebook}</div>}
+                        
+                       
+                        
+                        
                     </>
                 </span>}
             />

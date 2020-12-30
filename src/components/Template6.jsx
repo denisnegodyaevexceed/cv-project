@@ -80,7 +80,7 @@ const Template6 = () => {
   return (
     <div className="page">
       <div className="container-pdf">
-        <div className="button">
+        <div className="button5">
         <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
           variant="contained"
@@ -150,22 +150,16 @@ const Template6 = () => {
                       <strong className="bold-6">Email:</strong>{" "}
                       {userInfo.email}
                     </div>
-                    {userInfo.skype && (
-                      <div>
-                        <strong className="bold-6">Skype:</strong>{" "}
-                        {userInfo.skype}
-                      </div>
-                    )}
                     {userInfo.vkontakte && (
                       <div>
                         <strong className="bold-6">Vkontakte:</strong>{" "}
                         {userInfo.vkontakte}
                       </div>
                     )}
-                    {userInfo.github && (
+                    {userInfo.skype && (
                       <div>
-                        <strong className="bold-6">GitHub:</strong>{" "}
-                        {userInfo.github}
+                        <strong className="bold-6">Skype:</strong>{" "}
+                        {userInfo.skype}
                       </div>
                     )}
                     {userInfo.phoneNumber && (
@@ -174,6 +168,13 @@ const Template6 = () => {
                         {userInfo.phoneNumber}
                       </div>
                     )}
+                    {userInfo.github && (
+                      <div>
+                        <strong className="bold-6">GitHub:</strong>{" "}
+                        {userInfo.github}
+                      </div>
+                    )}
+                    
                     {userInfo.facebook && (
                       <div>
                         <strong className="bold-6">Facebook:</strong>{" "}

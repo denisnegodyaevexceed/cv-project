@@ -48,7 +48,7 @@ const Template4 = () => {
   return (
     <div className='page'>
       <div className="container-pdf">
-        <div className="button">
+        <div className="button5">
         <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
           variant="contained"
@@ -84,6 +84,10 @@ const Template4 = () => {
         <div className="firstname-4">{userInfo.firstName}</div>
               <div className="lastname-4">{userInfo.secondName}</div>
             </div>
+            <div className="name-4 h-4-m">
+        <div className="h-4-a">{userInfo.careerObjective}</div>
+              
+            </div>
             <div className="profile-4">
               <div className="title-profile-4 h-4-b">Profile:</div>
               {userInfo.aboutMeInfo}
@@ -110,10 +114,10 @@ const Template4 = () => {
             <div className="contacts-4">
               <div className="title-contacts-4 h-4-b">Contacts</div>
               <div><strong className='h4-4'>Email:</strong> {userInfo.email}</div>
+              {userInfo.vkontakte && <div><strong className='h4-4'>Vkontakte:</strong> {userInfo.vkontakte}</div>}
                     {userInfo.skype && <div><strong className='h4-4'>Skype:</strong> {userInfo.skype}</div>}
-                    {userInfo.vkontakte && <div><strong className='h4-4'>Vkontakte:</strong> {userInfo.vkontakte}</div>}
-                    {userInfo.github && <div><strong className='h4-4'>GitHub:</strong> {userInfo.github}</div>}
                     {userInfo.phoneNumber && <div><strong className='h4-4'>Tel:</strong> {userInfo.phoneNumber}</div>}
+                    {userInfo.github && <div><strong className='h4-4'>GitHub:</strong> {userInfo.github}</div>}                  
                     {userInfo.facebook && <div><strong className='h4-4'>Facebook:</strong> {userInfo.facebook}</div>}
             </div>
           </div>

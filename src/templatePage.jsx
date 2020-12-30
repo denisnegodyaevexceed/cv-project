@@ -79,6 +79,7 @@ export default function CenteredGrid() {
     history.push(`/resumeLoad/${uid}`);
   }
 
+  const check = localStorage.getItem("checkedA")==='true'? true: false
 
 const handlerDeleteSavedTemplate = (uid) => {
   firebase.database().ref(`templates/${uid}/`).remove().then((e) => {
@@ -402,7 +403,7 @@ please select a template</h3>:null}
           <div className='cont-custom' style={{color: 'white'}}>
           {savedTemplates.map((item, index) => (
             <div key={index}>
-            <div className="customs" style={{background:`url${checkedA?exc1:exc2}no-repeat`}}  onClick={() => loadTemplate(item.uid)} >
+            <div className="customs" style={{background:`url${check?exc1:exc2}no-repeat`}}  onClick={() => loadTemplate(item.uid)} >
             <div className='custom-items'>
               <div className="title-customs">Custom template</div>
 

@@ -1,12 +1,12 @@
 import "./App.css";
 import Template1 from "./components/Template1.jsx";
-import React from 'react'
+import React, {useEffect} from 'react'
 import { BrowserRouter, Route } from "react-router-dom";
 import templatePage from "./templatePage";
 import Test from "./1";
 import './components/grid.scss'
 import { CSSTransition } from "react-transition-group";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
@@ -18,8 +18,11 @@ import firebase from 'firebase';
 import '@firebase/storage';
 import Template6 from "./components/Template6";
 import Template7 from "./components/Template7";
+import allTemplateActions from "./actions/templateActions";
+
 
 function App() {
+  const dispatch = useDispatch();
   const { templateNumber } = useSelector((state) => state.templateReducer);
   const correctTemplate = (templateNumber) => {
     switch (templateNumber) {
@@ -44,6 +47,22 @@ function App() {
         return templatePage;
     }
   };
+  
+  const body = document.querySelector('body');
+  const load = document.querySelector('.loadPage')
+
+  const check = localStorage.getItem("checkedA")==='true'? true: false
+
+  useEffect(() => {
+    if (check) {
+            dispatch(allTemplateActions.setThemeDark());
+            body.style.background = 'linear-gradient(45deg, rgb(0, 0, 0) 55%, rgb(247, 77, 51) 5%) no-repeat fixed'
+    } else {
+            dispatch(allTemplateActions.setThemeLight());
+            body.style.background = 'linear-gradient(45deg, rgb(157, 120, 210), rgb(86, 181, 184)) no-repeat fixed'
+    }
+}, [check])
+
   
   const routes = [
     { path: "/", Component: Test },
