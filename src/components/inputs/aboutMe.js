@@ -99,7 +99,7 @@ export default function AboutMe() {
                 />
                
             <TextField
-            required
+            
                     label="Something about you"
                     helperText={aboutMeInfo.length>0? aboutMeInfoCounter: ''}
                     multiline
@@ -119,6 +119,7 @@ export default function AboutMe() {
      
         </form>
         {avatar && <img src={avatar} className='inputAvatar' alt='avatar'/>}
+        <div>* - requared fields</div>
           </div>
         </AccordionDetails>
       </Accordion>
@@ -141,6 +142,7 @@ export default function AboutMe() {
             <TextField value={github} onChange={(e) => {dispatch(allAboutMeActions.setGithubAction(e.target.value))}} label="Github" variant="outlined" />
             <TextField value={facebook} onChange={(e) => {dispatch(allAboutMeActions.setFacebookAction(e.target.value))}} label="Facebook" variant="outlined" />
         </form>
+        <div>* - requared fields</div>
           </div>
         </AccordionDetails>
       </Accordion>
