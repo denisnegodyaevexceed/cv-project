@@ -526,6 +526,26 @@ const Drag = () => {
       {load===true? <Load text={'Loading...'}/>:null}
       {loadSave===true? <Load  text={'Saving...'}/>:null}
     <Container>
+    <div className="button">
+            <Button
+              variant="contained"
+              color="secondary"
+              className="k-button"
+              to="/templates" component={Link}
+            >Change Template</Button>
+            <GetAppIcon
+              color='inherit'
+              className="k-button"
+              onClick={() => pdfExport()} 
+            />
+            <SaveIcon
+              color='inherit'
+              className="k-button"
+              onClick={()=>{handlerSaveTemplate();}}
+            >
+                save{customizedTemplateUid}
+            </SaveIcon>
+          </div>
       <Grid container>
         <Grid item xs={12}></Grid>
         <Grid item xs={12} className={`${open ? 'contentOpen2' : ''} ${open2 ? 'contentOpen1' : ''} transitionBlock`}>
@@ -553,7 +573,7 @@ const Drag = () => {
         <AboutHardSkills/>
         <br/>
         <Portfolio/>
-        {!open2 ? (null) : (<div className="side-close2" onClick={() => setOpen2(!open2)}></div>)}
+      
       </div>
       {!open ? (<div onClick={() => setOpen(!open)} className="arrow2"></div>) : (null)}
       <div className={cls.join(" ")}>
@@ -657,31 +677,13 @@ const Drag = () => {
               </div>
             </AccordionDetails>
           </Accordion>
-          <div className="button">
-            <Button
-              variant="contained"
-              color="secondary"
-              className="k-button"
-              to="/templates" component={Link}
-            >Change Template</Button>
-            <GetAppIcon
-              color='inherit'
-              className="k-button"
-              onClick={() => pdfExport()} 
-            />
-            <SaveIcon
-              color='inherit'
-              className="k-button"
-              onClick={()=>{handlerSaveTemplate();}}
-            >
-                save{customizedTemplateUid}
-            </SaveIcon>
-          </div>
+          
         </div>
       </div> 
-      {!open ? (null) : (<div className="side-close1" onClick={() => setOpen(!open)}></div>)}
     </div>
   </Container>
+  {!open ? (null) : (<div className="side-close1" onClick={() => setOpen(!open)}></div>)}
+  {!open2 ? (null) : (<div className="side-close2" onClick={() => setOpen2(!open2)}></div>)}
   </>
   );
 };

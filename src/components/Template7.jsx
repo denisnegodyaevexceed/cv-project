@@ -231,6 +231,9 @@ const Template7 = () => {
        <br/>
        <Portfolio/>
         
+      
+        </div>
+        </div>
         {!open2 ? (
           null
         ) : (
@@ -238,8 +241,6 @@ const Template7 = () => {
             
           </div>
         )}
-        </div>
-        </div>
         </div>
     )
 }

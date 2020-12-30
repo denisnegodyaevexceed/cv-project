@@ -227,15 +227,16 @@ const Template3 = () => {
        <br/>
        <Portfolio/>
         
-        {!open2 ? (
+        
+      </div>
+            </div>
+            {!open2 ? (
           null
         ) : (
           <div className="side-close2" onClick={() => setOpen2(!open2)}>
             
           </div>
         )}
-      </div>
-            </div>
         </div>
     )
 }

@@ -588,6 +588,8 @@ ainer{
     z-index: 30;  
 }
 .button{
+    position: fixed;
+    left: 45%;
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -1241,24 +1243,32 @@ z-index: 3;
 }
 
 .side-close1{
-    position: absolute;
-    top: 28px;
-    right: 5px;
-    width: 33px;
-    height: 33px;
-    cursor: pointer;
- 
-    border-radius: 50%;
+    width: 20px;
+      height: 20px;
+      border-top: 10px solid  black;
+      border-right: 10px solid black;
+      margin-right: 60px;
+      transform: rotate(45deg);
+
+  position: fixed;
+  right: 427px;
+  z-index: 200;
+  top: 43%;
+  cursor: pointer;
 }
 .side-close2{
-  position: absolute;
-  top: 10px;
-  right: 4px;
-  width: 33px;
-  height: 33px;
-  cursor: pointer;
+ width: 20px;
+      height: 20px;
+      border-top: 10px solid  rgb(247, 77, 51);
+      border-right: 10px solid rgb(247, 77, 51);
+      margin-right: 60px;
+      transform: rotate(-135deg);
 
-  border-radius: 50%;
+  position: fixed;
+  left: 485px;
+  z-index: 200;
+  top: 43%;
+  cursor: pointer;
 }
 
     
@@ -1283,45 +1293,9 @@ z-index: 3;
 
     }
 
-.side-close1:before,
-.side-close1:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 0px;
-    width: 25px;
-    height: 4px;
-    background: red ;
-}
 
-.side-close1:before {
 
-    transform: rotate(45deg);
-}
 
-.side-close1:after {
-
-    transform: rotate(-45deg);
-}
-
-.side-close2:before,
-.side-close2:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 0px;
-    width: 25px;
-    height: 4px;
-    background: red ;
-}
-
-.side-close2:before {
-    transform: rotate(45deg);
-}
-
-.side-close2:after {
-    transform: rotate(-45deg);
-}
 
 
 .photoInput {
@@ -1608,5 +1582,5 @@ margin: 0 auto;
 }
 .transitionBlock{
     transition: 1s;
-    margin-top: 31px !important;
+    margin-top: 70px !important;
 }
