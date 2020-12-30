@@ -191,6 +191,10 @@ const Template5 = () => {
                                         </div>
                                     </div>
                                 </div>}
+                                {userInfo.languages && <div className="template5__languages">
+                                    <div className="template5__languages-header template5__title">LANGUAGES</div>
+                                    <div className='template5__languages'>{userInfo.languages}</div>
+                                </div>}
                                 <div className='template5__conctacts'>
                                     <div className='template5__cotacts_header template5__title'>CONTACTS</div>
                                         <div>Email: {userInfo.email}</div>

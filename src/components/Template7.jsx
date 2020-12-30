@@ -207,10 +207,10 @@ const Template7 = () => {
                                         {userInfo.education}
                                     </div>
                                 </div>}
-                                <div className="template7__languages">
+                                {userInfo.languages && <div className="template7__languages">
                                     <div className="template7__languages-header template7__title">Languages:</div>
                                     {userInfo.languages}
-                                </div>
+                                </div>}
                             </div>
 
                         </div>
