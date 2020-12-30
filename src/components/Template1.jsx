@@ -35,7 +35,7 @@ useEffect(() => {
   return (
     <div className="page">
     <div className="container-pdf">
-      <div className="button">
+      <div className="button5">
         <Button
           variant="contained"
           color="secondary"
@@ -122,10 +122,11 @@ useEffect(() => {
                     <div className='h-center h4-1'>Contact details</div>
                     <div className="contact-content">
                     <div><strong className='h4-2'>Email:</strong> {userInfo.email}</div>
-                    {userInfo.skype && <div><strong className='h4-2'>Skype:</strong> {userInfo.skype}</div>}
                     {userInfo.vkontakte && <div><strong className='h4-2'>Vkontakte:</strong> {userInfo.vkontakte}</div>}
-                    {userInfo.github && <div><strong className='h4-2'>GitHub:</strong> {userInfo.github}</div>}
+                    {userInfo.skype && <div><strong className='h4-2'>Skype:</strong> {userInfo.skype}</div>}
                     {userInfo.phoneNumber && <div><strong className='h4-2'>Tel:</strong> {userInfo.phoneNumber}</div>}
+                    {userInfo.github && <div><strong className='h4-2'>GitHub:</strong> {userInfo.github}</div>}
+                    
                     {userInfo.facebook && <div><strong className='h4-2'>Facebook:</strong> {userInfo.facebook}</div>}
                     </div>
                   </div>}

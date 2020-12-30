@@ -605,6 +605,22 @@ ainer{
     margin-left: 10px;
     
 }
+
+.button5{
+    
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.button5>:first-child{
+    margin-right: 10px;
+    
+}
+
+.button5>:last-child{
+    margin-left: 10px;
+    
+}
 .k-button{
     cursor: pointer;
 }

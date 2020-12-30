@@ -678,31 +678,7 @@ const Drag = () => {
               </div>
             </AccordionDetails>
           </Accordion>
-          <div className="button">
-            <Button
-              variant="contained"
-              color="secondary"
-              className="k-button"
-              to="/templates" component={Link}
-            >Change Template</Button>
-            <Tooltip title='Download as PDF'>
-            <GetAppIcon
-              color='inherit'
-              className="k-button"
-              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExport()}
-             
-            />
-            </Tooltip>
-            <Tooltip title='Save template'><SaveIcon
-              color='inherit'
-              className="k-button"
-              
-              onClick={()=>{handlerSaveTemplate();}}
-            >
-                save{customizedTemplateUid}
-            </SaveIcon>
-            </Tooltip>
-          </div>
+         
         </div>
       </div> 
     </div>

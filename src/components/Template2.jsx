@@ -48,7 +48,7 @@ const Template2 = () => {
   return (
       <div className="page">
         <div className="container-pdf">
-          <div className="button">
+          <div className="button5">
         <Button
          variant="contained"
           color="secondary"
@@ -139,10 +139,10 @@ const Template2 = () => {
                     <div className="content-contacts-2">
 
                     <div><strong className='h4-2-2'>Email:</strong> {userInfo.email}</div>
-                    {userInfo.skype && <div><strong className='h4-2-2'>Skype:</strong> {userInfo.skype}</div>}
                     {userInfo.vkontakte && <div><strong className='h4-2-2'>Vkontakte:</strong> {userInfo.vkontakte}</div>}
-                    {userInfo.github && <div><strong className='h4-2-2'>GitHub:</strong> {userInfo.github}</div>}
+                    {userInfo.skype && <div><strong className='h4-2-2'>Skype:</strong> {userInfo.skype}</div>}
                     {userInfo.phoneNumber && <div><strong className='h4-2-2'>Tel:</strong> {userInfo.phoneNumber}</div>}
+                    {userInfo.github && <div><strong className='h4-2-2'>GitHub:</strong> {userInfo.github}</div>}
                     {userInfo.facebook && <div><strong className='h4-2-2'>Facebook:</strong> {userInfo.facebook}</div>}
                     </div>
 

@@ -38,7 +38,7 @@ const Template8 = () => {
     return (
         <div className="page">
             <div className="container-pdf">
-                <div className="button">
+                <div className="button5">
                     <Button
                         variant="contained"
                         color="secondary"
