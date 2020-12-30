@@ -534,18 +534,23 @@ const Drag = () => {
               className="k-button"
               to="/templates" component={Link}
             >Change Template</Button>
+            <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
             <GetAppIcon
               color='inherit'
               className="k-button"
-              onClick={() => pdfExport()} 
+              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExport()}
+             
             />
-            <SaveIcon
+            </Tooltip>
+            <Tooltip title='Save template'><SaveIcon
               color='inherit'
               className="k-button"
+              
               onClick={()=>{handlerSaveTemplate();}}
             >
                 save{customizedTemplateUid}
             </SaveIcon>
+            </Tooltip>
           </div>
       <Grid container>
         <Grid item xs={12}></Grid>
@@ -685,23 +690,7 @@ const Drag = () => {
               className="k-button"
               to="/templates" component={Link}
             >Change Template</Button>
-            <Tooltip title='Download as PDF'>
-            <GetAppIcon
-              color='inherit'
-              className="k-button"
-              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExport()}
-             
-            />
-            </Tooltip>
-            <Tooltip title='Save template'><SaveIcon
-              color='inherit'
-              className="k-button"
-              
-              onClick={()=>{handlerSaveTemplate();}}
-            >
-                save{customizedTemplateUid}
-            </SaveIcon>
-            </Tooltip>
+           
           </div>
         </div>
       </div> 

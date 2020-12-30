@@ -36,6 +36,7 @@ useEffect(() => {
     <div className="page">
     <div className="container-pdf">
       <div className="button">
+      <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
           variant="contained"
           color="secondary"
@@ -46,6 +47,7 @@ useEffect(() => {
         >
           to PDF
         </Button>
+        </Tooltip>
         <Button
         variant="contained"
         color="secondary"

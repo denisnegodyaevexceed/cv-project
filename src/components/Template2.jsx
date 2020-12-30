@@ -8,7 +8,7 @@ import AboutMe from "./inputs/aboutMe";
 import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
 import AboutHardSkills from "./inputs/aboutHardSkills";
-
+import Tooltip from '@material-ui/core/Tooltip';
 
 const Template2 = () => {
     let pdfExportComponent;
@@ -49,8 +49,9 @@ const Template2 = () => {
       <div className="page">
         <div className="container-pdf">
           <div className="button">
+          <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
-         variant="contained"
+          variant="contained"
           color="secondary"
           className="k-button"
           onClick={() => {
@@ -59,6 +60,7 @@ const Template2 = () => {
         >
           to PDF
         </Button>
+        </Tooltip>
         <Button
         variant="contained"
         color="secondary"
