@@ -10,6 +10,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from "react-router-dom";
 import allCustomizedTemplateActions from './actions/customizedTemplateActions';
 import Load from "./components/inputs/Load";
+import SwitchTheme from "./SwitchTheme";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -438,6 +439,7 @@ please select a template</h3>:null}
       </Snackbar>
       
     </div>
+    <SwitchTheme/>
     </>
   );
 }

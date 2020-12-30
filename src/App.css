@@ -932,8 +932,8 @@ z-index: 3;
     margin: 0 auto;
     position: fixed;
     text-align: center;
-    top: 57%;
-    left: 47.35%;
+    bottom: 3%;
+    left: 2%;
 }
   .btn2 {
       width: 300px;
