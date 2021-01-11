@@ -4,7 +4,8 @@ const initialState = {
     secondName: 'Ivanov',
     careerObjective: 'Full-Stack Web Developer',
     aboutMeInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-    email: 'ivan.ivanov@mail.ru',
+    email: 'ivanivanov@mail.ru',
+    emailValid: true,
     vkontakte: 'http://localhost:3000/',
     skype: 'localhost:3000',
     phoneNumber: '89009009090',
@@ -61,6 +62,11 @@ const aboutMeReducer = (state=initialState, actions) => {
             return {
             ...state,
             email: actions.payload
+        }
+        case 'SET_EMAIL_VALID': 
+        return {
+            ...state,
+            emailValid: actions.payload
         }
         case 'SET_VKONTAKTE':
             return {

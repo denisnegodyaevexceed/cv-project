@@ -88,6 +88,11 @@ const setAvatarVertical = (data) => ({
     payload: data
 })
 
+const setEmailValid = (data) => ({
+    type: actions.SET_EMAIL_VALID,
+    payload: data
+})
+
 
 
 const allAboutMeActions = {
@@ -107,7 +112,8 @@ const allAboutMeActions = {
     setAvatarAction,
     setAllAction,
     setAvatarHorizontal,
-    setAvatarVertical
+    setAvatarVertical,
+    setEmailValid
 }
 
 export default allAboutMeActions
