@@ -140,6 +140,7 @@ useEffect(() => {
                     })}</div>
                     </div>
                   </div>
+                  
                   <div className="container-laguages">
                     <div className="h4-1">Languages</div>
                   <div className="languages-1">{userInfo.languages}</div>

@@ -78,7 +78,7 @@
     
     width: 100%;
   background-color: white;
-  height: 600px;
+  height: auto;
   
 }
 .container-main-2{
@@ -108,9 +108,9 @@
     content: "";
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: -60px;
     width: 100%;
-    height: 60px;
+    height: 30px;
     background-color: #262626;  
 }
 .title-first-content-2{
@@ -144,6 +144,9 @@ width: 100%;
 .content-contacts-2{
     line-height: 14px;
     font-size: 14px;
+}
+.contacts-2{
+    margin-bottom: 10px;
 }
 .title-contacts-2{
     font-family: 'Oswald-Medium';

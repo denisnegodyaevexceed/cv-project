@@ -207,6 +207,8 @@ const Template2 = () => {
             </div>
           </div>
           <br />
+          <br />
+          <br />
           {isHavePortfolio && <div className="template-2-2 page-break">
             <div className="portfolio-container-2">
               <div className="k1"></div>
