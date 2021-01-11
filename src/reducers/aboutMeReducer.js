@@ -12,6 +12,8 @@ const initialState = {
     facebook: 'http://localhost:3000/',
     education: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     avatar: '',
+    avatarHorizontal: 50,
+    avatarVertical: 50,
     languages:'English, Russian',
 }
 
@@ -101,6 +103,16 @@ const aboutMeReducer = (state=initialState, actions) => {
                 avatar: actions.payload.url,
                 fileAvatar: actions.payload.value
             }
+            case 'SET_AVATAR_HORIZONTAL':
+                return{
+                    ...state,
+                    avatarHorizontal: actions.payload
+                }
+            case 'SET_AVATAR_VERTICAL':
+                return{
+                    ...state,
+                    avatarVertical: actions.payload
+                }
         
         default:
             return state

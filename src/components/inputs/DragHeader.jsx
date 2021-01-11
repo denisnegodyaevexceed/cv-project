@@ -24,7 +24,7 @@ const DragHeader = ({left, top, styleName, stylePosition}) => {
                     backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : '/user.png'})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    backgroundPosition:`${(left>=35||left<=85)? left: 35}% ${(top >=35||top<=85)? top: 35}%`,
+                    backgroundPosition:`${left}% ${top}%`,
                     width: '100%',
                     height: '100%',
                     boxSizing: 'border-box',

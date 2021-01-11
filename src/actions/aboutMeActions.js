@@ -78,6 +78,16 @@ const setAllAction = (data) => ({
     payload: data
 })
 
+const setAvatarHorizontal = (data) => ({
+    type: actions.SET_AVATAR_HORIZONTAL,
+    payload: data
+})
+
+const setAvatarVertical = (data) => ({
+    type: actions.SET_AVATAR_VERTICAL,
+    payload: data
+})
+
 
 
 const allAboutMeActions = {
@@ -96,6 +106,8 @@ const allAboutMeActions = {
     setLanguagesAction,
     setAvatarAction,
     setAllAction,
+    setAvatarHorizontal,
+    setAvatarVertical
 }
 
 export default allAboutMeActions
