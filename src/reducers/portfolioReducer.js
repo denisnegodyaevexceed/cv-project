@@ -6,7 +6,6 @@ const initialState = {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [{ title: 'Cassandra' },
-        { title: 'Microsoft SQL' },
         { title: 'CouchDB' },
         { title: 'Oracle' },],
 
@@ -18,7 +17,6 @@ const initialState = {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [{ title: 'Cassandra' },
-        { title: 'Microsoft SQL' },
         { title: 'CouchDB' },
         { title: 'Oracle' },],
 
@@ -30,7 +28,6 @@ const initialState = {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [{ title: 'Cassandra' },
-        { title: 'Microsoft SQL' },
         { title: 'CouchDB' },
         { title: 'Oracle' },],
 
@@ -42,7 +39,6 @@ const initialState = {
         summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         whatYouDo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         stack: [{ title: 'Cassandra' },
-        { title: 'Microsoft SQL' },
         { title: 'CouchDB' },
         { title: 'Oracle' },],
 

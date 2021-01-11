@@ -14,7 +14,9 @@
     color: white;
     background-color: #262729;
     width: 40%;
-    padding: 15px
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .template7__avatar{
@@ -26,7 +28,9 @@
 .template7__rightColumn{
     width: 55%;
     color: #262729;
-    padding: 15px
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .template7__title{

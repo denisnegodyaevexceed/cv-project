@@ -11,7 +11,7 @@ import Template3 from "./components/Template3";
 import Template2 from "./components/Template2";
 import Template4 from "./components/Template4";
 import Template5 from "./components/Template5";
-import Template8 from "./components/Template8";
+
 import Drag from "./components/inputs/Drag";
 import { FirebaseDatabaseProvider } from "@react-firebase/database";
 import firebase from 'firebase';
@@ -49,7 +49,7 @@ function App() {
   };
   
   const body = document.querySelector('body');
-  const load = document.querySelector('.loadPage')
+  // const load = document.querySelector('.loadPage')
 
   const check = localStorage.getItem("checkedA")==='true'? true: false
 
@@ -61,6 +61,7 @@ function App() {
             dispatch(allTemplateActions.setThemeLight());
             body.style.background = 'linear-gradient(45deg, rgb(157, 120, 210), rgb(86, 181, 184)) no-repeat fixed'
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [check])
 
   
@@ -88,7 +89,7 @@ function App() {
       <FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
         
       <div className="App">
-      <Route exact path='/123'><Template8/></Route>
+      
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
             {({ match }) => (

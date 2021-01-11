@@ -123,6 +123,7 @@ const Drag = () => {
   const classes2 = useStyles2();
   const classes3 = useStyles3();
 
+  
   const [load, setLoad] = useState(true);
   const [loadSave, setLoadSave] = useState(false);
   const [loadHeader, setLoadHeader] = useState(false);
@@ -211,6 +212,8 @@ const Drag = () => {
       })
       
     });
+
+    
     const save = (callback = console.log) => {
       if( customizedTemplateUid ){
         let newTemplate = firebase.database().ref(`templates/${customizedTemplateUid}/`);

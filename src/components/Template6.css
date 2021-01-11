@@ -44,6 +44,8 @@ color:#B48654;
 .left-info-6{
     width: 40%;
 background-color: teal;
+overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -111,6 +113,8 @@ top: -5px;
     padding: 15px;
     width: 60%;
     background-color: #DFDFDF;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .mt-6{
     margin-top: 30px;

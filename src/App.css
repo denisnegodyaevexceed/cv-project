@@ -715,6 +715,8 @@ ainer{
     background-color: white;
     width: 60%;
     min-height: 550px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .h{
     position: absolute;
@@ -741,6 +743,8 @@ ainer{
     width: 40%;
     background-color: #CEE077;
     padding-bottom: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .first-info-right-1{
     font-size: 15px;
