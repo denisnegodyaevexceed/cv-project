@@ -397,12 +397,10 @@ const handlerDeleteSavedTemplate = (uid) => {
           <div className="title-block-customs">
           Loaded templates
           </div>
-          <div>
-          
-          </div>
+         
           <div className='cont-custom' style={{color: 'white'}}>
           {savedTemplates.map((item, index) => (
-            <div key={index}>
+            <div className='load-page' key={index}>
             <div className="customs" style={{background:`url${check?exc1:exc2}no-repeat`}}  onClick={() => loadTemplate(item.uid)} >
             <div className='custom-items'>
               <div className="title-customs">Custom template</div>

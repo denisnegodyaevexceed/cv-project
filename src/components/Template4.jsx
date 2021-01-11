@@ -59,6 +59,7 @@ const Template4 = () => {
     <div className='page'>
       <div className="container-pdf">
         <div className="button5">
+          
         <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
         <Button
           variant="contained"

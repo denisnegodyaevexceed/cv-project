@@ -614,6 +614,7 @@ ainer{
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 .button5>:first-child{
     margin-right: 10px;
@@ -623,6 +624,12 @@ ainer{
 .button5>:last-child{
     margin-left: 10px;
     
+}
+.cont-btn-5{
+    /* margin: 0 auto; */
+}
+.load-page{
+    margin: 20px;
 }
 .k-button{
     cursor: pointer;
@@ -1121,6 +1128,7 @@ z-index: 3;
 
 }
 .side2{
+    z-index: 100;
   position: fixed;
   padding: 50px;
   left: -455px;
@@ -1572,7 +1580,7 @@ margin: 0 auto;
 }
 .cont-custom{
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-start;
     flex-wrap: wrap;
 }
 .center{
