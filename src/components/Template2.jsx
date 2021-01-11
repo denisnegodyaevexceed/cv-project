@@ -49,13 +49,13 @@ const Template2 = () => {
     <div className="page">
       <div className="container-pdf">
         <div className="button5">
-          <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective && userInfo.email) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition, Email are required.'}>
+          <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective && userInfo.email&&userInfo.emailValid) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition, Email are required.'}>
             <Button
               variant="contained"
               color="secondary"
               className="k-button"
               onClick={() => {
-                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective) && pdfExportComponent.save();
+                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective&&userInfo.email&&userInfo.emailValid) && pdfExportComponent.save();
               }}
             >
               to PDF

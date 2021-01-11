@@ -79,31 +79,20 @@ const Template6 = () => {
   }, [open2]);
 
 
-  const [left, setLeft] = useState(50);
-  const [top, setTop] = useState(50)
-
-  const moveHorizontal = (num) => {
-    if(left + +(num)>=15&&left + +(num)<=85){  
-    setLeft(left + +(num))}
-  }
-
-  const moveVertical = (num) => {
-    if(top + +(num)>=15&&top + +(num)<=85){
-    setTop(top + +(num))} 
-}   
+   
 
 
   return (
     <div className="page">
       <div className="container-pdf">
         <div className="button5">
-          <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective && userInfo.email) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition, Email are required.'}>
+          <Tooltip title={(userInfo.firstName && userInfo.secondName && userInfo.careerObjective && userInfo.email&&userInfo.emailValid) ? 'Download as PDF' : 'FirstName, SecondName, YourPosition, Email are required.'}>
             <Button
               variant="contained"
               color="secondary"
               className="k-button"
               onClick={() => {
-                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective) && pdfExportComponent.save();
+                (userInfo.firstName && userInfo.secondName && userInfo.careerObjective &&userInfo.email&&userInfo.emailValid) && pdfExportComponent.save();
               }}
             >
               to PDF

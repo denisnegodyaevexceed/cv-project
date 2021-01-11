@@ -38,10 +38,6 @@ import Load from "./Load";
 import allTechnologyActions from "../../actions/addTechnologyActions";
 import "../grid.scss";
 import Tooltip from '@material-ui/core/Tooltip';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 export let GridPortfolio;
 
 const useStyles3 = makeStyles((theme) => ({
@@ -549,11 +545,11 @@ const Drag = () => {
               className="k-button"
               to="/templates" component={Link}
             >Change Template</Button>
-            <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective&& userInfo.email) ? 'Download as PDF':'FirstName, SecondName, YourPosition, Email are required.'}>
+            <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective&& userInfo.email&&userInfo.emailValid) ? 'Download as PDF':'FirstName, SecondName, YourPosition, Email are required.'}>
             <GetAppIcon
               color='inherit'
               className="k-button"
-              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) && pdfExport()}
+              onClick={() => (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective &&userInfo.email&&userInfo.emailValid) && pdfExport()}
              
             />
             </Tooltip>

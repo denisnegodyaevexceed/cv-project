@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,10 +43,9 @@ const useStyles3 = makeStyles((theme) => ({
 }));
 
 export default function AboutMe() {
-  const [left, setLeft] = useState(50);
-  const [top, setTop] = useState(50)
+
   const dispatch = useDispatch()
-  let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education,languages, avatarHorizontal, avatarVertical} = useSelector(state => state.aboutMeReducer)
+  let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email,emailValid, vkontakte, skype, phoneNumber, github, facebook, education,languages, avatarHorizontal, avatarVertical} = useSelector(state => state.aboutMeReducer)
 
 
 const moveHorizontal = (num) => {
@@ -55,15 +54,33 @@ const moveHorizontal = (num) => {
 }
 
 const moveVertical = (num) => {
-  if(avatarVertical + +(num)>=15&&top + +(num)<=85){
+  if(avatarVertical + +(num)>=15&&avatarVertical + +(num)<=85){
   dispatch(allAboutMeActions.setAvatarVertical(avatarVertical + +(num)))} 
 } 
 
     
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
-    
+    const validEmailControll = (data) => {
+      if(data){
+        if(data){const emailArray = data.split('')
+          const dtcControll = emailArray.slice(emailArray.indexOf('@'))
+          console.log(dtcControll, 'dtcControll')
+         return (emailArray.indexOf('@')>0&&dtcControll.indexOf('.')<dtcControll.length-1&&dtcControll.indexOf('.')>0&&(dtcControll.indexOf('.')-dtcControll.indexOf('@')>1))? true: false;
+      }}else{
+        return false
+      }
+    }
 
+
+    let validEmail = validEmailControll(email)
+    
+    useEffect(()=>{
+      dispatch(allAboutMeActions.setEmailValid(validEmail))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [validEmail])
+
+    console.log(validEmail, emailValid, 'validvalid')
 
     const classes = useStyles();
     const classes2 = useStyles2();
@@ -169,7 +186,7 @@ const moveVertical = (num) => {
         <AccordionDetails>
           <div>
           <form className={classes.root} noValidate autoComplete="off">
-            <TextField value={email} onChange={(e) => {dispatch(allAboutMeActions.setEmailAction(e.target.value))}} required type='email' label="Email" variant="outlined" />
+            <TextField value={email} error={!emailValid} helperText={emailValid? '':'Invalid email'} onChange={(e) => {dispatch(allAboutMeActions.setEmailAction(e.target.value))}} required type='email' label="Email" variant="outlined" />
             <TextField value={vkontakte} onChange={(e) => {dispatch(allAboutMeActions.setVkontakteAction(e.target.value))}} label="Vkontakte" variant="outlined" />
             <TextField value={skype} onChange={(e) => {dispatch(allAboutMeActions.setSkypeAction(e.target.value))}} label="Skype" variant="outlined" />
             <TextField value={phoneNumber} onChange={(e) => {dispatch(allAboutMeActions.setPhoneNumberAction(e.target.value))}} label="Phone number" variant="outlined" />
