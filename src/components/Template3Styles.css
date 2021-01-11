@@ -47,6 +47,9 @@
     text-overflow: ellipsis;
     
 }
+.template3__contactDetails{
+    overflow: hidden;
+}
 
 .template3__avatar{
     margin: 0 auto;

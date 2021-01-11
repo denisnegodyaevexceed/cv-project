@@ -107,5 +107,6 @@
 }
 
 .template7__conctacts{
+    overflow: hidden;
     font-size: 13px;
 }
