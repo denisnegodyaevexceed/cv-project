@@ -44,20 +44,7 @@ const Template3 = () => {
             setCls2(['side2']);
 
         }
-    }, [open2]);
-
-    const [left, setLeft] = useState(50);
-    const [top, setTop] = useState(50)
-
-    const moveHorizontal = (num) => {
-        if(left + +(num)>=15&&left + +(num)<=85){  
-        setLeft(left + +(num))}
-      }
-    
-      const moveVertical = (num) => {
-        if(top + +(num)>=15&&top + +(num)<=85){
-        setTop(top + +(num))} 
-    }   
+    }, [open2]);   
 
 
 
@@ -85,19 +72,7 @@ const Template3 = () => {
                     >
                         Change Template
         </Button>
-                    {userInfo.avatar && <div><Button variant="contained"
-                        color="secondary"
-                        size='small'
-                        className="k-button" onClick={(e) => moveHorizontal(5)}>Left</Button> <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveHorizontal(-5)}>Right</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(5)}>Top</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(-5)}>Down</Button>
-                    </div>}
+                    
                 </div>
                 <PDFExport
                     forcePageBreak=".page-break"
@@ -111,7 +86,7 @@ const Template3 = () => {
                                 <div className='template3__avatar' style={{
                                     backgroundImage: `url(${userInfo.avatar ? userInfo.avatar : './user.png'})`, backgroundRepeat: "no-repeat",
                                     backgroundSize: "cover",
-                                    backgroundPosition:`${left}% ${top}%`,
+                                    backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                                     width: 190,
                                     height: 250,
                                     margin: "auto"

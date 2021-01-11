@@ -627,7 +627,7 @@ ainer{
 }
 
 .load-page{
-    margin: 20px;
+    margin: 5px;
 }
 .k-button{
     cursor: pointer;
@@ -637,6 +637,7 @@ ainer{
     font-family: 'Raleway-Light';
 }
 .h4-1{
+    text-align: center;
     font-size: 14px;
     font-weight: 100;
     font-family: 'Raleway-Bold';
@@ -760,9 +761,7 @@ border-radius: 1000px;
     margin-top: 45px;
 }
 .contact{
-    width: 100%;
-    position: absolute;
-    bottom: 3%;
+    
 }
 .contact-content{
     margin-left: 10px;
@@ -840,9 +839,7 @@ cursor: pointer;
    z-index: 2;
 }
 .container-laguages{
-    position: absolute;
-    top: 60%;
-    left: 53px;
+ margin: 0 !important;   
 }
 .img-1-2{
     position: relative;

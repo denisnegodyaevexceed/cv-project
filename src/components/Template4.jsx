@@ -39,18 +39,7 @@ const Template4 = () => {
     }
   }, [open2]);
 
-  const [left, setLeft] = useState(50);
-  const [top, setTop] = useState(50)
-
-  const moveHorizontal = (num) => {
-    if(left + +(num)>=15&&left + +(num)<=85){  
-    setLeft(left + +(num))}
-  }
-
-  const moveVertical = (num) => {
-    if(top + +(num)>=15&&top + +(num)<=85){
-    setTop(top + +(num))} 
-}   
+ 
 
     const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
     (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
@@ -82,19 +71,6 @@ const Template4 = () => {
         >
           Change Template
         </Button>
-        {userInfo.avatar && <div><Button variant="contained"
-                        color="secondary"
-                        size='small'
-                        className="k-button" onClick={(e) => moveHorizontal(5)}>Left</Button> <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveHorizontal(-5)}>Right</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(5)}>Top</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(-5)}>Down</Button>
-                    </div>}
       </div>
       <PDFExport
         forcePageBreak=".page-break"
@@ -150,7 +126,7 @@ const Template4 = () => {
           <div className="right-info-4">
           <div className="ava-4" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition:`${left}% ${top}%`,
+                        backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                         width: 250,
                         height: 300,
                         margin: "auto"}}></div>

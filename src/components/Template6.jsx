@@ -118,19 +118,6 @@ const Template6 = () => {
           >
             Change Template
           </Button>
-          {userInfo.avatar && <div><Button variant="contained"
-                        color="secondary"
-                        size='small'
-                        className="k-button" onClick={(e) => moveHorizontal(5)}>Left</Button> <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveHorizontal(-5)}>Right</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(5)}>Top</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(-5)}>Down</Button>
-                    </div>}
         </div>
         <PDFExport
           forcePageBreak=".page-break"
@@ -150,7 +137,7 @@ const Template6 = () => {
                       })`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    backgroundPosition:`${left}% ${top}%`,
+                    backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                     width: "100%",
                     height: 280,
                     margin: "auto",

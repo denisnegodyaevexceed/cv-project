@@ -8,7 +8,10 @@ import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
 import AboutHardSkills from "./inputs/aboutHardSkills";
 import Tooltip from '@material-ui/core/Tooltip';
-
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const Template1 = () => {
   let pdfExportComponent;
@@ -26,18 +29,9 @@ const Template1 = () => {
   const [cls2, setCls2] = useState(["side2"]);
   const [open2, setOpen2] = useState(true);
 
-  const [left, setLeft] = useState(50);
-  const [top, setTop] = useState(50)
+  
 
-  const moveHorizontal = (num) => {
-    if(left + +(num)>=15&&left + +(num)<=85){  
-    setLeft(left + +(num))}
-  }
 
-  const moveVertical = (num) => {
-    if(top + +(num)>=15&&top + +(num)<=85){
-    setTop(top + +(num))} 
-}   
 
 useEffect(() => {
   if (open2) {
@@ -70,19 +64,6 @@ useEffect(() => {
         >
           Change Template
         </Button>
-        {userInfo.avatar && <div><Button variant="contained"
-        color="secondary"
-        size='small'
-        className="k-button"onClick={(e) => moveHorizontal(5)}>Left</Button> <Button size='small' variant="contained"
-        color="secondary"
-        className="k-button" onClick={(e) => moveHorizontal(-5)}>Right</Button>
-         <Button size='small' variant="contained"
-        color="secondary"
-        className="k-button" onClick={(e) => moveVertical(5)}>Top</Button>
-         <Button size='small' variant="contained"
-        color="secondary"
-        className="k-button" onClick={(e) => moveVertical(-5)}>Down</Button>
-        </div>}
       </div>
       <PDFExport
         forcePageBreak=".page-break"
@@ -101,7 +82,7 @@ useEffect(() => {
               </div>
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition:`${left}% ${top}%`,
+                        backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                         width: 190,
                         height: 190,
                         margin: "auto"}}></div>
@@ -142,6 +123,7 @@ useEffect(() => {
                     })}</div>
                     </div>
                   </div>
+                  
                   <div className="container-laguages">
                     <div className="h4-1">Languages</div>
                   <div className="languages-1">{userInfo.languages}</div>
@@ -207,7 +189,7 @@ useEffect(() => {
               </div>
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                         width: 190,
                         height: 190,
                         margin: "auto"}}></div>
