@@ -15,16 +15,22 @@
     background-color: #262729;
     width: 40%;
     padding: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
 }
 
 .template7__avatar{
     margin: 40px 80px 40px 80px;
     
 }
-
-
+.template7__workHistory{
+    overflow: hidden;
+}
+.template7__education{
+    overflow: hidden;
+}
+.template7__languages{
+    overflow: hidden;
+}
 .template7__rightColumn{
     width: 55%;
     color: #262729;

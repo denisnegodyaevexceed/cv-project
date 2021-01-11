@@ -47,6 +47,18 @@
     min-width: 150px;
     height: 150px;
 }
+.template5__personalProfile{
+    overflow: hidden;
+}
+.template5__workHistory{
+    overflow: hidden;
+}
+.template5__languages{
+    overflow: hidden;
+}
+.template5__conctacts{
+    overflow: hidden;
+}
 
 .template5__fullName{
     font-family: 'Cantarell bold';
