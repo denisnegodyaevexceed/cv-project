@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Switch from '@material-ui/core/Switch';
 import allTemplateActions from "./actions/templateActions";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 
 const SwitchTheme = () => {
     const dispatch = useDispatch();
 
-    const { theme, checkedA } = useSelector((state) => state.templateReducer);
+    
     const [checked, setChecked] = useState(true)
     const check = localStorage.getItem("checkedA")==='true'? true: false
     console.log(check, 'check')
@@ -17,7 +17,7 @@ const SwitchTheme = () => {
             //       dispatch(allTemplateActions.setCheckedA())
     }
     const body = document.querySelector('body');
-    const load = document.querySelector('.loadPage')
+//     const load = document.querySelector('.loadPage')
    
 
 
@@ -29,6 +29,7 @@ const SwitchTheme = () => {
                     dispatch(allTemplateActions.setThemeLight());
                     body.style.background = 'linear-gradient(45deg, rgb(157, 120, 210), rgb(86, 181, 184)) no-repeat fixed'
             }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [check])
     return (
         

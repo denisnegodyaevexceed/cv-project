@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useSelector} from "react-redux";
 import 'gridstack/dist/h5/gridstack-dd-native';
 import 'gridstack/dist/jq/gridstack-dd-jqueryui';
@@ -13,8 +13,9 @@ const DragHeader = ({left, top, styleName, stylePosition}) => {
     
     const backgroundControll = headerImage? headerImagePosition === 'cover' ? {backgroundImage: `url(${headerImage})`,
         backgroundPosition: 'center',
-        backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`}
+        backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`};
 
+    console.log(left, top , 'position')
        
     return (
         <div  className='grid-stack grid-stack-header' style={backgroundControll}>
@@ -23,7 +24,7 @@ const DragHeader = ({left, top, styleName, stylePosition}) => {
                     backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : '/user.png'})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    backgroundPosition:`${left}% ${top}%`,
+                    backgroundPosition:`${(left>=35||left<=85)? left: 35}% ${(top >=35||top<=85)? top: 35}%`,
                     width: '100%',
                     height: '100%',
                     boxSizing: 'border-box',

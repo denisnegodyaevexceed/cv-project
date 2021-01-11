@@ -189,7 +189,7 @@ const Template3 = () => {
                                             </div>
                                         </div>
                                         <div className='template3__workHistory_item'>
-                                            <div className='template3__workHistory_title'>
+                                            <div style={{overflow: 'hidden'}}  className='template3__workHistory_title'>
                                                 {secondCompany}
                                             </div>
                                             <div className='template3_workHistory_position'>{secondPosition}</div>

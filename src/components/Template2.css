@@ -25,6 +25,8 @@
   position: relative;
   height: 350px;
   background-color: white;
+  overflow: hidden;
+    text-overflow: ellipsis;
 }
 .avatar-2{
     position: absolute;
@@ -93,9 +95,12 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .right-content-2{
-
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: 60%;
 }
 .title-right-2{

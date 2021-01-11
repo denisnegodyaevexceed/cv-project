@@ -1,6 +1,6 @@
 import React from "react";
 import "../grid.scss";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 
 const Load = ({text}) => {
 const { theme } = useSelector((state) => state.templateReducer);

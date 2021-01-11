@@ -1,7 +1,7 @@
 import React, {useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import allTemplateActions from "./actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from '@material-ui/lab/Alert';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CenteredGrid() {
   const exc1 = `('./exceed.png')`
   const exc2 = `('./exceed2.png')`
-  const {checkedA } = useSelector((state) => state.templateReducer);
+  
   let history = useHistory();
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -43,10 +43,8 @@ export default function CenteredGrid() {
   };
 
   const classes = useStyles();
-
   const dispatch = useDispatch();
 
-  const { templateNumber } = useSelector((state) => state.templateReducer);
 
   React.useEffect(() => {
     let cleanupFunction = false;

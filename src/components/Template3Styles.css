@@ -19,6 +19,8 @@
 }
 
 .template3__firstPage{
+    
+    
     background-color: #E7E5DA;
     padding: 15px 25px;
     font-weight: 200;
@@ -39,8 +41,11 @@
 
 .template3__leftColumn{
     background: #DCD9CC;
-    width: 200px;
-    padding: 10px
+    width: 480px;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 }
 
 .template3__avatar{
@@ -76,7 +81,11 @@
 }
 
 .template3__rightColumn{
-    padding: 25px
+    max-width: 380px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 25px;
+    max-width: 100%;
 }
 
 .template3__fullName{
@@ -90,6 +99,9 @@
 }
 
 .template3__workHistory_item{
+    max-width: 380px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 15px 0;
 }
 .template3__workHistory_title{
