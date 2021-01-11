@@ -625,9 +625,7 @@ ainer{
     margin-left: 10px;
     
 }
-.cont-btn-5{
-    /* margin: 0 auto; */
-}
+
 .load-page{
     margin: 5px;
 }
@@ -695,8 +693,7 @@ ainer{
     position: absolute;
     top: 40px;
     right: 45px;
- 
-    border-radius: 1000px;
+border-radius: 1000px;
     border: solid white;
     z-index: 5;
     max-width: 100%;

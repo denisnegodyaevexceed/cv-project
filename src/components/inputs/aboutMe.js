@@ -45,20 +45,24 @@ const useStyles3 = makeStyles((theme) => ({
 export default function AboutMe() {
   const [left, setLeft] = useState(50);
   const [top, setTop] = useState(50)
+  const dispatch = useDispatch()
+  let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education,languages, avatarHorizontal, avatarVertical} = useSelector(state => state.aboutMeReducer)
 
-  const moveHorizontal = (num) => {
-      setLeft(left + +(num))
-  }
 
-  const moveVertical = (num) => {
-    setTop(top + +(num))
+const moveHorizontal = (num) => {
+  if(avatarHorizontal + +(num)>=15&&avatarHorizontal + +(num)<=85){  
+  dispatch(allAboutMeActions.setAvatarHorizontal(avatarHorizontal + +(num)))}
 }
 
+const moveVertical = (num) => {
+  if(avatarVertical + +(num)>=15&&top + +(num)<=85){
+  dispatch(allAboutMeActions.setAvatarVertical(avatarVertical + +(num)))} 
+} 
 
-    const dispatch = useDispatch()
+    
     const userInfo = useSelector((state) => state.aboutMeReducer);
 
-    let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education,languages} = useSelector(state => state.aboutMeReducer)
+    
 
 
     const classes = useStyles();
@@ -66,7 +70,7 @@ export default function AboutMe() {
     const classes3 = useStyles3()
     
 
-  
+  console.log(avatarHorizontal, avatarVertical)
 
     let educationCounter = (180 - education.length) + ' letters left.'
     let aboutMeInfoCounter = (180 - aboutMeInfo.length) + ' letters left.'
@@ -141,10 +145,10 @@ export default function AboutMe() {
            className="pos-ava-2" onClick={(e) => moveHorizontal(-5)}>Right</KeyboardArrowRightIcon>
             <KeyboardArrowUpIcon size='large' variant="contained"
            color="secondary"
-           className="pos-ava-3" onClick={(e) => moveVertical(-5)}>Top</KeyboardArrowUpIcon>
+           className="pos-ava-3" onClick={(e) => moveVertical(5)}>Top</KeyboardArrowUpIcon>
             <KeyboardArrowDownIcon size='large' variant="contained"
            color="secondary"
-           className="pos-ava-4" onClick={(e) => moveVertical(5)}>Down</KeyboardArrowDownIcon>
+           className="pos-ava-4" onClick={(e) => moveVertical(-5)}>Down</KeyboardArrowDownIcon>
            </div>}
      
         </form>

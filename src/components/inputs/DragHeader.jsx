@@ -6,7 +6,7 @@ import 'gridstack/dist/jq/gridstack-dd-jqueryui';
 import DragItem from './DragItem';
 
 export let gridHeader = null;
-const DragHeader = ({left, top, styleName, stylePosition}) => {
+const DragHeader = ({styleName, stylePosition}) => {
     const userInfo = useSelector((state) => state.aboutMeReducer);
     const {avaBorderRadius, matrixBlock} = useSelector(state=>state.customizedTemplateReducer);
     const {headerBackground , headerImage, headerImagePosition} = useSelector(state=>state.customizedTemplateReducer)
@@ -15,7 +15,6 @@ const DragHeader = ({left, top, styleName, stylePosition}) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover'}:{backgroundImage: `url(${headerImage})`, backgroundRepeat: "repeat",}:{backgroundColor: `${headerBackground}`};
 
-    console.log(left, top , 'position')
        
     return (
         <div  className='grid-stack grid-stack-header' style={backgroundControll}>
@@ -24,7 +23,7 @@ const DragHeader = ({left, top, styleName, stylePosition}) => {
                     backgroundImage: `url(${userInfo.avatar ? (userInfo.avatar ) : '/user.png'})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    backgroundPosition:`${(left>=35||left<=85)? left: 35}% ${(top >=35||top<=85)? top: 35}%`,
+                    backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                     width: '100%',
                     height: '100%',
                     boxSizing: 'border-box',

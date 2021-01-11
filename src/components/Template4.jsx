@@ -39,16 +39,7 @@ const Template4 = () => {
     }
   }, [open2]);
 
-  const [left, setLeft] = useState(50);
-  const [top, setTop] = useState(50)
-
-  const moveHorizontal = (num) => {
-    setLeft(left + +(num))
-  }
-
-  const moveVertical = (num) => {
-    setTop(top + +(num))
-  }
+ 
 
     const isHavePortfolio = ((firstProject.name && firstProject.link && firstProject.summary && firstProject.whatYouDo && firstProject.stack) ||
     (secondProject.name && secondProject.link && secondProject.summary && secondProject.whatYouDo && secondProject.stack) ||
@@ -60,7 +51,7 @@ const Template4 = () => {
       <div className="container-pdf">
         <div className="button5">
           
-        <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
+        <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective && userInfo.email) ? 'Download as PDF':'FirstName, SecondName, YourPosition, Email are required.'}>
         <Button
           variant="contained"
           color="secondary"
@@ -80,19 +71,6 @@ const Template4 = () => {
         >
           Change Template
         </Button>
-        {userInfo.avatar && <div><Button variant="contained"
-                        color="secondary"
-                        size='small'
-                        className="k-button" onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
-                        <Button size='small' variant="contained"
-                            color="secondary"
-                            className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
-                    </div>}
       </div>
       <PDFExport
         forcePageBreak=".page-break"
@@ -148,7 +126,7 @@ const Template4 = () => {
           <div className="right-info-4">
           <div className="ava-4" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition:`${left}% ${top}%`,
+                        backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                         width: 250,
                         height: 300,
                         margin: "auto"}}></div>

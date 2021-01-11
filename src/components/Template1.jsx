@@ -29,16 +29,9 @@ const Template1 = () => {
   const [cls2, setCls2] = useState(["side2"]);
   const [open2, setOpen2] = useState(true);
 
-  const [left, setLeft] = useState(50);
-  const [top, setTop] = useState(50)
+  
 
-  const moveHorizontal = (num) => {
-      setLeft(left + +(num))
-  }
 
-  const moveVertical = (num) => {
-    setTop(top + +(num))
-}
 
 useEffect(() => {
   if (open2) {
@@ -51,7 +44,7 @@ useEffect(() => {
     <div className="page">
     <div className="container-pdf">
       <div className="button5">
-      <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective) ? 'Download as PDF':'FirstName, SecondName, YourPosition are required.'}>
+      <Tooltip title={ (userInfo.firstName&&userInfo.secondName&&userInfo.careerObjective&& userInfo.email) ? 'Download as PDF':'FirstName, SecondName, YourPosition, Email are required.'}>
         <Button
           variant="contained"
           color="secondary"
@@ -71,22 +64,6 @@ useEffect(() => {
         >
           Change Template
         </Button>
-        {userInfo.avatar && <div className='ava-pos'>
-           
-           <KeyboardArrowLeftIcon variant="contained"
-           color="secondary"
-           size='large'
-           className="pos-ava-1"onClick={(e) => moveHorizontal(5)}>Left</KeyboardArrowLeftIcon> 
-           <KeyboardArrowRightIcon size='large' variant="contained"
-           color="secondary"
-           className="pos-ava-2" onClick={(e) => moveHorizontal(-5)}>Right</KeyboardArrowRightIcon>
-            <KeyboardArrowUpIcon size='large' variant="contained"
-           color="secondary"
-           className="pos-ava-3" onClick={(e) => moveVertical(-5)}>Top</KeyboardArrowUpIcon>
-            <KeyboardArrowDownIcon size='large' variant="contained"
-           color="secondary"
-           className="pos-ava-4" onClick={(e) => moveVertical(5)}>Down</KeyboardArrowDownIcon>
-           </div>}
       </div>
       <PDFExport
         forcePageBreak=".page-break"
@@ -105,7 +82,7 @@ useEffect(() => {
               </div>
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition:`${left}% ${top}%`,
+                        backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                         width: 190,
                         height: 190,
                         margin: "auto"}}></div>
@@ -212,7 +189,7 @@ useEffect(() => {
               </div>
               <div className="avatar-1" style={{backgroundImage: `url(${userInfo.avatar? userInfo.avatar: './user.png'})`,backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        backgroundPosition:`${userInfo.avatarHorizontal}% ${userInfo.avatarVertical}%`,
                         width: 190,
                         height: 190,
                         margin: "auto"}}></div>
