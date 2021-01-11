@@ -65,7 +65,7 @@ const moveVertical = (num) => {
       if(data){
         if(data){const emailArray = data.split('')
           const dtcControll = emailArray.slice(emailArray.indexOf('@'))
-          console.log(dtcControll, 'dtcControll')
+     
          return (emailArray.indexOf('@')>0&&dtcControll.indexOf('.')<dtcControll.length-1&&dtcControll.indexOf('.')>0&&(dtcControll.indexOf('.')-dtcControll.indexOf('@')>1))? true: false;
       }}else{
         return false
@@ -80,14 +80,14 @@ const moveVertical = (num) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [validEmail])
 
-    console.log(validEmail, emailValid, 'validvalid')
+  
 
     const classes = useStyles();
     const classes2 = useStyles2();
     const classes3 = useStyles3()
     
 
-  console.log(avatarHorizontal, avatarVertical)
+ 
 
     let educationCounter = (180 - education.length) + ' letters left.'
     let aboutMeInfoCounter = (180 - aboutMeInfo.length) + ' letters left.'

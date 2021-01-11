@@ -10,7 +10,7 @@ const SwitchTheme = () => {
     
     const [checked, setChecked] = useState(true)
     const check = localStorage.getItem("checkedA")==='true'? true: false
-    console.log(check, 'check')
+
     const handleChangeChecked = () => {
             setChecked(!checked)
             localStorage.setItem('checkedA', checked)
