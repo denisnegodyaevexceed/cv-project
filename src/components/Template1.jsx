@@ -8,7 +8,10 @@ import Portfolio from "./inputs/portfolio";
 import AboutWorkHistory from "./inputs/aboutWorkHistory";
 import AboutHardSkills from "./inputs/aboutHardSkills";
 import Tooltip from '@material-ui/core/Tooltip';
-
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const Template1 = () => {
   let pdfExportComponent;
@@ -68,19 +71,22 @@ useEffect(() => {
         >
           Change Template
         </Button>
-        {userInfo.avatar && <div><Button variant="contained"
-        color="secondary"
-        size='small'
-        className="k-button"onClick={(e) => moveHorizontal(-5)}>Left</Button> <Button size='small' variant="contained"
-        color="secondary"
-        className="k-button" onClick={(e) => moveHorizontal(5)}>Right</Button>
-         <Button size='small' variant="contained"
-        color="secondary"
-        className="k-button" onClick={(e) => moveVertical(-5)}>Top</Button>
-         <Button size='small' variant="contained"
-        color="secondary"
-        className="k-button" onClick={(e) => moveVertical(5)}>Down</Button>
-        </div>}
+        {userInfo.avatar && <div className='ava-pos'>
+           
+           <KeyboardArrowLeftIcon variant="contained"
+           color="secondary"
+           size='large'
+           className="pos-ava-1"onClick={(e) => moveHorizontal(5)}>Left</KeyboardArrowLeftIcon> 
+           <KeyboardArrowRightIcon size='large' variant="contained"
+           color="secondary"
+           className="pos-ava-2" onClick={(e) => moveHorizontal(-5)}>Right</KeyboardArrowRightIcon>
+            <KeyboardArrowUpIcon size='large' variant="contained"
+           color="secondary"
+           className="pos-ava-3" onClick={(e) => moveVertical(-5)}>Top</KeyboardArrowUpIcon>
+            <KeyboardArrowDownIcon size='large' variant="contained"
+           color="secondary"
+           className="pos-ava-4" onClick={(e) => moveVertical(5)}>Down</KeyboardArrowDownIcon>
+           </div>}
       </div>
       <PDFExport
         forcePageBreak=".page-break"

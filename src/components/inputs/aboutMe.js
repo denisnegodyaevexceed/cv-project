@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,10 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,9 +43,20 @@ const useStyles3 = makeStyles((theme) => ({
 }));
 
 export default function AboutMe() {
- 
+  const [left, setLeft] = useState(50);
+  const [top, setTop] = useState(50)
+
+  const moveHorizontal = (num) => {
+      setLeft(left + +(num))
+  }
+
+  const moveVertical = (num) => {
+    setTop(top + +(num))
+}
+
 
     const dispatch = useDispatch()
+    const userInfo = useSelector((state) => state.aboutMeReducer);
 
     let {firstName, avatar, secondName, careerObjective, aboutMeInfo, email, vkontakte, skype, phoneNumber, github, facebook, education,languages} = useSelector(state => state.aboutMeReducer)
 
@@ -114,8 +128,24 @@ export default function AboutMe() {
           
           <PhotoCamera className='photoInput'/>
         </IconButton>
+        
       </label>
-      
+      {userInfo.avatar && <div className='ava-pos'>
+           
+           <KeyboardArrowLeftIcon variant="contained"
+           color="secondary"
+           size='large'
+           className="pos-ava-1"onClick={(e) => moveHorizontal(5)}>Left</KeyboardArrowLeftIcon> 
+           <KeyboardArrowRightIcon size='large' variant="contained"
+           color="secondary"
+           className="pos-ava-2" onClick={(e) => moveHorizontal(-5)}>Right</KeyboardArrowRightIcon>
+            <KeyboardArrowUpIcon size='large' variant="contained"
+           color="secondary"
+           className="pos-ava-3" onClick={(e) => moveVertical(-5)}>Top</KeyboardArrowUpIcon>
+            <KeyboardArrowDownIcon size='large' variant="contained"
+           color="secondary"
+           className="pos-ava-4" onClick={(e) => moveVertical(5)}>Down</KeyboardArrowDownIcon>
+           </div>}
      
         </form>
         {avatar && <img src={avatar} className='inputAvatar' alt='avatar'/>}
