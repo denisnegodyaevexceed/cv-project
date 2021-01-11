@@ -114,6 +114,7 @@
 }
 
 .template5__conctacts{
+    overflow: hidden;
     color: #484848;
     font-size: 12px;
 }
