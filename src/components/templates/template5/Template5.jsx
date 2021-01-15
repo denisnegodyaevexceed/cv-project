@@ -135,7 +135,7 @@ function Template5 () {
                   className="template5__avatar"
                   style={{
                     backgroundImage: `url(${
-                      userInfo.avatar ? userInfo.avatar : "./user.png"
+                      userInfo.avatar ? userInfo.avatar : "./public_images/user.png"
                     })`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
