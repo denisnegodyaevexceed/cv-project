@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Switch from '@material-ui/core/Switch';
-import allTemplateActions from "./actions/templateActions";
+import allTemplateActions from "../actions/templateActions";
 import { useDispatch } from "react-redux";
 
 

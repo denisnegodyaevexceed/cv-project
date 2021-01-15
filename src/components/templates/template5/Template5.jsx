@@ -3,11 +3,11 @@ import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
 import { useSelector } from "react-redux";
 import './Template5Styles.css'
-import AboutMe from "./inputs/aboutMe";
-import Portfolio from "./inputs/portfolio";
-import AboutWorkHistory from "./inputs/aboutWorkHistory";
+import AboutMe from "../../inputs/aboutMe";
+import Portfolio from "../../inputs/portfolio";
+import AboutWorkHistory from "../../inputs/aboutWorkHistory";
 import {Link} from 'react-router-dom';
-import AboutHardSkills from "./inputs/aboutHardSkills";
+import AboutHardSkills from "../../inputs/aboutHardSkills";
 import Tooltip from '@material-ui/core/Tooltip';
 
 const Template5 = () => {

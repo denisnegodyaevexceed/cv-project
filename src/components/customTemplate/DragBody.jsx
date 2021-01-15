@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import "gridstack/dist/gridstack.min.css";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
-import "../grid.scss"
 import DragItem from './DragItem';
 
 const DragBody = ({

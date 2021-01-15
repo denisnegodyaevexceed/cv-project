@@ -1,17 +1,17 @@
 @font-face {
     font-family: 'RobotoSlab-Light';
     src: 
-            url('../fonts/RobotoSlab-Light.ttf') format("truetype");
+            url('../../../fonts/RobotoSlab-Light.ttf') format("truetype");
 }
 @font-face {
     font-family: 'RobotoSlab-Regular';
     src: 
-            url('../fonts/RobotoSlab-Regular.ttf') format("truetype");
+            url('../../../fonts/RobotoSlab-Regular.ttf') format("truetype");
 }
 @font-face {
     font-family: 'RobotoSlab-Bold';
     src: 
-            url('../fonts/RobotoSlab-Bold.ttf') format("truetype");
+            url('../../../fonts/RobotoSlab-Bold.ttf') format("truetype");
 }
 
 .h-4-m{

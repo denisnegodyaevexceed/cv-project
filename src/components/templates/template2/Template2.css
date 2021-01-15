@@ -2,17 +2,17 @@
 @font-face {
     font-family: 'Oswald-Light';
     src: 
-            url('../Oswald-Light.ttf') format("truetype");
+            url('../../../fonts/Oswald-Light.ttf') format("truetype");
 }
 @font-face {
     font-family: 'Oswald-Medium';
     src: 
-            url('../Oswald-Medium.ttf') format("truetype");
+            url('../../../fonts/Oswald-Medium.ttf') format("truetype");
 }
 @font-face {
     font-family: 'Oswald-Regular';
     src: 
-            url('../Oswald-Regular.ttf') format("truetype");
+            url('../../../fonts/Oswald-Regular.ttf') format("truetype");
 }
 .template-2 {
     font-family: 'Oswald-Light';
