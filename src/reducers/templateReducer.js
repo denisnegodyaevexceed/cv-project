@@ -1,6 +1,8 @@
+import styleTheme from "../constants/styleTheme";
+
 const initialState = {
   templateNumber: "",
-  theme: "black",
+  theme: styleTheme.styleThemeDark.backgroundLoader,
   checkedA: true,
 };
 
@@ -14,12 +16,12 @@ const templateReducer = (state = initialState, actions) => {
     case "SET_THEME_LIGHT":
       return {
         ...state,
-        theme: "white",
+        theme: styleTheme.styleThemeLight.backgroundLoader,
       };
     case "SET_THEME_DARK":
       return {
         ...state,
-        theme: "black",
+        theme: styleTheme.styleThemeDark.backgroundLoader,
       };
     case "SET_CHECKED_A":
       return {

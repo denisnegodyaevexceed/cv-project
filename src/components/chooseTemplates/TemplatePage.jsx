@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import allCustomizedTemplateActions from "../../actions/customizedTemplateActions";
 import Load from "../loader/Load";
 import SwitchTheme from "../SwitchTheme";
+import styleTheme from "../../constants/styleTheme";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -20,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CenteredGrid() {
-  const exc1 = `('./public_images/exceed.png')`;
-  const exc2 = `('./public_images/exceed2.png')`;
+  const exc1 = `(${styleTheme.styleThemeDark.exceed})`;
+  const exc2 = `(${styleTheme.styleThemeLight.exceed})`;
 
   let history = useHistory();
   function Alert(props) {

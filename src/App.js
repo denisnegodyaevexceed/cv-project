@@ -17,6 +17,7 @@ import { FirebaseDatabaseProvider } from "@react-firebase/database";
 import firebase from "firebase";
 import "@firebase/storage";
 import allTemplateActions from "./actions/templateActions";
+import styleTheme from "./constants/styleTheme";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,16 +50,16 @@ function App() {
 
 
   const check = localStorage.getItem("checkedA") === "true" ? true : false;
-
   useEffect(() => {
     if (check) {
       dispatch(allTemplateActions.setThemeDark());
       body.style.background =
-        "linear-gradient(45deg, rgb(0, 0, 0) 55%, rgb(247, 77, 51) 5%) no-repeat fixed";
+      styleTheme.styleThemeDark.background
+      ;
     } else {
       dispatch(allTemplateActions.setThemeLight());
       body.style.background =
-        "linear-gradient(45deg, rgb(157, 120, 210), rgb(86, 181, 184)) no-repeat fixed";
+      styleTheme.styleThemeLight.background;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [check]);
