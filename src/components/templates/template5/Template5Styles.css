@@ -1,155 +1,148 @@
 @font-face {
-    font-family: 'Cantarell bold';
-    src: 
-            url('../../../fonts/Cabin-Bold-TTF.ttf') format("truetype");
-}
-
-
-@font-face {
-    font-family: 'Cantarell regular';
-    src: 
-            url('../../../fonts/Cantarell-Regular.ttf') format("truetype");
+  font-family: "Cantarell bold";
+  src: url("../../../fonts/Cabin-Bold-TTF.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Cantarell bold';
-    src: 
-            url('../../../fonts/Cantarell-Bold.ttf') format("truetype");
+  font-family: "Cantarell regular";
+  src: url("../../../fonts/Cantarell-Regular.ttf") format("truetype");
 }
 
-.template5__fistPage{
-    font-family: 'Cantarell regular';
-    background-color: white;
-    padding: 20px 0;
-    width: 700px;
-}
-.template5__header{
-    display:flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-image: url('./Template5theme2.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    max-width: 100%;
-    height: 200px;
-    padding: 0 20px ;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@font-face {
+  font-family: "Cantarell bold";
+  src: url("../../../fonts/Cantarell-Bold.ttf") format("truetype");
 }
 
-.template5__avatar{
-    
-    border-radius: 1000px;
-
-    margin-right: 65px;
-
-    min-width: 150px;
-    height: 150px;
+.template5__fistPage {
+  font-family: "Cantarell regular";
+  background-color: white;
+  padding: 20px 0;
+  width: 700px;
 }
-.template5__personalProfile{
-    overflow: hidden;
-}
-.template5__workHistory{
-    overflow: hidden;
-}
-.template5__languages{
-    overflow: hidden;
-}
-.template5__conctacts{
-    overflow: hidden;
-}
-
-.template5__fullName{
-    font-family: 'Cantarell bold';
-    font-size: 35px;
-    
-    color: white;
+.template5__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url("./Template5theme2.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: 200px;
+  padding: 0 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.template5__posistion{
-    color: white;
+.template5__avatar {
+  border-radius: 1000px;
+
+  margin-right: 65px;
+
+  min-width: 150px;
+  height: 150px;
+}
+.template5__personalProfile {
+  overflow: hidden;
+}
+.template5__workHistory {
+  overflow: hidden;
+}
+.template5__languages {
+  overflow: hidden;
+}
+.template5__conctacts {
+  overflow: hidden;
 }
 
-.template5__body{
-    display: flex;
+.template5__fullName {
+  font-family: "Cantarell bold";
+  font-size: 35px;
+
+  color: white;
 }
 
-.template5__leftColumn{
-    width: 33%;
-    color: #484848;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px 5px 5px 20px
+.template5__posistion {
+  color: white;
 }
-.template5__rightColumn{
-    width: 67%;
-    background-color: #EFEFEF;
-    min-height: 100%;
-    padding: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+.template5__body {
+  display: flex;
+}
+
+.template5__leftColumn {
+  width: 33%;
+  color: #484848;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 5px 5px 20px;
+}
+.template5__rightColumn {
+  width: 67%;
+  background-color: #efefef;
+  min-height: 100%;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .template5__title {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #7C8587;
+  font-size: 20px;
+  margin: 10px 0;
+  color: #7c8587;
 }
 
-
-.template5__title::after{
-    display: block;
-    content: '';
-    width: 40px;
-    height: 10px;
-    border-bottom: #7C8587 4px solid;
+.template5__title::after {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 10px;
+  border-bottom: #7c8587 4px solid;
 }
-.template5__workHistory{
-    color: #484848;
-}
-
-.template5__workplace_company{
-    font-family: 'Cantarell bold';
+.template5__workHistory {
+  color: #484848;
 }
 
-.template5__conctacts{
-    overflow: hidden;
-    color: #484848;
-    font-size: 12px;
+.template5__workplace_company {
+  font-family: "Cantarell bold";
 }
 
-.template5__secondPage{
-    font-family: 'Cantarell regular';
-    background-color: white;
-    padding: 20px 0;
-    width: 700px;
-    margin-top: 25px;
-    color: #484848;
-    font-size: 13px;
-    
+.template5__conctacts {
+  overflow: hidden;
+  color: #484848;
+  font-size: 12px;
 }
 
-.template5__projects{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5px;
+.template5__secondPage {
+  font-family: "Cantarell regular";
+  background-color: white;
+  padding: 20px 0;
+  width: 700px;
+  margin-top: 25px;
+  color: #484848;
+  font-size: 13px;
 }
 
-.template5__project{
-    width: 45%;
-    margin: 5px;
+.template5__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5px;
 }
 
-.template5__project_link{
-    font-size: 15px;
+.template5__project {
+  width: 45%;
+  margin: 5px;
 }
 
-.template5__languages-header{
-    color:#7C8587;
+.template5__project_link {
+  font-size: 15px;
 }
 
-.template5__languages{
-    color:#7C8587
+.template5__languages-header {
+  color: #7c8587;
+}
+
+.template5__languages {
+  color: #7c8587;
 }

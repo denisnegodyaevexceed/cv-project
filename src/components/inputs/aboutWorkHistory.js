@@ -37,11 +37,11 @@ const AboutWorkHistory = () => {
     secondDescription,
   } = useSelector((state) => state.aboutWorkHistoryReducer);
 
+  let firstDescriptionCounter =
+    180 - firstDescription.length + " letters left.";
+  let secondDescriptionCounter =
+    180 - secondDescription.length + " letters left.";
 
-  let firstDescriptionCounter = (180 - firstDescription.length) + ' letters left.'
-  let secondDescriptionCounter = (180 - secondDescription.length) + ' letters left.'
-  
-  
   const classes = useStyles();
   const classes2 = useStyles2();
 
@@ -87,12 +87,16 @@ const AboutWorkHistory = () => {
                   label="Tell us more"
                   multiline
                   rowsMax={10}
-                  helperText={firstDescription.length>0? firstDescriptionCounter: ''}
+                  helperText={
+                    firstDescription.length > 0 ? firstDescriptionCounter : ""
+                  }
                   value={firstDescription}
                   onChange={(e) =>
                     dispatch(
                       allAboutWorkActions.setFirstCompanyDescription(
-                        e.target.value.length <= 180 ? e.target.value : firstDescription
+                        e.target.value.length <= 180
+                          ? e.target.value
+                          : firstDescription
                       )
                     )
                   }
@@ -126,12 +130,16 @@ const AboutWorkHistory = () => {
                   label="Tell us more"
                   multiline
                   rowsMax={10}
-                  helperText={secondDescription.length>0? secondDescriptionCounter: ''}
+                  helperText={
+                    secondDescription.length > 0 ? secondDescriptionCounter : ""
+                  }
                   value={secondDescription}
                   onChange={(e) =>
                     dispatch(
                       allAboutWorkActions.setSecondCompanyDescription(
-                        e.target.value.length <= 180 ? e.target.value : secondDescription
+                        e.target.value.length <= 180
+                          ? e.target.value
+                          : secondDescription
                       )
                     )
                   }
@@ -147,4 +155,3 @@ const AboutWorkHistory = () => {
 };
 
 export default AboutWorkHistory;
-

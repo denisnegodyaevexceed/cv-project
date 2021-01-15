@@ -1,145 +1,138 @@
-.template-6{
-    margin: 0 auto;
-    width: 700px;
-    height: auto;
-    font-family: 'Hind-Light';
+.template-6 {
+  margin: 0 auto;
+  width: 700px;
+  height: auto;
+  font-family: "Hind-Light";
 }
-.second-6{
-    margin: 0 auto;
-    width: 700px;
-    height: auto;
-    background-color:#32353A ;
+.second-6 {
+  margin: 0 auto;
+  width: 700px;
+  height: auto;
+  background-color: #32353a;
 }
-.flex-6{
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
+.flex-6 {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
 
-    flex-direction: row;
-   
-
+  flex-direction: row;
 }
-.work-6{
-    overflow: hidden;
+.work-6 {
+  overflow: hidden;
 }
-.about-6{
-    overflow: hidden;
+.about-6 {
+  overflow: hidden;
 }
 
-.edu-6{
-overflow: hidden;
+.edu-6 {
+  overflow: hidden;
 }
-.contact-6{
-    overflow: hidden;
+.contact-6 {
+  overflow: hidden;
 }
-.lang-6{
-    overflow: hidden;
+.lang-6 {
+  overflow: hidden;
 }
-.rel{
-    position: relative;
+.rel {
+  position: relative;
 }
-.title-portfolio-6{
-    font-family: 'Hind-Bold';
-font-size: 30px;
-text-align: center;
-padding: 40px;
-color:#B48654;
-
+.title-portfolio-6 {
+  font-family: "Hind-Bold";
+  font-size: 30px;
+  text-align: center;
+  padding: 40px;
+  color: #b48654;
 }
-.items-p-6{
-    padding: 15px;
-    width: 45%;
-    margin-bottom: 15px;
-    
+.items-p-6 {
+  padding: 15px;
+  width: 45%;
+  margin-bottom: 15px;
 }
-.content-info-6{
-    display: flex;
-    flex-direction: row;
+.content-info-6 {
+  display: flex;
+  flex-direction: row;
 }
 
-.left-info-6{
-    width: 40%;
-background-color: teal;
-overflow: hidden;
-    text-overflow: ellipsis;
+.left-info-6 {
+  width: 40%;
+  background-color: teal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-
-.info-6{
-    bottom: -1px;
-    color: white;
-    text-align: center;
-    position: absolute;
-    width: 268px;
-    height: 80px;
-    background-color:#B48654;
-    opacity: .7;
+.info-6 {
+  bottom: -1px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  width: 268px;
+  height: 80px;
+  background-color: #b48654;
+  opacity: 0.7;
 }
-.container-info-6{
-    font-size: 16px;
-    margin-top: 18px;
+.container-info-6 {
+  font-size: 16px;
+  margin-top: 18px;
 }
-.main-info-left-6{
-    color: white;
-    background-color:#32353A ;
-    padding: 15px;
+.main-info-left-6 {
+  color: white;
+  background-color: #32353a;
+  padding: 15px;
 }
-.line-6{
-    position: relative;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: white;
-    width: 100%;
-    height: 1px;
+.line-6 {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: white;
+  width: 100%;
+  height: 1px;
 }
-.line-6::before{
+.line-6::before {
   display: block;
-position: absolute;
-top: -5px;
-    content: '';
-    width:90px ;
-    height: 5px;
-    background-color: white;
-
-}
-.line2-6{
-    position: relative;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: black;
-    width: 100%;
-    height: 2px;  
-}
-.line2-6::before{
-    display: block;
   position: absolute;
   top: -5px;
-      content: '';
-      width:90px ;
-      height: 5px;
-      background-color: black;
-  
-  }
-.title-6{
-    font-size: 30px;
-    color:#B48654 ;
+  content: "";
+  width: 90px;
+  height: 5px;
+  background-color: white;
+}
+.line2-6 {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: black;
+  width: 100%;
+  height: 2px;
+}
+.line2-6::before {
+  display: block;
+  position: absolute;
+  top: -5px;
+  content: "";
+  width: 90px;
+  height: 5px;
+  background-color: black;
+}
+.title-6 {
+  font-size: 30px;
+  color: #b48654;
 }
 
-.right-info-6{
-    padding: 15px;
-    width: 60%;
-    background-color: #DFDFDF;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.right-info-6 {
+  padding: 15px;
+  width: 60%;
+  background-color: #dfdfdf;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.mt-6{
-    margin-top: 30px;
+.mt-6 {
+  margin-top: 30px;
 }
-.bold-6{
-    font-family: 'Hind-Bold';
+.bold-6 {
+  font-family: "Hind-Bold";
 }
-.pt-6{
-    color: #B48654;
-    font-family: 'Hind-Bold';
-font-size: 21px;
+.pt-6 {
+  color: #b48654;
+  font-family: "Hind-Bold";
+  font-size: 21px;
 }
