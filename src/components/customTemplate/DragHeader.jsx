@@ -29,7 +29,7 @@ function DragHeader ({ styleName, stylePosition }) {
   return (
     <div className="grid-stack grid-stack-header" style={backgroundControll}>
       <DragItem
-        id={1}
+        idDrag={1}
         gsh={matrixBlock[0].h}
         gsw={matrixBlock[0].w}
         gsx={matrixBlock[0].x}
@@ -53,7 +53,7 @@ function DragHeader ({ styleName, stylePosition }) {
         }
       />
       <DragItem
-        id={2}
+        idDrag={2}
         gsh={matrixBlock[1].h}
         gsw={matrixBlock[1].w}
         gsx={matrixBlock[1].x}
@@ -65,7 +65,7 @@ function DragHeader ({ styleName, stylePosition }) {
         }
       />
       <DragItem
-        id={3}
+        idDrag={3}
         gsh={matrixBlock[2].h}
         gsw={matrixBlock[2].w}
         gsx={matrixBlock[2].x}

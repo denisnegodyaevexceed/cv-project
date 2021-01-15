@@ -72,7 +72,7 @@ function DragPortfolio ({
             <DragItem
               type="portfolio"
               key={index}
-              id={id + 8}
+              idDrag={id + 8}
               gsh={f?.h}
               gsw={f?.w}
               gsx={f?.x}
