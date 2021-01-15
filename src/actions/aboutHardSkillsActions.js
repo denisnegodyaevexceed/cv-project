@@ -28,9 +28,6 @@ let newObj = {frontend: [], backend: [], dbs: [], other: []};
             newObj[key] = data[key]
         }
     }
-
-   
-   
     return { type: actions.SET_ALL_SKILLS,
     payload: newObj}
 }
