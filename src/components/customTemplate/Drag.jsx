@@ -1,42 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { PDFExport } from "@progress/kendo-react-pdf";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import allCustomizedTemplateActions from "../../actions/customizedTemplateActions";
-import { Button, Container, Grid } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import PhotoCamera from "@material-ui/icons/PhotoCamera";
-import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { GridStack } from "gridstack";
 import { SketchPicker } from "react-color";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
+import { PDFExport } from "@progress/kendo-react-pdf";
+import {
+  ButtonGroup,
+  AccordionSummary,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Accordion,
+  AccordionDetails,
+  MenuItem,
+  Select,
+  Tooltip,
+  makeStyles
+} from "@material-ui/core";
+import Load from "../loader/Load";
+import PhotoCamera from "@material-ui/icons/PhotoCamera";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import SaveIcon from "@material-ui/icons/Save";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
-import { Link } from "react-router-dom";
 import DragPortfolio from "./DragPortfolio";
 import TextDecorateButtons from "./TextDecorateButtons";
-import { useDispatch, useSelector } from "react-redux";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
 import AboutMe from "../inputs/AboutMe";
 import Portfolio from "../inputs/Portfolio";
 import AboutWorkHistory from "../inputs/AboutWorkHistory";
 import AboutHardSkills from "../inputs/AboutHardSkills";
-import firebase from "firebase";
-import GetAppIcon from "@material-ui/icons/GetApp";
-import SaveIcon from "@material-ui/icons/Save";
-import { useParams } from "react-router-dom";
+import allCustomizedTemplateActions from "../../actions/customizedTemplateActions";
 import allAboutMeActions from "../../actions/aboutMeActions";
 import allAboutWorkActions from "../../actions/aboutWorkActions";
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
-import { GridStack } from "gridstack";
-import Load from "../loader/Load";
+import firebase from "firebase";
 import allTechnologyActions from "../../actions/addTechnologyActions";
-import Tooltip from "@material-ui/core/Tooltip";
 export let GridPortfolio;
 
 const useStyles3 = makeStyles((theme) => ({
@@ -50,7 +54,7 @@ const useStyles3 = makeStyles((theme) => ({
   },
 }));
 
-function Drag () {
+function Drag() {
   const storage = firebase.storage();
   let { uid } = useParams();
   let pdfExportComponent;
@@ -968,5 +972,5 @@ function Drag () {
       )}
     </>
   );
-};
+}
 export default Drag;
