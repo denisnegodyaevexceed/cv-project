@@ -4,6 +4,8 @@ import "gridstack/dist/gridstack.min.css";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/jq/gridstack-dd-jqueryui";
 import DragItem from "./DragItem";
+import createProjectsArray from "../../utilites/createProjectArray";
+
 
 function DragPortfolio ({
   styleTitle,
@@ -12,22 +14,8 @@ function DragPortfolio ({
   styleSmallText,
   isHavePortfolio,
 }) {
-  const {
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  } = useSelector((state) => state.portfolioReducer);
-  const projects = [
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  ];
+  
+  const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
   const {
     bodyBackground,
     bodyImage,

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import AboutHardSkills from "../../inputs/AboutHardSkills";
 import Tooltip from "@material-ui/core/Tooltip";
 import isHavePortfolio from "../../../utilites/IsHavePortfolio";
+import createProjectsArray from "../../../utilites/createProjectArray";
 
 
 function Template4 () {
@@ -34,18 +35,9 @@ function Template4 () {
     secondProject,
     thirdProject,
     fourthProject,
-    fifthProject,
-    sixthProject,
   } = useSelector((state) => state.portfolioReducer);
 
-  const projects = [
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  ];
+  const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
 
   const [cls2, setCls2] = useState(["side2"]);
 

@@ -9,6 +9,8 @@ import AboutWorkHistory from "../../inputs/AboutWorkHistory";
 import AboutHardSkills from "../../inputs/AboutHardSkills";
 import Tooltip from "@material-ui/core/Tooltip";
 import isHavePortfolio from "../../../utilites/IsHavePortfolio";
+import createProjectsArray from "../../../utilites/createProjectArray";
+
 
 
 
@@ -31,18 +33,9 @@ function Template1 () {
     secondProject,
     thirdProject,
     fourthProject,
-    fifthProject,
-    sixthProject,
   } = useSelector((state) => state.portfolioReducer);
-  const projects = [
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  ];
-
+  const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
+ 
   
 
   const [cls2, setCls2] = useState(["side2"]);
@@ -317,6 +310,7 @@ function Template1 () {
                     <div className="context">PORTFOLIO</div>
                     <div className="projects">
                       {projects.map((item, index) => {
+                        console.log(item, 'item')
                         let { name, link, summary, whatYouDo, stack } = item;
                         return (
                           name &&

@@ -10,6 +10,7 @@ import Portfolio from "../../inputs/Portfolio";
 import AboutMe from "../../inputs/AboutMe";
 import Tooltip from "@material-ui/core/Tooltip";
 import isHavePortfolio from "../../../utilites/IsHavePortfolio";
+import createProjectsArray from "../../../utilites/createProjectArray";
 
 
 function Template6 () {
@@ -23,8 +24,6 @@ function Template6 () {
     secondProject,
     thirdProject,
     fourthProject,
-    fifthProject,
-    sixthProject,
   } = useSelector((state) => state.portfolioReducer);
   const {
     firstCompany,
@@ -34,14 +33,7 @@ function Template6 () {
     secondPosition,
     secondDescription,
   } = useSelector((state) => state.aboutWorkHistoryReducer);
-  const projects = [
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-    fifthProject,
-    sixthProject,
-  ];
+  const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
 
   const [cls2, setCls2] = useState(["side2"]);
 
