@@ -9,6 +9,8 @@ import AboutWorkHistory from "../../inputs/AboutWorkHistory";
 import Portfolio from "../../inputs/Portfolio";
 import AboutMe from "../../inputs/AboutMe";
 import Tooltip from "@material-ui/core/Tooltip";
+import isHavePortfolio from "../../../utilites/IsHavePortfolio";
+
 
 function Template6 () {
   let pdfExportComponent;
@@ -40,27 +42,7 @@ function Template6 () {
     fifthProject,
     sixthProject,
   ];
-  const isHavePortfolio =
-    (firstProject.name &&
-      firstProject.link &&
-      firstProject.summary &&
-      firstProject.whatYouDo &&
-      firstProject.stack) ||
-    (secondProject.name &&
-      secondProject.link &&
-      secondProject.summary &&
-      secondProject.whatYouDo &&
-      secondProject.stack) ||
-    (thirdProject.name &&
-      thirdProject.link &&
-      thirdProject.summary &&
-      thirdProject.whatYouDo &&
-      thirdProject.stack) ||
-    (fourthProject.name &&
-      fourthProject.link &&
-      fourthProject.summary &&
-      fourthProject.whatYouDo &&
-      fourthProject.stack);
+
   const [cls2, setCls2] = useState(["side2"]);
 
   const [open2, setOpen2] = useState(true);
@@ -275,7 +257,7 @@ function Template6 () {
               </div>
             </div>
             <br />
-            {isHavePortfolio && (
+            {isHavePortfolio(firstProject, secondProject, thirdProject, fourthProject) && (
               <div className="second-6 page-break">
                 <div className="title-portfolio-6">PORTFOLIO</div>
 

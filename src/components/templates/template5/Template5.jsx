@@ -9,6 +9,8 @@ import AboutWorkHistory from "../../inputs/AboutWorkHistory";
 import { Link } from "react-router-dom";
 import AboutHardSkills from "../../inputs/AboutHardSkills";
 import Tooltip from "@material-ui/core/Tooltip";
+import isHavePortfolio from "../../../utilites/IsHavePortfolio";
+
 
 function Template5 () {
   let pdfExportComponent;
@@ -45,28 +47,6 @@ function Template5 () {
     fifthProject,
     sixthProject,
   ];
-
-  const isHavePortfolio =
-    (firstProject.name &&
-      firstProject.link &&
-      firstProject.summary &&
-      firstProject.whatYouDo &&
-      firstProject.stack) ||
-    (secondProject.name &&
-      secondProject.link &&
-      secondProject.summary &&
-      secondProject.whatYouDo &&
-      secondProject.stack) ||
-    (thirdProject.name &&
-      thirdProject.link &&
-      thirdProject.summary &&
-      thirdProject.whatYouDo &&
-      thirdProject.stack) ||
-    (fourthProject.name &&
-      fourthProject.link &&
-      fourthProject.summary &&
-      fourthProject.whatYouDo &&
-      fourthProject.stack);
 
   const [cls2, setCls2] = useState(["side2"]);
 
@@ -292,7 +272,7 @@ function Template5 () {
                 </div>
               </div>
             </div>
-            {isHavePortfolio && (
+            {isHavePortfolio(firstProject, secondProject, thirdProject, fourthProject) && (
               <div className="template5__secondPage page-break">
                 <div className="template5__projects">
                   {projects.map((item, index) => {

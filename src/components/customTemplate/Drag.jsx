@@ -41,7 +41,12 @@ import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
 import firebase from "firebase";
 import allTechnologyActions from "../../actions/addTechnologyActions";
-export let GridPortfolio;
+import isHavePortfolio from "../../utilites/IsHavePortfolio";
+import fontList from '../../constants/fontList'
+export let GridPortfolio
+
+
+
 
 const useStyles3 = makeStyles((theme) => ({
   root: {
@@ -133,28 +138,6 @@ function Drag() {
   const [loadHeader, setLoadHeader] = useState(false);
   const [loadBody, setLoadBody] = useState(false);
   const [loadAvatar, setLoadAvatar] = useState(false);
-
-  const isHavePortfolio =
-    (firstProject.name &&
-      firstProject.link &&
-      firstProject.summary &&
-      firstProject.whatYouDo &&
-      firstProject.stack) ||
-    (secondProject.name &&
-      secondProject.link &&
-      secondProject.summary &&
-      secondProject.whatYouDo &&
-      secondProject.stack) ||
-    (thirdProject.name &&
-      thirdProject.link &&
-      thirdProject.summary &&
-      thirdProject.whatYouDo &&
-      thirdProject.stack) ||
-    (fourthProject.name &&
-      fourthProject.link &&
-      fourthProject.summary &&
-      fourthProject.whatYouDo &&
-      fourthProject.stack);
 
   useEffect(() => {
     let options = {
@@ -593,56 +576,7 @@ function Drag() {
     },
   };
 
-  const fontList = [
-    "Raleway",
-    "Caviar",
-    "Walkway",
-    "JetBrains",
-    "Dancing",
-    "Vonique",
-    "Monterey",
-    "Titillium",
-    "Monoglyceride",
-    "Flamenco",
-    "Cinzel",
-    "Optimus",
-    "Neou",
-    "NK57",
-    "SEGMENT16C",
-    "BPMono",
-    "SpaceMono",
-    "SicretMono",
-    "Yoshitoshi",
-    "PiecesOfEight",
-    "Vogue",
-    "HalfElven",
-    "Gatsby",
-    "LifeSavers",
-    "Lato",
-    "OpenSans",
-    "ChampagneLimousines",
-    "Ubuntu",
-    "Cabin",
-    "Hind",
-    "Kanit",
-    "Capoon",
-    "Abenda",
-    "KenyanCoffee",
-    "LJDesignStudiosIs",
-    "Karla",
-    "Sharpe",
-    "ForgottenFuturist",
-    "UbicadaPro",
-    "Aniron",
-    "Playfair",
-    "Alexandria",
-    "Rufina",
-    "Lusitana",
-    "AlegreyaSC",
-    "Delia",
-    "Domine",
-    "Vollkorn",
-  ];
+  
 
   return (
     <>
@@ -723,7 +657,7 @@ function Drag() {
               />
               <br />
               <DragPortfolio
-                isHavePortfolio={isHavePortfolio}
+                isHavePortfolio={isHavePortfolio(firstProject, secondProject, thirdProject, fourthProject)}
                 styleSmallText={styleSmallText}
                 styleText={styleText}
                 styleTitle={styleTitle}
