@@ -44,7 +44,7 @@ function DragBody ({ styleTitle, styleSubTitle, styleText, styleSmallText }) {
       id="gridBody"
     >
       <DragItem
-        id={4}
+        idDrag={4}
         gsh={matrixBlock[3].h}
         gsw={matrixBlock[3].w}
         gsx={matrixBlock[3].x}
@@ -124,7 +124,7 @@ function DragBody ({ styleTitle, styleSubTitle, styleText, styleSmallText }) {
         }
       />
       <DragItem
-        id={5}
+        idDrag={5}
         gsh={matrixBlock[4].h}
         gsw={matrixBlock[4].w}
         gsx={matrixBlock[4].x}
@@ -145,7 +145,7 @@ function DragBody ({ styleTitle, styleSubTitle, styleText, styleSmallText }) {
         }
       />
       <DragItem
-        id={6}
+        idDrag={6}
         gsh={matrixBlock[5].h}
         gsw={matrixBlock[5].w}
         gsx={matrixBlock[5].x}
@@ -166,7 +166,7 @@ function DragBody ({ styleTitle, styleSubTitle, styleText, styleSmallText }) {
         }
       />
       <DragItem
-        id={7}
+        idDrag={7}
         gsh={matrixBlock[6].h}
         gsw={matrixBlock[6].w}
         gsx={matrixBlock[6].x}
@@ -207,7 +207,7 @@ function DragBody ({ styleTitle, styleSubTitle, styleText, styleSmallText }) {
         }
       />
       <DragItem
-        id={8}
+        idDrag={8}
         gsh={matrixBlock[7].h}
         gsw={matrixBlock[7].w}
         gsx={matrixBlock[7].x}

@@ -4,7 +4,7 @@ import allCustomizedTemplateActions from "../../actions/customizedTemplateAction
 import { GridPortfolio } from "./Drag";
 
 function DragItem({
-  id,
+  idDrag,
   renderContent,
   gsw = 12,
   gsh = 42,
@@ -28,7 +28,7 @@ function DragItem({
   const dispatch = useDispatch();
 
   const updateStyleVer = () => {
-    if (id === activeBlock) {
+    if (idDrag === activeBlock) {
       setNewStyle({
         ...newStyle,
         alignItems: posVertical,
@@ -37,7 +37,7 @@ function DragItem({
   };
 
   const updateStyleText = () => {
-    if (id === activeBlock) {
+    if (idDrag === activeBlock) {
       setNewStyle({
         ...newStyle,
         textAlign: textAlign,
@@ -56,14 +56,14 @@ function DragItem({
   }, [textAlign]);
 
   const handleClickItem = () => {
-    dispatch(setActiveBlockAction(id));
+    dispatch(setActiveBlockAction(idDrag));
     dispatch(setVerticalPosAction(newStyle.alignItems));
     dispatch(setTextAlignAction(newStyle.textAlign));
   };
 
   useEffect(() => {
     if (type === "portfolio") {
-      GridPortfolio?.makeWidget(`#grid-${id}`);
+      GridPortfolio?.makeWidget(`#grid-${idDrag}`);
     }
 
     return () => {
@@ -77,8 +77,8 @@ function DragItem({
 
   return (
     <div
-      data-id-matrix={id}
-      id={`grid-${id}`}
+      data-id-matrix={idDrag}
+      id={`grid-${idDrag}`}
       className={`grid-stack-item ${type === "portfolio" && "itemPortfolio"}`}
       gs-w={gsw}
       gs-h={gsh}
@@ -87,14 +87,14 @@ function DragItem({
       onMouseDown={() => handleClickItem()}
     >
       <div
-        data-id={id}
+        data-id={idDrag}
         style={{
           display: "flex",
           textAlign: newStyle.textAlign,
           alignItems: newStyle.alignItems,
         }}
         className={`${
-          activeBlock === id ? "active-block" : ""
+          activeBlock === idDrag ? "active-block" : ""
         } grid-stack-item-content`}
       >
         {renderContent}
