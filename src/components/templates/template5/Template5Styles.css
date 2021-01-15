@@ -1,20 +1,20 @@
 @font-face {
     font-family: 'Cantarell bold';
     src: 
-            url('../fonts/Cantarell-Bold.ttf') format("truetype");
+            url('../../../fonts/Cabin-Bold-TTF.ttf') format("truetype");
 }
 
 
 @font-face {
     font-family: 'Cantarell regular';
     src: 
-            url('../fonts/Cantarell-Regular.ttf') format("truetype");
+            url('../../../fonts/Cantarell-Regular.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'Cantarell bold';
     src: 
-            url('../fonts/Cantarell-Bold.ttf') format("truetype");
+            url('../../../fonts/Cantarell-Bold.ttf') format("truetype");
 }
 
 .template5__fistPage{

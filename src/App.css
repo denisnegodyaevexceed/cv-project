@@ -661,7 +661,7 @@ ainer{
     position: relative;
     height: 200px;
     width: 700px;
-    background:  no-repeat center/100% url("./1.jpg");
+    background:  no-repeat center/100% url("./components/templates/template1/header1.jpg");
     
 }
 .bg1{ 
@@ -767,10 +767,18 @@ margin-right: 10px;
     margin-top: 45px;
 }
 .contact{
+    
     padding-bottom: 10px;
 }
+.languages-1{
+    text-align: center;
+    overflow: hidden;
+    margin: 10px;
+}
 .contact-content{
+    overflow: hidden;
     margin-left: 10px;
+    margin-right: 10px;
     font-size: 12px;
 }
 .content-center{
@@ -845,6 +853,7 @@ cursor: pointer;
    z-index: 2;
 }
 .container-laguages{
+    width: 100%;
  margin: 0 !important;   
 }
 .img-1-2{

@@ -2,15 +2,15 @@ import React, {useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { useDispatch } from "react-redux";
-import allTemplateActions from "./actions/templateActions";
+import allTemplateActions from "../../actions/templateActions";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from '@material-ui/lab/Alert';
 import firebase from 'firebase';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from "react-router-dom";
-import allCustomizedTemplateActions from './actions/customizedTemplateActions';
-import Load from "./components/inputs/Load";
-import SwitchTheme from "./SwitchTheme";
+import allCustomizedTemplateActions from '../../actions/customizedTemplateActions';
+import Load from "../loader/Load";
+import SwitchTheme from "../SwitchTheme";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid() {
-  const exc1 = `('./exceed.png')`
-  const exc2 = `('./exceed2.png')`
+  const exc1 = `('./public_images/exceed.png')`
+  const exc2 = `('./public_images/exceed2.png')`
   
   let history = useHistory();
   function Alert(props) {
@@ -118,7 +118,7 @@ const handlerDeleteSavedTemplate = (uid) => {
               
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
           className="cont-temp">
-              <img className="img-1-1" src="./template-1-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-1-1.png" alt="" />
               <img
                 id="1"
                 onClick={(e) => {
@@ -127,7 +127,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-1-2.png"
+                src="./public_images/template-1-2.png"
                 alt=""
               />
              
@@ -152,7 +152,7 @@ const handlerDeleteSavedTemplate = (uid) => {
               
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
           className="cont-temp">
-              <img className="img-1-1" src="./template-2-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-2-1.png" alt="" />
               <img
                 id="2"
                 onClick={(e) => {
@@ -161,7 +161,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-2-2.png"
+                src="./public_images/template-2-2.png"
                 alt=""
               />
              
@@ -186,7 +186,7 @@ const handlerDeleteSavedTemplate = (uid) => {
               
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
           className="cont-temp">
-              <img className="img-1-1" src="./template-3-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-3-1.png" alt="" />
               <img
                 id="3"
                 onClick={(e) => {
@@ -195,7 +195,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-3-2.png"
+                src="./public_images/template-3-2.png"
                 alt=""
               />
              
@@ -220,7 +220,7 @@ const handlerDeleteSavedTemplate = (uid) => {
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
               
               className="cont-temp">
-              <img className="img-1-1" src="./template-4-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-4-1.png" alt="" />
               <img
                 id="4"
                 onClick={(e) => {
@@ -229,7 +229,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-4-2.png"
+                src="./public_images/template-4-2.png"
                 alt=""
               />
              
@@ -255,7 +255,7 @@ const handlerDeleteSavedTemplate = (uid) => {
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
               
               className="cont-temp">
-              <img className="img-1-1" src="./template-5-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-5-1.png" alt="" />
               <img
                 id="5"
                 onClick={(e) => {
@@ -264,7 +264,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-5-2.png"
+                src="./public_images/template-5-2.png"
                 alt=""
               />
              
@@ -289,7 +289,7 @@ const handlerDeleteSavedTemplate = (uid) => {
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
               
               className="cont-temp">
-              <img className="img-1-1" src="./template-7-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-7-1.png" alt="" />
               <img
                 id="7"
                 onClick={(e) => {
@@ -298,7 +298,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-7-2.png"
+                src="./public_images/template-7-2.png"
                 alt=""
               />
              
@@ -323,7 +323,7 @@ const handlerDeleteSavedTemplate = (uid) => {
           onClick={()=>{dispatch(allCustomizedTemplateActions.setCustomTemplateUidAction(null));history.push('/resume')}}
 
               className="cont-temp">
-              <img className="img-1-1" src="./template-8-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-8-1.png" alt="" />
               <img
                 id="8"
                 onClick={(e) => {
@@ -332,7 +332,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-8-2.png"
+                src="./public_images/template-8-2.png"
                 alt=""
               />
              
@@ -359,7 +359,7 @@ const handlerDeleteSavedTemplate = (uid) => {
               className="cont-temp"
               
               >
-              <img className="img-1-1" src="./template-6-1.png" alt="" />
+              <img className="img-1-1" src="./public_images/template-6-1.png" alt="" />
               <img
                 id="6"
                 onClick={(e) => {
@@ -368,7 +368,7 @@ const handlerDeleteSavedTemplate = (uid) => {
                   dispatch(allTemplateActions.setTemplateAction(e.target.id));
                 }}
                 className="img-1-2"
-                src="./template-6-1.png"
+                src="./public_images/template-6-1.png"
                 alt=""
               />
              

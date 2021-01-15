@@ -21,10 +21,10 @@ import TextDecorateButtons from './TextDecorateButtons'
 import { useDispatch, useSelector } from "react-redux";
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import AboutMe from "./aboutMe";
-import Portfolio from "./portfolio";
-import AboutWorkHistory from "./aboutWorkHistory";
-import AboutHardSkills from "./aboutHardSkills";
+import AboutMe from "../inputs/aboutMe";
+import Portfolio from "../inputs/portfolio";
+import AboutWorkHistory from "../inputs/aboutWorkHistory";
+import AboutHardSkills from "../inputs/aboutHardSkills";
 import firebase from 'firebase';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import SaveIcon from '@material-ui/icons/Save';
@@ -34,9 +34,8 @@ import allAboutWorkActions from '../../actions/aboutWorkActions';
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import allPortfolioActions from "../../actions/portfolioActions";
 import {GridStack} from 'gridstack';
-import Load from "./Load";
+import Load from "../loader/Load";
 import allTechnologyActions from "../../actions/addTechnologyActions";
-import "../grid.scss";
 import Tooltip from '@material-ui/core/Tooltip';
 export let GridPortfolio;
 

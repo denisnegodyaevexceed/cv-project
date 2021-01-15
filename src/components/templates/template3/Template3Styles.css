@@ -3,19 +3,19 @@
 @font-face {
     font-family: 'Cascadia';
     src: 
-            url('../fonts/Cascadia.ttf') format("truetype");
+            url('../../../fonts/Cascadia.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'Tahoe Sans';
     src: 
-            url('../fonts/TanoheSans-Regular.ttf') format("truetype");
+            url('../../../fonts/TanoheSans-Regular.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'Gelasio';
     src: 
-            url('../fonts/gelasio-regular.ttf') format("truetype");
+            url('../../../fonts/gelasio-regular.ttf') format("truetype");
 }
 
 .template3__firstPage{
@@ -53,7 +53,6 @@
 
 .template3__avatar{
     margin: 0 auto;
-    background-image: url(../testAvatar.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

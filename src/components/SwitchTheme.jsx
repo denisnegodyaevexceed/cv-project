@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Switch from '@material-ui/core/Switch';
-import allTemplateActions from "./actions/templateActions";
+import allTemplateActions from "../actions/templateActions";
 import { useDispatch } from "react-redux";
 
 
@@ -10,7 +10,7 @@ const SwitchTheme = () => {
     
     const [checked, setChecked] = useState(true)
     const check = localStorage.getItem("checkedA")==='true'? true: false
-    console.log(check, 'check')
+
     const handleChangeChecked = () => {
             setChecked(!checked)
             localStorage.setItem('checkedA', checked)

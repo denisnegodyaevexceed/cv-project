@@ -1,5 +1,5 @@
 import React from "react";
-import "../grid.scss";
+import "./loaderStyles.scss";
 import { useSelector} from "react-redux";
 
 const Load = ({text}) => {

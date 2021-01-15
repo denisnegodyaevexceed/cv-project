@@ -4,10 +4,10 @@ import Button from "@material-ui/core/Button";
 import { useSelector } from "react-redux";
 import './Template3Styles.css'
 import { Link } from 'react-router-dom';
-import AboutMe from "./inputs/aboutMe";
-import Portfolio from "./inputs/portfolio";
-import AboutWorkHistory from "./inputs/aboutWorkHistory";
-import AboutHardSkills from "./inputs/aboutHardSkills";
+import AboutMe from "../../inputs/aboutMe";
+import Portfolio from "../../inputs/portfolio";
+import AboutWorkHistory from "../../inputs/aboutWorkHistory";
+import AboutHardSkills from "../../inputs/aboutHardSkills";
 import Tooltip from '@material-ui/core/Tooltip';
 
 
