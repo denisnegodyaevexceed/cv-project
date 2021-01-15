@@ -3,7 +3,7 @@ import Template1 from "./components/templates/template1/Template1"
 import React, {useEffect} from 'react'
 import { BrowserRouter, Route } from "react-router-dom";
 import templatePage from "./components/chooseTemplates/templatePage";
-import Test from "./components/MainPage";
+import MainPage from "./components/MainPage";
 import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import Template3 from "./components/templates/template3/Template3"
@@ -65,7 +65,7 @@ function App() {
 
   
   const routes = [
-    { path: "/", Component: Test },
+    { path: "/", Component: MainPage },
     { path: "/templates", Component: templatePage },
     {path:'/resume', Component:correctTemplate(templateNumber)},
     {path:"/resumeLoad/:uid", Component:Drag},

@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import SwitchTheme from './SwitchTheme';
 
 
-const Test = () => {  
+const MainPage = () => {  
         const check = localStorage.getItem("checkedA")==='true'? true: false
         return (
                 <div className="page">     
@@ -18,4 +18,4 @@ const Test = () => {
 
 
 
-export default Test;
+export default MainPage;
