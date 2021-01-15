@@ -1,154 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,500;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,500;1,400&display=swap");
 
 @font-face {
-    font-family: 'Cascadia';
-    src: 
-            url('../../../fonts/Cascadia.ttf') format("truetype");
-}
-
-@font-face {
-    font-family: 'Tahoe Sans';
-    src: 
-            url('../../../fonts/TanoheSans-Regular.ttf') format("truetype");
+  font-family: "Cascadia";
+  src: url("../../../fonts/Cascadia.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Gelasio';
-    src: 
-            url('../../../fonts/gelasio-regular.ttf') format("truetype");
+  font-family: "Tahoe Sans";
+  src: url("../../../fonts/TanoheSans-Regular.ttf") format("truetype");
 }
 
-.template3__firstPage{
-    
-    
-    background-color: #E7E5DA;
-    padding: 15px 25px;
-    font-weight: 200;
-    font-size: 14px;
-    font-family: 'Tahoe Sans';
-    color: #3E527A;
-    max-width: 700px;
-}
-.title{
-    font-size: 18px;
-    margin: 5px 0;
-    font-family: 'Gelasio'
+@font-face {
+  font-family: "Gelasio";
+  src: url("../../../fonts/gelasio-regular.ttf") format("truetype");
 }
 
 .template3__firstPage {
-    display: flex;
+  background-color: #e7e5da;
+  padding: 15px 25px;
+  font-weight: 200;
+  font-size: 14px;
+  font-family: "Tahoe Sans";
+  color: #3e527a;
+  max-width: 700px;
+}
+.title {
+  font-size: 18px;
+  margin: 5px 0;
+  font-family: "Gelasio";
 }
 
-.template3__leftColumn{
-    background: #DCD9CC;
-    width: 480px;
-    padding: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    
-}
-.template3__contactDetails{
-    overflow: hidden;
+.template3__firstPage {
+  display: flex;
 }
 
-.template3__avatar{
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 190px;
-    height: 250px;
+.template3__leftColumn {
+  background: #dcd9cc;
+  width: 480px;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.template3__contactDetails {
+  overflow: hidden;
 }
 
-.template3__technicalSkills{
-    margin-top: 25px;
-}
-.template3__skills{
-    margin: 15px 0;
-}
-
-.template3__languages_header{
-    margin-bottom: 15px;
-}
-.template3__languages_item{
-    margin-bottom: 15px
+.template3__avatar {
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 190px;
+  height: 250px;
 }
 
-.template3__contactDetails_header{
-    margin-bottom: 15px;
+.template3__technicalSkills {
+  margin-top: 25px;
+}
+.template3__skills {
+  margin: 15px 0;
 }
 
-.template3__contacts{
-    font-size: 10px;
+.template3__languages_header {
+  margin-bottom: 15px;
+}
+.template3__languages_item {
+  margin-bottom: 15px;
 }
 
-.template3__rightColumn{
-    max-width: 380px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 25px;
-    max-width: 100%;
+.template3__contactDetails_header {
+  margin-bottom: 15px;
 }
 
-.template3__fullName{
-    font-family: 'Gelasio';
-    font-size: 45px;
+.template3__contacts {
+  font-size: 10px;
 }
 
-.template3__position{
-    font-size: 20px;
-    letter-spacing: 0.01em;
+.template3__rightColumn {
+  max-width: 380px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 25px;
+  max-width: 100%;
 }
 
-.template3__workHistory_item{
-    max-width: 380px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 15px 0;
-}
-.template3__workHistory_title{
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-.template3__workHistory_description{
-    margin-top: 5px;
+.template3__fullName {
+  font-family: "Gelasio";
+  font-size: 45px;
 }
 
+.template3__position {
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+.template3__workHistory_item {
+  max-width: 380px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 15px 0;
+}
+.template3__workHistory_title {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.template3__workHistory_description {
+  margin-top: 5px;
+}
 
 .template3__secondPage {
-    background-color: #E7E5DA;
-    padding: 15px 25px;
-    font-weight: 200;
-    font-size: 12px;
-    font-family: 'Tahoe Sans';
-    color: #3E527A;
-    max-width: 700px;
-    margin-top: 30px;
+  background-color: #e7e5da;
+  padding: 15px 25px;
+  font-weight: 200;
+  font-size: 12px;
+  font-family: "Tahoe Sans";
+  color: #3e527a;
+  max-width: 700px;
+  margin-top: 30px;
 }
 
-.template3__secondPage_header{
-    text-align: center;
-    margin: 30px 0;
+.template3__secondPage_header {
+  text-align: center;
+  margin: 30px 0;
 }
 
-.template3__projects{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.template3__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.template3__project{
-    width: 45%;
-    margin-bottom: 25px;
+.template3__project {
+  width: 45%;
+  margin-bottom: 25px;
 }
 
-.template3__project_title{
-    text-align: center;
-    font-family: 'Gelasio';
+.template3__project_title {
+  text-align: center;
+  font-family: "Gelasio";
 }
-.template3__project_link{
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 15px;
-    font-family: 'Gelasio'
+.template3__project_link {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-family: "Gelasio";
 }
