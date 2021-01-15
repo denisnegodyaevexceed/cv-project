@@ -3,6 +3,7 @@ import Switch from "@material-ui/core/Switch";
 import allTemplateActions from "../actions/templateActions";
 import { useDispatch } from "react-redux";
 
+
 function SwitchTheme () {
   const dispatch = useDispatch();
 
@@ -13,17 +14,15 @@ function SwitchTheme () {
     setChecked(!checked);
     localStorage.setItem("checkedA", checked);
   };
-  const body = document.querySelector("body");
 
   useEffect(() => {
     if (check) {
       dispatch(allTemplateActions.setThemeDark());
-      body.style.background =
-        "linear-gradient(45deg, rgb(0, 0, 0) 55%, rgb(247, 77, 51) 5%) no-repeat fixed";
+     
+
     } else {
       dispatch(allTemplateActions.setThemeLight());
-      body.style.background =
-        "linear-gradient(45deg, rgb(157, 120, 210), rgb(86, 181, 184)) no-repeat fixed";
+      
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [check]);

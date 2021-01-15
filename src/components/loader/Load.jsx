@@ -1,7 +1,7 @@
 import React from "react";
 import "./loaderStyles.scss";
 import { useSelector } from "react-redux";
-
+import styleTheme from "../../constants/styleTheme";
 function Load ({ text }) {
   const { theme } = useSelector((state) => state.templateReducer);
   return (
@@ -18,7 +18,7 @@ function Load ({ text }) {
             {theme === "black" ? (
               <div
                 style={{
-                  color: "white",
+                  color: styleTheme.styleThemeDark.textColorLoader,
                   margin: 40,
                   fontWeight: "bold",
                   fontSize: 40,
@@ -29,7 +29,7 @@ function Load ({ text }) {
             ) : (
               <div
                 style={{
-                  color: "black",
+                  color: styleTheme.styleThemeLight.textColorLoader,
                   margin: 40,
                   fontWeight: "bold",
                   fontSize: 40,
