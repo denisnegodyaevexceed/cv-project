@@ -272,7 +272,12 @@ function Template5 () {
                 </div>
               </div>
             </div>
-            {isHavePortfolio(firstProject, secondProject, thirdProject, fourthProject) && (
+            {isHavePortfolio(
+              firstProject, 
+              secondProject, 
+              thirdProject, 
+              fourthProject
+              ) && (
               <div className="template5__secondPage page-break">
                 <div className="template5__projects">
                   {projects.map((item, index) => {

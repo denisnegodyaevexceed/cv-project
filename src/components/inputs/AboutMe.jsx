@@ -15,6 +15,11 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import lettersCounter from "../../utilites/lettersCounter";
+import emailValidControll from "../../utilites/emailValidControll";
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,25 +84,7 @@ function AboutMe() {
 
   const userInfo = useSelector((state) => state.aboutMeReducer);
 
-  const validEmailControll = (data) => {
-    if (data) {
-      if (data) {
-        const emailArray = data.split("");
-        const dtcControll = emailArray.slice(emailArray.indexOf("@"));
-
-        return emailArray.indexOf("@") > 0 &&
-          dtcControll.indexOf(".") < dtcControll.length - 1 &&
-          dtcControll.indexOf(".") > 0 &&
-          dtcControll.indexOf(".") - dtcControll.indexOf("@") > 1
-          ? true
-          : false;
-      }
-    } else {
-      return false;
-    }
-  };
-
-  let validEmail = validEmailControll(email);
+  let validEmail = emailValidControll(email);
 
   useEffect(() => {
     dispatch(allAboutMeActions.setEmailValid(validEmail));
@@ -107,10 +94,6 @@ function AboutMe() {
   const classes = useStyles();
   const classes2 = useStyles2();
   const classes3 = useStyles3();
-
-  let educationCounter = 180 - education.length + " letters left.";
-  let aboutMeInfoCounter = 180 - aboutMeInfo.length + " letters left.";
-  let languagesCounter = 180 - languages.length + " letters left.";
 
   return (
     <div className="container-pdf">
@@ -175,7 +158,7 @@ function AboutMe() {
                   label="About your education"
                   multiline
                   type="text"
-                  helperText={education.length > 0 ? educationCounter : ""}
+                  helperText={education.length > 0 ? lettersCounter(education, 180) : ""}
                   rowsMax={10}
                   value={education}
                   onChange={(e) => {
@@ -193,7 +176,7 @@ function AboutMe() {
                   label="Languages"
                   multiline
                   type="text"
-                  helperText={languages.length > 0 ? languagesCounter : ""}
+                  helperText={languages.length > 0 ? lettersCounter(languages, 180) : ""}
                   rowsMax={10}
                   value={languages}
                   onChange={(e) => {
@@ -210,7 +193,7 @@ function AboutMe() {
 
                 <TextField
                   label="Something about you"
-                  helperText={aboutMeInfo.length > 0 ? aboutMeInfoCounter : ""}
+                  helperText={aboutMeInfo.length > 0 ? lettersCounter(aboutMeInfo, 180) : ""}
                   multiline
                   rowsMax={10}
                   value={aboutMeInfo}

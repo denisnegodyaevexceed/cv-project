@@ -266,7 +266,12 @@ function Template4 () {
             <img className="footer-4" src="./public_images/template4.2.png" alt="footerBackground" />
           </div>
           <br />
-          {isHavePortfolio(firstProject, secondProject, thirdProject, fourthProject) && (
+          {isHavePortfolio(
+            firstProject, 
+            secondProject, 
+            thirdProject, 
+            fourthProject
+            ) && (
             <div className="template-4 page-break">
               <img className="header-4" src="./public_images/template4.1.png" alt="headerBackground" />
               <div className="title-portfolio-4">PORTFOLIO</div>

@@ -280,7 +280,12 @@ function Template1 () {
               </div>
             </div>
             <br />
-            {isHavePortfolio(firstProject, secondProject, thirdProject, fourthProject) && (
+            {isHavePortfolio(
+              firstProject, 
+              secondProject, 
+              thirdProject, 
+              fourthProject
+              ) && (
               <div className="template-1 page-break">
                 <div className="head-1">
                   <div className="bg1"></div>

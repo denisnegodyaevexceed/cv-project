@@ -11,6 +11,11 @@ import allPortfolioActions from "../../actions/portfolioActions";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import top100Films from "../../constants/stack";
+import lettersCounter from "../../utilites/lettersCounter";
+import showProject from "../../utilites/showProject";
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,106 +49,7 @@ function Portfolio() {
   const classes2 = useStyles2();
   const { techList } = useSelector((state) => state.addTechnologyReducer);
   let uniqueArray = top100Films.concat(techList).concat();
-  let firstSummaryCounter =
-    220 - firstProject?.summary?.length + " letters left.";
-  let firstWhatYouDoCounter =
-    180 - firstProject?.whatYouDo?.length + " letters left.";
-  let secondSummaryCounter =
-    220 - secondProject?.summary?.length + " letters left.";
-  let secondWhatYouDoCounter =
-    180 - secondProject?.whatYouDo?.length + " letters left.";
-  let thirdSummaryCounter =
-    220 - thirdProject?.summary?.length + " letters left.";
-  let thirdWhatYouDoCounter =
-    180 - thirdProject?.whatYouDo?.length + " letters left.";
-  let fourthSummaryCounter =
-    220 - fourthProject?.summary?.length + " letters left.";
-  let fourthWhatYouDoCounter =
-    180 - fourthProject?.whatYouDo?.length + " letters left.";
-  let fifthSummaryCounter =
-    220 - fifthProject?.summary?.length + " letters left.";
-  let fifthWhatYouDoCounter =
-    180 - fifthProject?.whatYouDo?.length + " letters left.";
-  let sixthSummaryCounter =
-    220 - sixthProject?.summary?.length + " letters left.";
-  let sixthWhatYouDoCounter =
-    180 - sixthProject?.whatYouDo?.length + " letters left.";
 
-  let showSecond =
-    !(
-      firstProject.name &&
-      firstProject.link &&
-      firstProject.summary &&
-      firstProject.whatYouDo &&
-      firstProject?.stack?.length > 0
-    ) &&
-    !(
-      secondProject.name ||
-      secondProject.link ||
-      secondProject.summary ||
-      secondProject.whatYouDo ||
-      secondProject?.stack?.length > 0
-    );
-  let showThird =
-    !(
-      secondProject.name &&
-      secondProject.link &&
-      secondProject.summary &&
-      secondProject.whatYouDo &&
-      secondProject?.stack?.length > 0
-    ) &&
-    !(
-      thirdProject.name ||
-      thirdProject.link ||
-      thirdProject.summary ||
-      thirdProject.whatYouDo ||
-      thirdProject?.stack?.length > 0
-    );
-  let showFourth =
-    !(
-      thirdProject.name &&
-      thirdProject.link &&
-      thirdProject.summary &&
-      thirdProject.whatYouDo &&
-      thirdProject?.stack?.length > 0
-    ) &&
-    !(
-      fourthProject.name ||
-      fourthProject.link ||
-      fourthProject.summary ||
-      fourthProject.whatYouDo ||
-      fourthProject?.stack?.length > 0
-    );
-  let showFifth =
-    !(
-      fourthProject.name &&
-      fourthProject.link &&
-      fourthProject.summary &&
-      fourthProject.whatYouDo &&
-      fourthProject?.stack?.length > 0
-    ) &&
-    !(
-      fifthProject.name ||
-      fifthProject.link ||
-      fifthProject.summary ||
-      fifthProject.whatYouDo ||
-      fifthProject?.stack?.length > 0
-    );
-  let showSixth =
-    !(
-      fifthProject.name &&
-      fifthProject.link &&
-      fifthProject.summary &&
-      fifthProject.whatYouDo &&
-      fifthProject?.stack?.length > 0
-    ) &&
-    !(
-      sixthProject.name ||
-      sixthProject.link ||
-      sixthProject.summary ||
-      sixthProject.whatYouDo ||
-      sixthProject?.stack?.length > 0
-    );
 
   return (
     <div className="container">
@@ -195,7 +101,7 @@ function Portfolio() {
                     )
                   }
                   helperText={
-                    firstProject?.summary?.length > 0 ? firstSummaryCounter : ""
+                    firstProject?.summary?.length > 0 ? lettersCounter(firstProject.summary, 220) : ""
                   }
                   label="Summary"
                   variant="outlined"
@@ -215,7 +121,7 @@ function Portfolio() {
                   }
                   helperText={
                     firstProject?.whatYouDo?.length > 0
-                      ? firstWhatYouDoCounter
+                      ? lettersCounter(firstProject.whatYouDo, 180)
                       : ""
                   }
                   label="What you did here?"
@@ -253,7 +159,7 @@ function Portfolio() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion hidden={showSecond}>
+        <Accordion hidden={showProject(firstProject, secondProject)}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -299,7 +205,7 @@ function Portfolio() {
                   }
                   helperText={
                     secondProject?.summary?.length > 0
-                      ? secondSummaryCounter
+                      ? lettersCounter(secondProject.summary, 220)
                       : ""
                   }
                   label="Summary"
@@ -320,7 +226,7 @@ function Portfolio() {
                   }
                   helperText={
                     secondProject?.whatYouDo?.length > 0
-                      ? secondWhatYouDoCounter
+                      ? lettersCounter(secondProject.whatYouDo, 180)
                       : ""
                   }
                   label="What you did here?"
@@ -359,7 +265,7 @@ function Portfolio() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion hidden={showThird}>
+        <Accordion hidden={showProject(secondProject, thirdProject)}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -404,7 +310,7 @@ function Portfolio() {
                     )
                   }
                   helperText={
-                    thirdProject?.summary?.length > 0 ? thirdSummaryCounter : ""
+                    thirdProject?.summary?.length > 0 ? lettersCounter(thirdProject.summary, 220) : ""
                   }
                   label="Summary"
                   variant="outlined"
@@ -424,7 +330,7 @@ function Portfolio() {
                   }
                   helperText={
                     thirdProject?.whatYouDo?.length > 0
-                      ? thirdWhatYouDoCounter
+                      ? lettersCounter(thirdProject.whatYouDo, 180)
                       : ""
                   }
                   label="What you did here?"
@@ -461,7 +367,7 @@ function Portfolio() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion hidden={showFourth}>
+        <Accordion hidden={showProject(thirdProject, fourthProject)}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -507,7 +413,7 @@ function Portfolio() {
                   }
                   helperText={
                     fourthProject?.summary?.length > 0
-                      ? fourthSummaryCounter
+                      ? lettersCounter(fourthProject.summary, 220)
                       : ""
                   }
                   label="Summary"
@@ -528,7 +434,7 @@ function Portfolio() {
                   }
                   helperText={
                     fourthProject?.whatYouDo?.length > 0
-                      ? fourthWhatYouDoCounter
+                      ? lettersCounter(fourthProject.whatYouDo, 180)
                       : ""
                   }
                   label="What you did here?"
@@ -567,7 +473,7 @@ function Portfolio() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion hidden={showFifth}>
+        <Accordion hidden={showProject(fourthProject, fifthProject)}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -612,7 +518,7 @@ function Portfolio() {
                     )
                   }
                   helperText={
-                    fifthProject?.summary?.length > 0 ? fifthSummaryCounter : ""
+                    fifthProject?.summary?.length > 0 ? lettersCounter(fifthProject.summary, 220) : ""
                   }
                   label="Summary"
                   variant="outlined"
@@ -632,7 +538,7 @@ function Portfolio() {
                   }
                   helperText={
                     fifthProject?.whatYouDo?.length > 0
-                      ? fifthWhatYouDoCounter
+                      ? lettersCounter(fifthProject.whatYouDo, 180)
                       : ""
                   }
                   label="What you did here?"
@@ -669,7 +575,7 @@ function Portfolio() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion hidden={showSixth}>
+        <Accordion hidden={showProject(fifthProject, sixthProject)}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -714,7 +620,7 @@ function Portfolio() {
                     )
                   }
                   helperText={
-                    sixthProject?.summary?.length > 0 ? sixthSummaryCounter : ""
+                    sixthProject?.summary?.length > 0 ? lettersCounter(sixthProject.summary, 220) : ""
                   }
                   label="Summary"
                   variant="outlined"
@@ -734,7 +640,7 @@ function Portfolio() {
                   }
                   helperText={
                     sixthProject?.whatYouDo?.length > 0
-                      ? sixthWhatYouDoCounter
+                      ? lettersCounter(sixthProject.whatYouDo, 180)
                       : ""
                   }
                   label="What you did here?"

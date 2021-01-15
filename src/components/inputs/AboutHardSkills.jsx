@@ -17,6 +17,9 @@ import top100Films from "../../constants/stack";
 import frontendStack from "../../constants/frontendStack";
 import backendStack from "../../constants/backendStack";
 import dbsStack from "../../constants/dbsStack";
+import makeUnique from "../../utilites/uniqueArrays";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,42 +68,10 @@ function AboutHardSkills() {
     );
   };
 
-  let showFrontendButton = !frontendTech;
-  let showBackendButton = !backendTech;
-  let showDbsButton = !dbsTech;
-  let showOtherButton = !otherTech;
-
   let uniqueDbsStack = dbsStack.concat(techList).concat();
-
-  uniqueDbsStack = uniqueDbsStack.filter(
-    (item, index, self) =>
-      index ===
-      self.findIndex((t) => t.title.toLowerCase() === item.title.toLowerCase())
-  );
-
   let uniqueBackendStack = backendStack.concat(techList).concat();
-
-  uniqueBackendStack = uniqueBackendStack.filter(
-    (item, index, self) =>
-      index ===
-      self.findIndex((t) => t.title.toLowerCase() === item.title.toLowerCase())
-  );
-
   let uniqueFrontendStack = frontendStack.concat(techList).concat();
-
-  uniqueFrontendStack = uniqueFrontendStack.filter(
-    (item, index, self) =>
-      index ===
-      self.findIndex((t) => t.title.toLowerCase() === item.title.toLowerCase())
-  );
-
   let uniqueArray = top100Films.concat(techList).concat();
-
-  uniqueArray = uniqueArray.filter(
-    (item, index, self) =>
-      index ===
-      self.findIndex((t) => t.title.toLowerCase() === item.title.toLowerCase())
-  );
 
   return (
     <div className="container-pdf">
@@ -123,7 +94,7 @@ function AboutHardSkills() {
 
                   <Autocomplete
                     multiple
-                    options={uniqueFrontendStack}
+                    options={makeUnique(uniqueFrontendStack)}
                     getOptionSelected={(option, value) =>
                       option.title === value.title
                     }
@@ -152,7 +123,7 @@ function AboutHardSkills() {
                             )
                           }
                         />
-                        <div hidden={showFrontendButton} className="inoutinput">
+                        <div hidden={!frontendTech} className="inoutinput">
                           <Fab
                             onClick={(e) => addTech(e, frontendTech)}
                             size="small"
@@ -173,7 +144,7 @@ function AboutHardSkills() {
                 <div style={{ width: "100%" }}>
                   <Autocomplete
                     multiple
-                    options={uniqueBackendStack}
+                    options={makeUnique(uniqueBackendStack)}
                     getOptionSelected={(option, value) =>
                       option.title === value.title
                     }
@@ -202,7 +173,7 @@ function AboutHardSkills() {
                           placeholder="Search"
                           margin="normal"
                         />
-                        <div hidden={showBackendButton} className="inoutinput">
+                        <div hidden={!backendTech} className="inoutinput">
                           <Fab
                             onClick={(e) => addTech(e, backendTech)}
                             size="small"
@@ -223,7 +194,7 @@ function AboutHardSkills() {
                 <div style={{ width: "100%" }}>
                   <Autocomplete
                     multiple
-                    options={uniqueDbsStack}
+                    options={makeUnique(uniqueDbsStack)}
                     getOptionSelected={(option, value) =>
                       option.title === value.title
                     }
@@ -252,7 +223,7 @@ function AboutHardSkills() {
                           placeholder="Search"
                           margin="normal"
                         />
-                        <div hidden={showDbsButton} className="inoutinput">
+                        <div hidden={!dbsTech} className="inoutinput">
                           <Fab
                             onClick={(e) => addTech(e, dbsTech)}
                             size="small"
@@ -276,7 +247,7 @@ function AboutHardSkills() {
                     getOptionSelected={(option, value) =>
                       option.title === value.title
                     }
-                    options={uniqueArray}
+                    options={makeUnique(uniqueArray)}
                     getOptionLabel={(option) => option.title}
                     onChange={(_, values) => {
                       dispatch(allHardSkillsActions.setOtherAction(values));
@@ -302,7 +273,7 @@ function AboutHardSkills() {
                           placeholder="Search"
                           margin="normal"
                         />
-                        <div hidden={showOtherButton} className="inoutinput">
+                        <div hidden={!otherTech} className="inoutinput">
                           <Fab
                             onClick={(e) => addTech(e, otherTech)}
                             size="small"

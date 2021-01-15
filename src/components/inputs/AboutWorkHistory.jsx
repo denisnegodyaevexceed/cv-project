@@ -9,6 +9,9 @@ import {
   AccordionDetails,
 } from "@material-ui/core/";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import lettersCounter from "../../utilites/lettersCounter";
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -38,11 +41,6 @@ function AboutWorkHistory() {
     secondPosition,
     secondDescription,
   } = useSelector((state) => state.aboutWorkHistoryReducer);
-
-  let firstDescriptionCounter =
-    180 - firstDescription.length + " letters left.";
-  let secondDescriptionCounter =
-    180 - secondDescription.length + " letters left.";
 
   const classes = useStyles();
   const classes2 = useStyles2();
@@ -90,7 +88,7 @@ function AboutWorkHistory() {
                   multiline
                   rowsMax={10}
                   helperText={
-                    firstDescription.length > 0 ? firstDescriptionCounter : ""
+                    firstDescription.length > 0 ? lettersCounter(firstDescription, 180) : ""
                   }
                   value={firstDescription}
                   onChange={(e) =>
@@ -133,7 +131,7 @@ function AboutWorkHistory() {
                   multiline
                   rowsMax={10}
                   helperText={
-                    secondDescription.length > 0 ? secondDescriptionCounter : ""
+                    secondDescription.length > 0 ? lettersCounter(secondDescription, 180) : ""
                   }
                   value={secondDescription}
                   onChange={(e) =>
