@@ -1,13 +1,15 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
+import {
+  TextField,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Fab,
+  makeStyles,
+} from "@material-ui/core/";
 import allHardSkillsActions from "../../actions/aboutHardSkillsActions";
 import { useDispatch, useSelector } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import allTechnologyActions from "../../actions/addTechnologyActions";
@@ -34,7 +36,7 @@ const useStyles2 = makeStyles((theme) => ({
   },
 }));
 
-function AboutHardSkills () {
+function AboutHardSkills() {
   const classes = useStyles();
   const classes2 = useStyles2();
 
@@ -322,6 +324,6 @@ function AboutHardSkills () {
       </div>
     </div>
   );
-};
+}
 
 export default AboutHardSkills;

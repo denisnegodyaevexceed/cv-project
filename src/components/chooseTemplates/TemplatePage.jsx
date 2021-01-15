@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles, Grid, Snackbar } from "@material-ui/core/";
 import { useDispatch } from "react-redux";
 import allTemplateActions from "../../actions/templateActions";
-import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import firebase from "firebase";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -518,4 +516,4 @@ function CenteredGrid() {
   );
 }
 
-export default CenteredGrid
+export default CenteredGrid;

@@ -1,11 +1,13 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
 import { useDispatch, useSelector } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  TextField,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@material-ui/core/";
 import allPortfolioActions from "../../actions/portfolioActions";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import top100Films from "../../constants/stack";
@@ -28,7 +30,7 @@ const useStyles2 = makeStyles((theme) => ({
   },
 }));
 
-function Portfolio () {
+function Portfolio() {
   const dispatch = useDispatch();
   const {
     firstProject,
@@ -772,6 +774,6 @@ function Portfolio () {
       </div>
     </div>
   );
-};
+}
 
 export default Portfolio;
