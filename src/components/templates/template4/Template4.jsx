@@ -128,7 +128,7 @@ function Template4 () {
           }`}
         >
           <div className="template-4">
-            <img className="header-4" src="./template4.1.png" alt="" />
+            <img className="header-4" src="./public_images/template4.1.png" alt="headerBackground" />
             <div className="content-4">
               <div className="left-info-4">
                 <div className="name-4 h-4-m">
@@ -282,12 +282,12 @@ function Template4 () {
               </div>
             </div>
 
-            <img className="footer-4" src="./template4.2.png" alt="" />
+            <img className="footer-4" src="./public_images/template4.2.png" alt="footerBackground" />
           </div>
           <br />
           {isHavePortfolio && (
             <div className="template-4 page-break">
-              <img className="header-4" src="./template4.1.png" alt="" />
+              <img className="header-4" src="./public_images/template4.1.png" alt="headerBackground" />
               <div className="title-portfolio-4">PORTFOLIO</div>
 
               <div className="content-4">
@@ -330,7 +330,7 @@ function Template4 () {
                 </div>
               </div>
 
-              <img className="footer-4" src="./template4.2.png" alt="" />
+              <img className="footer-4" src="./public_images/template4.2.png" alt="footerBackground" />
             </div>
           )}
         </PDFExport>

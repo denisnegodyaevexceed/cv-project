@@ -131,7 +131,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-1-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="1"
@@ -142,7 +142,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-1-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -175,7 +175,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-2-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="2"
@@ -186,7 +186,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-2-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -219,7 +219,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-3-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="3"
@@ -230,7 +230,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-3-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -263,7 +263,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-4-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="4"
@@ -274,7 +274,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-4-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -307,7 +307,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-5-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="5"
@@ -318,7 +318,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-5-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -351,7 +351,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-7-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="7"
@@ -362,7 +362,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-7-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -395,7 +395,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-8-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="8"
@@ -406,7 +406,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-8-2.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">
@@ -439,7 +439,7 @@ function CenteredGrid() {
                   <img
                     className="img-1-1"
                     src="./public_images/template-6-1.png"
-                    alt=""
+                    alt="logo"
                   />
                   <img
                     id="6"
@@ -450,7 +450,7 @@ function CenteredGrid() {
                     }}
                     className="img-1-2"
                     src="./public_images/template-6-1.png"
-                    alt=""
+                    alt="logo"
                   />
 
                   <div className="cont-item">

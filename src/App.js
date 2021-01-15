@@ -1,21 +1,21 @@
 import "./App.css";
 import Template1 from "./components/templates/template1/Template1";
+import Template3 from "./components/templates/template3/Template3";
+import Template2 from "./components/templates/template2/Template2";
+import Template4 from "./components/templates/template4/Template4";
+import Template5 from "./components/templates/template5/Template5";
+import Template6 from "./components/templates/template6/Template6";
+import Template7 from "./components/templates/template7/Template7";
 import React, { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import templatePage from "./components/chooseTemplates/TemplatePage";
 import MainPage from "./components/MainPage";
 import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
-import Template3 from "./components/templates/template3/Template3";
-import Template2 from "./components/templates/template2/Template2";
-import Template4 from "./components/templates/template4/Template4";
-import Template5 from "./components/templates/template5/Template5";
 import Drag from "./components/customTemplate/Drag";
 import { FirebaseDatabaseProvider } from "@react-firebase/database";
 import firebase from "firebase";
 import "@firebase/storage";
-import Template6 from "./components/templates/template6/Template6";
-import Template7 from "./components/templates/template7/Template7";
 import allTemplateActions from "./actions/templateActions";
 
 function App() {
