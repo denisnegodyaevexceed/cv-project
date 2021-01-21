@@ -43,6 +43,13 @@ import firebase from "firebase";
 import allTechnologyActions from "../../actions/addTechnologyActions";
 import isHavePortfolio from "../../utilites/IsHavePortfolio";
 import fontList from '../../constants/fontList'
+import Template1 from "../templates/template1/Template1";
+import Template2 from "../templates/template2/Template2";
+import Template3 from "../templates/template3/Template3";
+import Template4 from "../templates/template4/Template4";
+import Template5 from "../templates/template5/Template5";
+import Template6 from "../templates/template6/Template6";
+import Template7 from "../templates/template7/Template7";
 export let GridPortfolio
 
 
@@ -153,12 +160,13 @@ function Drag() {
           .ref(`templates/${uid}`)
           .on("value", (snapshot) => {
             const data = snapshot.val();
+            console.log(data, 'data')
             dispatch(allAboutMeActions.setAllAction(data.info));
             dispatch(
-              allCustomizedTemplateActions.setAllAction(data.stylesMain)
+              allCustomizedTemplateActions.setAllAction(data?.stylesMain)
             );
             dispatch(
-              allCustomizedTemplateActions.setMatrixAction(data.matrixBlock)
+              allCustomizedTemplateActions.setMatrixAction(data?.matrixBlock)
             );
             dispatch(
               allAboutWorkActions.setAllHistoryAction(data.userWorkHistory)
@@ -166,6 +174,7 @@ function Drag() {
             dispatch(
               allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills)
             );
+            console.log(data.portfolio , 'data portfolio')
             dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
             setFont(data.font);
             data.newTech &&
@@ -186,15 +195,16 @@ function Drag() {
             let blocksArr = document.querySelectorAll(
               ".grid-stack-item-content"
             );
-            blocksArr.forEach((item, i) => {
-              data.stylesBlock.map((itemArr) => {
+            {data.stylesBlock && blocksArr.forEach((item, i) => {
+              console.log(data, 'data blin')
+              data?.stylesBlock.map((itemArr) => {
                 if (itemArr.id === item.getAttribute("data-id")) {
                   item.style.alignItems = itemArr.ver;
                   item.style.textAlign = itemArr.hor;
                 }
                 return null;
               });
-            });
+            })};
             resolve("ok");
           });
       });
@@ -579,7 +589,13 @@ function Drag() {
   
 
   return (
-    <>
+    userInfo.id===1? <Template1/>: 
+    userInfo.id===2? <Template2/>: 
+    userInfo.id===3? <Template3/>:
+    userInfo.id===4? <Template4/>:
+    userInfo.id===5? <Template5/>:
+    userInfo.id===6? <Template6/>:
+    userInfo.id===7? <Template7/>:<>
       {load === true ? <Load text={"Loading..."} /> : null}
       {loadSave === true ? <Load text={"Saving..."} /> : null}
       <Container>
@@ -614,29 +630,33 @@ function Drag() {
                       : "FirstName, SecondName, YourPosition, Email are required."
                   }
                 >
-                  <GetAppIcon
-                    color="inherit"
-                    className="k-button"
-                    onClick={() =>
-                      userInfo.firstName &&
-                      userInfo.secondName &&
-                      userInfo.careerObjective &&
-                      userInfo.email &&
-                      userInfo.emailValid &&
-                      pdfExport()
-                    }
-                  />
+                  <Button
+              variant="contained"
+              color="secondary"
+              className="k-button"
+              onClick={() => {
+                userInfo.firstName &&
+                  userInfo.secondName &&
+                  userInfo.careerObjective &&
+                  userInfo.email &&
+                  userInfo.emailValid &&
+                  pdfExportComponent.save();
+              }}
+            >
+              to PDF
+            </Button>
                 </Tooltip>
                 <Tooltip title="Save template">
-                  <SaveIcon
-                    color="inherit"
+                  <Button
+                    variant="contained"
+                    color="secondary"
                     className="k-button"
                     onClick={() => {
                       handlerSaveTemplate();
                     }}
                   >
                     save{customizedTemplateUid}
-                  </SaveIcon>
+                  </Button>
                 </Tooltip>
               </div>
             </div>
@@ -905,6 +925,6 @@ function Drag() {
         <div className="side-close2" onClick={() => setOpen2(!open2)}></div>
       )}
     </>
-  );
+      );
 }
 export default Drag;

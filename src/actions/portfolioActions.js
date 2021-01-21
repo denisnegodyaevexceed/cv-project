@@ -151,6 +151,7 @@ const setSixthProjectStack = (data) => ({
 });
 
 const setAllPortfolioAction = (data) => {
+  console.log(data, 'super data')
   let newObj = data;
   for (let key in newObj) {
     if (!newObj[key].stack) {

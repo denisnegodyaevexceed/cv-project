@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Template5Styles.css";
 import AboutMe from "../../inputs/AboutMe";
 import Portfolio from "../../inputs/Portfolio";
@@ -11,12 +11,25 @@ import AboutHardSkills from "../../inputs/AboutHardSkills";
 import Tooltip from "@material-ui/core/Tooltip";
 import isHavePortfolio from "../../../utilites/IsHavePortfolio";
 import createProjectsArray from "../../../utilites/createProjectArray";
+import allCustomizedTemplateActions from "../../../actions/customizedTemplateActions";
+import saveTemplate from "../../../utilites/saveTemplate";
+import allAboutMeActions from "../../../actions/aboutMeActions";
+import firebase from "firebase";
 
 
 function Template5 () {
   let pdfExportComponent;
-
+  const storage = firebase.storage()
+  const { frontend, backend, dbs, other } = useSelector(
+    (state) => state.aboutHardSkillsReducer
+  );
   const userInfo = useSelector((state) => state.aboutMeReducer);
+  const dispatch = useDispatch();
+  const addTechArr = useSelector((state) => state.addTechnologyReducer);
+  const userAboutHardSkills = { frontend, backend, dbs, other }
+  const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
+  const {customizedTemplateUid} = useSelector((state) => state.customizedTemplateReducer);
+  const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
 
   const {
     firstCompany,
@@ -27,9 +40,29 @@ function Template5 () {
     secondDescription,
   } = useSelector((state) => state.aboutWorkHistoryReducer);
 
-  const { frontend, backend, dbs, other } = useSelector(
-    (state) => state.aboutHardSkillsReducer
-  );
+  
+
+  const disp = (allCustomizedTemplateActions,key) => {
+    dispatch(
+      allCustomizedTemplateActions.setCustomTemplateUidAction(key)
+    );
+   }
+
+   const handleUploadAvatar = (callback = console.log) => {
+    const uploadTask = storage
+      .ref(`/images/${userInfo?.fileAvatar?.name}`)
+      .put(userInfo?.fileAvatar);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(userInfo?.fileAvatar?.name)
+        .getDownloadURL()
+        .then((urlAvatar) => {
+          dispatch(allAboutMeActions.setAvatarAction(urlAvatar, null));
+          callback(urlAvatar);
+        });
+    });
+  };
 
   const {
     firstProject,
@@ -51,7 +84,6 @@ function Template5 () {
       setCls2(["side2"]);
     }
   }, [open2]);
-
   return (
     <div className="page">
       <div className="container-pdf">
@@ -92,6 +124,18 @@ function Template5 () {
           >
             Change Template
           </Button>
+          <Tooltip title="Save template">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className="k-button"
+                    onClick={() => {
+                      saveTemplate(5, userInfo, addTechArr, userInfoPortfolio, userAboutHardSkills,userWorkHistory, customizedTemplateUid,allCustomizedTemplateActions, disp, handleUploadAvatar);
+                    }}
+                  >
+                    save{customizedTemplateUid}
+                  </Button>
+                </Tooltip>
         </div>
         <PDFExport
           forcePageBreak=".page-break"

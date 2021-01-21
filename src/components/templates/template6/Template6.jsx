@@ -3,7 +3,7 @@ import { PDFExport } from "@progress/kendo-react-pdf";
 import "./Template6.css";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import AboutHardSkills from "../../inputs/AboutHardSkills";
 import AboutWorkHistory from "../../inputs/AboutWorkHistory";
 import Portfolio from "../../inputs/Portfolio";
@@ -11,20 +11,27 @@ import AboutMe from "../../inputs/AboutMe";
 import Tooltip from "@material-ui/core/Tooltip";
 import isHavePortfolio from "../../../utilites/IsHavePortfolio";
 import createProjectsArray from "../../../utilites/createProjectArray";
+import firebase from "firebase";
+import allAboutMeActions from "../../../actions/aboutMeActions";
+import saveTemplate from "../../../utilites/saveTemplate";
+import allCustomizedTemplateActions from "../../../actions/customizedTemplateActions";
+
 
 
 function Template6 () {
   let pdfExportComponent;
-  const userInfo = useSelector((state) => state.aboutMeReducer);
+  const storage = firebase.storage()
   const { frontend, backend, dbs, other } = useSelector(
     (state) => state.aboutHardSkillsReducer
   );
-  const {
-    firstProject,
-    secondProject,
-    thirdProject,
-    fourthProject,
-  } = useSelector((state) => state.portfolioReducer);
+  const userInfo = useSelector((state) => state.aboutMeReducer);
+  const dispatch = useDispatch();
+  const addTechArr = useSelector((state) => state.addTechnologyReducer);
+  const userAboutHardSkills = { frontend, backend, dbs, other }
+  const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
+  const {customizedTemplateUid} = useSelector((state) => state.customizedTemplateReducer);
+  const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
+
   const {
     firstCompany,
     firstPosition,
@@ -33,6 +40,38 @@ function Template6 () {
     secondPosition,
     secondDescription,
   } = useSelector((state) => state.aboutWorkHistoryReducer);
+
+  
+
+  const disp = (allCustomizedTemplateActions,key) => {
+    dispatch(
+      allCustomizedTemplateActions.setCustomTemplateUidAction(key)
+    );
+   }
+
+   const handleUploadAvatar = (callback = console.log) => {
+    const uploadTask = storage
+      .ref(`/images/${userInfo?.fileAvatar?.name}`)
+      .put(userInfo?.fileAvatar);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(userInfo?.fileAvatar?.name)
+        .getDownloadURL()
+        .then((urlAvatar) => {
+          dispatch(allAboutMeActions.setAvatarAction(urlAvatar, null));
+          callback(urlAvatar);
+        });
+    });
+  };
+
+  const {
+    firstProject,
+    secondProject,
+    thirdProject,
+    fourthProject,
+  } = useSelector((state) => state.portfolioReducer);
+
   const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
 
   const [cls2, setCls2] = useState(["side2"]);
@@ -87,6 +126,18 @@ function Template6 () {
           >
             Change Template
           </Button>
+          <Tooltip title="Save template">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className="k-button"
+                    onClick={() => {
+                      saveTemplate(6, userInfo, addTechArr, userInfoPortfolio, userAboutHardSkills,userWorkHistory, customizedTemplateUid,allCustomizedTemplateActions, disp, handleUploadAvatar);
+                    }}
+                  >
+                    save{customizedTemplateUid}
+                  </Button>
+                </Tooltip>
         </div>
         <PDFExport
           forcePageBreak=".page-break"

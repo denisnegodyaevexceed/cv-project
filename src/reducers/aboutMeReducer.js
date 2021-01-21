@@ -18,6 +18,7 @@ const initialState = {
   avatarHorizontal: 50,
   avatarVertical: 50,
   languages: "English, Russian",
+  id: null
 };
 
 const aboutMeReducer = (state = initialState, actions) => {
@@ -38,6 +39,7 @@ const aboutMeReducer = (state = initialState, actions) => {
         education: actions.payload?.education,
         avatar: actions.payload?.avatar,
         languages: actions.payload?.languages,
+        id: actions.payload?.id
       };
     case "SET_FIRSTNAME":
       return {

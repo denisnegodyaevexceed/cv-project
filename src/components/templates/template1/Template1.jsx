@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import AboutMe from "../../inputs/AboutMe";
 import Portfolio from "../../inputs/Portfolio";
 import AboutWorkHistory from "../../inputs/AboutWorkHistory";
@@ -10,33 +10,40 @@ import AboutHardSkills from "../../inputs/AboutHardSkills";
 import Tooltip from "@material-ui/core/Tooltip";
 import isHavePortfolio from "../../../utilites/IsHavePortfolio";
 import createProjectsArray from "../../../utilites/createProjectArray";
+import firebase from "firebase";
+import allCustomizedTemplateActions from "../../../actions/customizedTemplateActions";
+import saveTemplate from "../../../utilites/saveTemplate";
+import allAboutMeActions from "../../../actions/aboutMeActions";
 
 
 
 
 function Template1 () {
+  const storage = firebase.storage()
   let pdfExportComponent;
   const userInfo = useSelector((state) => state.aboutMeReducer);
-  const {
-    firstCompany,
-    firstPosition,
-    firstDescription,
-    secondCompany,
-    secondPosition,
-    secondDescription,
-  } = useSelector((state) => state.aboutWorkHistoryReducer);
+  const userWorkHistory = useSelector((state) => state.aboutWorkHistoryReducer);
   const { frontend, backend, dbs, other } = useSelector(
     (state) => state.aboutHardSkillsReducer
   );
+  
+  const dispatch = useDispatch();
+  const addTechArr = useSelector((state) => state.addTechnologyReducer);
+  const userAboutHardSkills = { frontend, backend, dbs, other }
+  const userInfoPortfolio = useSelector((state) => state.portfolioReducer);
+
   const {
     firstProject,
     secondProject,
     thirdProject,
     fourthProject,
-  } = useSelector((state) => state.portfolioReducer);
+  } = useSelector((state) => state.portfolioReducer)
+  
   const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
  
+  console.log(userInfoPortfolio, 'port')
   
+  const {customizedTemplateUid} = useSelector((state) => state.customizedTemplateReducer);
 
   const [cls2, setCls2] = useState(["side2"]);
   const [open2, setOpen2] = useState(true);
@@ -48,6 +55,159 @@ function Template1 () {
       setCls2(["side2"]);
     }
   }, [open2]);
+
+
+
+  const [load, setLoad] = useState(true);
+  const [loadSave, setLoadSave] = useState(false);
+  const [loadHeader, setLoadHeader] = useState(false);
+  const [loadBody, setLoadBody] = useState(false);
+  const [loadAvatar, setLoadAvatar] = useState(false);
+
+  const handleUploadAvatar = (callback = console.log) => {
+    const uploadTask = storage
+      .ref(`/images/${userInfo?.fileAvatar?.name}`)
+      .put(userInfo?.fileAvatar);
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      storage
+        .ref("images")
+        .child(userInfo?.fileAvatar?.name)
+        .getDownloadURL()
+        .then((urlAvatar) => {
+          dispatch(allAboutMeActions.setAvatarAction(urlAvatar, null));
+          callback(urlAvatar);
+        });
+    });
+  };
+
+ const disp = (allCustomizedTemplateActions,key) => {
+  dispatch(
+    allCustomizedTemplateActions.setCustomTemplateUidAction(key)
+  );
+ }
+  
+
+  // // SAVE
+  // const handlerSaveTemplate = () => {
+    
+
+
+
+  //   const save = (callback = console.log) => {
+  //     if (customizedTemplateUid) {
+  //       let newTemplate = firebase
+  //         .database()
+  //         .ref(`templates/${customizedTemplateUid}/`);
+  //       newTemplate.update({
+  //         info: {
+  //           firstName: userInfo.firstName,
+  //           secondName: userInfo.secondName,
+  //           careerObjective: userInfo.careerObjective,
+  //           aboutMeInfo: userInfo.aboutMeInfo,
+  //           email: userInfo.email,
+  //           vkontakte: userInfo.vkontakte,
+  //           skype: userInfo.skype,
+  //           phoneNumber: userInfo.phoneNumber,
+  //           github: userInfo.github,
+  //           facebook: userInfo.facebook,
+  //           education: userInfo.education,
+  //           avatar: userInfo.avatar,
+  //           languages: userInfo.languages,
+  //           id: 1
+  //         },
+  //         portfolio: userInfoPortfolio,
+  //         userWorkHistory,
+  //         userAboutHardSkills,
+  //         newTech: addTechArr.techList,
+  //         fileAvatar: userInfo?.fileAvatar || null,
+  //       });
+  //       callback();
+  //     } else {
+  //       let newTemplate = firebase.database().ref("templates/");
+  //       newTemplate
+  //         .push({
+  //           fileAvatar: userInfo?.fileAvatar || null,
+  //           info: {
+  //             firstName: userInfo.firstName,
+  //             secondName: userInfo.secondName,
+  //             careerObjective: userInfo.careerObjective,
+  //             aboutMeInfo: userInfo.aboutMeInfo,
+  //             email: userInfo.email,
+  //             vkontakte: userInfo.vkontakte,
+  //             skype: userInfo.skype,
+  //             phoneNumber: userInfo.phoneNumber,
+  //             github: userInfo.github,
+  //             facebook: userInfo.facebook,
+  //             education: userInfo.education,
+  //             avatar: userInfo.avatar,
+  //             languages: userInfo.languages,
+  //             id: 1,
+  //           },
+  //           newTech: addTechArr.techList,
+  //           portfolio: userInfoPortfolio,
+  //           userWorkHistory,
+  //           userAboutHardSkills,
+  //         })
+  //         .then((snap) => {
+  //           console.log(snap.key, 'snap---------------')
+  //           dispatch(
+  //             allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key)
+  //           );
+  //           callback(snap.key);
+  //         });
+  //     }
+  //   };
+  //   save((uid) => {
+  //     // if (fileHeader?.name) {
+  //     //   setLoadHeader(true);
+  //     //   handleUploadHeader((urlHeader) => {
+  //     //     let newTemplate = firebase
+  //     //       .database()
+  //     //       .ref(`templates/${uid || customizedTemplateUid}/`);
+  //     //     newTemplate
+  //     //     .then(setLoadHeader(false));
+  //     //   });
+  //     // }
+
+  //     // if (fileBody?.name) {
+  //     //   setLoadBody(true);
+  //     //   handleUploadBody((urlBody) => {
+  //     //     let newTemplate = firebase
+  //     //       .database()
+  //     //       .ref(`templates/${uid || customizedTemplateUid}/`);
+  //     //     newTemplate
+  //     //       .update({
+  //     //         bodyBG: urlBody,
+  //     //       })
+  //     //       .then(setLoadBody(false));
+  //     //   });
+  //     // }
+
+  //     // if (userInfo?.fileAvatar?.name) {
+  //     //   setLoadAvatar(true);
+  //     //   handleUploadAvatar((urlAvatar) => {
+  //     //     let newTemplate = firebase
+  //     //       .database()
+  //     //       .ref(`templates/${uid || customizedTemplateUid}/`);
+  //     //     newTemplate
+  //     //       .update({
+  //     //         fileAvatar: urlAvatar,
+  //     //       })
+  //     //       .then(setLoadAvatar(false));
+  //     //   });
+  //     // }
+
+  //     // if (!loadHeader && !loadBody && !loadAvatar) {
+  //     //   setTimeout(() => {
+  //     //     setLoadSave(false);
+  //     //   }, 1000);
+  //     // }
+  //   });
+  // }
+
+
+
+
   return (
     <div className="page">
       <div className="container-pdf">
@@ -88,6 +248,18 @@ function Template1 () {
           >
             Change Template
           </Button>
+          <Tooltip title="Save template">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className="k-button"
+                    onClick={() => {
+                      saveTemplate(1, userInfo, addTechArr, userInfoPortfolio, userAboutHardSkills,userWorkHistory, customizedTemplateUid,allCustomizedTemplateActions, disp, handleUploadAvatar);
+                    }}
+                  >
+                    save{customizedTemplateUid}
+                  </Button>
+                </Tooltip>
         </div>
         <PDFExport
           forcePageBreak=".page-break"
@@ -228,36 +400,36 @@ function Template1 () {
                       <div className="h4-1">Personal Profile</div>
                       <div className="text">{userInfo.aboutMeInfo}</div>
                     </div>
-                    {((firstCompany && firstPosition && firstDescription) ||
-                      (secondCompany &&
-                        secondPosition &&
-                        secondDescription)) && (
+                    {((userWorkHistory.firstCompany && userWorkHistory.firstPosition && userWorkHistory.firstDescription) ||
+                      (userWorkHistory.secondCompany &&
+                        userWorkHistory.secondPosition &&
+                        userWorkHistory.secondDescription)) && (
                       <div>
                         <div>
                           <div className="h4-1">Work History</div>
-                          {firstCompany && (
+                          {userWorkHistory.firstCompany && (
                             <div className="h4-1">
-                              {firstCompany.toUpperCase()}
+                              {userWorkHistory.firstCompany.toUpperCase()}
                             </div>
                           )}
-                          {firstPosition && (
-                            <div className="h4-1">{firstPosition}</div>
+                          {userWorkHistory.firstPosition && (
+                            <div className="h4-1">{userWorkHistory.firstPosition}</div>
                           )}
-                          {firstDescription && (
-                            <div className="text">{firstDescription}</div>
+                          {userWorkHistory.firstDescription && (
+                            <div className="text">{userWorkHistory.firstDescription}</div>
                           )}
                         </div>
                         <div>
-                          {secondCompany && (
+                          {userWorkHistory.secondCompany && (
                             <div className="h4-1">
-                              {secondCompany.toUpperCase()}
+                              {userWorkHistory.secondCompany.toUpperCase()}
                             </div>
                           )}
-                          {secondPosition && (
-                            <div className="h4-1">{secondPosition}</div>
+                          {userWorkHistory.secondPosition && (
+                            <div className="h4-1">{userWorkHistory.secondPosition}</div>
                           )}
-                          {secondDescription && (
-                            <div className="text">{secondDescription}</div>
+                          {userWorkHistory.secondDescription && (
+                            <div className="text">{userWorkHistory.secondDescription}</div>
                           )}
                         </div>
                       </div>
