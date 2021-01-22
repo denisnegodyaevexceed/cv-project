@@ -48,6 +48,10 @@ function Template5 () {
     );
    }
 
+   const clearId = () => {
+    dispatch(allAboutMeActions.setIdClean())
+  }
+
    const handleUploadAvatar = (callback = console.log) => {
     const uploadTask = storage
       .ref(`/images/${userInfo?.fileAvatar?.name}`)
@@ -120,6 +124,7 @@ function Template5 () {
             color="secondary"
             className="k-button"
             to="/templates"
+            onClick={()=>clearId()}
             component={Link}
           >
             Change Template

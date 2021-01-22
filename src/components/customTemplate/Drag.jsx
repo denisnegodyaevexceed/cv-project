@@ -23,9 +23,7 @@ import {
 } from "@material-ui/core";
 import Load from "../loader/Load";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
-import GetAppIcon from "@material-ui/icons/GetApp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import SaveIcon from "@material-ui/icons/Save";
 import DragHeader from "./DragHeader";
 import DragBody from "./DragBody";
 import DragPortfolio from "./DragPortfolio";
@@ -160,43 +158,41 @@ function Drag() {
           .ref(`templates/${uid}`)
           .on("value", (snapshot) => {
             const data = snapshot.val();
-            console.log(data, 'data')
-            dispatch(allAboutMeActions.setAllAction(data.info));
-            dispatch(
+            (data && dispatch(allAboutMeActions.setAllAction(data?.info)));
+            (data?.stylesMain && dispatch(
               allCustomizedTemplateActions.setAllAction(data?.stylesMain)
-            );
-            dispatch(
+            ));
+            (data?.matrixBlock && dispatch(
               allCustomizedTemplateActions.setMatrixAction(data?.matrixBlock)
-            );
-            dispatch(
-              allAboutWorkActions.setAllHistoryAction(data.userWorkHistory)
-            );
-            dispatch(
-              allHardSkillsActions.setAllSkillsAction(data.userAboutHardSkills)
-            );
-            console.log(data.portfolio , 'data portfolio')
-            dispatch(allPortfolioActions.setAllPortfolioAction(data.portfolio));
-            setFont(data.font);
-            data.newTech &&
+            ));
+            (data?.userWorkHistory && dispatch(
+              allAboutWorkActions.setAllHistoryAction(data?.userWorkHistory)
+            ));
+            (data?.userAboutHardSkills && dispatch(
+              allHardSkillsActions.setAllSkillsAction(data?.userAboutHardSkills)
+            ));
+            
+            (data?.portfolio && dispatch(allPortfolioActions.setAllPortfolioAction(data?.portfolio)));
+            (data?.font && setFont(data.font));
+            data?.newTech &&
               dispatch(allTechnologyActions.setSavedTech(data.newTech));
-            data.headerBG &&
+            data?.headerBG &&
               dispatch(
                 allCustomizedTemplateActions.setHeaderImageAction(
                   data.headerBG,
                   ""
                 )
               );
-            data.bodyBG &&
+            data?.bodyBG &&
               dispatch(
                 allCustomizedTemplateActions.setBodyImageAction(data.bodyBG, "")
               );
-            data.fileAvatar &&
+            data?.fileAvatar &&
               dispatch(allAboutMeActions.setAvatarAction(data.fileAvatar, ""));
             let blocksArr = document.querySelectorAll(
               ".grid-stack-item-content"
             );
-            {data.stylesBlock && blocksArr.forEach((item, i) => {
-              console.log(data, 'data blin')
+            data?.stylesBlock && blocksArr.forEach((item, i) => {
               data?.stylesBlock.map((itemArr) => {
                 if (itemArr.id === item.getAttribute("data-id")) {
                   item.style.alignItems = itemArr.ver;
@@ -204,24 +200,24 @@ function Drag() {
                 }
                 return null;
               });
-            })};
+            });
             resolve("ok");
           });
       });
       fetchData.then((_) => {
-        GridStack.init(options, ".grid-stack-header");
-        GridStack.init(options, ".grid-stack-body");
-        GridPortfolio = GridStack.init(options, ".grid-stack-page2");
+        !userInfo.id && GridStack.init(options, ".grid-stack-header");
+        !userInfo.id && GridStack.init(options, ".grid-stack-body");
+        !userInfo.id && (GridPortfolio = GridStack.init(options, ".grid-stack-page2"));
         setLoad(false);
       });
     } else {
-      GridStack.init(options, ".grid-stack-header");
-      GridStack.init(options, ".grid-stack-body");
-      GridPortfolio = GridStack.init(options, ".grid-stack-page2");
+      !userInfo.id && GridStack.init(options, ".grid-stack-header");
+      !userInfo.id && GridStack.init(options, ".grid-stack-body");
+      !userInfo.id && (GridPortfolio = GridStack.init(options, ".grid-stack-page2"));
       setLoad(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [uid]);
+  }, [uid, userInfo.id]);
 
   // SAVE
   const handlerSaveTemplate = () => {
@@ -330,6 +326,7 @@ function Drag() {
               customizedTemplateUid: usersStyles.customizedTemplateUid,
               textAlign: usersStyles?.textAlign || null,
               posVertical: usersStyles?.posVertical || null,
+
             },
             fileAvatar: userInfo?.fileAvatar || null,
             info: {
@@ -533,9 +530,10 @@ function Drag() {
     );
   };
 
-  const pdfExport = () => {
-    pdfExportComponent.save();
-  };
+  const clearId = () => {
+    dispatch(allAboutMeActions.setIdClean())
+  }
+
 
   const handleChangeFont = (e) => {
     setFont(e.target.value);
@@ -616,6 +614,7 @@ function Drag() {
                   className="k-button"
                   to="/templates"
                   component={Link}
+                  onClick = {()=>clearId()}
                 >
                   Change Template
                 </Button>

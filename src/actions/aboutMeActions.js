@@ -92,6 +92,10 @@ const setEmailValid = (data) => ({
   payload: data,
 });
 
+const setIdClean = () => ({
+  type: actions.SET_ID_CLEAN
+})
+
 const allAboutMeActions = {
   setFirstNameAction,
   setSecondNameAction,
@@ -111,6 +115,7 @@ const allAboutMeActions = {
   setAvatarHorizontal,
   setAvatarVertical,
   setEmailValid,
+  setIdClean
 };
 
 export default allAboutMeActions;

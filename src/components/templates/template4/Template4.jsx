@@ -48,6 +48,9 @@ function Template4 () {
       allCustomizedTemplateActions.setCustomTemplateUidAction(key)
     );
    }
+   const clearId = () => {
+    dispatch(allAboutMeActions.setIdClean())
+  }
 
    const handleUploadAvatar = (callback = console.log) => {
     const uploadTask = storage
@@ -123,6 +126,7 @@ function Template4 () {
             className="k-button"
             to="/templates"
             component={Link}
+            onClick={()=>clearId()}
           >
             Change Template
           </Button>

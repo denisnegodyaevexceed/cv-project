@@ -86,10 +86,11 @@ const setAllAction = (data) => ({
   payload: data,
 });
 
-const setMatrixAction = (data) => ({
+const setMatrixAction = (data) => {
+  return ({
   type: actions.SET_MATRIX,
-  payload: data,
-});
+  payload: data,})
+};
 
 const allCustomizedTemplateActions = {
   setHeaderBackgroundAction,

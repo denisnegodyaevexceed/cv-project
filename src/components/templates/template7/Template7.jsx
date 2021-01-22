@@ -50,6 +50,10 @@ function Template7 () {
     );
    }
 
+   const clearId = () => {
+    dispatch(allAboutMeActions.setIdClean())
+  }
+
    const handleUploadAvatar = (callback = console.log) => {
     const uploadTask = storage
       .ref(`/images/${userInfo?.fileAvatar?.name}`)
@@ -124,6 +128,7 @@ function Template7 () {
             className="k-button"
             to="/templates"
             component={Link}
+            onClick={()=>clearId()}
           >
             Change Template
           </Button>

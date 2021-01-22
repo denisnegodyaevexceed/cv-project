@@ -41,7 +41,6 @@ function Template1 () {
   
   const projects = createProjectsArray(useSelector((state) => state.portfolioReducer))
  
-  console.log(userInfoPortfolio, 'port')
   
   const {customizedTemplateUid} = useSelector((state) => state.customizedTemplateReducer);
 
@@ -56,13 +55,6 @@ function Template1 () {
     }
   }, [open2]);
 
-
-
-  const [load, setLoad] = useState(true);
-  const [loadSave, setLoadSave] = useState(false);
-  const [loadHeader, setLoadHeader] = useState(false);
-  const [loadBody, setLoadBody] = useState(false);
-  const [loadAvatar, setLoadAvatar] = useState(false);
 
   const handleUploadAvatar = (callback = console.log) => {
     const uploadTask = storage
@@ -85,125 +77,10 @@ function Template1 () {
     allCustomizedTemplateActions.setCustomTemplateUidAction(key)
   );
  }
-  
+ const clearId = () => {
+  dispatch(allAboutMeActions.setIdClean())
+}
 
-  // // SAVE
-  // const handlerSaveTemplate = () => {
-    
-
-
-
-  //   const save = (callback = console.log) => {
-  //     if (customizedTemplateUid) {
-  //       let newTemplate = firebase
-  //         .database()
-  //         .ref(`templates/${customizedTemplateUid}/`);
-  //       newTemplate.update({
-  //         info: {
-  //           firstName: userInfo.firstName,
-  //           secondName: userInfo.secondName,
-  //           careerObjective: userInfo.careerObjective,
-  //           aboutMeInfo: userInfo.aboutMeInfo,
-  //           email: userInfo.email,
-  //           vkontakte: userInfo.vkontakte,
-  //           skype: userInfo.skype,
-  //           phoneNumber: userInfo.phoneNumber,
-  //           github: userInfo.github,
-  //           facebook: userInfo.facebook,
-  //           education: userInfo.education,
-  //           avatar: userInfo.avatar,
-  //           languages: userInfo.languages,
-  //           id: 1
-  //         },
-  //         portfolio: userInfoPortfolio,
-  //         userWorkHistory,
-  //         userAboutHardSkills,
-  //         newTech: addTechArr.techList,
-  //         fileAvatar: userInfo?.fileAvatar || null,
-  //       });
-  //       callback();
-  //     } else {
-  //       let newTemplate = firebase.database().ref("templates/");
-  //       newTemplate
-  //         .push({
-  //           fileAvatar: userInfo?.fileAvatar || null,
-  //           info: {
-  //             firstName: userInfo.firstName,
-  //             secondName: userInfo.secondName,
-  //             careerObjective: userInfo.careerObjective,
-  //             aboutMeInfo: userInfo.aboutMeInfo,
-  //             email: userInfo.email,
-  //             vkontakte: userInfo.vkontakte,
-  //             skype: userInfo.skype,
-  //             phoneNumber: userInfo.phoneNumber,
-  //             github: userInfo.github,
-  //             facebook: userInfo.facebook,
-  //             education: userInfo.education,
-  //             avatar: userInfo.avatar,
-  //             languages: userInfo.languages,
-  //             id: 1,
-  //           },
-  //           newTech: addTechArr.techList,
-  //           portfolio: userInfoPortfolio,
-  //           userWorkHistory,
-  //           userAboutHardSkills,
-  //         })
-  //         .then((snap) => {
-  //           console.log(snap.key, 'snap---------------')
-  //           dispatch(
-  //             allCustomizedTemplateActions.setCustomTemplateUidAction(snap.key)
-  //           );
-  //           callback(snap.key);
-  //         });
-  //     }
-  //   };
-  //   save((uid) => {
-  //     // if (fileHeader?.name) {
-  //     //   setLoadHeader(true);
-  //     //   handleUploadHeader((urlHeader) => {
-  //     //     let newTemplate = firebase
-  //     //       .database()
-  //     //       .ref(`templates/${uid || customizedTemplateUid}/`);
-  //     //     newTemplate
-  //     //     .then(setLoadHeader(false));
-  //     //   });
-  //     // }
-
-  //     // if (fileBody?.name) {
-  //     //   setLoadBody(true);
-  //     //   handleUploadBody((urlBody) => {
-  //     //     let newTemplate = firebase
-  //     //       .database()
-  //     //       .ref(`templates/${uid || customizedTemplateUid}/`);
-  //     //     newTemplate
-  //     //       .update({
-  //     //         bodyBG: urlBody,
-  //     //       })
-  //     //       .then(setLoadBody(false));
-  //     //   });
-  //     // }
-
-  //     // if (userInfo?.fileAvatar?.name) {
-  //     //   setLoadAvatar(true);
-  //     //   handleUploadAvatar((urlAvatar) => {
-  //     //     let newTemplate = firebase
-  //     //       .database()
-  //     //       .ref(`templates/${uid || customizedTemplateUid}/`);
-  //     //     newTemplate
-  //     //       .update({
-  //     //         fileAvatar: urlAvatar,
-  //     //       })
-  //     //       .then(setLoadAvatar(false));
-  //     //   });
-  //     // }
-
-  //     // if (!loadHeader && !loadBody && !loadAvatar) {
-  //     //   setTimeout(() => {
-  //     //     setLoadSave(false);
-  //     //   }, 1000);
-  //     // }
-  //   });
-  // }
 
 
 
@@ -245,6 +122,7 @@ function Template1 () {
             className="k-button"
             to="/templates"
             component={Link}
+            onClick={()=>clearId()}
           >
             Change Template
           </Button>
@@ -482,7 +360,6 @@ function Template1 () {
                     <div className="context">PORTFOLIO</div>
                     <div className="projects">
                       {projects.map((item, index) => {
-                        console.log(item, 'item')
                         let { name, link, summary, whatYouDo, stack } = item;
                         return (
                           name &&

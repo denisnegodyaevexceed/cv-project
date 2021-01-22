@@ -122,6 +122,11 @@ const aboutMeReducer = (state = initialState, actions) => {
         ...state,
         avatarVertical: actions.payload,
       };
+    case "SET_ID_CLEAN":
+      return {
+        ...state,
+        id: null
+      }
 
     default:
       return state;

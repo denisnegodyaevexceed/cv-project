@@ -1,7 +1,5 @@
 const isHavePortfolio = (firstProject, secondProject, thirdProject, fourthProject) => {  
 
-    console.log(firstProject, 'first project')
-
     const hasPortfolio = (firstProject.name &&
       firstProject.link &&
       firstProject.summary &&

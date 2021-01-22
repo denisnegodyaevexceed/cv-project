@@ -41,7 +41,9 @@ function Template6 () {
     secondDescription,
   } = useSelector((state) => state.aboutWorkHistoryReducer);
 
-  
+  const clearId = () => {
+    dispatch(allAboutMeActions.setIdClean())
+  }
 
   const disp = (allCustomizedTemplateActions,key) => {
     dispatch(
@@ -123,6 +125,7 @@ function Template6 () {
             className="k-button"
             to="/templates"
             component={Link}
+            onClick={()=>clearId()}
           >
             Change Template
           </Button>

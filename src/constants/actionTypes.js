@@ -111,6 +111,8 @@ const actions = {
   SET_AVATAR_VERTICAL: "SET_AVATAR_VERTICAL",
 
   SET_EMAIL_VALID: "SET_EMAIL_VALID",
+
+  SET_ID_CLEAN: "SET_ID_CLEAN",
 };
 
 export default actions;

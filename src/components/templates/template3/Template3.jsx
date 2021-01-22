@@ -62,6 +62,9 @@ function Template3 () {
         });
     });
   };
+  const clearId = () => {
+    dispatch(allAboutMeActions.setIdClean())
+  }
 
   const {
     firstProject,
@@ -121,6 +124,7 @@ function Template3 () {
             className="k-button"
             to="/templates"
             component={Link}
+            onClick={()=>clearId()}
           >
             Change Template
           </Button>

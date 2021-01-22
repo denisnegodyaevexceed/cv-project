@@ -62,7 +62,6 @@ const saveTemplate = (templateId, userInfo, addTechArr, userInfoPortfolio, userA
             userAboutHardSkills,
           })
           .then((snap) => {
-            console.log(snap.key, 'snap---------------')
             disp(allCustomizedTemplateActions ,snap.key)
             callback(snap.key);
           });
